@@ -1,0 +1,149 @@
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import BlobBackground from "@/components/BlobBackground";
+
+export default function ContactPage() {
+  return (
+    <main className="min-h-screen relative">
+      <Navbar />
+      <BlobBackground />
+
+      <section className="pt-36 pb-16 text-center px-6 relative z-10">
+        <div className="max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-6">
+            <i className="fas fa-paper-plane text-primary text-xs"></i>
+            <span className="text-xs font-medium text-slate-300 tracking-wide uppercase">Get In Touch</span>
+          </div>
+          <h1 className="font-display text-5xl md:text-6xl font-bold text-white mb-6">
+            Let&apos;s Build the <span className="text-gradient">Future</span> Together
+          </h1>
+          <p className="text-lg text-slate-400 max-w-xl mx-auto leading-relaxed">
+            Ready to start your next big project? Reach out to us and let&apos;s discuss how we can help you innovate and scale.
+          </p>
+        </div>
+      </section>
+
+      <section className="py-12 px-6 pb-24 max-w-7xl mx-auto relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Contact Form */}
+          <div className="glass-card p-10 rounded-3xl border-white/5 group hover:border-primary/20 transition-all duration-500">
+            <h2 className="text-2xl font-bold font-display text-white mb-8 flex items-center gap-3">
+               <span className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center text-primary text-lg">
+                 <i className="fas fa-envelope-open-text"></i>
+               </span>
+               Send us a Message
+            </h2>
+            <form className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <InputGroup label="Full Name" placeholder="John Doe" icon="fas fa-user" />
+                <InputGroup label="Email Address" placeholder="john@example.com" icon="fas fa-envelope" type="email" />
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <InputGroup label="Phone Number" placeholder="+91 8462802086" icon="fas fa-phone-alt" />
+                <InputGroup label="Subject" placeholder="Project Inquiry" icon="fas fa-tag" />
+              </div>
+              <div className="flex flex-col gap-2">
+                <label className="text-sm font-semibold text-slate-300 ml-2">Message</label>
+                <div className="relative group">
+                  <span className="absolute top-4 left-4 text-slate-500 group-focus-within:text-primary transition-colors">
+                    <i className="fas fa-comment-alt"></i>
+                  </span>
+                  <textarea 
+                    rows={5} 
+                    placeholder="Tell us about your project..." 
+                    className="w-full bg-slate-900/40 border border-white/10 rounded-2xl px-12 py-4 text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all placeholder:text-slate-600"
+                  ></textarea>
+                </div>
+              </div>
+              <button type="submit" className="w-full btn-primary py-4 rounded-xl text-white font-bold tracking-wide text-lg flex items-center justify-center gap-2 group transform active:scale-[0.98]">
+                Send Message <i className="fas fa-paper-plane text-sm group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+              </button>
+            </form>
+          </div>
+
+          {/* Contact Info */}
+          <div className="flex flex-col gap-8">
+            <InfoCard 
+              icon="fas fa-envelope" 
+              title="Email Us" 
+              val="contact@adhritverse.in" 
+              sub="Our team will respond within 24 hours."
+              link="mailto:contact@adhritverse.in"
+              color="text-primary bg-primary/20"
+            />
+            <InfoCard 
+              icon="fas fa-phone-alt" 
+              title="Call Us" 
+              val="+91 8462802086" 
+              sub="Mon-Sat (10:00 AM - 07:00 PM IST)"
+              link="tel:+918462802086"
+              color="text-emerald-400 bg-emerald-400/20"
+            />
+            <InfoCard 
+              icon="fas fa-map-marker-alt" 
+              title="Our Office" 
+              val="Madhya Pradesh, India" 
+              sub="Expanding globally from the heart of India."
+              link="#"
+              color="text-secondary bg-secondary/20"
+            />
+
+            {/* Social Connect */}
+            <div className="glass-card p-10 rounded-3xl border-white/5 flex flex-col items-center text-center">
+              <h3 className="text-white font-bold font-display text-xl mb-6">Connect with us on Socials</h3>
+              <div className="flex gap-4">
+                 <SocialBtn icon="fab fa-linkedin-in" link="https://www.linkedin.com/company/adhritverse" color="hover:bg-blue-600" />
+                 <SocialBtn icon="fab fa-github" link="https://github.com/adhritverse" color="hover:bg-slate-700" />
+                 <SocialBtn icon="fab fa-instagram" link="https://www.instagram.com/adhritverse?igsh=MXgwN2swanRvNmZtYQ==" color="hover:bg-pink-600" />
+                 <SocialBtn icon="fab fa-twitter" link="https://twitter.com/adhritverse" color="hover:bg-cyan-500" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </main>
+  );
+}
+
+function InputGroup({ label, placeholder, icon, type = "text" }: { label: string; placeholder: string; icon: string; type?: string }) {
+  return (
+    <div className="flex flex-col gap-2">
+      <label className="text-sm font-semibold text-slate-300 ml-2">{label}</label>
+      <div className="relative group">
+        <span className="absolute top-1/2 -translate-y-1/2 left-4 text-slate-500 group-focus-within:text-primary transition-colors">
+          <i className={icon}></i>
+        </span>
+        <input 
+          type={type} 
+          placeholder={placeholder} 
+          className="w-full bg-slate-900/40 border border-white/10 rounded-2xl px-12 py-4 text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all placeholder:text-slate-600"
+        />
+      </div>
+    </div>
+  );
+}
+
+function InfoCard({ icon, title, val, sub, link, color }: { icon: string; title: string; val: string; sub: string; link: string; color: string }) {
+  return (
+    <a href={link} className="glass-card p-8 rounded-3xl border-white/5 group hover:border-primary/10 transition-all duration-500 flex items-center gap-8">
+      <div className={`w-16 h-16 rounded-2xl ${color} flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition-transform duration-500 shadow-lg`}>
+        <i className={icon}></i>
+      </div>
+      <div>
+        <h4 className="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">{title}</h4>
+        <div className="text-white text-xl font-bold font-display mb-1 group-hover:text-primary transition-colors">{val}</div>
+        <p className="text-slate-500 text-sm leading-relaxed">{sub}</p>
+      </div>
+    </a>
+  );
+}
+
+function SocialBtn({ icon, color, link = "#" }: { icon: string; color: string; link?: string }) {
+  return (
+    <a href={link} target="_blank" rel="noopener noreferrer" className={`w-12 h-12 rounded-full flex items-center justify-center bg-white/5 border border-white/10 text-slate-400 hover:text-white ${color} hover:border-transparent transition-all duration-300 transform hover:scale-110 shadow-lg`}>
+      <i className={`${icon} text-lg`}></i>
+    </a>
+  );
+}

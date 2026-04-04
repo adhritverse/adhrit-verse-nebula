@@ -1,0 +1,236 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #3b82f6;
+  --color-secondary: #8b5cf6;
+  --color-accent: #ec4899;
+  --color-dark: #0f172a;
+  --color-darker: #020617;
+  
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Outfit", sans-serif;
+
+  --animate-gradient-x: gradient-x 15s ease infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  
+  @keyframes gradient-x {
+    0%, 100% {
+      background-size: 200% 200%;
+      background-position: left center;
+    }
+    50% {
+      background-size: 200% 200%;
+      background-position: right center;
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+}
+
+:root {
+  --background: #020617;
+  --foreground: #f8fafc;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #020617; 
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b; 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3b82f6; 
+}
+
+/* Utilities */
+.text-gradient {
+  background: linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: gradient-x 4s linear infinite;
+}
+
+.glass-card {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 40px rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.glass-nav {
+  background: rgba(2, 6, 23, 0.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+.glass-nav.scrolled {
+  background: rgba(2, 6, 23, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.btn-primary:hover {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+.btn-outline:hover {
+  border-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+  transform: translateY(-2px);
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -1;
+  opacity: 0.4;
+}
+
+/* Team Page */
+.team-card {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 2rem;
+  transition: all 0.5s cubic-bezier(0.2, 0, 0, 1);
+  overflow: hidden;
+  position: relative;
+}
+.team-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(139, 92, 246, 0.06) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.team-card:hover::before { opacity: 1; }
+.team-card:hover {
+  transform: translateY(-12px);
+  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(59, 130, 246, 0.1);
+}
+
+.avatar-ring {
+  background: conic-gradient(from 0deg, #3b82f6, #8b5cf6, #ec4899, #3b82f6);
+  border-radius: 50%;
+  padding: 3px;
+}
+
+/* Navbar CSS */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #3b82f6, #8b5cf6);
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after, .active-link::after {
+  width: 100%;
+}
+
+/* CanvasHero CSS */
+.orbit-wrap { position: relative; width: 380px; height: 380px; }
+@media(max-width:768px){ .orbit-wrap{ width:280px;height:280px; } }
+.orbit-center {
+    position: absolute; inset: 50%; transform: translate(-50%,-50%);
+    width: 110px; height: 110px; border-radius: 50%;
+    background: linear-gradient(135deg,rgba(59,130,246,0.25),rgba(139,92,246,0.2));
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 10;
+    box-shadow: 0 0 40px rgba(59,130,246,0.3), 0 0 80px rgba(59,130,246,0.1);
+}
+.orbit-ring {
+    position: absolute; inset: 50%; border-radius: 50%;
+    border: 1px dashed rgba(255,255,255,0.08);
+    transform: translate(-50%,-50%);
+}
+.orbit-ring-1 { width: 200px; height: 200px; animation: rotateRing 12s linear infinite; }
+.orbit-ring-2 { width: 300px; height: 300px; animation: rotateRing 20s linear infinite reverse; }
+.orbit-ring-3 { width: 380px; height: 380px; animation: rotateRing 28s linear infinite; }
+@media(max-width:768px){
+    .orbit-ring-1{width:160px;height:160px}
+    .orbit-ring-2{width:220px;height:220px}
+    .orbit-ring-3{width:280px;height:280px}
+}
+@keyframes rotateRing { to { transform: translate(-50%,-50%) rotate(360deg); } }
+
+.pulse-ring {
+    position: absolute; border-radius: 50%;
+    border: 2px solid rgba(59,130,246,0.3);
+    animation: pulseRing 3s ease-out infinite;
+}
+@keyframes pulseRing {
+    0%{ transform:scale(1); opacity:0.6; }
+    100%{ transform:scale(2.5); opacity:0; }
+}
+
+/* Projects Page CSS */
+.project-card { 
+  background: rgba(15,23,42,0.4);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.2, 0, 0, 1);
+}
+.project-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(59,130,246,0.3);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+}
+
+/* Team Page Custom Stats & Values */
+.stat-card {
+  transition: all 0.3s ease;
+}
+.stat-card:hover {
+  transform: translateY(-4px);
+}
+
+.value-card {
+  transition: all 0.3s ease;
+}
