@@ -2,8 +2,8 @@
 
 @theme {
   --color-primary: #3b82f6;
-  --color-secondary: #8b5cf6;
-  --color-accent: #ec4899;
+  --color-secondary: #2563eb;
+  --color-accent: #0ea5e9;
   --color-dark: #0f172a;
   --color-darker: #020617;
   
@@ -60,7 +60,7 @@ body {
 
 /* Utilities */
 .text-gradient {
-  background: linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899);
+  background: linear-gradient(to right, #1d4ed8, #0ea5e9);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -96,14 +96,14 @@ body {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(90deg, #1d4ed8, #0ea5e9);
   position: relative;
   z-index: 1;
   overflow: hidden;
   transition: all 0.3s ease;
 }
 .btn-primary:hover {
-  box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.5);
   transform: translateY(-2px);
 }
 
@@ -112,8 +112,8 @@ body {
   transition: all 0.3s ease;
 }
 .btn-outline:hover {
-  border-color: #3b82f6;
-  background: rgba(59, 130, 246, 0.1);
+  border-color: #0ea5e9;
+  background: rgba(14, 165, 233, 0.1);
   transform: translateY(-2px);
 }
 
@@ -140,7 +140,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(139, 92, 246, 0.06) 100%);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(14, 165, 233, 0.06) 100%);
   opacity: 0;
   transition: opacity 0.4s ease;
 }
@@ -152,7 +152,7 @@ body {
 }
 
 .avatar-ring {
-  background: conic-gradient(from 0deg, #3b82f6, #8b5cf6, #ec4899, #3b82f6);
+  background: conic-gradient(from 0deg, #1d4ed8, #0ea5e9, #1d4ed8, #0ea5e9, #1d4ed8);
   border-radius: 50%;
   padding: 3px;
 }
@@ -165,7 +165,7 @@ body {
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(to right, #3b82f6, #8b5cf6);
+  background: linear-gradient(to right, #1d4ed8, #0ea5e9);
   transition: width 0.3s ease;
 }
 .nav-link:hover::after, .active-link::after {
@@ -178,7 +178,7 @@ body {
 .orbit-center {
     position: absolute; inset: 50%; transform: translate(-50%,-50%);
     width: 110px; height: 110px; border-radius: 50%;
-    background: linear-gradient(135deg,rgba(59,130,246,0.25),rgba(139,92,246,0.2));
+    background: linear-gradient(135deg,rgba(59,130,246,0.25),rgba(14,165,233,0.2));
     border: 1px solid rgba(255,255,255,0.1);
     backdrop-filter: blur(10px);
     display: flex; align-items: center; justify-content: center;
