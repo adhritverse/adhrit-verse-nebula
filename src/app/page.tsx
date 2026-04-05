@@ -108,7 +108,11 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section id="contact" className="py-32 relative z-10 flex items-center justify-center">
+      <section id="contact" className="py-32 relative z-10 flex flex-col items-center justify-center">
+        <div className="w-[90vw] flex justify-center mb-16 relative z-20">
+          <img src="/image copy.png" alt="Let's Collaborate" className="w-full object-contain rounded-xl drop-shadow-2xl" />
+        </div>
+
         <div className="max-w-4xl mx-auto px-6 w-full relative">
           <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 blur-3xl -z-10 rounded-full"></div>
           

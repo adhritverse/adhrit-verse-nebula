@@ -1,8 +1,47 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BlobBackground from "@/components/BlobBackground";
+import { useState } from "react";
 
 export default function ContactPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      subject: formData.get("subject"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setSubmitStatus("success");
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch (error) {
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <main className="min-h-screen relative">
       <Navbar />
@@ -33,32 +72,61 @@ export default function ContactPage() {
                </span>
                Send us a Message
             </h2>
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <InputGroup label="Full Name" placeholder="John Doe" icon="fas fa-user" />
-                <InputGroup label="Email Address" placeholder="john@example.com" icon="fas fa-envelope" type="email" />
+            
+            {submitStatus === "success" ? (
+              <div className="bg-emerald-500/20 border border-emerald-500/50 rounded-2xl p-8 text-center">
+                <i className="fas fa-check-circle text-emerald-400 text-5xl mb-4"></i>
+                <h3 className="text-2xl font-bold text-white mb-2">Message Sent!</h3>
+                <p className="text-emerald-200">Thank you for reaching out. We&apos;ll get back to you shortly.</p>
+                <button onClick={() => setSubmitStatus("idle")} className="mt-6 px-6 py-2 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 rounded-lg transition-colors">
+                  Send Another Message
+                </button>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <InputGroup label="Phone Number" placeholder="+91 8462802086" icon="fas fa-phone-alt" />
-                <InputGroup label="Subject" placeholder="Project Inquiry" icon="fas fa-tag" />
-              </div>
-              <div className="flex flex-col gap-2">
-                <label className="text-sm font-semibold text-slate-300 ml-2">Message</label>
-                <div className="relative group">
-                  <span className="absolute top-4 left-4 text-slate-500 group-focus-within:text-primary transition-colors">
-                    <i className="fas fa-comment-alt"></i>
-                  </span>
-                  <textarea 
-                    rows={5} 
-                    placeholder="Tell us about your project..." 
-                    className="w-full bg-slate-900/40 border border-white/10 rounded-2xl px-12 py-4 text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all placeholder:text-slate-600"
-                  ></textarea>
+            ) : (
+              <form className="space-y-6" onSubmit={handleSubmit}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <InputGroup label="Full Name" name="name" placeholder="John Doe" icon="fas fa-user" required />
+                  <InputGroup label="Email Address" name="email" placeholder="john@example.com" icon="fas fa-envelope" type="email" required />
                 </div>
-              </div>
-              <button type="submit" className="w-full btn-primary py-4 rounded-xl text-white font-bold tracking-wide text-lg flex items-center justify-center gap-2 group transform active:scale-[0.98]">
-                Send Message <i className="fas fa-paper-plane text-sm group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
-              </button>
-            </form>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <InputGroup label="Phone Number" name="phone" placeholder="+91 8462802086" icon="fas fa-phone-alt" />
+                  <InputGroup label="Subject" name="subject" placeholder="Project Inquiry" icon="fas fa-tag" required />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <label className="text-sm font-semibold text-slate-300 ml-2">Message</label>
+                  <div className="relative group">
+                    <span className="absolute top-4 left-4 text-slate-500 group-focus-within:text-primary transition-colors">
+                      <i className="fas fa-comment-alt"></i>
+                    </span>
+                    <textarea 
+                      name="message"
+                      rows={5} 
+                      required
+                      placeholder="Tell us about your project..." 
+                      className="w-full bg-slate-900/40 border border-white/10 rounded-2xl px-12 py-4 text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all placeholder:text-slate-600"
+                    ></textarea>
+                  </div>
+                </div>
+
+                {submitStatus === "error" && (
+                  <div className="text-red-400 text-sm bg-red-400/10 p-3 rounded-lg border border-red-400/20 text-center">
+                    Something went wrong. Please try again later.
+                  </div>
+                )}
+
+                <button 
+                  type="submit" 
+                  disabled={isSubmitting}
+                  className="w-full btn-primary py-4 rounded-xl text-white font-bold tracking-wide text-lg flex items-center justify-center gap-2 group transform active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? (
+                    <>Sending... <i className="fas fa-spinner fa-spin text-sm"></i></>
+                  ) : (
+                    <>Send Message <i className="fas fa-paper-plane text-sm group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i></>
+                  )}
+                </button>
+              </form>
+            )}
           </div>
 
           {/* Contact Info */}
@@ -107,7 +175,7 @@ export default function ContactPage() {
   );
 }
 
-function InputGroup({ label, placeholder, icon, type = "text" }: { label: string; placeholder: string; icon: string; type?: string }) {
+function InputGroup({ label, name, placeholder, icon, type = "text", required = false }: { label: string; name: string; placeholder: string; icon: string; type?: string; required?: boolean }) {
   return (
     <div className="flex flex-col gap-2">
       <label className="text-sm font-semibold text-slate-300 ml-2">{label}</label>
@@ -117,6 +185,8 @@ function InputGroup({ label, placeholder, icon, type = "text" }: { label: string
         </span>
         <input 
           type={type} 
+          name={name}
+          required={required}
           placeholder={placeholder} 
           className="w-full bg-slate-900/40 border border-white/10 rounded-2xl px-12 py-4 text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all placeholder:text-slate-600"
         />
