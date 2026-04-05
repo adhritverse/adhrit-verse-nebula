@@ -55,6 +55,26 @@ const projects = [
     tags: ["Skincare", "E-Commerce", "Minimal"],
     link: "https://reliable-centaur-fbf40f.netlify.app/",
     type: "Minimalist"
+  },
+  {
+    id: 6,
+    title: "OG Editor",
+    desc: "A powerful, intuitive Open Graph image editor and generator designed to streamline digital asset creation.",
+    img: "/projectimg/project-6.png",
+    category: "webapp",
+    tags: ["Utility", "Editor", "SaaS"],
+    link: "https://ogeditor2.onrender.com/",
+    type: "Web App"
+  },
+  {
+    id: 7,
+    title: "DevMarket",
+    desc: "A modern marketplace platform tailored for developers to discover, share, and exchange essential tools and code assets.",
+    img: "/projectimg/Project-7.png",
+    category: "ecommerce",
+    tags: ["Marketplace", "SaaS", "Next.js"],
+    link: "https://devmarket-three.vercel.app/",
+    type: "E-Commerce"
   }
 ];
 
@@ -70,6 +90,7 @@ export default function ProjectsPage() {
     { id: "cybersecurity", label: "Cybersecurity" },
     { id: "ecommerce", label: "E-Commerce" },
     { id: "portfolio", label: "Portfolio" },
+    { id: "webapp", label: "Web Apps" },
   ];
 
   return (
