@@ -222,49 +222,49 @@ export default function CanvasHero() {
           
           {/* Left Content */}
           <div>
-            <div className="hero-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-5 opacity-0 translate-y-[20px]" style={{background:'rgba(59,130,246,0.1)', border:'1px solid rgba(59,130,246,0.25)'}}>
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-              <span className="text-xs font-semibold text-blue-300 tracking-widest uppercase">Trusted by Startups & Enterprises</span>
+            <div className="hero-badge inline-flex items-start sm:items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full mb-5 opacity-0 translate-y-[20px] max-w-full" style={{background:'rgba(59,130,246,0.1)', border:'1px solid rgba(59,130,246,0.25)'}}>
+              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-primary animate-pulse shrink-0 mt-1 sm:mt-0"></span>
+              <span className="text-[10px] sm:text-xs font-semibold text-blue-300 tracking-[0.1em] sm:tracking-widest uppercase leading-tight text-left sm:text-center">Trusted by Startups & Enterprises</span>
             </div>
 
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.08] mb-5">
-              <div className="hero-title-line overflow-hidden"><span className="block translate-y-[100%]">Cyber & Web</span></div>
-              <div className="hero-title-line overflow-hidden">
-                <span className="block translate-y-[100%] text-gradient relative inline-block after:content-[''] after:absolute after:-bottom-[-4px] after:left-0 after:w-full after:h-[3px] after:rounded-[2px] after:bg-gradient-to-r after:from-primary after:via-secondary after:to-accent after:bg-[length:200%] after:animate-[gradientSlide_3s_linear_infinite]">
+            <h1 className="font-display text-[2.25rem] leading-[1.1] sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white md:leading-[1.08] mb-5">
+              <div className="hero-title-line overflow-hidden"><span className="block translate-y-[100%] pb-1 sm:pb-0">Cyber & Web</span></div>
+              <div className="hero-title-line overflow-hidden pb-1 sm:pb-0">
+                <span className="block translate-y-[100%] text-gradient relative inline-block after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] sm:after:h-[3px] after:rounded-[2px] after:bg-gradient-to-r after:from-primary after:via-secondary after:to-accent after:bg-[length:200%] after:animate-[gradientSlide_3s_linear_infinite]">
                   Innovation
                 </span>
               </div>
-              <div className="hero-title-line overflow-hidden"><span className="block translate-y-[100%]">Consultancy</span></div>
+              <div className="hero-title-line overflow-hidden mt-1 sm:mt-0"><span className="block translate-y-[100%]">Consultancy</span></div>
             </h1>
 
-            <p className="hero-sub opacity-0 text-base md:text-lg text-slate-400 mb-4 max-w-xl leading-relaxed">
-              Delivering <strong className="text-slate-200">secure</strong>, 
-              <strong className="text-slate-200">scalable</strong>, and 
+            <p className="hero-sub opacity-0 text-sm sm:text-base md:text-lg text-slate-400 mb-5 max-w-xl leading-relaxed">
+              Delivering <strong className="text-slate-200">secure</strong>,{" "}
+              <strong className="text-slate-200">scalable</strong>, and{" "}
               <strong className="text-slate-200">high-performance</strong> digital solutions 
               for startups and enterprises. We architect your growth.
             </p>
 
-            <p className="text-sm text-blue-400 font-mono mb-5 flex items-center h-[20px]">
-              We build &gt; <span className="ml-1 text-blue-400 after:content-['|'] after:animate-[blink_0.9s_step-end_infinite] after:ml-[2px] after:text-primary">{displayText}</span>
+            <p className="text-xs sm:text-sm text-blue-400 font-mono mb-6 flex flex-wrap items-center gap-1 min-h-[24px]">
+              <span>We build &gt;</span> <span className="text-blue-400 after:content-['|'] after:animate-[blink_0.9s_step-end_infinite] after:ml-[2px] after:text-primary">{displayText}</span>
             </p>
 
             <div className="hero-btns opacity-0 translate-y-[30px] flex flex-col sm:flex-row flex-wrap gap-3 mb-7">
-              <Link href="/contact" className="btn-primary px-7 py-3 rounded-full text-white font-semibold flex items-center justify-center gap-2 text-sm w-full sm:w-auto">
+              <Link href="/contact" className="btn-primary px-6 py-3 sm:px-7 rounded-full text-white font-semibold flex items-center justify-center gap-2 text-sm w-full sm:w-auto">
                 Request a Quote <i className="fas fa-arrow-right text-xs"></i>
               </Link>
-              <Link href="/projects" className="btn-outline px-7 py-3 rounded-full text-white font-semibold flex items-center justify-center gap-2 text-sm w-full sm:w-auto hover:border-primary hover:bg-primary/10 transition-all">
+              <Link href="/projects" className="btn-outline px-6 py-3 sm:px-7 rounded-full text-white font-semibold flex items-center justify-center gap-2 text-sm w-full sm:w-auto hover:border-primary hover:bg-primary/10 transition-all">
                 <i className="fas fa-play text-xs"></i> View Our Work
               </Link>
             </div>
 
             <div className="hero-btns opacity-0 translate-y-[30px] grid grid-cols-2 gap-3">
               <div className="text-center p-3 rounded-xl" style={{background:'rgba(15,23,42,0.6)', border:'1px solid rgba(255,255,255,0.06)'}}>
-                <div className="font-display text-2xl font-bold text-white stat-num font-[tabular-nums]" data-target="40">0</div>
-                <div className="text-xs text-slate-400 mt-1">Projects Delivered</div>
+                <div className="font-display text-xl sm:text-2xl font-bold text-white stat-num font-[tabular-nums]" data-target="40">0</div>
+                <div className="text-[10px] sm:text-xs text-slate-400 mt-1">Projects Delivered</div>
               </div>
               <div className="text-center p-3 rounded-xl" style={{background:'rgba(15,23,42,0.6)', border:'1px solid rgba(255,255,255,0.06)'}}>
-                <div className="font-display text-2xl font-bold text-white">100<span className="text-primary text-base">%</span></div>
-                <div className="text-xs text-slate-400 mt-1">Client Focused</div>
+                <div className="font-display text-xl sm:text-2xl font-bold text-white">100<span className="text-primary text-sm sm:text-base">%</span></div>
+                <div className="text-[10px] sm:text-xs text-slate-400 mt-1">Client Focused</div>
               </div>
             </div>
           </div>

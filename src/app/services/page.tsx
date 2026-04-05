@@ -9,16 +9,16 @@ export default function ServicesPage() {
       <Navbar />
       <BlobBackground />
 
-      <section className="pt-36 pb-16 text-center px-6">
+      <section className="pt-28 md:pt-36 pb-12 md:pb-16 text-center px-6">
         <div className="max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-6">
-            <i className="fas fa-cogs text-primary text-xs"></i>
-            <span className="text-xs font-medium text-slate-300 tracking-wide uppercase">What We Deliver</span>
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-5 sm:mb-6">
+            <i className="fas fa-cogs text-primary text-[10px] sm:text-xs"></i>
+            <span className="text-[10px] sm:text-xs font-medium text-slate-300 tracking-wide uppercase">What We Deliver</span>
           </div>
-          <h1 className="font-display text-5xl md:text-6xl font-bold text-white mb-6">
-            Comprehensive <span className="text-gradient">Digital Solutions</span>
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6 leading-[1.15] md:leading-tight">
+            Comprehensive <span className="text-gradient block sm:inline">Digital Solutions</span>
           </h1>
-          <p className="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed px-2 sm:px-0">
             From secure web platforms to intelligent AI integrations — we craft every layer of your digital ecosystem with precision and purpose.
           </p>
         </div>
@@ -113,15 +113,15 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="py-24 px-6 relative z-10">
+      <section className="py-16 md:py-24 px-6 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
-            <div className="relative p-12 rounded-3xl overflow-hidden glass-card border-white/5">
+            <div className="relative p-8 sm:p-12 rounded-3xl overflow-hidden glass-card border-white/5">
                 <div className="absolute inset-0 opacity-20" style={{ background: 'radial-gradient(circle at 50% 50%, rgba(59,130,246,0.4), transparent 70%)' }}></div>
                 <div className="relative z-10">
-                    <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">Ready to Get Started?</h2>
-                    <p className="text-slate-400 mb-8">Let&apos;s discuss your project and craft the perfect digital solution for your business.</p>
-                    <Link href="/contact" className="btn-primary inline-flex items-center gap-2 px-10 py-4 rounded-full text-white font-medium text-lg">
-                        Request a Quote <i className="fas fa-arrow-right text-sm"></i>
+                    <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">Ready to Get Started?</h2>
+                    <p className="text-sm sm:text-base text-slate-400 mb-6 sm:mb-8">Let&apos;s discuss your project and craft the perfect digital solution for your business.</p>
+                    <Link href="/contact" className="btn-primary inline-flex items-center justify-center gap-2 px-8 py-3.5 sm:px-10 sm:py-4 rounded-full text-white font-medium text-sm sm:text-lg w-full sm:w-auto">
+                        Request a Quote <i className="fas fa-arrow-right text-xs sm:text-sm"></i>
                     </Link>
                 </div>
             </div>
@@ -144,14 +144,14 @@ function ServiceDetailCard({ id, icon, title, desc, color, stats, tags }: { id: 
   };
 
   return (
-    <div id={id} className="glass-card rounded-3xl p-8 md:p-10 group relative overflow-hidden transition-all duration-500 hover:border-primary/30">
-      <div className="flex items-start gap-6 mb-8">
-        <div className={`w-16 h-16 rounded-2xl ${colorMap[color].split(' ')[1]} flex items-center justify-center ${colorMap[color].split(' ')[0]} text-3xl shrink-0 group-hover:scale-110 transition-transform`}>
+    <div id={id} className="glass-card rounded-3xl p-6 sm:p-8 md:p-10 group relative overflow-hidden transition-all duration-500 hover:border-primary/30">
+      <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-6 sm:mb-8">
+        <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-2xl ${colorMap[color].split(' ')[1]} flex items-center justify-center ${colorMap[color].split(' ')[0]} text-2xl sm:text-3xl shrink-0 group-hover:scale-110 transition-transform`}>
           <i className={icon}></i>
         </div>
         <div>
-          <h2 className="text-2xl font-bold font-display text-white mb-2">{title}</h2>
-          <p className="text-slate-400 text-sm leading-relaxed">{desc}</p>
+          <h2 className="text-xl sm:text-2xl font-bold font-display text-white mb-2">{title}</h2>
+          <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">{desc}</p>
         </div>
       </div>
       <div className="grid grid-cols-2 gap-4 mb-8">
