@@ -214,8 +214,24 @@ export default function CanvasHero() {
       <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none w-full h-full" />
       
       {/* Decorative tags */}
-      <div className="hero-tag hidden xl:block absolute top-[18%] right-[2%] animate-[floatTag_4s_ease-in-out_infinite]" style={{ animationDelay: '0.8s' }}>🤖 AI Integration</div>
-      <div className="hero-tag hidden xl:block absolute bottom-[22%] right-[3%] animate-[floatTag_4s_ease-in-out_infinite]" style={{ animationDelay: '2s' }}>☁️ Cloud & DevOps</div>
+      <div className="hero-tag hidden xl:flex items-center gap-2 absolute top-[20%] right-[8%] animate-[floatTag_4s_ease-in-out_infinite]" style={{ animationDelay: '0.8s' }}>
+        <span className="flex items-center justify-center w-5 h-5 rounded-full bg-indigo-500/20 border border-indigo-500/40 text-indigo-400 shadow-[0_0_8px_rgba(99,102,241,0.3)]">
+          <i className="fas fa-robot text-[10px]"></i>
+        </span>
+        AI Integration
+      </div>
+      <div className="hero-tag hidden xl:flex items-center gap-2 absolute bottom-[22%] right-[10%] animate-[floatTag_4s_ease-in-out_infinite]" style={{ animationDelay: '2s' }}>
+        <span className="flex items-center justify-center w-5 h-5 rounded-full bg-cyan-500/20 border border-cyan-500/40 text-cyan-400 shadow-[0_0_8px_rgba(6,182,212,0.3)]">
+          <i className="fas fa-cloud text-[10px]"></i>
+        </span>
+        Cloud & DevOps
+      </div>
+      <div className="hero-tag hidden xl:flex items-center gap-2 absolute top-[45%] left-[2%] animate-[floatTag_5s_ease-in-out_infinite]" style={{ animationDelay: '1.2s' }}>
+        <span className="flex items-center justify-center w-5 h-5 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 shadow-[0_0_8px_rgba(16,185,129,0.3)]">
+          <i className="fas fa-shield-alt text-[10px]"></i>
+        </span>
+        Enterprise Security
+      </div>
 
       <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
@@ -304,142 +320,95 @@ export default function CanvasHero() {
         @keyframes gradientSlide {
             0%{ background-position: 0% } 100%{ background-position: 200% }
         }
+        @keyframes orbital-spin {
+            from { transform: rotateZ(0deg); }
+            to { transform: rotateZ(360deg); }
+        }
       `}</style>
     </section>
   );
 }
 
 function OrbitalSystem() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const orbits = [
-      {
-          id: 'orbit1', radius: 100, speed: 14,
-          icons: [
-              { icon: 'fa-shield-alt', bg: 'rgba(239,68,68,0.2)', color: '#f87171', label: 'Security' },
-              { icon: 'fa-code', bg: 'rgba(59,130,246,0.2)', color: '#60a5fa', label: 'Web' },
-          ]
-      },
-      {
-          id: 'orbit2', radius: 150, speed: 22,
-          icons: [
-              { icon: 'fa-brain', bg: 'rgba(16,185,129,0.2)', color: '#34d399', label: 'AI/ML' },
-              { icon: 'fa-mobile-alt', bg: 'rgba(139,92,246,0.2)', color: '#a78bfa', label: 'App' },
-              { icon: 'fa-cloud', bg: 'rgba(6,182,212,0.2)', color: '#22d3ee', label: 'Cloud' },
-          ]
-      },
-      {
-          id: 'orbit3', radius: 190, speed: 30,
-          icons: [
-              { icon: 'fa-paint-brush', bg: 'rgba(236,72,153,0.2)', color: '#f472b6', label: 'Design' },
-              { icon: 'fa-lock', bg: 'rgba(245,158,11,0.2)', color: '#fbbf24', label: 'Pentest' },
-              { icon: 'fa-cogs', bg: 'rgba(99,102,241,0.2)', color: '#818cf8', label: 'DevOps' },
-              { icon: 'fa-database', bg: 'rgba(52,211,153,0.2)', color: '#34d399', label: 'DB' },
-          ]
-      }
-    ];
-
-    const center = 190; 
-    let rafId: number;
-    let angleOffsets = Array.from({length: orbits.length}, () => 0); 
-
-    const animate = () => {
-      if(!containerRef.current) return;
-      
-      orbits.forEach((o, orbitIndex) => {
-        angleOffsets[orbitIndex] += (Math.PI * 2) / (o.speed * 60);
-        const container = containerRef.current!.querySelector(`#${o.id}`);
-        if(container) {
-          const angleStep = (Math.PI * 2) / o.icons.length;
-          const icons = container.querySelectorAll('.orbit-icon');
-          const labels = container.querySelectorAll('.orbit-label');
-          
-          icons.forEach((el, idx) => {
-            const angle = angleStep * idx + angleOffsets[orbitIndex];
-            const x = center + o.radius * Math.cos(angle) - 23;
-            const y = center + o.radius * Math.sin(angle) - 23;
-            
-            (el as HTMLElement).style.left = `${x}px`;
-            (el as HTMLElement).style.top = `${y}px`;
-            
-            const lbl = labels[idx] as HTMLElement;
-            if(lbl) {
-              lbl.style.left = `${x + 23}px`;
-              lbl.style.top = `${y + 50}px`;
-            }
-          });
-        }
-      });
-      
-      rafId = requestAnimationFrame(animate);
-    };
-    
-    rafId = requestAnimationFrame(animate);
-    
-    return () => cancelAnimationFrame(rafId);
-  }, []);
+  const orbits = [
+    {
+      id: 'orbit1', radius: 105, duration: 25, reverse: false,
+      icons: [
+        { icon: 'fa-shield-alt', bg: 'rgba(239,68,68,0.15)', border: 'rgba(239,68,68,0.4)', color: '#f87171', label: 'Security' },
+        { icon: 'fa-code', bg: 'rgba(59,130,246,0.15)', border: 'rgba(59,130,246,0.4)', color: '#60a5fa', label: 'Web Apps' },
+      ]
+    },
+    {
+      id: 'orbit2', radius: 175, duration: 35, reverse: true,
+      icons: [
+        { icon: 'fa-brain', bg: 'rgba(16,185,129,0.15)', border: 'rgba(16,185,129,0.4)', color: '#34d399', label: 'AI/ML' },
+        { icon: 'fa-mobile-alt', bg: 'rgba(139,92,246,0.15)', border: 'rgba(139,92,246,0.4)', color: '#a78bfa', label: 'Mobile' },
+        { icon: 'fa-cloud', bg: 'rgba(6,182,212,0.15)', border: 'rgba(6,182,212,0.4)', color: '#22d3ee', label: 'Cloud' },
+      ]
+    },
+    {
+      id: 'orbit3', radius: 250, duration: 45, reverse: false,
+      icons: [
+        { icon: 'fa-paint-brush', bg: 'rgba(236,72,153,0.15)', border: 'rgba(236,72,153,0.4)', color: '#f472b6', label: 'Design' },
+        { icon: 'fa-lock', bg: 'rgba(245,158,11,0.15)', border: 'rgba(245,158,11,0.4)', color: '#fbbf24', label: 'Pentest' },
+        { icon: 'fa-cogs', bg: 'rgba(99,102,241,0.15)', border: 'rgba(99,102,241,0.4)', color: '#818cf8', label: 'DevOps' },
+        { icon: 'fa-database', bg: 'rgba(52,211,153,0.15)', border: 'rgba(52,211,153,0.4)', color: '#34d399', label: 'Data' },
+      ]
+    }
+  ];
 
   return (
-    <div className="orbit-wrap" ref={containerRef}>
-      {/* Rings */}
-      <div className="orbit-ring orbit-ring-1"></div>
-      <div className="orbit-ring orbit-ring-2"></div>
-      <div className="orbit-ring orbit-ring-3"></div>
+    <div className="relative flex items-center justify-center w-[520px] h-[520px] pointer-events-auto" style={{ perspective: '1200px' }}>
+      
+      {/* 3D Plane Wrapper */}
+      <div className="absolute inset-0 flex items-center justify-center" style={{ transform: 'rotateX(60deg)', transformStyle: 'preserve-3d' }}>
+        
+        {/* Center Shield logo - counter rotated to face camera */}
+        <div className="absolute z-20 flex items-center justify-center w-[110px] h-[110px] rounded-full bg-slate-900/60 backdrop-blur-xl border border-white/10 shadow-[0_0_50px_rgba(59,130,246,0.25)] group cursor-pointer transition-all hover:scale-105 duration-500"
+             style={{ transform: 'translateZ(40px) rotateX(-60deg)', transformStyle: 'preserve-3d' }}>
+          <div className="absolute inset-0 rounded-full border border-blue-500/30 animate-ping" style={{ animationDuration: '3s' }}></div>
+          <div className="absolute inset-[-10px] rounded-full border border-blue-400/10 animate-spin" style={{ animationDuration: '10s' }}></div>
+          <img src="/logo.png" alt="AdhritVerse Base Core" className="w-[60px] h-[60px] object-contain z-10 drop-shadow-[0_0_15px_rgba(255,255,255,0.6)] group-hover:drop-shadow-[0_0_25px_rgba(255,255,255,0.8)] transition-all duration-500" />
+        </div>
 
-      {/* Center Logo */}
-      <div className="orbit-center">
-          <img src="/logo.png" alt="AdhritVerse" className="w-14 h-14 object-contain drop-shadow-[0_0_16px_rgba(59,130,246,0.7)]" />
-          {/* Pulse rings */}
-          <div className="pulse-ring w-[110px] h-[110px] top-0 left-0 absolute" style={{animationDelay: '0s'}}></div>
-          <div className="pulse-ring w-[110px] h-[110px] top-0 left-0 absolute" style={{animationDelay: '1.5s'}}></div>
+      {/* Orbits */}
+      {orbits.map((o) => (
+        <div key={o.id} className="absolute top-1/2 left-1/2 rounded-full border border-slate-600/30 shadow-[inset_0_0_20px_rgba(255,255,255,0.01)]"
+             style={{
+               width: o.radius * 2, height: o.radius * 2,
+               marginLeft: -o.radius, marginTop: -o.radius,
+               transformStyle: 'preserve-3d',
+               animation: `orbital-spin ${o.duration}s linear infinite ${o.reverse ? 'reverse' : 'normal'}`
+             }}>
+          {o.icons.map((item, idx) => {
+            const angle = (360 / o.icons.length) * idx;
+            return (
+              <div key={idx} className="absolute top-1/2 left-1/2 w-0 h-0" style={{ transform: `rotateZ(${angle}deg) translateX(${o.radius}px)`, transformStyle: 'preserve-3d' }}>
+                <div className="absolute flex items-center justify-center"
+                     style={{
+                       width: 48, height: 48, left: -24, top: -24,
+                       transformStyle: 'preserve-3d',
+                       animation: `orbital-spin ${o.duration}s linear infinite ${o.reverse ? 'normal' : 'reverse'}`
+                     }}>
+                  <div style={{ transform: `rotateZ(-${angle}deg) rotateX(-60deg)` }} className="w-full h-full flex flex-col items-center justify-center group/icon">
+                    <div className="relative w-[48px] h-[48px] rounded-full flex items-center justify-center text-[20px] transition-all duration-300 group-hover/icon:scale-125 group-hover/icon:shadow-[0_0_30px_var(--icon-bg)] cursor-pointer overflow-hidden"
+                         style={{ '--icon-bg': item.color, background: `radial-gradient(circle at 30% 30%, ${item.color}50, rgba(10,15,30,0.95))`, color: item.color, border: `1px solid ${item.color}40`, boxShadow: `inset -3px -3px 8px rgba(0,0,0,0.6), inset 2px 2px 6px rgba(255,255,255,0.2), 0 0 15px ${item.bg}` } as any}>
+                      {/* Glass sphere glare effect */}
+                      <div className="absolute top-[3px] left-[8px] w-[18px] h-[8px] bg-white/30 rounded-full rotate-[-40deg] blur-[0.5px]"></div>
+                      <i className={`fas ${item.icon} relative z-10 drop-shadow-[0_0_8px_currentColor]`}></i>
+                    </div>
+                    {/* Hover Label */}
+                    <div className="absolute top-[55px] px-2.5 py-1 bg-slate-900/90 backdrop-blur-sm border border-slate-600/50 rounded-md text-[10px] uppercase font-bold tracking-widest whitespace-nowrap opacity-0 group-hover/icon:opacity-100 group-hover/icon:-translate-y-1 transition-all duration-300 pointer-events-none z-30" style={{ color: item.color, boxShadow: `0 4px 12px ${item.bg}` }}>
+                      {item.label}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      ))}
       </div>
-
-      {/* Rings containers */}
-      <div id="orbit1">
-        {[
-          { icon: 'fa-shield-alt', bg: 'rgba(239,68,68,0.2)', color: '#f87171', label: 'Security' },
-          { icon: 'fa-code', bg: 'rgba(59,130,246,0.2)', color: '#60a5fa', label: 'Web' },
-        ].map((item, i) => <OrbitIconItem key={i} item={item} />)}
-      </div>
-      <div id="orbit2">
-        {[
-          { icon: 'fa-brain', bg: 'rgba(16,185,129,0.2)', color: '#34d399', label: 'AI/ML' },
-          { icon: 'fa-mobile-alt', bg: 'rgba(139,92,246,0.2)', color: '#a78bfa', label: 'App' },
-          { icon: 'fa-cloud', bg: 'rgba(6,182,212,0.2)', color: '#22d3ee', label: 'Cloud' },
-        ].map((item, i) => <OrbitIconItem key={i} item={item} />)}
-      </div>
-      <div id="orbit3">
-        {[
-          { icon: 'fa-paint-brush', bg: 'rgba(236,72,153,0.2)', color: '#f472b6', label: 'Design' },
-          { icon: 'fa-lock', bg: 'rgba(245,158,11,0.2)', color: '#fbbf24', label: 'Pentest' },
-          { icon: 'fa-cogs', bg: 'rgba(99,102,241,0.2)', color: '#818cf8', label: 'DevOps' },
-          { icon: 'fa-database', bg: 'rgba(52,211,153,0.2)', color: '#34d399', label: 'DB' },
-        ].map((item, i) => <OrbitIconItem key={i} item={item} />)}
-      </div>
-
     </div>
   );
-}
-
-function OrbitIconItem({ item }: { item: any }) {
-  const [hover, setHover] = useState(false);
-  return (
-    <>
-      <div 
-        className="orbit-icon absolute w-[46px] h-[46px] rounded-full flex items-center justify-center text-[18px] backdrop-blur-[8px] border border-white/10"
-        style={{ background: item.bg, color: item.color, boxShadow: `0 0 12px ${item.bg}` }}
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
-      >
-        <i className={`fas ${item.icon}`}></i>
-      </div>
-      <div 
-        className="orbit-label absolute text-[9px] font-bold tracking-[0.08em] uppercase pointer-events-none whitespace-nowrap"
-        style={{ color: item.color, opacity: hover ? 1 : 0, transition: 'opacity 0.2s', transform: 'translate(-50%, 0)' }}
-      >
-        {item.label}
-      </div>
-    </>
-  )
 }
