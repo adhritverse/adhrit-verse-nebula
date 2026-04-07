@@ -2,7 +2,7 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { TeamCard, StatCard } from "@/components/TeamComponents";
+import { TeamCard, StatCard, SubTeamMemberCard } from "@/components/TeamComponents";
 
 export default function TeamPage() {
   return (
@@ -34,8 +34,8 @@ export default function TeamPage() {
         </section>
 
         {/* Founder Cards */}
-        <section className="py-16 px-6 max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <section className="py-16 px-6 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
                 <TeamCard
                   initials="HJ"
@@ -67,11 +67,28 @@ export default function TeamPage() {
                   skills={['Full-Stack', 'Cloud & DevOps', 'AI/ML', 'Architecture']}
                   socialHoverClasses="hover:bg-violet-500/20 hover:border-violet-500/40"
                 />
+            </div>
+        </section>
 
+        {/* Lead Engineers Section */}
+        <section className="py-10 pb-20 px-2 sm:px-6 max-w-7xl mx-auto border-t border-white/5 pt-16">
+            <div className="text-center mb-12">
+                <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-4 sm:mb-6">
+                    <i className="fas fa-code text-primary text-[10px] sm:text-xs"></i>
+                    <span className="text-[10px] sm:text-xs font-medium text-slate-300 tracking-wide uppercase">Core Engineering</span>
+                </div>
+                <h2 className="font-display text-[1.5rem] leading-[1.2] sm:text-4xl font-bold text-white">
+                    The <span className="text-gradient">Architects</span> Building the Future
+                </h2>
+            </div>
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-16 xl:gap-8">
+
+              {/* Anmol's Tree Branch */}
+              <div className="flex flex-col items-center w-full">
                 <TeamCard
                   initials="AM"
                   name="Anmol Malviya"
-                  role="Co-Founder & Lead Developer"
+                  role="Lead Developer"
                   avatarGrad="from-emerald-500 to-cyan-600"
                   avatarRingStyle={{ background: 'conic-gradient(from 0deg,#10b981,#06b6d4,#3b82f6,#10b981)', animationDelay: '-2s' }}
                   roleBgStyle={{ background: 'rgba(16,185,129,0.15)', border: '1px solid rgba(16,185,129,0.3)' }}
@@ -84,10 +101,52 @@ export default function TeamPage() {
                   socialHoverClasses="hover:bg-emerald-500/20 hover:border-emerald-500/40"
                 />
 
+                {/* Advanced Curved Circuit Pipelines */}
+                <div className="relative w-full h-12 sm:h-16 hidden sm:block mt-2 mb-2">
+                    {/* Glowing Junction Dot at Root */}
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1 w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.9)] z-20"></div>
+                    
+                    {/* Center Trunk */}
+                    <div className="absolute top-0 left-1/2 -translate-x-[1px] w-[2px] h-6 bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)] z-10"></div>
+                    
+                    {/* Left Outer Pipe (12.5% to 50%) */}
+                    <div className="absolute top-6 left-[12.5%] w-[37.6%] h-8 border-t-[2px] border-l-[2px] border-emerald-500 shadow-[-2px_-2px_8px_rgba(16,185,129,0.4)] rounded-tl-[16px] z-10 -ml-[1px]"></div>
+                    
+                    {/* Left Inner Pipe (37.5% to 50%) */}
+                    <div className="absolute top-6 left-[37.5%] w-[12.6%] h-8 border-t-[2px] border-l-[2px] border-emerald-500 shadow-[-2px_-2px_8px_rgba(16,185,129,0.4)] rounded-tl-[16px] z-10 -ml-[1px]"></div>
+                    
+                    {/* Right Inner Pipe (50% to 62.5%) */}
+                    <div className="absolute top-6 left-[49.9%] w-[12.6%] h-8 border-t-[2px] border-r-[2px] border-emerald-500 shadow-[2px_-2px_8px_rgba(16,185,129,0.4)] rounded-tr-[16px] z-10"></div>
+                    
+                    {/* Right Outer Pipe (50% to 87.5%) */}
+                    <div className="absolute top-6 left-[49.9%] w-[37.6%] h-8 border-t-[2px] border-r-[2px] border-emerald-500 shadow-[2px_-2px_8px_rgba(16,185,129,0.4)] rounded-tr-[16px] z-10"></div>
+                </div>
+                
+                {/* Branches Container */}
+                <div className="w-full hidden sm:block mt-0">
+                    <div className="grid grid-cols-4 gap-0 w-full relative z-0">
+                        {[
+                          { initials: "PS", name: "Priya Sharma", role: "UI/UX Designer", grad: "from-blue-500 to-indigo-600", ringColor: "from-blue-400 to-transparent", shadowGlow: "rgba(59,130,246,0.3)" },
+                          { initials: "RP", name: "Rohan Patel", role: "Frontend Dev", grad: "from-sky-500 to-blue-600", ringColor: "from-sky-400 to-transparent", shadowGlow: "rgba(14,165,233,0.3)", delay: "-2s" },
+                          { initials: "NG", name: "Neha Gupta", role: "React Developer", grad: "from-emerald-500 to-teal-600", ringColor: "from-emerald-400 to-transparent", shadowGlow: "rgba(16,185,129,0.3)", delay: "-5s" },
+                          { initials: "AK", name: "Amit Kumar", role: "Web Engineeer", grad: "from-cyan-500 to-blue-600", ringColor: "from-cyan-400 to-transparent", shadowGlow: "rgba(6,182,212,0.3)", delay: "-7s" }
+                        ].map((m, i) => (
+                           <div key={i} className="flex flex-col items-center relative w-full pt-1">
+                               <div className="w-full px-1 sm:px-3 flex flex-col items-center">
+                                   <SubTeamMemberCard {...m} />
+                               </div>
+                           </div>
+                        ))}
+                    </div>
+                </div>
+              </div>
+
+              {/* Pratik's Tree Branch */}
+              <div className="flex flex-col items-center w-full">
                 <TeamCard
                   initials="PJ"
                   name="Pratik Jaiswal"
-                  role="Co-Founder & AIML Developer"
+                  role="AIML Developer"
                   avatarGrad="from-amber-500 to-orange-600"
                   roleBgStyle={{ background: 'rgba(245,158,11,0.15)', border: '1px solid rgba(245,158,11,0.3)' }}
                   roleHoverBorder="group-hover:border-amber-500/50"
@@ -98,6 +157,46 @@ export default function TeamPage() {
                   skills={['Software Dev', 'Algorithms', 'Innovation']}
                   socialHoverClasses="hover:bg-amber-500/20 hover:border-amber-500/40"
                 />
+
+                {/* Advanced Curved Circuit Pipelines */}
+                <div className="relative w-full h-12 sm:h-16 hidden sm:block mt-2 mb-2">
+                    {/* Glowing Junction Dot at Root */}
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1 w-2.5 h-2.5 rounded-full bg-amber-400 shadow-[0_0_12px_rgba(251,191,36,0.9)] z-20"></div>
+                    
+                    {/* Center Trunk */}
+                    <div className="absolute top-0 left-1/2 -translate-x-[1px] w-[2px] h-6 bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.8)] z-10"></div>
+                    
+                    {/* Left Outer Pipe (12.5% to 50%) */}
+                    <div className="absolute top-6 left-[12.5%] w-[37.6%] h-8 border-t-[2px] border-l-[2px] border-amber-500 shadow-[-2px_-2px_8px_rgba(245,158,11,0.4)] rounded-tl-[16px] z-10 -ml-[1px]"></div>
+                    
+                    {/* Left Inner Pipe (37.5% to 50%) */}
+                    <div className="absolute top-6 left-[37.5%] w-[12.6%] h-8 border-t-[2px] border-l-[2px] border-amber-500 shadow-[-2px_-2px_8px_rgba(245,158,11,0.4)] rounded-tl-[16px] z-10 -ml-[1px]"></div>
+                    
+                    {/* Right Inner Pipe (50% to 62.5%) */}
+                    <div className="absolute top-6 left-[49.9%] w-[12.6%] h-8 border-t-[2px] border-r-[2px] border-amber-500 shadow-[2px_-2px_8px_rgba(245,158,11,0.4)] rounded-tr-[16px] z-10"></div>
+                    
+                    {/* Right Outer Pipe (50% to 87.5%) */}
+                    <div className="absolute top-6 left-[49.9%] w-[37.6%] h-8 border-t-[2px] border-r-[2px] border-amber-500 shadow-[2px_-2px_8px_rgba(245,158,11,0.4)] rounded-tr-[16px] z-10"></div>
+                </div>
+                
+                {/* Branches Container */}
+                <div className="w-full hidden sm:block mt-0">
+                    <div className="grid grid-cols-4 gap-0 w-full relative z-0">
+                        {[
+                          { initials: "VS", name: "Vikram Singh", role: "ML Engineer", grad: "from-orange-500 to-red-600", ringColor: "from-orange-400 to-transparent", shadowGlow: "rgba(249,115,22,0.3)" },
+                          { initials: "SD", name: "Sanya Desai", role: "Data Scientist", grad: "from-amber-500 to-orange-600", ringColor: "from-amber-400 to-transparent", shadowGlow: "rgba(245,158,11,0.3)", delay: "-3s" },
+                          { initials: "AR", name: "Arjun Reddy", role: "Backend Dev", grad: "from-yellow-500 to-amber-600", ringColor: "from-yellow-400 to-transparent", shadowGlow: "rgba(234,179,8,0.3)", delay: "-5s" },
+                          { initials: "KJ", name: "Kavya Jain", role: "DevOps Engineer", grad: "from-red-500 to-pink-600", ringColor: "from-red-400 to-transparent", shadowGlow: "rgba(239,68,68,0.3)", delay: "-8s" }
+                        ].map((m, i) => (
+                           <div key={i} className="flex flex-col items-center relative w-full pt-1">
+                               <div className="w-full px-1 sm:px-3 flex flex-col items-center">
+                                   <SubTeamMemberCard {...m} />
+                               </div>
+                           </div>
+                        ))}
+                    </div>
+                </div>
+              </div>
 
             </div>
         </section>

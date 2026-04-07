@@ -215,23 +215,12 @@ export default function CanvasHero() {
       
       {/* Decorative tags */}
       <div className="hero-tag hidden xl:flex items-center gap-2 absolute top-[20%] right-[8%] animate-[floatTag_4s_ease-in-out_infinite]" style={{ animationDelay: '0.8s' }}>
-        <span className="flex items-center justify-center w-5 h-5 rounded-full bg-indigo-500/20 border border-indigo-500/40 text-indigo-400 shadow-[0_0_8px_rgba(99,102,241,0.3)]">
-          <i className="fas fa-robot text-[10px]"></i>
-        </span>
         AI Integration
       </div>
       <div className="hero-tag hidden xl:flex items-center gap-2 absolute bottom-[22%] right-[10%] animate-[floatTag_4s_ease-in-out_infinite]" style={{ animationDelay: '2s' }}>
-        <span className="flex items-center justify-center w-5 h-5 rounded-full bg-cyan-500/20 border border-cyan-500/40 text-cyan-400 shadow-[0_0_8px_rgba(6,182,212,0.3)]">
-          <i className="fas fa-cloud text-[10px]"></i>
-        </span>
         Cloud & DevOps
       </div>
-      <div className="hero-tag hidden xl:flex items-center gap-2 absolute top-[45%] left-[2%] animate-[floatTag_5s_ease-in-out_infinite]" style={{ animationDelay: '1.2s' }}>
-        <span className="flex items-center justify-center w-5 h-5 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 shadow-[0_0_8px_rgba(16,185,129,0.3)]">
-          <i className="fas fa-shield-alt text-[10px]"></i>
-        </span>
-        Enterprise Security
-      </div>
+
 
       <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">

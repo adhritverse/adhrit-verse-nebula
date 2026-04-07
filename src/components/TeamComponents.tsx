@@ -16,36 +16,46 @@ export interface TeamCardProps {
   skillClasses: string;
   skills: string[];
   socialHoverClasses: string;
+  wrapperClass?: string;
 }
 
 export function TeamCard({
-  initials, name, role, avatarGrad, avatarRingStyle, roleBgStyle, roleHoverBorder, dotColor, textColor, description, skillClasses, skills, socialHoverClasses
+  initials, name, role, avatarGrad, avatarRingStyle, roleBgStyle, roleHoverBorder, dotColor, textColor, description, skillClasses, skills, socialHoverClasses, wrapperClass = ""
 }: TeamCardProps) {
   return (
-    <div className="team-card p-8 group mx-auto w-full max-w-[85%] sm:max-w-none transition-all duration-500">
-      <div className="relative z-10">
+    <div className={`team-card relative p-8 group mx-auto w-full max-w-[85%] sm:max-w-none transition-all duration-500 rounded-[2.5rem] bg-slate-900/30 backdrop-blur-2xl border border-white/5 hover:border-white/10 shadow-2xl hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] overflow-hidden ${wrapperClass} ${roleHoverBorder}`}>
+      
+      {/* Ambient glassmorphic glowing backdrop */}
+      <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 -mt-32 rounded-full z-0 opacity-[0.03] group-hover:opacity-20 blur-3xl transition-opacity duration-700 bg-gradient-to-b ${avatarGrad} pointer-events-none`}></div>
+      
+      {/* Glassy top highlight line */}
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+      
+      <div className="relative z-10 flex flex-col items-center">
         {/* Avatar Container with Glow */}
-        <div className="flex justify-center mb-6 sm:mb-10 relative">
-          <div className="absolute inset-0 bg-primary/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-          <div className="avatar-ring w-24 h-24 sm:w-36 sm:h-36 group-hover:scale-110 group-hover:rotate-3 transition-all duration-700 shadow-2xl relative z-10" style={avatarRingStyle}>
-            <div className="avatar-inner w-full h-full flex items-center justify-center p-1 sm:p-1.5 bg-darker rounded-full">
-              <div className={`w-full h-full rounded-full bg-gradient-to-br ${avatarGrad} flex items-center justify-center text-3xl sm:text-5xl font-bold font-display text-white shadow-inner`}>
-                {initials}
-              </div>
+        <div className="flex justify-center mb-6 sm:mb-8 relative transform group-hover:-translate-y-1 group-hover:scale-105 transition-all duration-500">
+          <div className="absolute inset-x-4 -bottom-4 h-8 bg-black/50 blur-xl rounded-full"></div>
+          <div className="w-24 h-24 sm:w-32 sm:h-32 shadow-2xl relative z-10 rounded-full blur-[2px]" style={avatarRingStyle}></div>
+          <div className="absolute inset-[3px] bg-slate-950 rounded-full flex items-center justify-center p-[2px] z-20 overflow-hidden shadow-[inset_0_0_20px_rgba(0,0,0,0.8)]">
+            <div className={`absolute inset-0 bg-gradient-to-br ${avatarGrad} opacity-30`}></div>
+            <div className="w-full h-full rounded-full flex items-center justify-center text-3xl sm:text-4xl font-extrabold font-display relative z-30">
+               <span className={`text-transparent bg-clip-text bg-gradient-to-br ${avatarGrad} drop-shadow-sm`}>
+                 {initials}
+               </span>
             </div>
           </div>
         </div>
 
         {/* Info */}
         <div className="text-center mb-6">
-          <h2 className="font-display text-xl sm:text-3xl font-bold text-white group-hover:text-primary transition-colors duration-300">{name}</h2>
-          <div className="mt-2 text-xs sm:text-sm font-semibold text-slate-500 uppercase tracking-[0.2em] group-hover:text-slate-400 transition-colors uppercase">{role}</div>
+          <h2 className="font-display text-xl sm:text-2xl font-extrabold tracking-tight text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-slate-300 transition-all duration-300">{name}</h2>
+          <div className="mt-2.5 text-xs sm:text-xs font-bold text-slate-300 uppercase tracking-[0.2em] shadow-sm transition-colors duration-300 mx-auto w-fit" style={roleBgStyle && { padding: '6px 16px', borderRadius: '999px', backdropFilter: 'blur(8px)', ...roleBgStyle }}>{role}</div>
         </div>
 
-        {/* Skills - uses the new pill style if appropriate */}
+        {/* Skills - uses the new pill style with glass logic */}
         <div className="flex flex-wrap justify-center gap-2 mb-8">
           {skills.map(skill => (
-            <span key={skill} className={`text-[10px] sm:text-[11px] px-3.5 py-1 rounded-full font-medium backdrop-blur-md border border-white/5 bg-white/5 text-slate-300 group-hover:border-primary/20 transition-all ${skillClasses}`}>
+            <span key={skill} className={`text-[10px] sm:text-[11px] px-3.5 py-1.5 rounded-full font-medium backdrop-blur-md border border-white/10 bg-white/5 text-slate-300 hover:text-white hover:border-white/20 hover:bg-white/10 transition-all duration-300 shadow-sm cursor-default ${skillClasses}`}>
               {skill}
             </span>
           ))}
@@ -53,10 +63,10 @@ export function TeamCard({
 
         {/* Socials */}
         <div className="flex justify-center gap-3 sm:gap-4">
-          <SocialBtn icon="fab fa-linkedin-in" hoverClasses="hover:bg-blue-600 hover:border-blue-600 shadow-lg" />
-          <SocialBtn icon="fab fa-github" hoverClasses="hover:bg-slate-800 hover:border-slate-800 shadow-lg" />
-          <SocialBtn icon="fab fa-twitter" hoverClasses="hover:bg-sky-500 hover:border-sky-500 shadow-lg" />
-          <SocialBtn icon="fas fa-envelope" link="mailto:contact@adhritverse.in" hoverClasses="hover:bg-red-500 hover:border-red-500 shadow-lg" />
+          <SocialBtn icon="fab fa-linkedin-in" hoverClasses="hover:bg-blue-600 hover:border-blue-600 hover:shadow-[0_0_15px_rgba(37,99,235,0.5)]" />
+          <SocialBtn icon="fab fa-github" hoverClasses="hover:bg-slate-700 hover:border-slate-700 hover:shadow-[0_0_15px_rgba(51,65,85,0.5)]" />
+          <SocialBtn icon="fab fa-twitter" hoverClasses="hover:bg-sky-500 hover:border-sky-500 hover:shadow-[0_0_15px_rgba(14,165,233,0.5)]" />
+          <SocialBtn icon="fas fa-envelope" link="mailto:contact@adhritverse.in" hoverClasses="hover:bg-red-500 hover:border-red-500 hover:shadow-[0_0_15px_rgba(239,68,68,0.5)]" />
         </div>
       </div>
     </div>
@@ -81,3 +91,31 @@ export function StatCard({ val, label }: { val: string; label: string }) {
   );
 }
 
+export function SubTeamMemberCard({ initials, name, role, grad = "from-slate-600 to-slate-700", ringColor, delay = "0s", shadowGlow }: { initials: string, name: string, role: string, grad?: string, ringColor: string, delay?: string, shadowGlow: string }) {
+  return (
+    <div className="flex flex-col items-center group w-full hover:-translate-y-1 transition-all duration-300 relative z-10">
+      
+      {/* Connector Dot */}
+      <div className="w-1.5 h-1.5 rounded-full mb-1" style={{ background: shadowGlow.replace('0.3', '0.8'), boxShadow: `0 0 10px ${shadowGlow}` }}></div>
+      
+      <div className="relative mb-2 sm:mb-3 flex justify-center">
+        {/* Ambient Glow */}
+        <div className={`absolute inset-0 rounded-full blur-xl opacity-30 group-hover:opacity-70 transition-opacity duration-500`} style={{ background: shadowGlow }}></div>
+        
+        {/* Avatar Ring */}
+        <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full p-[2px] z-10 group-hover:scale-110 transition-transform duration-500">
+          <div className={`absolute inset-0 rounded-full bg-gradient-to-b ${ringColor} opacity-70`}></div>
+          <div className="w-full h-full rounded-full bg-slate-900 border border-white/5 flex items-center justify-center p-[2px]">
+            <div className={`w-full h-full rounded-full bg-gradient-to-br ${grad} flex items-center justify-center text-sm sm:text-base font-bold font-display text-white shadow-[inset_0_0_10px_rgba(0,0,0,0.5)]`}>
+              {initials}
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Name and Role */}
+      <h4 className="text-slate-100 text-[11px] sm:text-[13px] whitespace-nowrap font-bold text-center leading-tight mb-0.5 group-hover:text-white transition-colors">{name}</h4>
+      <p className="text-[9px] sm:text-[10px] whitespace-nowrap uppercase font-semibold tracking-widest text-slate-500 text-center">{role}</p>
+    </div>
+  );
+}
