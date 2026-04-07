@@ -74,13 +74,32 @@ body {
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.05);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .glass-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 40px rgba(59, 130, 246, 0.15);
-  border-color: rgba(59, 130, 246, 0.3);
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.4);
 }
+
+.tag-pill {
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  transition: all 0.3s ease;
+  padding: 0.25rem 0.75rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+}
+
+.tag-pill:hover {
+  background: rgba(59, 130, 246, 0.3);
+  border-color: #3b82f6;
+  transform: translateY(-1px);
+}
+
 
 .glass-nav {
   background: rgba(2, 6, 23, 0.1);
@@ -215,13 +234,15 @@ body {
   background: rgba(15,23,42,0.4);
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: 1.5rem;
-  transition: all 0.4s cubic-bezier(0.2, 0, 0, 1);
+  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  overflow: hidden;
 }
 .project-card:hover {
-  transform: translateY(-10px);
-  border-color: rgba(59,130,246,0.3);
-  box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+  transform: translateY(-12px);
+  border-color: rgba(59,130,246,0.5);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.5), 0 0 20px rgba(59,130,246,0.1);
 }
+
 
 /* Team Page Custom Stats & Values */
 .stat-card {

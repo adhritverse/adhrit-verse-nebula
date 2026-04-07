@@ -86,8 +86,8 @@ export default function TeamPage() {
 
                 <TeamCard
                   initials="PJ"
-                  name="Pratik Jaishwal"
-                  role="Developer"
+                  name="Pratik Jaiswal"
+                  role="Co-Founder & AIML Developer"
                   avatarGrad="from-amber-500 to-orange-600"
                   roleBgStyle={{ background: 'rgba(245,158,11,0.15)', border: '1px solid rgba(245,158,11,0.3)' }}
                   roleHoverBorder="group-hover:border-amber-500/50"

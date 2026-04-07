@@ -11,7 +11,7 @@ export default function CanvasHero() {
 
   // Subtitle Typewriter
   const [displayText, setDisplayText] = useState("");
-  const words = ['Secure Web Apps', 'Mobile Solutions', 'AI Integrations', 'Cloud Infrastructure', 'Pen Testing Tools', 'UI/UX Experiences'];
+  const words = ['AI Integrations', 'Secure Web Apps', 'Mobile Solutions', 'Cloud Infrastructure', 'Cybersecurity Systems', 'Startup MVPs'];
   const [wordIndex, setWordIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
@@ -224,24 +224,23 @@ export default function CanvasHero() {
           <div>
             <div className="hero-badge inline-flex items-start sm:items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full mb-5 opacity-0 translate-y-[20px] max-w-full" style={{background:'rgba(59,130,246,0.1)', border:'1px solid rgba(59,130,246,0.25)'}}>
               <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-primary animate-pulse shrink-0 mt-1 sm:mt-0"></span>
-              <span className="text-[10px] sm:text-xs font-semibold text-blue-300 tracking-[0.1em] sm:tracking-widest uppercase leading-tight text-left sm:text-center">Trusted by Startups & Enterprises</span>
+              <span className="text-[10px] sm:text-xs font-semibold text-blue-300 tracking-[0.1em] sm:tracking-widest uppercase leading-tight text-left sm:text-center">Trusted by Startups &amp; Enterprises</span>
             </div>
 
-            <h1 className="font-display text-[2.25rem] leading-[1.1] sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white md:leading-[1.08] mb-5">
-              <div className="hero-title-line overflow-hidden"><span className="block translate-y-[100%] pb-1 sm:pb-0">Cyber & Web</span></div>
-              <div className="hero-title-line overflow-hidden pb-1 sm:pb-0">
+            <h1 className="font-display text-[2.5rem] leading-[1.08] sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-5">
+              <div className="hero-title-line overflow-hidden"><span className="block translate-y-[100%] pb-1">Cyber &amp; Web</span></div>
+              <div className="hero-title-line overflow-hidden pb-1">
                 <span className="block translate-y-[100%] text-gradient relative inline-block after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] sm:after:h-[3px] after:rounded-[2px] after:bg-gradient-to-r after:from-primary after:via-secondary after:to-accent after:bg-[length:200%] after:animate-[gradientSlide_3s_linear_infinite]">
                   Innovation
                 </span>
               </div>
-              <div className="hero-title-line overflow-hidden mt-1 sm:mt-0"><span className="block translate-y-[100%]">Consultancy</span></div>
+              <div className="hero-title-line overflow-hidden mt-1"><span className="block translate-y-[100%]">Consultancy</span></div>
             </h1>
 
             <p className="hero-sub opacity-0 text-sm sm:text-base md:text-lg text-slate-400 mb-5 max-w-xl leading-relaxed">
               Delivering <strong className="text-slate-200">secure</strong>,{" "}
               <strong className="text-slate-200">scalable</strong>, and{" "}
-              <strong className="text-slate-200">high-performance</strong> digital solutions 
-              for startups and enterprises. We architect your growth.
+              <strong className="text-slate-200">high-performance</strong> digital solutions for startups and enterprises. We architect your growth.
             </p>
 
             <p className="text-xs sm:text-sm text-blue-400 font-mono mb-6 flex flex-wrap items-center gap-1 min-h-[24px]">
@@ -250,7 +249,7 @@ export default function CanvasHero() {
 
             <div className="hero-btns opacity-0 translate-y-[30px] flex flex-col sm:flex-row flex-wrap gap-3 mb-7">
               <Link href="/contact" className="btn-primary px-6 py-3 sm:px-7 rounded-full text-white font-semibold flex items-center justify-center gap-2 text-sm w-full sm:w-auto">
-                Request a Quote <i className="fas fa-arrow-right text-xs"></i>
+                Get Free Consultation <i className="fas fa-arrow-right text-xs"></i>
               </Link>
               <Link href="/projects" className="btn-outline px-6 py-3 sm:px-7 rounded-full text-white font-semibold flex items-center justify-center gap-2 text-sm w-full sm:w-auto hover:border-primary hover:bg-primary/10 transition-all">
                 <i className="fas fa-play text-xs"></i> View Our Work

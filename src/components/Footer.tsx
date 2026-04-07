@@ -6,33 +6,36 @@ export default function Footer() {
   return (
     <footer className="border-t border-white/10 bg-darker pt-12 sm:pt-16 pb-6 sm:pb-8 relative z-10">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 mb-8 md:mb-12">
           {/* Branding */}
-          <div className="col-span-1 md:col-span-1">
+          <div className="col-span-1 sm:col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-6">
-              <img src="/logo.png" alt="AdhritVerse Logo" className="h-8 w-auto object-contain" />
+              <img src="/logo.png" alt="AdhritVerse – Tech Agency in Indore" className="h-8 w-auto object-contain" />
               <span className="font-display font-bold text-xl tracking-tight text-white">AdhritVerse</span>
             </Link>
-            <p className="text-sm text-slate-400 mb-6">
-              Cyber & Web Innovation Consultancy. Delivering secure, scalable, and cutting-edge solutions.
+            <p className="text-sm text-slate-400 mb-2">
+              AI-Powered Startup Tech Partner. Indore’s leading tech agency for web development, cybersecurity & AI solutions.
+            </p>
+            <p className="text-xs text-slate-500 mb-6">
+              <i className="fas fa-map-marker-alt text-primary mr-1"></i> Vijay Nagar, Indore, Madhya Pradesh 452010
             </p>
             <div className="flex gap-4">
               <SocialLink icon="fab fa-linkedin-in" link="https://www.linkedin.com/company/adhritverse" hoverColor="hover:bg-primary/20" />
-              <SocialLink icon="fab fa-github" link="https://github.com/adhritverse" hoverColor="hover:bg-slate-700" />
+              {/* <SocialLink icon="fab fa-github" link="https://github.com/adhritverse" hoverColor="hover:bg-slate-700" /> */}
               <SocialLink icon="fab fa-instagram" link="https://www.instagram.com/adhritverse?igsh=MXgwN2swanRvNmZtYQ==" hoverColor="hover:bg-accent/20" />
               <SocialLink icon="fab fa-twitter" link="https://twitter.com/adhritverse" hoverColor="hover:bg-cyan-500/20" />
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Services Links */}
           <div>
-             <h4 className="text-white font-bold mb-6">Company</h4>
+             <h4 className="text-white font-bold mb-6">Services</h4>
              <ul className="space-y-4 text-sm text-slate-400">
-                <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
-                <li><Link href="/services" className="hover:text-white transition-colors">Services</Link></li>
-                <li><Link href="/team" className="hover:text-white transition-colors">Our Team</Link></li>
-                <li><Link href="/projects" className="hover:text-white transition-colors">Projects</Link></li>
-                <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
+                <li><Link href="/services" className="hover:text-white transition-colors">Web Development</Link></li>
+                <li><Link href="/services" className="hover:text-white transition-colors">App Development</Link></li>
+                <li><Link href="/services" className="hover:text-white transition-colors">AI / ML Solutions</Link></li>
+                <li><Link href="/services" className="hover:text-white transition-colors">Cybersecurity (VAPT)</Link></li>
+                <li><Link href="/services" className="hover:text-white transition-colors">Cloud & DevOps</Link></li>
              </ul>
           </div>
 
@@ -50,7 +53,10 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <i className="fas fa-map-marker-alt text-primary mt-1"></i>
-                <span>Madhya Pradesh, India</span>
+                <a href="https://maps.google.com/?q=Vijay+Nagar+Indore+Madhya+Pradesh" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                  Vijay Nagar, Indore<br />
+                  Madhya Pradesh 452010, India
+                </a>
               </li>
             </ul>
           </div>
@@ -73,9 +79,12 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/5 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4 text-center md:text-left">
-          <p className="text-[10px] sm:text-xs text-slate-500">
-            &copy; {currentYear} AdhritVerse. All rights reserved.
-          </p>
+          <div>
+            <p className="text-[10px] sm:text-xs text-slate-500">
+              &copy; {currentYear} AdhritVerse (AV Technologies). All rights reserved.
+            </p>
+            <p className="text-[10px] text-slate-600 mt-1">Best Tech Agency in Indore · Vijay Nagar, Madhya Pradesh · India</p>
+          </div>
           <div className="flex gap-4 sm:gap-6 text-[10px] sm:text-xs text-slate-500">
             <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>

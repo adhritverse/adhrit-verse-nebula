@@ -1,9 +1,14 @@
 "use client";
 
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BlobBackground from "@/components/BlobBackground";
 import { useState } from "react";
+
+// Note: metadata must be in a separate server component, but we can set it via generateMetadata or a parent.
+// For now, the root layout metadata covers the contact page sufficiently.
+
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -50,14 +55,14 @@ export default function ContactPage() {
       <section className="pt-24 sm:pt-36 pb-8 sm:pb-16 text-left sm:text-center px-6 relative z-10">
         <div className="max-w-3xl mx-0 sm:mx-auto">
           <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-5 sm:mb-6">
-            <i className="fas fa-paper-plane text-primary text-[10px] sm:text-xs"></i>
-            <span className="text-[10px] sm:text-xs font-medium text-slate-300 tracking-wide uppercase">Get In Touch</span>
+            <i className="fas fa-map-marker-alt text-primary text-[10px] sm:text-xs"></i>
+            <span className="text-[10px] sm:text-xs font-medium text-slate-300 tracking-wide uppercase">Vijay Nagar, Indore · MP · India</span>
           </div>
           <h1 className="font-display text-[2rem] sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6 leading-[1.1] sm:leading-tight">
-            Let&apos;s Build the <span className="text-gradient block sm:inline">Future</span> Together
+            Get a <span className="text-gradient block sm:inline">Free Consultation</span> in Indore
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-400 max-w-xl mx-0 sm:mx-auto leading-relaxed px-0">
-            Ready to start your next big project? Reach out to us and let&apos;s discuss how we can help you innovate and scale.
+            Ready to build with Indore&apos;s leading AI-powered tech agency? Tell us about your project — we respond within 24 hours.
           </p>
         </div>
       </section>
@@ -149,10 +154,10 @@ export default function ContactPage() {
             />
             <InfoCard 
               icon="fas fa-map-marker-alt" 
-              title="Our Office" 
-              val="Madhya Pradesh, India" 
-              sub="Expanding globally from the heart of India."
-              link="#"
+              title="Visit Our Office" 
+              val="Vijay Nagar, Indore" 
+              sub="Madhya Pradesh 452010, India. Serving startups across India & globally."
+              link="https://maps.google.com/?q=Vijay+Nagar+Indore+Madhya+Pradesh"
               color="text-secondary bg-secondary/20"
             />
 
@@ -161,7 +166,7 @@ export default function ContactPage() {
               <h3 className="text-white font-bold font-display text-lg sm:text-xl mb-6">Connect with us on Socials</h3>
               <div className="flex gap-3 sm:gap-4 flex-wrap justify-center">
                  <SocialBtn icon="fab fa-linkedin-in" link="https://www.linkedin.com/company/adhritverse" color="hover:bg-blue-600" />
-                 <SocialBtn icon="fab fa-github" link="https://github.com/adhritverse" color="hover:bg-slate-700" />
+                 {/* <SocialBtn icon="fab fa-github" link="https://github.com/adhritverse" color="hover:bg-slate-700" /> */}
                  <SocialBtn icon="fab fa-instagram" link="https://www.instagram.com/adhritverse?igsh=MXgwN2swanRvNmZtYQ==" color="hover:bg-pink-600" />
                  <SocialBtn icon="fab fa-twitter" link="https://twitter.com/adhritverse" color="hover:bg-cyan-500" />
               </div>

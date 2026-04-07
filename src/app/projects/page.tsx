@@ -101,28 +101,28 @@ export default function ProjectsPage() {
       <section className="pt-24 sm:pt-36 pb-8 sm:pb-12 text-left sm:text-center px-6 relative z-10">
         <div className="max-w-3xl mx-0 sm:mx-auto">
           <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-5 sm:mb-6">
-            <i className="fas fa-rocket text-primary text-[10px] sm:text-xs"></i>
-            <span className="text-[10px] sm:text-xs font-medium text-slate-300 tracking-wide uppercase">Our Portfolio</span>
+            <i className="fas fa-map-marker-alt text-primary text-[10px] sm:text-xs"></i>
+            <span className="text-[10px] sm:text-xs font-medium text-slate-300 tracking-wide uppercase">Projects by AdhritVerse · Indore, India</span>
           </div>
           <h1 className="font-display text-[2rem] sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6 leading-[1.1] sm:leading-tight">
-            Innovation <span className="text-gradient block sm:inline">in Action</span>
+            Our <span className="text-gradient block sm:inline">Project Portfolio</span>
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-400 max-w-2xl mx-0 sm:mx-auto leading-relaxed px-0">
-            A curated showcase of projects where we&apos;ve delivered secure, scalable, and impactful digital solutions.
+            AdhritVerse has delivered <strong className="text-slate-200">40+ projects</strong> for startups and enterprises across India — from custom web apps and AI platforms to e-commerce and cybersecurity tools.
           </p>
         </div>
       </section>
 
       <section className="py-6 sm:py-8 px-6 relative z-10">
-        <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-2 sm:gap-3">
+        <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-2 sm:gap-4">
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setFilter(cat.id)}
-              className={`px-4 py-2 sm:px-6 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 transform hover:scale-105 border ${
+              className={`px-5 py-2 sm:px-7 sm:py-3 rounded-full text-xs sm:text-sm font-semibold transition-all duration-500 transform hover:scale-105 border ${
                 filter === cat.id 
-                  ? "bg-gradient-to-r from-primary/30 to-secondary/30 border-primary/50 text-white shadow-[0_0_20px_rgba(59,130,246,0.2)]" 
-                  : "bg-slate-900/60 border-white/5 text-slate-400 hover:border-white/20"
+                  ? "bg-gradient-to-r from-primary to-secondary border-transparent text-white shadow-[0_0_25px_rgba(59,130,246,0.3)]" 
+                  : "bg-white/5 border-white/10 text-slate-400 hover:border-primary/50 hover:text-white backdrop-blur-md"
               }`}
             >
               {cat.label}
@@ -131,42 +131,57 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      <section className="py-10 sm:py-12 px-6 pb-20 sm:pb-24 max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      <section className="py-10 sm:py-16 px-6 pb-20 sm:pb-32 max-w-7xl mx-auto relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
           {filteredProjects.map((project) => (
-            <div key={project.id} className="project-card group mx-auto w-full max-w-[85%] sm:max-w-none">
-              <div className="relative h-36 sm:h-56 overflow-hidden rounded-t-2xl">
+            <div key={project.id} className="project-card group cursor-pointer flex flex-col h-full bg-slate-900/40 backdrop-blur-md rounded-3xl border border-white/5 overflow-hidden transition-all duration-500">
+              <div className="relative h-56 sm:h-64 overflow-hidden">
                 <img 
                   src={project.img} 
                   alt={project.title} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                  className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110 group-hover:rotate-1" 
                 />
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
-                   <div className="flex gap-2 sm:gap-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                      <a href={project.link} target="_blank" className="w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-primary transition-colors">
-                        <i className="fas fa-external-link-alt text-[8px] sm:text-sm"></i>
+                
+                {/* Modern Overlay */}
+                <div className="absolute inset-0 bg-darker/60 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center backdrop-blur-[3px] z-30">
+                   <div className="flex gap-4 transform translate-y-6 group-hover:translate-y-0 transition-all duration-500">
+                      <a href={project.link} target="_blank" className="w-12 h-12 rounded-full bg-primary/20 backdrop-blur-md border border-primary/30 flex items-center justify-center text-white hover:bg-primary hover:scale-110 transition-all shadow-lg">
+                        <i className="fas fa-external-link-alt text-sm"></i>
                       </a>
-                      <a href="#" className="w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-slate-700 transition-colors">
-                        <i className="fab fa-github text-[8px] sm:text-sm"></i>
+                      <a href="#" className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-slate-700 hover:scale-110 transition-all shadow-lg">
+                        <i className="fab fa-github text-sm"></i>
                       </a>
                    </div>
                 </div>
-                <div className="absolute top-2 left-2 sm:top-4 sm:left-4">
-                  <span className="px-2 py-0.5 sm:px-3 sm:py-1 text-[8px] sm:text-[10px] font-bold uppercase tracking-wider rounded-full bg-primary/90 text-white backdrop-blur-md">
+
+                {/* Tag Overlay Bottom Left */}
+                <div className="absolute bottom-4 left-4 z-20 flex flex-wrap gap-2 pr-4">
+                  <span className="px-3 py-1 text-[10px] sm:text-[11px] font-bold uppercase tracking-widest rounded-full bg-primary/90 text-white backdrop-blur-md shadow-lg">
                     {project.type}
                   </span>
                 </div>
+
+                {/* Smooth Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-darker/90 via-darker/20 to-transparent opacity-80 z-10 transition-opacity duration-500 group-hover:opacity-100"></div>
               </div>
-              <div className="p-4 sm:p-8 glass-card border-none rounded-t-none rounded-b-2xl">
-                <h3 className="text-base sm:text-xl font-bold font-display text-white mb-1.5 sm:mb-3 group-hover:text-primary transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-[11px] sm:text-sm text-slate-400 leading-snug sm:leading-relaxed mb-3 sm:mb-6 min-h-0 sm:min-h-[4em]">
+
+              <div className="p-6 sm:p-8 flex flex-col flex-grow relative bg-slate-900/20">
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-xl sm:text-2xl font-bold font-display text-white group-hover:text-primary transition-colors duration-300">
+                    {project.title}
+                  </h3>
+                  <div className="w-8 h-8 rounded-full bg-primary/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                    <i className="fas fa-chevron-right text-[10px] text-slate-500 group-hover:text-primary group-hover:translate-x-0.5 transition-all"></i>
+                  </div>
+                </div>
+                
+                <p className="text-sm text-slate-400 leading-relaxed mb-6 group-hover:text-slate-300 transition-colors duration-300 line-clamp-3">
                   {project.desc}
                 </p>
-                <div className="flex flex-wrap gap-1 sm:gap-2">
+                
+                <div className="mt-auto flex flex-wrap gap-2">
                   {project.tags.map(tag => (
-                    <span key={tag} className="text-[8px] sm:text-[10px] font-medium px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-white/5 border border-white/10 text-slate-300 group-hover:border-primary/20 transition-colors">
+                    <span key={tag} className="tag-pill bg-white/5 border-white/10 text-[10px] sm:text-xs">
                       {tag}
                     </span>
                   ))}
@@ -176,6 +191,7 @@ export default function ProjectsPage() {
           ))}
         </div>
       </section>
+
 
       <Footer />
     </main>
