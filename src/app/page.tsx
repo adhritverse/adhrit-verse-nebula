@@ -6,6 +6,7 @@ import BlobBackground from "@/components/BlobBackground";
 import Link from "next/link";
 import FAQ from "@/components/FAQ";
 import TechStack from "@/components/TechStack";
+import WorkflowVisual from "@/components/WorkflowVisual";
 import { 
   Code, Smartphone, Palette, ShieldCheck, Brain, Cloud, 
   Rocket, Star, Layers, IndianRupee, Trophy, ArrowRight, 
@@ -381,21 +382,14 @@ export default function Home() {
               <span className="text-gradient">Launch</span>
             </h2>
             <p className="text-sm md:text-base text-slate-400 max-w-xl mx-auto leading-relaxed">
-              A proven 5-step process that takes your product from concept to production — securely,
+              A proven <strong className="text-white">6-step process</strong> that takes your product from concept to production — securely,
               on time, and at startup speed.
             </p>
           </div>
 
-          <div className="relative w-full max-w-5xl mx-auto rounded-3xl overflow-hidden glass-card p-6 md:p-10 border-primary/20 hover:border-primary/40 transition-colors duration-500">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 pointer-events-none" aria-hidden="true" />
-            <img
-              src="/workflow.png"
-              alt="AdhritVerse 6-Step Development Workflow: Analysis, Design, Implementation, Quality Assurance, Pre-Launch, Deployment"
-              className="w-full h-auto object-contain drop-shadow-2xl"
-              loading="lazy"
-            />
-          </div>
+          <WorkflowVisual />
 
+          <div className="text-center mt-12 relative z-10">
             <Link
               href="/contact"
               className="btn-primary px-8 py-3.5 rounded-full text-white font-medium text-sm inline-flex items-center gap-2 shadow-[0_10px_30px_rgba(59,130,246,0.3)] hover:shadow-[0_15px_40px_rgba(59,130,246,0.5)] transition-all duration-500"
@@ -404,6 +398,7 @@ export default function Home() {
               <Play size={14} fill="white" />
               Start Your Project
             </Link>
+          </div>
         </div>
       </section>
 
