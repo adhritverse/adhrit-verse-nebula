@@ -221,8 +221,7 @@ export default function CanvasHero() {
 
           {/* Left Content */}
           <div>
-            <div className="flex items-center gap-3 mb-6 group/badge animate-fade-in opacity-0" 
-                 style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
+            <div className="hero-badge flex items-center gap-3 mb-6 group/badge opacity-0 translate-y-[20px]">
               <span className="w-8 h-px bg-primary/50 group-hover/badge:w-12 transition-all duration-500"></span>
               <span className="text-[10px] sm:text-xs font-bold text-slate-400 tracking-[0.2em] uppercase leading-tight">
                 Trusted by Startups & Enterprises
