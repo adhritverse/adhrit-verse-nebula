@@ -13,6 +13,7 @@ import {
   MessageSquare, Compass, GitBranch, CloudUpload, Play, 
   CalendarCheck, Phone, Mail, ExternalLink, Handshake, Globe
 } from "lucide-react";
+import ServicesList from "@/components/ServicesList";
 
 export const metadata: Metadata = {
   title: "AdhritVerse | AI-Powered Startup Tech Partner",
@@ -245,7 +246,7 @@ export default function Home() {
         itemType="https://schema.org/ItemList"
       >
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-14">
+          <div className="text-left md:text-center mb-10 sm:mb-14">
             {/* <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 mb-5">
               <i className="fas fa-map-marker-alt text-primary text-xs" aria-hidden="true" />
               <span className="text-xs font-medium text-slate-300 uppercase tracking-wide">
@@ -254,11 +255,11 @@ export default function Home() {
             </div> */}
             <h2
               id="services-heading"
-              className="font-display text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4"
+              className="font-display text-[22px] sm:text-3xl md:text-5xl font-bold text-white mb-4"
             >
               What We <span className="text-gradient">Deliver</span>
             </h2>
-            <p className="text-sm md:text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-sm md:text-base text-slate-400 max-w-2xl md:mx-auto leading-relaxed">
               From AI-powered web apps to enterprise cybersecurity — AdhritVerse is India&apos;s
               most comprehensive{" "}
               <strong className="text-slate-200">startup tech partner</strong>, not just another digital
@@ -266,13 +267,13 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <ServicesList>
             {SERVICES.map((s, idx) => (
               <ServiceCard key={s.title} index={idx + 1} {...s} />
             ))}
-          </div>
+          </ServicesList>
 
-          <div className="text-center mt-10">
+          <div className="text-center mt-10 hidden sm:block">
             <Link
               href="/services"
               className="btn-outline px-8 py-3.5 rounded-full text-white font-medium text-sm inline-flex items-center gap-2"
@@ -311,7 +312,7 @@ export default function Home() {
               </div>
               <h2
                 id="why-heading"
-                className="font-display text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-5 leading-tight"
+                className="font-display text-[22px] sm:text-3xl md:text-5xl font-bold text-white mb-5 leading-tight"
               >
                 The Ultimate{" "}
                 <span className="text-gradient">Full-Stack</span>{" "}
@@ -363,8 +364,8 @@ export default function Home() {
         aria-labelledby="process-heading"
       >
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-14">
-            <div className="flex items-center justify-center gap-4 mb-6 group/badge">
+          <div className="text-left md:text-center mb-10 sm:mb-14">
+            <div className="flex items-center justify-start md:justify-center gap-4 mb-6 group/badge">
               <span className="w-12 h-px bg-white/10 group-hover/badge:w-20 group-hover/badge:bg-primary/30 transition-all duration-500"></span>
               <div className="flex items-center gap-2 px-1">
                 <Compass size={14} className="text-primary" />
@@ -376,12 +377,12 @@ export default function Home() {
             </div>
             <h2
               id="process-heading"
-              className="font-display text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4"
+              className="font-display text-[22px] sm:text-3xl md:text-5xl font-bold text-white mb-4"
             >
               From Idea to{" "}
               <span className="text-gradient">Launch</span>
             </h2>
-            <p className="text-sm md:text-base text-slate-400 max-w-xl mx-auto leading-relaxed">
+            <p className="text-sm md:text-base text-slate-400 max-w-xl md:mx-auto leading-relaxed">
               A proven <strong className="text-white">6-step process</strong> that takes your product from concept to production — securely,
               on time, and at startup speed.
             </p>
@@ -423,7 +424,7 @@ export default function Home() {
               </div>
               <h2
                 id="projects-heading"
-                className="font-display text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-3"
+                className="font-display text-[22px] sm:text-3xl md:text-5xl font-bold text-white mb-3"
               >
                 Innovation in <span className="text-gradient">Action</span>
               </h2>
@@ -493,7 +494,7 @@ export default function Home() {
             </div> */}
             <h2
               id="testimonials-heading"
-              className="font-display text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4"
+              className="font-display text-[22px] sm:text-3xl md:text-5xl font-bold text-white mb-4"
             >
               Trusted by <span className="text-gradient">Founders</span>
             </h2>
@@ -502,9 +503,14 @@ export default function Home() {
               AdhritVerse as their tech partner.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="flex overflow-x-auto md:grid md:grid-cols-3 gap-4 md:gap-6 pb-6 md:pb-0 snap-x snap-mandatory scrollbar-hide -mx-6 px-6 md:mx-0 md:px-0">
             {TESTIMONIALS.map((t) => (
-              <TestimonialCard key={t.name} {...t} />
+              <div 
+                key={t.name} 
+                className="w-[75vw] md:w-auto shrink-0 snap-center relative transition-transform duration-300 md:hover:-translate-y-2"
+              >
+                <TestimonialCard {...t} />
+              </div>
             ))}
           </div>
         </div>
@@ -516,13 +522,13 @@ export default function Home() {
       {/* ── Final CTA ── */}
       <section
         id="contact"
-        className="py-20 md:py-32 relative z-10 flex flex-col items-center justify-center"
+        className="py-12 md:py-32 relative z-10 flex flex-col items-center justify-center"
         aria-labelledby="cta-heading"
       >
         <div className="max-w-4xl mx-auto px-6 w-full relative">
           <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 blur-3xl -z-10 rounded-full pointer-events-none" />
           <div
-            className="glass-card p-8 sm:p-12 md:p-16 rounded-3xl text-center border-t border-white/20"
+            className="glass-card p-6 sm:p-12 md:p-16 rounded-3xl text-center border-t border-white/20"
             itemScope
             itemType="https://schema.org/LocalBusiness"
           >
@@ -530,42 +536,39 @@ export default function Home() {
             <meta itemProp="telephone" content="+91-8462802086" />
             <meta itemProp="email" content="contact@adhritverse.in" />
 
-            <div className="avail-badge mb-6" aria-label="Currently available for new projects">
+            <div className="avail-badge scale-90 mb-6" aria-label="Currently available for new projects">
               <span className="avail-badge-live" aria-hidden="true" />
               <span className="avail-badge-text">Available for New Projects · Worldwide &amp; Remote</span>
             </div>
 
             <h2
               id="cta-heading"
-              className="font-display text-3xl md:text-5xl font-bold text-white mb-4 sm:mb-6"
+              className="font-display text-2xl md:text-5xl font-bold text-white mb-4 sm:mb-6"
             >
               Let&apos;s Build Something <span className="text-gradient">Great</span>
             </h2>
-            <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed">
+            <p className="text-xs sm:text-base md:text-lg text-slate-300 max-w-2xl mx-auto mb-6 sm:mb-10 leading-relaxed">
               Partner with AdhritVerse — India&apos;s AI-powered startup tech partner. From MVP to
-              scale, we architect your growth.{" "}
-              {/* <strong className="text-white">
-                Based in Vijay Nagar, Indore, serving India &amp; global startups.
-              </strong> */}
+              scale, we architect your growth.
             </p>
 
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 mb-8">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-2.5 sm:gap-4 mb-6 sm:mb-8">
               <Link
                 href="/contact"
                 id="cta-free-consultation"
-                className="btn-primary px-8 sm:px-10 py-3 sm:py-4 rounded-full text-white font-medium w-full sm:w-auto text-sm sm:text-base whitespace-nowrap flex items-center justify-center gap-2"
+                className="btn-primary px-6 sm:px-10 py-2.5 sm:py-4 rounded-full text-white font-medium w-full sm:w-auto text-xs sm:text-base whitespace-nowrap flex items-center justify-center gap-2"
                 aria-label="Get a free consultation from AdhritVerse"
               >
-                <CalendarCheck size={18} />
+                <CalendarCheck className="w-4 h-4 sm:w-[18px] sm:h-[18px]" />
                 Get Free Consultation
               </Link>
               <a
                 href="tel:+918462802086"
                 id="cta-call-now"
-                className="btn-outline px-8 sm:px-10 py-3 sm:py-4 rounded-full text-white font-medium w-full sm:w-auto text-sm sm:text-base whitespace-nowrap flex items-center justify-center gap-2"
+                className="btn-outline px-6 sm:px-10 py-2.5 sm:py-4 rounded-full text-white font-medium w-full sm:w-auto text-xs sm:text-base whitespace-nowrap flex items-center justify-center gap-2"
                 aria-label="Call AdhritVerse now"
               >
-                <Phone size={18} />
+                <Phone className="w-4 h-4 sm:w-[18px] sm:h-[18px]" />
                 Book a Strategy Call
               </a>
             </div>
@@ -618,7 +621,7 @@ function ServiceCard({
 }) {
   return (
     <article
-      className="glass-card p-7 rounded-3xl group cursor-pointer relative overflow-hidden transition-all duration-500"
+      className="glass-card p-4 sm:p-7 rounded-2xl sm:rounded-3xl group cursor-pointer relative overflow-hidden transition-all duration-500"
       itemScope
       itemType="https://schema.org/Service"
       itemProp="itemListElement"
@@ -629,31 +632,35 @@ function ServiceCard({
         style={{ background: glow }}
         aria-hidden="true"
       />
-      <div
-        className={`w-14 h-14 rounded-2xl ${bg} flex items-center justify-center ${color} mb-5 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-xl border border-white/5`}
-        aria-hidden="true"
-      >
-        <Icon size={24} strokeWidth={1.5} />
+      
+      <div className="flex items-center gap-3 sm:block mb-3 sm:mb-0">
+        <div
+          className={`w-10 h-10 shrink-0 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl ${bg} flex items-center justify-center ${color} sm:mb-5 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-xl border border-white/5`}
+          aria-hidden="true"
+        >
+          <Icon className="w-5 h-5 sm:w-6 sm:h-6" strokeWidth={1.5} />
+        </div>
+        <h3
+          className="text-base sm:text-lg font-bold text-white group-hover:text-primary transition-colors duration-300 sm:mb-2"
+          itemProp="name"
+        >
+          {title}
+        </h3>
       </div>
-      <h3
-        className="text-lg font-bold text-white mb-2 group-hover:text-primary transition-colors duration-300"
-        itemProp="name"
-      >
-        {title}
-      </h3>
+      
       <p
-        className="text-slate-400 text-sm mb-5 leading-relaxed line-clamp-3 group-hover:text-slate-200 transition-colors duration-300"
+        className="text-slate-400 text-xs sm:text-sm mb-4 sm:mb-5 leading-relaxed line-clamp-3 group-hover:text-slate-200 transition-colors duration-300"
         itemProp="description"
       >
         {desc}
       </p>
       <Link
         href={`/services#${slug}`}
-        className={`${color} group-hover:translate-x-2 font-semibold text-sm flex items-center gap-2 transition-all duration-300`}
+        className={`${color} group-hover:translate-x-2 font-semibold text-xs sm:text-sm flex items-center gap-2 transition-all duration-300`}
         itemProp="url"
         aria-label={`Learn more about ${title} at AdhritVerse`}
       >
-        Explore Service <ArrowRight size={14} />
+        Explore Service <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
       </Link>
     </article>
   );
@@ -677,7 +684,7 @@ function ProjectCard({
         aria-label={`View ${title} project by AdhritVerse`}
         itemProp="url"
       >
-        <div className="h-56 bg-slate-800 relative overflow-hidden rounded-t-[1.5rem]">
+        <div className="h-44 sm:h-56 bg-slate-800 relative overflow-hidden rounded-t-[1.25rem] sm:rounded-t-[1.5rem]">
           <img
             src={img}
             alt={`${title} – AdhritVerse Project`}
@@ -686,31 +693,31 @@ function ProjectCard({
             itemProp="image"
           />
           <div className="absolute inset-0 bg-darker/60 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center backdrop-blur-[2px] z-20">
-            <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-              <ExternalLink size={20} className="text-white" />
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+              <ExternalLink className="text-white w-4 h-4 sm:w-5 sm:h-5" />
             </div>
           </div>
           <div className="absolute inset-0 bg-gradient-to-t from-darker/90 via-darker/40 to-transparent opacity-80 z-10" />
-          <div className="absolute bottom-4 left-4 flex flex-wrap gap-2 pr-4 z-20">
+          <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 flex flex-wrap gap-1.5 sm:gap-2 pr-3 sm:pr-4 z-20">
             {tags.map((tag) => (
-              <span key={tag} className="tag-pill">{tag}</span>
+              <span key={tag} className="tag-pill text-[10px] sm:text-xs px-2 py-1 sm:px-3 sm:py-1.5">{tag}</span>
             ))}
           </div>
         </div>
-        <div className="p-6 relative">
-          <div className="flex items-center justify-between mb-2">
+        <div className="p-4 sm:p-6 relative rounded-b-[1.25rem] sm:rounded-b-[1.5rem]">
+          <div className="flex items-center justify-between mb-1.5 sm:mb-2">
             <h3
-              className="text-xl font-bold text-white group-hover:text-primary transition-colors duration-300"
+              className="text-lg sm:text-xl font-bold text-white group-hover:text-primary transition-colors duration-300"
               itemProp="name"
             >
               {title}
             </h3>
-            <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <ArrowRight size={12} className="text-primary" />
+            <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-primary/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <ArrowRight className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-primary" />
             </div>
           </div>
           <p
-            className="text-sm text-slate-400 leading-relaxed group-hover:text-slate-300 transition-colors duration-300 line-clamp-2"
+            className="text-xs sm:text-sm text-slate-400 leading-relaxed group-hover:text-slate-300 transition-colors duration-300 line-clamp-2"
             itemProp="description"
           >
             {desc}
@@ -728,58 +735,66 @@ function TestimonialCard({
 }) {
   return (
     <article
-      className="glass-card p-8 rounded-3xl flex flex-col gap-5 group hover:border-primary/20 transition-all duration-500"
+      className="glass-card bg-slate-900/95 p-5 sm:p-8 rounded-2xl sm:rounded-3xl flex flex-col gap-4 group hover:border-primary/20 transition-all duration-500 shadow-[0_8px_30px_rgb(0,0,0,0.5)] sm:shadow-none relative overflow-hidden h-full"
       itemScope
       itemType="https://schema.org/Review"
     >
-      {/* Rating */}
-      <div
-        className="flex gap-1"
-        itemProp="reviewRating"
-        itemScope
-        itemType="https://schema.org/Rating"
-      >
-        <meta itemProp="ratingValue" content={String(rating)} />
-        <meta itemProp="bestRating" content="5" />
-        {Array.from({ length: rating }).map((_, i) => (
-          <Star key={i} size={14} className="fill-amber-400 text-amber-400" />
-        ))}
-        <span className="sr-only">{rating} out of 5 stars</span>
+      {/* Decorative Quote */}
+      <div className="absolute top-2 right-4 text-[80px] font-serif text-white/[0.03] leading-none pointer-events-none select-none z-0 mix-blend-screen">
+        &rdquo;
       </div>
 
-      {/* Quote */}
-      <blockquote
-        className="text-sm text-slate-300 leading-relaxed italic flex-1"
-        itemProp="reviewBody"
-      >
-        &ldquo;{quote}&rdquo;
-      </blockquote>
-
-      {/* Author */}
-      <div
-        className="flex items-center gap-3 mt-auto border-t border-white/5 pt-4"
-        itemProp="author"
-        itemScope
-        itemType="https://schema.org/Person"
-      >
-        <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-base shrink-0" aria-hidden="true">
-          {name[0]}
-        </div>
-        <div>
-          <div className="text-white font-semibold text-sm" itemProp="name">{name}</div>
-          <div className="text-slate-500 text-xs">
-            <span itemProp="jobTitle">{role}</span>
-            {" · "}
-            <span itemProp="addressLocality">{location}</span>
-          </div>
-        </div>
-        <time
-          dateTime={date}
-          className="ml-auto text-[10px] text-slate-600 font-mono"
-          itemProp="datePublished"
+      <div className="relative z-10 flex flex-col h-full gap-4">
+        {/* Rating */}
+        <div
+          className="flex gap-1"
+          itemProp="reviewRating"
+          itemScope
+          itemType="https://schema.org/Rating"
         >
-          {date}
-        </time>
+          <meta itemProp="ratingValue" content={String(rating)} />
+          <meta itemProp="bestRating" content="5" />
+          {Array.from({ length: rating }).map((_, i) => (
+            <Star key={i} className="fill-amber-400 text-amber-400 w-3 h-3 sm:w-3.5 sm:h-3.5" />
+          ))}
+          <span className="sr-only">{rating} out of 5 stars</span>
+        </div>
+
+        {/* Quote */}
+        <blockquote
+          className="text-xs sm:text-sm text-slate-300 leading-relaxed italic flex-1"
+          itemProp="reviewBody"
+        >
+          &ldquo;{quote}&rdquo;
+        </blockquote>
+
+        {/* Author */}
+        <div
+          className="flex items-center gap-3 mt-auto border-t border-white/5 pt-3 sm:pt-4"
+          itemProp="author"
+          itemScope
+          itemType="https://schema.org/Person"
+        >
+          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-[10px] sm:text-base shrink-0" aria-hidden="true">
+            {name[0]}
+          </div>
+          <div className="leading-tight">
+            <div className="text-white font-semibold text-[11px] sm:text-sm" itemProp="name">{name}</div>
+            <div className="text-slate-500 text-[9px] sm:text-xs">
+              <span itemProp="jobTitle">{role}</span>
+              <span className="hidden sm:inline">{" · "}</span>
+              <span className="sm:hidden text-[8px] mx-0.5">•</span>
+              <span itemProp="addressLocality">{location}</span>
+            </div>
+          </div>
+          <time
+            dateTime={date}
+            className="ml-auto text-[10px] text-slate-600 font-mono hidden sm:block"
+            itemProp="datePublished"
+          >
+            {date}
+          </time>
+        </div>
       </div>
     </article>
   );

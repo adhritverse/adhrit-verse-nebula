@@ -94,6 +94,7 @@ export default function FAQ() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [showAllItems, setShowAllItems] = useState(false);
 
   const filtered = useMemo(() => {
     return FAQ_DATA.filter((item) => {
@@ -124,16 +125,16 @@ export default function FAQ() {
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 relative">
         {/* Header */}
-        <div className="text-center mb-10 md:mb-14">
+        <div className="text-left md:text-center mb-10 md:mb-14">
           <div className="faq-badge mb-5">
             <span className="faq-badge-dot" />
             <span className="faq-badge-text">FAQ · Quick Answers</span>
           </div>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+          <h2 className="font-display text-[22px] sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
             Frequently Asked{" "}
             <span className="text-gradient">Questions</span>
           </h2>
-          <p className="text-sm md:text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm md:text-base text-slate-400 max-w-2xl md:mx-auto leading-relaxed">
             Everything you need to know about AdhritVerse — India&apos;s leading AI-powered tech agency.
             Can&apos;t find your answer?{" "}
             <a
@@ -232,13 +233,15 @@ export default function FAQ() {
         <div className="space-y-3" role="list">
           {filtered.map((item, i) => {
             const isOpen = openIndex === i;
+            const isHiddenMobile = !showAllItems && i >= 3;
+            
             return (
               <div
                 key={`${item.category}-${i}`}
                 role="listitem"
                 itemScope
                 itemType="https://schema.org/Question"
-                className={`faq-item rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen
+                className={`faq-item rounded-2xl border transition-all duration-300 overflow-hidden ${isHiddenMobile ? "hidden sm:block" : "block"} ${isOpen
                     ? "border-primary/40 bg-primary/5 shadow-[0_0_30px_rgba(59,130,246,0.12)]"
                     : "border-white/6 bg-slate-900/50 hover:border-white/15 hover:bg-slate-800/40"
                   }`}
@@ -323,6 +326,18 @@ export default function FAQ() {
             );
           })}
         </div>
+        
+        {/* Load More Button for Mobile */}
+        {!showAllItems && filtered.length > 3 && (
+          <div className="text-center mt-8 sm:hidden px-4">
+            <button
+              onClick={() => setShowAllItems(true)}
+              className="w-full bg-slate-800/80 hover:bg-slate-800 border border-white/10 text-white rounded-2xl py-4 flex items-center justify-center gap-2 font-semibold text-sm transition-all active:scale-[0.98]"
+            >
+              Load More Questions <i className="fas fa-chevron-down text-[10px]" />
+            </button>
+          </div>
+        )}
 
         {/* Bottom CTA */}
         {filtered.length > 0 && (

@@ -283,13 +283,7 @@ export default function CanvasHero() {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
-        <Link href="#services" className="flex flex-col items-center gap-1 text-slate-500 hover:text-white transition-colors">
-          <span className="text-xs tracking-widest uppercase">Scroll</span>
-          <i className="fas fa-chevron-down text-base"></i>
-        </Link>
-      </div>
+
 
       <style jsx>{`
         .hero-tag {

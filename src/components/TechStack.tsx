@@ -98,10 +98,10 @@ export default function TechStack() {
               <div className="w-8 h-px bg-primary"></div>
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Technical Arsenal</span>
             </div>
-            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+            <h2 className="font-display text-[22px] sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
               Technologies We <span className="text-gradient">Master</span>
             </h2>
-            <p className="text-slate-400 text-lg leading-relaxed">
+            <p className="text-slate-400 text-sm md:text-xl leading-relaxed">
               We leverage the most advanced stacks to build secure, scalable, and high-performance digital ecosystems for the next generation of startups.
             </p>
           </div>
