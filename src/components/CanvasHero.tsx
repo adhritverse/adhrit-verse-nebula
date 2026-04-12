@@ -56,12 +56,12 @@ export default function CanvasHero() {
       document.querySelectorAll(".stat-num").forEach((el) => {
         const target = parseInt(el.getAttribute("data-target") || "0");
         gsap.fromTo(el, { textContent: 0 }, {
-            textContent: target, duration: 2, ease: 'power2.out', delay: 1.5,
-            snap: { textContent: 1 },
-            onUpdate() { el.textContent = Math.round(Number(el.textContent)) + '+'; }
+          textContent: target, duration: 2, ease: 'power2.out', delay: 1.5,
+          snap: { textContent: 1 },
+          onUpdate() { el.textContent = Math.round(Number(el.textContent)) + '+'; }
         });
       });
-      
+
     }, containerRef);
 
     return () => ctx.revert();
@@ -77,7 +77,7 @@ export default function CanvasHero() {
     let W = 0, H = 0;
     let particles: Particle[] = [];
     let mouse = { x: -9999, y: -9999 };
-    const COLORS = ['#3b82f6','#8b5cf6','#06b6d4','#ec4899','#10b981'];
+    const COLORS = ['#3b82f6', '#8b5cf6', '#06b6d4', '#ec4899', '#10b981'];
     const NUM = 90, CONN_DIST = 130, MOUSE_DIST = 160;
     let animationFrameId: number;
 
@@ -91,14 +91,14 @@ export default function CanvasHero() {
       mouse.x = e.clientX - r.left;
       mouse.y = e.clientY - r.top;
     };
-    
+
     const handleMouseLeave = () => {
       mouse.x = -9999;
       mouse.y = -9999;
     };
 
     window.addEventListener("resize", resize);
-    if(canvas.parentElement) {
+    if (canvas.parentElement) {
       canvas.parentElement.addEventListener('mousemove', handleMouseMove);
       canvas.parentElement.addEventListener('mouseleave', handleMouseLeave);
     }
@@ -121,11 +121,11 @@ export default function CanvasHero() {
 
         // Mouse repulsion
         const dx = this.x - mouse.x, dy = this.y - mouse.y;
-        const d = Math.sqrt(dx*dx + dy*dy);
+        const d = Math.sqrt(dx * dx + dy * dy);
         if (d < MOUSE_DIST) {
-            const force = (MOUSE_DIST - d) / MOUSE_DIST * 2;
-            this.x += (dx / d) * force;
-            this.y += (dy / d) * force;
+          const force = (MOUSE_DIST - d) / MOUSE_DIST * 2;
+          this.x += (dx / d) * force;
+          this.y += (dy / d) * force;
         }
 
         // Wrap around boundaries
@@ -135,25 +135,25 @@ export default function CanvasHero() {
     }
 
     function drawHexGrid() {
-        ctx!.strokeStyle = 'rgba(59,130,246,0.025)';
-        ctx!.lineWidth = 1;
-        const size = 40;
-        const cols = Math.ceil(W / (size * 1.5)) + 2;
-        const rows = Math.ceil(H / (size * Math.sqrt(3))) + 2;
-        for (let r = -1; r < rows; r++) {
-            for (let c = -1; c < cols; c++) {
-                const x = c * size * 1.5;
-                const y = r * size * Math.sqrt(3) + (c % 2 === 0 ? 0 : size * Math.sqrt(3) / 2);
-                ctx!.beginPath();
-                for (let i = 0; i < 6; i++) {
-                    const angle = Math.PI / 180 * (60 * i - 30);
-                    const hx = x + size * Math.cos(angle);
-                    const hy = y + size * Math.sin(angle);
-                    i === 0 ? ctx!.moveTo(hx, hy) : ctx!.lineTo(hx, hy);
-                }
-                ctx!.closePath(); ctx!.stroke();
-            }
+      ctx!.strokeStyle = 'rgba(59,130,246,0.025)';
+      ctx!.lineWidth = 1;
+      const size = 40;
+      const cols = Math.ceil(W / (size * 1.5)) + 2;
+      const rows = Math.ceil(H / (size * Math.sqrt(3))) + 2;
+      for (let r = -1; r < rows; r++) {
+        for (let c = -1; c < cols; c++) {
+          const x = c * size * 1.5;
+          const y = r * size * Math.sqrt(3) + (c % 2 === 0 ? 0 : size * Math.sqrt(3) / 2);
+          ctx!.beginPath();
+          for (let i = 0; i < 6; i++) {
+            const angle = Math.PI / 180 * (60 * i - 30);
+            const hx = x + size * Math.cos(angle);
+            const hy = y + size * Math.sin(angle);
+            i === 0 ? ctx!.moveTo(hx, hy) : ctx!.lineTo(hx, hy);
+          }
+          ctx!.closePath(); ctx!.stroke();
         }
+      }
     }
 
     const init = () => {
@@ -167,20 +167,20 @@ export default function CanvasHero() {
 
       // Draw connections
       for (let i = 0; i < particles.length; i++) {
-          for (let j = i + 1; j < particles.length; j++) {
-              const dx = particles[i].x - particles[j].x;
-              const dy = particles[i].y - particles[j].y;
-              const d = Math.sqrt(dx*dx + dy*dy);
-              if (d < CONN_DIST) {
-                  const alpha = (1 - d / CONN_DIST) * 0.35;
-                  ctx!.beginPath();
-                  ctx!.strokeStyle = `rgba(99,102,241,${alpha})`;
-                  ctx!.lineWidth = 0.8;
-                  ctx!.moveTo(particles[i].x, particles[i].y);
-                  ctx!.lineTo(particles[j].x, particles[j].y);
-                  ctx!.stroke();
-              }
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < CONN_DIST) {
+            const alpha = (1 - d / CONN_DIST) * 0.35;
+            ctx!.beginPath();
+            ctx!.strokeStyle = `rgba(99,102,241,${alpha})`;
+            ctx!.lineWidth = 0.8;
+            ctx!.moveTo(particles[i].x, particles[i].y);
+            ctx!.lineTo(particles[j].x, particles[j].y);
+            ctx!.stroke();
           }
+        }
       }
 
       particles.forEach((p) => {
@@ -202,7 +202,7 @@ export default function CanvasHero() {
     return () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener("resize", resize);
-      if(canvas.parentElement) {
+      if (canvas.parentElement) {
         canvas.parentElement.removeEventListener('mousemove', handleMouseMove);
         canvas.parentElement.removeEventListener('mouseleave', handleMouseLeave);
       }
@@ -212,7 +212,7 @@ export default function CanvasHero() {
   return (
     <section ref={containerRef} id="home" className="relative flex items-center pt-24 pb-16 overflow-hidden min-h-[calc(100vh-0px)]">
       <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none w-full h-full" />
-      
+
       {/* Decorative tags */}
       <div className="hero-tag hidden xl:flex items-center gap-2 absolute top-[20%] right-[8%] animate-[floatTag_4s_ease-in-out_infinite]" style={{ animationDelay: '0.8s' }}>
         AI Integration
@@ -224,12 +224,15 @@ export default function CanvasHero() {
 
       <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          
+
           {/* Left Content */}
           <div>
-            <div className="hero-badge inline-flex items-start sm:items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full mb-5 opacity-0 translate-y-[20px] max-w-full" style={{background:'rgba(59,130,246,0.1)', border:'1px solid rgba(59,130,246,0.25)'}}>
-              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-primary animate-pulse shrink-0 mt-1 sm:mt-0"></span>
-              <span className="text-[10px] sm:text-xs font-semibold text-blue-300 tracking-[0.1em] sm:tracking-widest uppercase leading-tight text-left sm:text-center">Trusted by Startups &amp; Enterprises</span>
+            <div className="flex items-center gap-3 mb-6 group/badge animate-fade-in opacity-0" 
+                 style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
+              <span className="w-8 h-px bg-primary/50 group-hover/badge:w-12 transition-all duration-500"></span>
+              <span className="text-[10px] sm:text-xs font-bold text-slate-400 tracking-[0.2em] uppercase leading-tight">
+                Trusted by Startups & Enterprises
+              </span>
             </div>
 
             <h1 className="font-display text-[2.5rem] leading-[1.08] sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-5">
@@ -262,11 +265,11 @@ export default function CanvasHero() {
             </div>
 
             <div className="hero-btns opacity-0 translate-y-[30px] grid grid-cols-2 gap-3">
-              <div className="text-center p-3 rounded-xl" style={{background:'rgba(15,23,42,0.6)', border:'1px solid rgba(255,255,255,0.06)'}}>
+              <div className="text-center p-3 rounded-xl" style={{ background: 'rgba(15,23,42,0.6)', border: '1px solid rgba(255,255,255,0.06)' }}>
                 <div className="font-display text-xl sm:text-2xl font-bold text-white stat-num font-[tabular-nums]" data-target="40">0</div>
                 <div className="text-[10px] sm:text-xs text-slate-400 mt-1">Projects Delivered</div>
               </div>
-              <div className="text-center p-3 rounded-xl" style={{background:'rgba(15,23,42,0.6)', border:'1px solid rgba(255,255,255,0.06)'}}>
+              <div className="text-center p-3 rounded-xl" style={{ background: 'rgba(15,23,42,0.6)', border: '1px solid rgba(255,255,255,0.06)' }}>
                 <div className="font-display text-xl sm:text-2xl font-bold text-white">100<span className="text-primary text-sm sm:text-base">%</span></div>
                 <div className="text-[10px] sm:text-xs text-slate-400 mt-1">Client Focused</div>
               </div>
@@ -279,16 +282,16 @@ export default function CanvasHero() {
           </div>
         </div>
       </div>
-      
+
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
-          <Link href="#services" className="flex flex-col items-center gap-1 text-slate-500 hover:text-white transition-colors">
-              <span className="text-xs tracking-widest uppercase">Scroll</span>
-              <i className="fas fa-chevron-down text-base"></i>
-          </Link>
+        <Link href="#services" className="flex flex-col items-center gap-1 text-slate-500 hover:text-white transition-colors">
+          <span className="text-xs tracking-widest uppercase">Scroll</span>
+          <i className="fas fa-chevron-down text-base"></i>
+        </Link>
       </div>
 
-       <style jsx>{`
+      <style jsx>{`
         .hero-tag {
           padding: 6px 14px;
           border-radius: 999px;
@@ -348,55 +351,55 @@ function OrbitalSystem() {
 
   return (
     <div className="relative flex items-center justify-center w-[520px] h-[520px] pointer-events-auto" style={{ perspective: '1200px' }}>
-      
+
       {/* 3D Plane Wrapper */}
       <div className="absolute inset-0 flex items-center justify-center" style={{ transform: 'rotateX(60deg)', transformStyle: 'preserve-3d' }}>
-        
+
         {/* Center Shield logo - counter rotated to face camera */}
         <div className="absolute z-20 flex items-center justify-center w-[110px] h-[110px] rounded-full bg-slate-900/60 backdrop-blur-xl border border-white/10 shadow-[0_0_50px_rgba(59,130,246,0.25)] group cursor-pointer transition-all hover:scale-105 duration-500"
-             style={{ transform: 'translateZ(40px) rotateX(-60deg)', transformStyle: 'preserve-3d' }}>
+          style={{ transform: 'translateZ(40px) rotateX(-60deg)', transformStyle: 'preserve-3d' }}>
           <div className="absolute inset-0 rounded-full border border-blue-500/30 animate-ping" style={{ animationDuration: '3s' }}></div>
           <div className="absolute inset-[-10px] rounded-full border border-blue-400/10 animate-spin" style={{ animationDuration: '10s' }}></div>
           <img src="/logo.png" alt="AdhritVerse Base Core" className="w-[60px] h-[60px] object-contain z-10 drop-shadow-[0_0_15px_rgba(255,255,255,0.6)] group-hover:drop-shadow-[0_0_25px_rgba(255,255,255,0.8)] transition-all duration-500" />
         </div>
 
-      {/* Orbits */}
-      {orbits.map((o) => (
-        <div key={o.id} className="absolute top-1/2 left-1/2 rounded-full border border-slate-600/30 shadow-[inset_0_0_20px_rgba(255,255,255,0.01)]"
-             style={{
-               width: o.radius * 2, height: o.radius * 2,
-               marginLeft: -o.radius, marginTop: -o.radius,
-               transformStyle: 'preserve-3d',
-               animation: `orbital-spin ${o.duration}s linear infinite ${o.reverse ? 'reverse' : 'normal'}`
-             }}>
-          {o.icons.map((item, idx) => {
-            const angle = (360 / o.icons.length) * idx;
-            return (
-              <div key={idx} className="absolute top-1/2 left-1/2 w-0 h-0" style={{ transform: `rotateZ(${angle}deg) translateX(${o.radius}px)`, transformStyle: 'preserve-3d' }}>
-                <div className="absolute flex items-center justify-center"
-                     style={{
-                       width: 48, height: 48, left: -24, top: -24,
-                       transformStyle: 'preserve-3d',
-                       animation: `orbital-spin ${o.duration}s linear infinite ${o.reverse ? 'normal' : 'reverse'}`
-                     }}>
-                  <div style={{ transform: `rotateZ(-${angle}deg) rotateX(-60deg)` }} className="w-full h-full flex flex-col items-center justify-center group/icon">
-                    <div className="relative w-[48px] h-[48px] rounded-full flex items-center justify-center text-[20px] transition-all duration-300 group-hover/icon:scale-125 group-hover/icon:shadow-[0_0_30px_var(--icon-bg)] cursor-pointer overflow-hidden"
-                         style={{ '--icon-bg': item.color, background: `radial-gradient(circle at 30% 30%, ${item.color}50, rgba(10,15,30,0.95))`, color: item.color, border: `1px solid ${item.color}40`, boxShadow: `inset -3px -3px 8px rgba(0,0,0,0.6), inset 2px 2px 6px rgba(255,255,255,0.2), 0 0 15px ${item.bg}` } as any}>
-                      {/* Glass sphere glare effect */}
-                      <div className="absolute top-[3px] left-[8px] w-[18px] h-[8px] bg-white/30 rounded-full rotate-[-40deg] blur-[0.5px]"></div>
-                      <i className={`fas ${item.icon} relative z-10 drop-shadow-[0_0_8px_currentColor]`}></i>
-                    </div>
-                    {/* Hover Label */}
-                    <div className="absolute top-[55px] px-2.5 py-1 bg-slate-900/90 backdrop-blur-sm border border-slate-600/50 rounded-md text-[10px] uppercase font-bold tracking-widest whitespace-nowrap opacity-0 group-hover/icon:opacity-100 group-hover/icon:-translate-y-1 transition-all duration-300 pointer-events-none z-30" style={{ color: item.color, boxShadow: `0 4px 12px ${item.bg}` }}>
-                      {item.label}
+        {/* Orbits */}
+        {orbits.map((o) => (
+          <div key={o.id} className="absolute top-1/2 left-1/2 rounded-full border border-slate-600/30 shadow-[inset_0_0_20px_rgba(255,255,255,0.01)]"
+            style={{
+              width: o.radius * 2, height: o.radius * 2,
+              marginLeft: -o.radius, marginTop: -o.radius,
+              transformStyle: 'preserve-3d',
+              animation: `orbital-spin ${o.duration}s linear infinite ${o.reverse ? 'reverse' : 'normal'}`
+            }}>
+            {o.icons.map((item, idx) => {
+              const angle = (360 / o.icons.length) * idx;
+              return (
+                <div key={idx} className="absolute top-1/2 left-1/2 w-0 h-0" style={{ transform: `rotateZ(${angle}deg) translateX(${o.radius}px)`, transformStyle: 'preserve-3d' }}>
+                  <div className="absolute flex items-center justify-center"
+                    style={{
+                      width: 48, height: 48, left: -24, top: -24,
+                      transformStyle: 'preserve-3d',
+                      animation: `orbital-spin ${o.duration}s linear infinite ${o.reverse ? 'normal' : 'reverse'}`
+                    }}>
+                    <div style={{ transform: `rotateZ(-${angle}deg) rotateX(-60deg)` }} className="w-full h-full flex flex-col items-center justify-center group/icon">
+                      <div className="relative w-[48px] h-[48px] rounded-full flex items-center justify-center text-[20px] transition-all duration-300 group-hover/icon:scale-125 group-hover/icon:shadow-[0_0_30px_var(--icon-bg)] cursor-pointer overflow-hidden"
+                        style={{ '--icon-bg': item.color, background: `radial-gradient(circle at 30% 30%, ${item.color}50, rgba(10,15,30,0.95))`, color: item.color, border: `1px solid ${item.color}40`, boxShadow: `inset -3px -3px 8px rgba(0,0,0,0.6), inset 2px 2px 6px rgba(255,255,255,0.2), 0 0 15px ${item.bg}` } as any}>
+                        {/* Glass sphere glare effect */}
+                        <div className="absolute top-[3px] left-[8px] w-[18px] h-[8px] bg-white/30 rounded-full rotate-[-40deg] blur-[0.5px]"></div>
+                        <i className={`fas ${item.icon} relative z-10 drop-shadow-[0_0_8px_currentColor]`}></i>
+                      </div>
+                      {/* Hover Label */}
+                      <div className="absolute top-[55px] px-2.5 py-1 bg-slate-900/90 backdrop-blur-sm border border-slate-600/50 rounded-md text-[10px] uppercase font-bold tracking-widest whitespace-nowrap opacity-0 group-hover/icon:opacity-100 group-hover/icon:-translate-y-1 transition-all duration-300 pointer-events-none z-30" style={{ color: item.color, boxShadow: `0 4px 12px ${item.bg}` }}>
+                        {item.label}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
-      ))}
+              );
+            })}
+          </div>
+        ))}
       </div>
     </div>
   );

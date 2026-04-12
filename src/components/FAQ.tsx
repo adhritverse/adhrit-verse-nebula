@@ -13,34 +13,34 @@ const FAQ_DATA: FAQItem[] = [
   {
     category: "About Us",
     q: "What is AdhritVerse?",
-    a: "AdhritVerse (also known as AV Technologies) is an AI-powered tech consultancy and startup growth partner based in Vijay Nagar, Indore, Madhya Pradesh. Founded by Hritik Jaiswal, we specialize in web development, mobile app development, cybersecurity, AI/ML solutions, and cloud DevOps services for startups and enterprises across India.",
+    a: "AdhritVerse (also known as AV Technologies) is an AI-powered tech consultancy and startup growth partner. Founded by Hritik Jaiswal, we specialize in web development, mobile app development, cybersecurity, AI/ML solutions, and cloud DevOps services for startups and enterprises across India.",
   },
   {
     category: "About Us",
-    q: "Is AdhritVerse the best tech agency in Indore?",
-    a: "AdhritVerse is recognized as one of Indore's leading tech agencies, specializing in AI-powered solutions and cybersecurity — areas where most Indore agencies lack depth. We serve clients from Indore, across India, and globally, with projects ranging from ₹50K to ₹10L+.",
+    q: "Is AdhritVerse one of the best tech agencies in India?",
+    a: "AdhritVerse is recognized as one of India's leading tech agencies, specializing in AI-powered solutions and cybersecurity — areas where most agencies lack depth. We serve clients across India and globally, with projects ranging from ₹50K to ₹10L+.",
   },
   {
     category: "About Us",
     q: "Where is AdhritVerse located?",
-    a: "AdhritVerse is headquartered in Vijay Nagar, Indore, Madhya Pradesh, India — one of India's fastest-growing tech hubs. We serve clients locally in Indore and remotely across India and globally.",
+    a: "AdhritVerse is headquartered in India. We work with clients remotely across India and globally, delivering world-class tech solutions regardless of location.",
   },
   {
     category: "About Us",
     q: "Who founded AdhritVerse?",
-    a: "AdhritVerse was founded by Hritik Jaiswal, a tech entrepreneur and cybersecurity expert based in Indore. The agency was built with the vision of becoming India's most trusted AI-powered startup tech partner.",
+    a: "AdhritVerse was founded by Hritik Jaiswal, a tech entrepreneur and cybersecurity expert. The agency was built with the vision of becoming India's most trusted AI-powered startup tech partner.",
   },
 
   // Services
   {
     category: "Services",
-    q: "What services does AdhritVerse offer in Indore?",
-    a: "AdhritVerse offers: Web Development (MERN, Next.js), Mobile App Development (Flutter, React Native), UI/UX Design, Cybersecurity & Ethical Hacking (VAPT), AI/ML Solutions, and Cloud & DevOps (AWS, Azure, GCP). All services are available to businesses in Indore, MP, and remotely across India.",
+    q: "What services does AdhritVerse offer?",
+    a: "AdhritVerse offers: Web Development (MERN, Next.js), Mobile App Development (Flutter, React Native), UI/UX Design, Cybersecurity & Ethical Hacking (VAPT), AI/ML Solutions, and Cloud & DevOps (AWS, Azure, GCP). All services are available to businesses remotely across India and globally.",
   },
   {
     category: "Services",
     q: "Does AdhritVerse offer cybersecurity services?",
-    a: "Yes. AdhritVerse provides full-stack cybersecurity services including Vulnerability Assessment & Penetration Testing (VAPT), ethical hacking audits, threat modeling, and security architecture consulting. This is a core differentiator — we're one of the very few agencies in Indore with deep cybersecurity expertise.",
+    a: "Yes. AdhritVerse provides full-stack cybersecurity services including Vulnerability Assessment & Penetration Testing (VAPT), ethical hacking audits, threat modeling, and security architecture consulting. This is a core differentiator — we're one of the very few agencies in India with deep cybersecurity expertise.",
   },
   {
     category: "Services",
@@ -57,7 +57,7 @@ const FAQ_DATA: FAQItem[] = [
   {
     category: "Pricing",
     q: "How much does a website or app cost at AdhritVerse?",
-    a: "Project pricing at AdhritVerse starts at ₹50,000 for a professional website. Mobile apps begin at ₹1.5L, and enterprise/AI solutions start at ₹3L. We offer flexible packages tailored for startups and SMEs in Indore. Contact us for a free consultation and custom quote.",
+    a: "Project pricing at AdhritVerse starts at ₹50,000 for a professional website. Mobile apps begin at ₹1.5L, and enterprise/AI solutions start at ₹3L. We offer flexible packages tailored for startups and SMEs across India. Contact us for a free consultation and custom quote.",
   },
   {
     category: "Pricing",
@@ -83,7 +83,7 @@ const FAQ_DATA: FAQItem[] = [
   },
   {
     category: "For Startups",
-    q: "What makes AdhritVerse different from other Indore agencies?",
+    q: "What makes AdhritVerse different from other agencies?",
     a: "Three key differentiators: (1) We combine AI, cybersecurity, and full-stack engineering under one roof — most agencies only do web/app. (2) We treat clients as co-founders, not just buyers — deep involvement in product strategy. (3) We have real startup experience and understand growth, not just code.",
   },
 ];
@@ -125,18 +125,16 @@ export default function FAQ() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 relative">
         {/* Header */}
         <div className="text-center mb-10 md:mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-5">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-            <span className="text-xs font-semibold text-primary uppercase tracking-widest">
-              FAQ · Quick Answers
-            </span>
+          <div className="faq-badge mb-5">
+            <span className="faq-badge-dot" />
+            <span className="faq-badge-text">FAQ · Quick Answers</span>
           </div>
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
             Frequently Asked{" "}
             <span className="text-gradient">Questions</span>
           </h2>
           <p className="text-sm md:text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Everything you need to know about AdhritVerse — Indore&apos;s leading AI-powered tech agency.
+            Everything you need to know about AdhritVerse — India&apos;s leading AI-powered tech agency.
             Can&apos;t find your answer?{" "}
             <a
               href="/contact"
@@ -191,11 +189,10 @@ export default function FAQ() {
                 setActiveCategory(cat);
                 setOpenIndex(null);
               }}
-              className={`px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 border ${
-                activeCategory === cat
+              className={`px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 border ${activeCategory === cat
                   ? "bg-primary text-white border-primary shadow-[0_0_20px_rgba(59,130,246,0.4)]"
                   : "bg-white/5 text-slate-400 border-white/10 hover:border-primary/40 hover:text-white hover:bg-white/10"
-              }`}
+                }`}
             >
               {cat}
             </button>
@@ -241,11 +238,10 @@ export default function FAQ() {
                 role="listitem"
                 itemScope
                 itemType="https://schema.org/Question"
-                className={`faq-item rounded-2xl border transition-all duration-300 overflow-hidden ${
-                  isOpen
+                className={`faq-item rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen
                     ? "border-primary/40 bg-primary/5 shadow-[0_0_30px_rgba(59,130,246,0.12)]"
                     : "border-white/6 bg-slate-900/50 hover:border-white/15 hover:bg-slate-800/40"
-                }`}
+                  }`}
               >
                 {/* Question Button */}
                 <button
@@ -257,11 +253,10 @@ export default function FAQ() {
                 >
                   {/* Icon */}
                   <span
-                    className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 mt-0.5 transition-all duration-300 ${
-                      isOpen
+                    className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 mt-0.5 transition-all duration-300 ${isOpen
                         ? "bg-primary text-white shadow-[0_0_15px_rgba(59,130,246,0.5)]"
                         : "bg-primary/10 text-primary group-hover:bg-primary/20"
-                    }`}
+                      }`}
                     aria-hidden="true"
                   >
                     <i className={`fas ${isOpen ? "fa-minus" : "fa-plus"} text-[10px]`} />
@@ -273,9 +268,8 @@ export default function FAQ() {
                       {item.category}
                     </span>
                     <h3
-                      className={`font-semibold text-sm sm:text-base leading-snug transition-colors duration-200 ${
-                        isOpen ? "text-white" : "text-slate-200 group-hover:text-white"
-                      }`}
+                      className={`font-semibold text-sm sm:text-base leading-snug transition-colors duration-200 ${isOpen ? "text-white" : "text-slate-200 group-hover:text-white"
+                        }`}
                       itemProp="name"
                     >
                       {item.q}
@@ -284,9 +278,8 @@ export default function FAQ() {
 
                   {/* Chevron */}
                   <span
-                    className={`shrink-0 text-slate-500 transition-transform duration-300 mt-1 ${
-                      isOpen ? "rotate-180 text-primary" : "group-hover:text-slate-300"
-                    }`}
+                    className={`shrink-0 text-slate-500 transition-transform duration-300 mt-1 ${isOpen ? "rotate-180 text-primary" : "group-hover:text-slate-300"
+                      }`}
                     aria-hidden="true"
                   >
                     <i className="fas fa-chevron-down text-xs" />

@@ -24,13 +24,13 @@ export function TeamCard({
 }: TeamCardProps) {
   return (
     <div className={`team-card relative p-8 group mx-auto w-full max-w-[85%] sm:max-w-none transition-all duration-500 rounded-[2.5rem] bg-slate-900/30 backdrop-blur-2xl border border-white/5 hover:border-white/10 shadow-2xl hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] overflow-hidden ${wrapperClass} ${roleHoverBorder}`}>
-      
+
       {/* Ambient glassmorphic glowing backdrop */}
       <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 -mt-32 rounded-full z-0 opacity-[0.03] group-hover:opacity-20 blur-3xl transition-opacity duration-700 bg-gradient-to-b ${avatarGrad} pointer-events-none`}></div>
-      
+
       {/* Glassy top highlight line */}
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-      
+
       <div className="relative z-10 flex flex-col items-center">
         {/* Avatar Container with Glow */}
         <div className="flex justify-center mb-6 sm:mb-8 relative transform group-hover:-translate-y-1 group-hover:scale-105 transition-all duration-500">
@@ -39,9 +39,9 @@ export function TeamCard({
           <div className="absolute inset-[3px] bg-slate-950 rounded-full flex items-center justify-center p-[2px] z-20 overflow-hidden shadow-[inset_0_0_20px_rgba(0,0,0,0.8)]">
             <div className={`absolute inset-0 bg-gradient-to-br ${avatarGrad} opacity-30`}></div>
             <div className="w-full h-full rounded-full flex items-center justify-center text-3xl sm:text-4xl font-extrabold font-display relative z-30">
-               <span className={`text-transparent bg-clip-text bg-gradient-to-br ${avatarGrad} drop-shadow-sm`}>
-                 {initials}
-               </span>
+              <span className={`text-transparent bg-clip-text bg-gradient-to-br ${avatarGrad} drop-shadow-sm`}>
+                {initials}
+              </span>
             </div>
           </div>
         </div>
@@ -94,14 +94,14 @@ export function StatCard({ val, label }: { val: string; label: string }) {
 export function SubTeamMemberCard({ initials, name, role, grad = "from-slate-600 to-slate-700", ringColor, delay = "0s", shadowGlow }: { initials: string, name: string, role: string, grad?: string, ringColor: string, delay?: string, shadowGlow: string }) {
   return (
     <div className="flex flex-col items-center group w-full hover:-translate-y-1 transition-all duration-300 relative z-10">
-      
+
       {/* Connector Dot */}
       <div className="w-1.5 h-1.5 rounded-full mb-1" style={{ background: shadowGlow.replace('0.3', '0.8'), boxShadow: `0 0 10px ${shadowGlow}` }}></div>
-      
+
       <div className="relative mb-2 sm:mb-3 flex justify-center">
         {/* Ambient Glow */}
         <div className={`absolute inset-0 rounded-full blur-xl opacity-30 group-hover:opacity-70 transition-opacity duration-500`} style={{ background: shadowGlow }}></div>
-        
+
         {/* Avatar Ring */}
         <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full p-[2px] z-10 group-hover:scale-110 transition-transform duration-500">
           <div className={`absolute inset-0 rounded-full bg-gradient-to-b ${ringColor} opacity-70`}></div>
@@ -112,7 +112,7 @@ export function SubTeamMemberCard({ initials, name, role, grad = "from-slate-600
           </div>
         </div>
       </div>
-      
+
       {/* Name and Role */}
       <h4 className="text-slate-100 text-[11px] sm:text-[13px] whitespace-nowrap font-bold text-center leading-tight mb-0.5 group-hover:text-white transition-colors">{name}</h4>
       <p className="text-[9px] sm:text-[10px] whitespace-nowrap uppercase font-semibold tracking-widest text-slate-500 text-center">{role}</p>

@@ -5,16 +5,23 @@ import CanvasHero from "@/components/CanvasHero";
 import BlobBackground from "@/components/BlobBackground";
 import Link from "next/link";
 import FAQ from "@/components/FAQ";
+import TechStack from "@/components/TechStack";
+import { 
+  Code, Smartphone, Palette, ShieldCheck, Brain, Cloud, 
+  Rocket, Star, Layers, IndianRupee, Trophy, ArrowRight, 
+  MessageSquare, Compass, GitBranch, CloudUpload, Play, 
+  CalendarCheck, Phone, Mail, ExternalLink, Handshake, Globe
+} from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "AdhritVerse | Best Tech Agency in Indore | AI-Powered Startup Partner",
+  title: "AdhritVerse | AI-Powered Startup Tech Partner",
   description:
-    "AdhritVerse is Indore's #1 AI-powered tech agency in Vijay Nagar. We deliver web development, mobile apps, cybersecurity & AI solutions for startups & enterprises across India. Get a free consultation today.",
+    "AdhritVerse is India's leading AI-powered tech agency. We deliver web development, mobile apps, cybersecurity & AI solutions for startups & enterprises across India. Get a free consultation today.",
   alternates: { canonical: "https://adhritverse.in" },
   openGraph: {
-    title: "AdhritVerse | Best Tech Agency in Indore | AI-Powered Startup Partner",
+    title: "AdhritVerse | AI-Powered Startup Tech Partner",
     description:
-      "Indore's leading AI-powered tech partner for startups & enterprises. Web development, cybersecurity, AI/ML & cloud DevOps from Vijay Nagar, Indore.",
+      "India's leading AI-powered tech partner for startups & enterprises. Web development, cybersecurity, AI/ML & cloud DevOps.",
     url: "https://adhritverse.in",
   },
 };
@@ -23,91 +30,91 @@ export const metadata: Metadata = {
 
 const SERVICES = [
   {
-    icon: "fas fa-code",
+    icon: Code,
     title: "Web Development",
     slug: "web-development",
-    desc: "MERN Stack & Next.js specialists. We build SEO-optimized, high-performance web apps that convert visitors into customers — tailored for Indore startups and global SaaS.",
+    desc: "MERN Stack & Next.js specialists. We build SEO-optimized, high-performance web apps that convert visitors into customers — tailored for startups and global SaaS.",
     color: "text-primary",
-    bg: "bg-primary/20",
-    glow: "rgba(59,130,246,0.15)",
+    bg: "bg-primary/5",
+    glow: "rgba(59,130,246,0.1)",
   },
   {
-    icon: "fas fa-mobile-alt",
+    icon: Smartphone,
     title: "App Development",
     slug: "app-development",
     desc: "Cross-platform mobile apps using Flutter & React Native. Ship to iOS and Android simultaneously — faster go-to-market for your startup.",
     color: "text-secondary",
-    bg: "bg-secondary/20",
-    glow: "rgba(37,99,235,0.15)",
+    bg: "bg-secondary/5",
+    glow: "rgba(37,99,235,0.1)",
   },
   {
-    icon: "fas fa-paint-brush",
+    icon: Palette,
     title: "UI/UX Design",
     slug: "uiux-design",
     desc: "Premium user-centered design, prototyping & design systems. Interfaces that delight, engage, and drive measurable business results.",
     color: "text-accent",
-    bg: "bg-accent/20",
-    glow: "rgba(14,165,233,0.15)",
+    bg: "bg-accent/5",
+    glow: "rgba(14,165,233,0.1)",
   },
   {
-    icon: "fas fa-shield-alt",
+    icon: ShieldCheck,
     title: "Cybersecurity & Ethical Hacking",
     slug: "cybersecurity",
     desc: "VAPT, penetration testing & security audits. We identify vulnerabilities before attackers do — essential for every modern startup in India.",
     color: "text-red-500",
-    bg: "bg-red-500/20",
-    glow: "rgba(239,68,68,0.15)",
+    bg: "bg-red-500/5",
+    glow: "rgba(239,68,68,0.1)",
   },
   {
-    icon: "fas fa-brain",
+    icon: Brain,
     title: "AI/ML Solutions",
     slug: "ai-ml",
     desc: "Custom AI chatbots, predictive analytics & intelligent automation. Give your product the competitive edge of artificial intelligence.",
     color: "text-emerald-500",
-    bg: "bg-emerald-500/20",
-    glow: "rgba(16,185,129,0.15)",
+    bg: "bg-emerald-500/5",
+    glow: "rgba(16,185,129,0.1)",
   },
   {
-    icon: "fas fa-cloud",
+    icon: Cloud,
     title: "Cloud & DevOps",
     slug: "cloud-devops",
     desc: "AWS / Azure / GCP cloud setup, CI/CD pipelines & Kubernetes. Scale from MVP to enterprise without breaking your infrastructure.",
     color: "text-cyan-500",
-    bg: "bg-cyan-500/20",
-    glow: "rgba(6,182,212,0.15)",
+    bg: "bg-cyan-500/5",
+    glow: "rgba(6,182,212,0.1)",
   },
 ];
 
 const WHY_US = [
   {
-    icon: "fas fa-shield-alt",
+    icon: ShieldCheck,
     color: "text-red-400",
-    bg: "bg-red-500/10",
-    border: "border-red-500/20",
+    bg: "bg-red-500/5",
+    border: "border-red-500/10",
     title: "Cybersecurity-First Mindset",
-    desc: "Every product we build undergoes security review. We're one of the only agencies in Indore with in-house ethical hackers.",
+    desc: "Every product we build undergoes security review. We're one of the very few agencies in India with in-house ethical hackers.",
   },
   {
-    icon: "fas fa-brain",
+    icon: Brain,
     color: "text-emerald-400",
-    bg: "bg-emerald-500/10",
-    border: "border-emerald-500/20",
+    bg: "bg-emerald-500/5",
+    border: "border-emerald-500/10",
     title: "AI Integrated by Default",
     desc: "We don't bolt on AI as an afterthought — intelligent automation and ML are core to our engineering process.",
   },
   {
-    icon: "fas fa-rocket",
+    icon: Rocket,
     color: "text-primary",
-    bg: "bg-primary/10",
-    border: "border-primary/20",
+    bg: "bg-primary/5",
+    border: "border-primary/10",
     title: "Startup Speed, Enterprise Quality",
     desc: "MVPs in 4–8 weeks without sacrificing scalability, performance, or code maintainability.",
   },
   {
-    icon: "fas fa-handshake",
+    icon: Handshake,
     color: "text-amber-400",
-    bg: "bg-amber-500/10",
-    border: "border-amber-500/20",
+    bg: "bg-amber-500/5",
+    border: "border-amber-500/10",
     title: "Co-Founder Mentality",
     desc: "We invest in your product's success — not just the sprint. Deep product thinking, not just task execution.",
   },
@@ -116,140 +123,46 @@ const WHY_US = [
 const PROCESS_STEPS = [
   {
     step: "01",
-    icon: "fas fa-comments",
+    icon: MessageSquare,
     title: "Discovery & Strategy",
     desc: "Free 30-min consultation. We map your goals, constraints, and competitive landscape to define the right tech roadmap.",
   },
   {
     step: "02",
-    icon: "fas fa-drafting-compass",
+    icon: Compass,
     title: "Design & Architecture",
-    desc: "UI/UX wireframes, system design, database schema, and API contracts — all reviewed with you before a line of code is written.",
+    desc: "UI/UX wireframes, system design, database schema, and API contracts — all reviewed with with you before a line of code is written.",
   },
   {
     step: "03",
-    icon: "fas fa-code-branch",
+    icon: GitBranch,
     title: "Agile Development",
     desc: "2-week sprints with weekly demos. Full transparency via GitHub, Notion, and daily standups.",
   },
   {
     step: "04",
-    icon: "fas fa-shield-alt",
+    icon: ShieldCheck,
     title: "Security & QA",
     desc: "Automated testing, manual QA, and a security audit on every release — before it touches production.",
   },
   {
     step: "05",
-    icon: "fas fa-cloud-upload-alt",
+    icon: CloudUpload,
     title: "Launch & Scale",
     desc: "Zero-downtime deployment on AWS/GCP, CI/CD pipelines, monitoring dashboards — and ongoing support post-launch.",
   },
 ];
 
-const TECH_CATEGORIES = [
-  {
-    label: "Frontend",
-    icon: "fas fa-palette",
-    color: "text-blue-400",
-    techs: [
-      { name: "React", img: "https://techstack-generator.vercel.app/react-icon.svg" },
-      { name: "Next.js", img: "https://skillicons.dev/icons?i=nextjs" },
-      { name: "TypeScript", img: "https://techstack-generator.vercel.app/ts-icon.svg" },
-      { name: "JavaScript", img: "https://techstack-generator.vercel.app/js-icon.svg" },
-      { name: "HTML5", img: "https://skillicons.dev/icons?i=html" },
-      { name: "CSS3", img: "https://skillicons.dev/icons?i=css" },
-      { name: "Tailwind", img: "https://skillicons.dev/icons?i=tailwind" },
-      { name: "Bootstrap", img: "https://skillicons.dev/icons?i=bootstrap" },
-      { name: "Vue.js", img: "https://skillicons.dev/icons?i=vue" },
-      { name: "Angular", img: "https://skillicons.dev/icons?i=angular" },
-      { name: "Sass", img: "https://skillicons.dev/icons?i=sass" },
-      { name: "jQuery", img: "https://skillicons.dev/icons?i=jquery" },
-      { name: "Three.js", img: "https://skillicons.dev/icons?i=threejs" },
-      { name: "GSAP", img: "https://cdn.worldvectorlogo.com/logos/gsap-greensock.svg" },
-      { name: "Figma", img: "https://skillicons.dev/icons?i=figma" },
-    ],
-  },
-  {
-    label: "Backend",
-    icon: "fas fa-server",
-    color: "text-emerald-400",
-    techs: [
-      { name: "Node.js", img: "https://skillicons.dev/icons?i=nodejs" },
-      { name: "Express", img: "https://skillicons.dev/icons?i=express" },
-      { name: "Python", img: "https://techstack-generator.vercel.app/python-icon.svg" },
-      { name: "Django", img: "https://techstack-generator.vercel.app/django-icon.svg" },
-      { name: "FastAPI", img: "https://skillicons.dev/icons?i=fastapi" },
-      { name: "PHP", img: "https://skillicons.dev/icons?i=php" },
-      { name: "Laravel", img: "https://skillicons.dev/icons?i=laravel" },
-      { name: "C#", img: "https://techstack-generator.vercel.app/csharp-icon.svg" },
-      { name: "C++", img: "https://techstack-generator.vercel.app/cpp-icon.svg" },
-      { name: "GraphQL", img: "https://skillicons.dev/icons?i=graphql" },
-      { name: "Webpack", img: "https://techstack-generator.vercel.app/webpack-icon.svg" },
-      { name: "WordPress", img: "https://skillicons.dev/icons?i=wordpress" },
-      { name: "Rust", img: "https://skillicons.dev/icons?i=rust" },
-      { name: "Go", img: "https://skillicons.dev/icons?i=go" },
-    ],
-  },
-  {
-    label: "Mobile & AI",
-    icon: "fas fa-brain",
-    color: "text-pink-400",
-    techs: [
-      { name: "Flutter", img: "https://skillicons.dev/icons?i=flutter" },
-      { name: "React Native", img: "https://techstack-generator.vercel.app/react-icon.svg" },
-      { name: "Android", img: "https://skillicons.dev/icons?i=androidstudio" },
-      { name: "Swift", img: "https://skillicons.dev/icons?i=swift" },
-      { name: "TensorFlow", img: "https://skillicons.dev/icons?i=tensorflow" },
-      { name: "PyTorch", img: "https://skillicons.dev/icons?i=pytorch" },
-      { name: "OpenAI", img: "https://latestlogo.com/wp-content/uploads/2024/01/openai-icon.png" },
-      { name: "Keras", img: "https://upload.wikimedia.org/wikipedia/commons/a/ae/Keras_logo.svg" },
-    ],
-  },
-  {
-    label: "Database & Cloud",
-    icon: "fas fa-cloud",
-    color: "text-cyan-400",
-    techs: [
-      { name: "AWS", img: "https://techstack-generator.vercel.app/aws-icon.svg" },
-      { name: "GCP", img: "https://skillicons.dev/icons?i=gcp" },
-      { name: "Azure", img: "https://skillicons.dev/icons?i=azure" },
-      { name: "MySQL", img: "https://techstack-generator.vercel.app/mysql-icon.svg" },
-      { name: "MongoDB", img: "https://skillicons.dev/icons?i=mongodb" },
-      { name: "PostgreSQL", img: "https://skillicons.dev/icons?i=postgres" },
-      { name: "Redis", img: "https://skillicons.dev/icons?i=redis" },
-      { name: "Firebase", img: "https://skillicons.dev/icons?i=firebase" },
-      { name: "Supabase", img: "https://skillicons.dev/icons?i=supabase" },
-      { name: "SQLite", img: "https://skillicons.dev/icons?i=sqlite" },
-      { name: "Prisma", img: "https://skillicons.dev/icons?i=prisma" },
-    ],
-  },
-  {
-    label: "DevOps & Tools",
-    icon: "fas fa-tools",
-    color: "text-purple-400",
-    techs: [
-      { name: "Docker", img: "https://techstack-generator.vercel.app/docker-icon.svg" },
-      { name: "Kubernetes", img: "https://skillicons.dev/icons?i=kubernetes" },
-      { name: "GitHub", img: "https://techstack-generator.vercel.app/github-icon.svg" },
-      { name: "Git", img: "https://user-images.githubusercontent.com/25181517/192108372-f71d70ac-7ae6-4c0d-8395-51d8870c2ef0.png" },
-      { name: "GitLab", img: "https://skillicons.dev/icons?i=gitlab" },
-      { name: "Linux", img: "https://skillicons.dev/icons?i=linux" },
-      { name: "Nginx", img: "https://skillicons.dev/icons?i=nginx" },
-      { name: "VS Code", img: "https://skillicons.dev/icons?i=vscode" },
-      { name: "Postman", img: "https://skillicons.dev/icons?i=postman" },
-      { name: "Vercel", img: "https://skillicons.dev/icons?i=vercel" },
-    ],
-  },
-];
+
 
 
 const TESTIMONIALS = [
   {
     name: "Aakash Sharma",
     role: "Founder, FinTech Startup",
-    location: "Indore",
+    location: "India",
     quote:
-      "AdhritVerse transformed our MVP into a production-grade AI platform in just 8 weeks. Their cybersecurity audit saved us from a critical vulnerability before launch. Best tech team in Indore — period.",
+      "AdhritVerse transformed our MVP into a production-grade AI platform in just 8 weeks. Their cybersecurity audit saved us from a critical vulnerability before launch. Absolute best tech team — period.",
     rating: 5,
     date: "2024-09",
   },
@@ -332,12 +245,12 @@ export default function Home() {
       >
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-14">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 mb-5">
+            {/* <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 mb-5">
               <i className="fas fa-map-marker-alt text-primary text-xs" aria-hidden="true" />
               <span className="text-xs font-medium text-slate-300 uppercase tracking-wide">
                 Vijay Nagar, Indore · MP · India
               </span>
-            </div>
+            </div> */}
             <h2
               id="services-heading"
               className="font-display text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4"
@@ -345,7 +258,7 @@ export default function Home() {
               What We <span className="text-gradient">Deliver</span>
             </h2>
             <p className="text-sm md:text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
-              From AI-powered web apps to enterprise cybersecurity — AdhritVerse is Indore&apos;s
+              From AI-powered web apps to enterprise cybersecurity — AdhritVerse is India&apos;s
               most comprehensive{" "}
               <strong className="text-slate-200">startup tech partner</strong>, not just another digital
               agency.
@@ -386,23 +299,26 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left text */}
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-5">
-                <i className="fas fa-trophy text-primary text-xs" aria-hidden="true" />
-                <span className="text-xs font-semibold text-primary uppercase tracking-widest">
-                  Why Choose Us
+              <div className="flex items-center gap-3 mb-6 group/badge">
+                <div className="flex items-center justify-center text-primary">
+                  <Trophy size={14} strokeWidth={2.5} />
+                </div>
+                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-primary/80">
+                  Value Proposition
                 </span>
+                <span className="w-12 h-px bg-white/10 group-hover/badge:w-20 group-hover/badge:bg-primary/30 transition-all duration-500"></span>
               </div>
               <h2
                 id="why-heading"
                 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-5 leading-tight"
               >
-                Indore&apos;s Only{" "}
+                The Ultimate{" "}
                 <span className="text-gradient">Full-Stack</span>{" "}
                 Tech Partner
               </h2>
               <p className="text-slate-400 text-sm md:text-base leading-relaxed mb-6">
                 Most agencies pick one lane — design <em>or</em> development <em>or</em> security.
-                AdhritVerse is the only firm in Indore that unites{" "}
+                AdhritVerse is the only firm that unites{" "}
                 <strong className="text-slate-200">AI engineering</strong>,{" "}
                 <strong className="text-slate-200">cybersecurity</strong>, and{" "}
                 <strong className="text-slate-200">full-stack product development</strong> under one
@@ -413,7 +329,7 @@ export default function Home() {
                 className="inline-flex items-center gap-2 text-primary text-sm font-semibold hover:gap-3 transition-all duration-200"
                 aria-label="Meet the AdhritVerse team"
               >
-                Meet the team <i className="fas fa-arrow-right text-xs" aria-hidden="true" />
+                Meet the team <ArrowRight size={14} />
               </Link>
             </div>
 
@@ -428,7 +344,7 @@ export default function Home() {
                     className={`w-9 h-9 rounded-xl ${item.bg} border ${item.border} flex items-center justify-center mb-3`}
                     aria-hidden="true"
                   >
-                    <i className={`${item.icon} ${item.color} text-sm`} />
+                    <item.icon className={item.color} size={16} />
                   </div>
                   <h3 className="text-white font-semibold text-sm mb-1">{item.title}</h3>
                   <p className="text-slate-400 text-xs leading-relaxed">{item.desc}</p>
@@ -447,11 +363,15 @@ export default function Home() {
       >
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-14">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 mb-5">
-              <i className="fas fa-route text-primary text-xs" aria-hidden="true" />
-              <span className="text-xs font-medium text-slate-300 uppercase tracking-wide">
-                How We Work
-              </span>
+            <div className="flex items-center justify-center gap-4 mb-6 group/badge">
+              <span className="w-12 h-px bg-white/10 group-hover/badge:w-20 group-hover/badge:bg-primary/30 transition-all duration-500"></span>
+              <div className="flex items-center gap-2 px-1">
+                <Compass size={14} className="text-primary" />
+                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 group-hover/badge:text-primary transition-colors">
+                  Operational Strategy
+                </span>
+              </div>
+              <span className="w-12 h-px bg-white/10 group-hover/badge:w-20 group-hover/badge:bg-primary/30 transition-all duration-500"></span>
             </div>
             <h2
               id="process-heading"
@@ -476,115 +396,19 @@ export default function Home() {
             />
           </div>
 
-          <div className="text-center mt-10">
             <Link
               href="/contact"
-              className="btn-primary px-8 py-3.5 rounded-full text-white font-medium text-sm inline-flex items-center gap-2"
+              className="btn-primary px-8 py-3.5 rounded-full text-white font-medium text-sm inline-flex items-center gap-2 shadow-[0_10px_30px_rgba(59,130,246,0.3)] hover:shadow-[0_15px_40px_rgba(59,130,246,0.5)] transition-all duration-500"
               aria-label="Start your project with AdhritVerse"
             >
-              <i className="fas fa-play text-xs" aria-hidden="true" />
+              <Play size={14} fill="white" />
               Start Your Project
             </Link>
-          </div>
         </div>
       </section>
 
       {/* ── Tech Stack ── */}
-      <section
-        id="tech-stack"
-        className="py-16 md:py-24 relative z-10 bg-slate-900/40 border-y border-white/5 overflow-hidden"
-        aria-labelledby="tech-heading"
-        itemScope
-        itemType="https://schema.org/ItemList"
-      >
-        {/* bg glow */}
-        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-          <div className="absolute left-1/4 top-0 w-64 h-64 bg-primary/5 rounded-full blur-[100px]" />
-          <div className="absolute right-1/4 bottom-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-[100px]" />
-        </div>
-
-        <div className="max-w-7xl mx-auto px-6 relative">
-          {/* Header */}
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 mb-5">
-              <i className="fas fa-microchip text-primary text-xs" aria-hidden="true" />
-              <span className="text-xs font-medium text-slate-300 uppercase tracking-wide">
-                Our Tech Arsenal
-              </span>
-            </div>
-            <h2
-              id="tech-heading"
-              className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4"
-            >
-              Technologies We{" "}
-              <span className="text-gradient">Master</span>
-            </h2>
-            <p className="text-sm md:text-base text-slate-400 max-w-xl mx-auto leading-relaxed">
-              50+ technologies across frontend, backend, mobile, AI/ML, cloud, and DevOps — battle-tested across
-              40+ real-world projects for startups and enterprises.
-            </p>
-          </div>
-
-          {/* Category tabs + grids */}
-          <div className="space-y-10">
-            {TECH_CATEGORIES.map((cat) => (
-              <div key={cat.label}>
-                {/* Category label */}
-                <div className="flex items-center gap-2 mb-5">
-                  <div className="h-px flex-1 bg-white/5" aria-hidden="true" />
-                  <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/8">
-                    <i className={`${cat.icon} ${cat.color} text-xs`} aria-hidden="true" />
-                    <span className={`text-xs font-bold uppercase tracking-widest ${cat.color}`}>
-                      {cat.label}
-                    </span>
-                  </div>
-                  <div className="h-px flex-1 bg-white/5" aria-hidden="true" />
-                </div>
-
-                {/* Tech icons grid */}
-                <div
-                  className="flex flex-wrap justify-center gap-3 sm:gap-4"
-                  role="list"
-                  aria-label={`${cat.label} technologies used by AdhritVerse`}
-                >
-                  {cat.techs.map((tech) => (
-                    <div
-                      key={tech.name}
-                      role="listitem"
-                      itemProp="itemListElement"
-                      itemScope
-                      itemType="https://schema.org/SoftwareApplication"
-                      className="group flex flex-col items-center gap-2 p-3.5 sm:p-4 rounded-2xl bg-slate-800/50 border border-white/6 hover:border-primary/40 hover:bg-slate-700/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.1)] transition-all duration-300 cursor-default w-[80px] sm:w-[90px]"
-                      title={`${tech.name} – used by AdhritVerse`}
-                    >
-                      <meta itemProp="name" content={tech.name} />
-                      <meta itemProp="applicationCategory" content={cat.label} />
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center group-hover:scale-110 group-hover:-translate-y-1 transition-transform duration-300">
-                        <img
-                          src={tech.img}
-                          alt={`${tech.name} logo – technology used by AdhritVerse`}
-                          width={48}
-                          height={48}
-                          className="w-full h-full object-contain drop-shadow-[0_0_6px_rgba(0,0,0,0.5)]"
-                          loading="lazy"
-                        />
-                      </div>
-                      <span className="text-[10px] sm:text-xs text-slate-400 group-hover:text-slate-200 font-medium text-center transition-colors duration-200 leading-tight whitespace-nowrap">
-                        {tech.name}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Bottom note */}
-          <p className="text-center text-xs text-slate-600 mt-10">
-            + Next.js, Flutter, Docker, Kubernetes, OpenAI, LangChain &amp; more
-          </p>
-        </div>
-      </section>
+      <TechStack />
 
       {/* ── Projects ── */}
       <section
@@ -595,11 +419,12 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 mb-4">
-                <i className="fas fa-layer-group text-primary text-xs" aria-hidden="true" />
-                <span className="text-xs font-medium text-slate-300 uppercase tracking-wide">
-                  Portfolio
+              <div className="flex items-center gap-3 mb-5 group/badge">
+                <Layers size={14} className="text-primary" />
+                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 group-hover/badge:text-slate-200 transition-colors">
+                  Innovation Showcase
                 </span>
+                <span className="w-12 h-px bg-white/5 group-hover/badge:w-24 group-hover/badge:bg-primary/20 transition-all duration-700"></span>
               </div>
               <h2
                 id="projects-heading"
@@ -609,7 +434,7 @@ export default function Home() {
               </h2>
               <p className="text-sm md:text-base text-slate-400 max-w-xl leading-relaxed">
                 A curated portfolio of secure, high-performing applications — built by AdhritVerse for
-                clients from Indore to the world.
+                 clients across India and the world.
               </p>
             </div>
             <Link
@@ -665,12 +490,12 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-14">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 mb-5">
+            {/* <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 mb-5">
               {[1,2,3,4,5].map(i => (
                 <i key={i} className="fas fa-star text-amber-400 text-[10px]" aria-hidden="true" />
               ))}
               <span className="text-xs font-semibold text-amber-300 ml-1">5.0 · 40+ Projects</span>
-            </div>
+            </div> */}
             <h2
               id="testimonials-heading"
               className="font-display text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4"
@@ -710,11 +535,9 @@ export default function Home() {
             <meta itemProp="telephone" content="+91-8462802086" />
             <meta itemProp="email" content="contact@adhritverse.in" />
 
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 mb-6">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" aria-hidden="true" />
-              <span className="text-xs text-emerald-300 font-semibold uppercase tracking-wide">
-                Available for New Projects · Indore &amp; Remote
-              </span>
+            <div className="avail-badge mb-6" aria-label="Currently available for new projects">
+              <span className="avail-badge-live" aria-hidden="true" />
+              <span className="avail-badge-text">Available for New Projects · Worldwide &amp; Remote</span>
             </div>
 
             <h2
@@ -724,11 +547,11 @@ export default function Home() {
               Let&apos;s Build Something <span className="text-gradient">Great</span>
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed">
-              Partner with AdhritVerse — Indore&apos;s AI-powered startup tech partner. From MVP to
+              Partner with AdhritVerse — India&apos;s AI-powered startup tech partner. From MVP to
               scale, we architect your growth.{" "}
-              <strong className="text-white">
+              {/* <strong className="text-white">
                 Based in Vijay Nagar, Indore, serving India &amp; global startups.
-              </strong>
+              </strong> */}
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 mb-8">
@@ -736,10 +559,10 @@ export default function Home() {
                 href="/contact"
                 id="cta-free-consultation"
                 className="btn-primary px-8 sm:px-10 py-3 sm:py-4 rounded-full text-white font-medium w-full sm:w-auto text-sm sm:text-base whitespace-nowrap flex items-center justify-center gap-2"
-                aria-label="Get a free consultation from AdhritVerse Indore"
+                aria-label="Get a free consultation from AdhritVerse"
               >
-                <i className="fas fa-calendar-check text-sm" aria-hidden="true" />
-                Get Free Consultation in Indore
+                <CalendarCheck size={18} />
+                Get Free Consultation
               </Link>
               <a
                 href="tel:+918462802086"
@@ -747,14 +570,14 @@ export default function Home() {
                 className="btn-outline px-8 sm:px-10 py-3 sm:py-4 rounded-full text-white font-medium w-full sm:w-auto text-sm sm:text-base whitespace-nowrap flex items-center justify-center gap-2"
                 aria-label="Call AdhritVerse now"
               >
-                <i className="fas fa-phone-alt text-xs sm:text-sm" aria-hidden="true" />
+                <Phone size={18} />
                 Book a Strategy Call
               </a>
             </div>
 
             {/* Location trust strip */}
             <div className="flex flex-wrap justify-center gap-4 text-xs text-slate-500 border-t border-white/5 pt-6">
-              <a
+              {/* <a
                 href="https://www.google.com/maps?q=Vijay+Nagar+Indore"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -763,7 +586,7 @@ export default function Home() {
               >
                 <i className="fas fa-map-marker-alt text-primary" aria-hidden="true" />
                 Vijay Nagar, Indore, MP
-              </a>
+              </a> */}
               <a
                 href="mailto:contact@adhritverse.in"
                 className="flex items-center gap-1.5 hover:text-slate-300 transition-colors duration-200"
@@ -793,9 +616,9 @@ export default function Home() {
 // ── Components ────────────────────────────────────────────────────────────────
 
 function ServiceCard({
-  icon, title, slug, desc, color, bg, glow, index,
+  icon: Icon, title, slug, desc, color, bg, glow, index,
 }: {
-  icon: string; title: string; slug: string; desc: string;
+  icon: any; title: string; slug: string; desc: string;
   color: string; bg: string; glow: string; index: number;
 }) {
   return (
@@ -812,10 +635,10 @@ function ServiceCard({
         aria-hidden="true"
       />
       <div
-        className={`w-13 h-13 w-14 h-14 rounded-2xl ${bg} flex items-center justify-center ${color} text-2xl mb-5 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-xl border border-white/5`}
+        className={`w-14 h-14 rounded-2xl ${bg} flex items-center justify-center ${color} mb-5 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-xl border border-white/5`}
         aria-hidden="true"
       >
-        <i className={icon} />
+        <Icon size={24} strokeWidth={1.5} />
       </div>
       <h3
         className="text-lg font-bold text-white mb-2 group-hover:text-primary transition-colors duration-300"
@@ -835,7 +658,7 @@ function ServiceCard({
         itemProp="url"
         aria-label={`Learn more about ${title} at AdhritVerse`}
       >
-        Explore Service <i className="fas fa-arrow-right text-xs" aria-hidden="true" />
+        Explore Service <ArrowRight size={14} />
       </Link>
     </article>
   );
@@ -869,7 +692,7 @@ function ProjectCard({
           />
           <div className="absolute inset-0 bg-darker/60 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center backdrop-blur-[2px] z-20">
             <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-              <i className="fas fa-external-link-alt text-white" aria-hidden="true" />
+              <ExternalLink size={20} className="text-white" />
             </div>
           </div>
           <div className="absolute inset-0 bg-gradient-to-t from-darker/90 via-darker/40 to-transparent opacity-80 z-10" />
@@ -888,7 +711,7 @@ function ProjectCard({
               {title}
             </h3>
             <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <i className="fas fa-arrow-right text-[10px] text-primary" aria-hidden="true" />
+              <ArrowRight size={12} className="text-primary" />
             </div>
           </div>
           <p
@@ -924,7 +747,7 @@ function TestimonialCard({
         <meta itemProp="ratingValue" content={String(rating)} />
         <meta itemProp="bestRating" content="5" />
         {Array.from({ length: rating }).map((_, i) => (
-          <i key={i} className="fas fa-star text-amber-400 text-sm" aria-hidden="true" />
+          <Star key={i} size={14} className="fill-amber-400 text-amber-400" />
         ))}
         <span className="sr-only">{rating} out of 5 stars</span>
       </div>
@@ -966,3 +789,4 @@ function TestimonialCard({
     </article>
   );
 }
+

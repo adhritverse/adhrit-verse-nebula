@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -28,9 +29,8 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed w-full z-50 transition-all duration-300 h-20 flex items-center ${
-          scrolled ? "glass-nav scrolled" : "glass-nav"
-        }`}
+        className={`fixed w-full z-50 transition-all duration-300 h-20 flex items-center ${scrolled ? "glass-nav scrolled" : "glass-nav"
+          }`}
       >
         <div className="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
           {/* Logo */}
@@ -53,9 +53,8 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`transition-colors ${
-                  pathname === link.href ? "text-white active-link" : "text-slate-300 hover:text-white"
-                } relative nav-link`}
+                className={`transition-colors ${pathname === link.href ? "text-white active-link" : "text-slate-300 hover:text-white"
+                  } relative nav-link`}
               >
                 {link.name}
               </Link>
@@ -74,8 +73,9 @@ export default function Navbar() {
             <button
               onClick={() => setMobileMenuOpen(true)}
               className="md:hidden text-slate-300 hover:text-white p-2 focus:outline-none"
+              aria-label="Open menu"
             >
-              <i className="fas fa-bars text-xl"></i>
+              <Menu size={24} />
             </button>
           </div>
         </div>
@@ -83,24 +83,23 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-0 bg-darker/98 backdrop-blur-xl z-[60] transform ${
-          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
-        } transition-transform duration-300 md:hidden flex flex-col justify-center items-center gap-8`}
+        className={`fixed inset-0 bg-darker/98 backdrop-blur-xl z-[60] transform ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          } transition-transform duration-300 md:hidden flex flex-col justify-center items-center gap-8`}
       >
         <button
           onClick={() => setMobileMenuOpen(false)}
-          className="absolute top-6 right-6 text-slate-300 hover:text-white p-2 focus:outline-none text-3xl"
+          className="absolute top-6 right-6 text-slate-300 hover:text-white p-2 focus:outline-none"
+          aria-label="Close menu"
         >
-          <i className="fas fa-times"></i>
+          <X size={28} />
         </button>
         {navLinks.map((link) => (
           <Link
             key={link.name}
             href={link.href}
             onClick={() => setMobileMenuOpen(false)}
-            className={`text-2xl font-medium transition-colors ${
-              pathname === link.href ? "text-white" : "text-slate-300 hover:text-white"
-            }`}
+            className={`text-2xl font-medium transition-colors ${pathname === link.href ? "text-white" : "text-slate-300 hover:text-white"
+              }`}
           >
             {link.name}
           </Link>

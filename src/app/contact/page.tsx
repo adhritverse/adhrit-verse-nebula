@@ -54,15 +54,15 @@ export default function ContactPage() {
 
       <section className="pt-24 sm:pt-36 pb-8 sm:pb-16 text-left sm:text-center px-6 relative z-10">
         <div className="max-w-3xl mx-0 sm:mx-auto">
-          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-5 sm:mb-6">
+          {/* <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-5 sm:mb-6">
             <i className="fas fa-map-marker-alt text-primary text-[10px] sm:text-xs"></i>
             <span className="text-[10px] sm:text-xs font-medium text-slate-300 tracking-wide uppercase">Vijay Nagar, Indore · MP · India</span>
-          </div>
+          </div> */}
           <h1 className="font-display text-[2rem] sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6 leading-[1.1] sm:leading-tight">
-            Get a <span className="text-gradient block sm:inline">Free Consultation</span> in Indore
+            Get a <span className="text-gradient block sm:inline">Free Consultation</span>
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-400 max-w-xl mx-0 sm:mx-auto leading-relaxed px-0">
-            Ready to build with Indore&apos;s leading AI-powered tech agency? Tell us about your project — we respond within 24 hours.
+            Ready to build with AdhritVerse — India&apos;s leading AI-powered tech agency? Tell us about your project — we respond within 24 hours.
           </p>
         </div>
       </section>
@@ -72,12 +72,12 @@ export default function ContactPage() {
           {/* Contact Form */}
           <div className="glass-card p-6 sm:p-10 rounded-3xl border-white/5 group hover:border-primary/20 transition-all duration-500">
             <h2 className="text-xl sm:text-2xl font-bold font-display text-white mb-6 sm:mb-8 flex items-center gap-3">
-               <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-primary/20 flex items-center justify-center text-primary text-base sm:text-lg">
-                 <i className="fas fa-envelope-open-text"></i>
-               </span>
-               Send us a Message
+              <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-primary/20 flex items-center justify-center text-primary text-base sm:text-lg">
+                <i className="fas fa-envelope-open-text"></i>
+              </span>
+              Send us a Message
             </h2>
-            
+
             {submitStatus === "success" ? (
               <div className="bg-emerald-500/20 border border-emerald-500/50 rounded-xl sm:rounded-2xl p-6 sm:p-8 text-center">
                 <i className="fas fa-check-circle text-emerald-400 text-4xl sm:text-5xl mb-3 sm:mb-4"></i>
@@ -103,11 +103,11 @@ export default function ContactPage() {
                     <span className="absolute top-3 sm:top-4 left-3 sm:left-4 text-slate-500 group-focus-within:text-primary transition-colors text-xs sm:text-base">
                       <i className="fas fa-comment-alt"></i>
                     </span>
-                    <textarea 
+                    <textarea
                       name="message"
-                      rows={4} 
+                      rows={4}
                       required
-                      placeholder="Tell us about your project..." 
+                      placeholder="Tell us about your project..."
                       className="w-full bg-slate-900/40 border border-white/10 rounded-xl sm:rounded-2xl px-9 sm:px-12 py-3 sm:py-4 text-sm sm:text-base text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all placeholder:text-slate-600"
                     ></textarea>
                   </div>
@@ -119,8 +119,8 @@ export default function ContactPage() {
                   </div>
                 )}
 
-                <button 
-                  type="submit" 
+                <button
+                  type="submit"
                   disabled={isSubmitting}
                   className="w-full btn-primary py-3 sm:py-4 rounded-xl text-white font-bold tracking-wide text-sm sm:text-lg flex items-center justify-center gap-2 group transform active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed mt-2 sm:mt-0"
                 >
@@ -136,39 +136,39 @@ export default function ContactPage() {
 
           {/* Contact Info */}
           <div className="flex flex-col gap-4 sm:gap-8">
-            <InfoCard 
-              icon="fas fa-envelope" 
-              title="Email Us" 
-              val="contact@adhritverse.in" 
+            <InfoCard
+              icon="fas fa-envelope"
+              title="Email Us"
+              val="contact@adhritverse.in"
               sub="Our team will respond within 24 hours."
               link="mailto:contact@adhritverse.in"
               color="text-primary bg-primary/20"
             />
-            <InfoCard 
-              icon="fas fa-phone-alt" 
-              title="Call Us" 
-              val="+91 8462802086" 
+            <InfoCard
+              icon="fas fa-phone-alt"
+              title="Call Us"
+              val="+91 8462802086"
               sub="Mon-Sat (10:00 AM - 07:00 PM IST)"
               link="tel:+918462802086"
               color="text-emerald-400 bg-emerald-400/20"
             />
-            <InfoCard 
+            {/* <InfoCard 
               icon="fas fa-map-marker-alt" 
               title="Visit Our Office" 
               val="Vijay Nagar, Indore" 
               sub="Madhya Pradesh 452010, India. Serving startups across India & globally."
               link="https://maps.google.com/?q=Vijay+Nagar+Indore+Madhya+Pradesh"
               color="text-secondary bg-secondary/20"
-            />
+            /> */}
 
             {/* Social Connect */}
             <div className="glass-card p-6 sm:p-10 rounded-3xl border-white/5 flex flex-col items-center text-center">
               <h3 className="text-white font-bold font-display text-lg sm:text-xl mb-6">Connect with us on Socials</h3>
               <div className="flex gap-3 sm:gap-4 flex-wrap justify-center">
-                 <SocialBtn icon="fab fa-linkedin-in" link="https://www.linkedin.com/company/adhritverse" color="hover:bg-blue-600" />
-                 {/* <SocialBtn icon="fab fa-github" link="https://github.com/adhritverse" color="hover:bg-slate-700" /> */}
-                 <SocialBtn icon="fab fa-instagram" link="https://www.instagram.com/adhritverse?igsh=MXgwN2swanRvNmZtYQ==" color="hover:bg-pink-600" />
-                 <SocialBtn icon="fab fa-twitter" link="https://twitter.com/adhritverse" color="hover:bg-cyan-500" />
+                <SocialBtn icon="fab fa-linkedin-in" link="https://www.linkedin.com/company/adhritverse" color="hover:bg-blue-600" />
+                {/* <SocialBtn icon="fab fa-github" link="https://github.com/adhritverse" color="hover:bg-slate-700" /> */}
+                <SocialBtn icon="fab fa-instagram" link="https://www.instagram.com/adhritverse?igsh=MXgwN2swanRvNmZtYQ==" color="hover:bg-pink-600" />
+                <SocialBtn icon="fab fa-twitter" link="https://twitter.com/adhritverse" color="hover:bg-cyan-500" />
               </div>
             </div>
           </div>
@@ -188,11 +188,11 @@ function InputGroup({ label, name, placeholder, icon, type = "text", required = 
         <span className="absolute top-1/2 -translate-y-1/2 left-3 sm:left-4 text-slate-500 group-focus-within:text-primary transition-colors text-xs sm:text-base">
           <i className={icon}></i>
         </span>
-        <input 
-          type={type} 
+        <input
+          type={type}
           name={name}
           required={required}
-          placeholder={placeholder} 
+          placeholder={placeholder}
           className="w-full bg-slate-900/40 border border-white/10 rounded-xl sm:rounded-2xl px-9 sm:px-12 py-2.5 sm:py-4 text-sm sm:text-base text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all placeholder:text-slate-600"
         />
       </div>

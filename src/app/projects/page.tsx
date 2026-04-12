@@ -4,6 +4,7 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BlobBackground from "@/components/BlobBackground";
+import { ExternalLink, Github, ChevronRight } from "lucide-react";
 
 const projects = [
   {
@@ -81,8 +82,8 @@ const projects = [
 export default function ProjectsPage() {
   const [filter, setFilter] = useState("all");
 
-  const filteredProjects = filter === "all" 
-    ? projects 
+  const filteredProjects = filter === "all"
+    ? projects
     : projects.filter(p => p.category === filter);
 
   const categories = [
@@ -100,10 +101,10 @@ export default function ProjectsPage() {
 
       <section className="pt-24 sm:pt-36 pb-8 sm:pb-12 text-left sm:text-center px-6 relative z-10">
         <div className="max-w-3xl mx-0 sm:mx-auto">
-          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-5 sm:mb-6">
+          {/* <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-5 sm:mb-6">
             <i className="fas fa-map-marker-alt text-primary text-[10px] sm:text-xs"></i>
             <span className="text-[10px] sm:text-xs font-medium text-slate-300 tracking-wide uppercase">Projects by AdhritVerse · Indore, India</span>
-          </div>
+          </div> */}
           <h1 className="font-display text-[2rem] sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6 leading-[1.1] sm:leading-tight">
             Our <span className="text-gradient block sm:inline">Project Portfolio</span>
           </h1>
@@ -119,11 +120,10 @@ export default function ProjectsPage() {
             <button
               key={cat.id}
               onClick={() => setFilter(cat.id)}
-              className={`px-5 py-2 sm:px-7 sm:py-3 rounded-full text-xs sm:text-sm font-semibold transition-all duration-500 transform hover:scale-105 border ${
-                filter === cat.id 
-                  ? "bg-gradient-to-r from-primary to-secondary border-transparent text-white shadow-[0_0_25px_rgba(59,130,246,0.3)]" 
+              className={`px-5 py-2 sm:px-7 sm:py-3 rounded-full text-xs sm:text-sm font-semibold transition-all duration-500 transform hover:scale-105 border ${filter === cat.id
+                  ? "bg-gradient-to-r from-primary to-secondary border-transparent text-white shadow-[0_0_25px_rgba(59,130,246,0.3)]"
                   : "bg-white/5 border-white/10 text-slate-400 hover:border-primary/50 hover:text-white backdrop-blur-md"
-              }`}
+                }`}
             >
               {cat.label}
             </button>
@@ -136,22 +136,22 @@ export default function ProjectsPage() {
           {filteredProjects.map((project) => (
             <div key={project.id} className="project-card group cursor-pointer flex flex-col h-full bg-slate-900/40 backdrop-blur-md rounded-3xl border border-white/5 overflow-hidden transition-all duration-500">
               <div className="relative h-56 sm:h-64 overflow-hidden">
-                <img 
-                  src={project.img} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110 group-hover:rotate-1" 
+                <img
+                  src={project.img}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110 group-hover:rotate-1"
                 />
-                
+
                 {/* Modern Overlay */}
                 <div className="absolute inset-0 bg-darker/60 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center backdrop-blur-[3px] z-30">
-                   <div className="flex gap-4 transform translate-y-6 group-hover:translate-y-0 transition-all duration-500">
-                      <a href={project.link} target="_blank" className="w-12 h-12 rounded-full bg-primary/20 backdrop-blur-md border border-primary/30 flex items-center justify-center text-white hover:bg-primary hover:scale-110 transition-all shadow-lg">
-                        <i className="fas fa-external-link-alt text-sm"></i>
-                      </a>
-                      <a href="#" className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-slate-700 hover:scale-110 transition-all shadow-lg">
-                        <i className="fab fa-github text-sm"></i>
-                      </a>
-                   </div>
+                  <div className="flex gap-4 transform translate-y-6 group-hover:translate-y-0 transition-all duration-500">
+                    <a href={project.link} target="_blank" className="w-12 h-12 rounded-full bg-primary/20 backdrop-blur-md border border-primary/30 flex items-center justify-center text-white hover:bg-primary hover:scale-110 transition-all shadow-lg">
+                      <ExternalLink size={20} />
+                    </a>
+                    <a href="#" className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-slate-700 hover:scale-110 transition-all shadow-lg">
+                      <Github size={20} />
+                    </a>
+                  </div>
                 </div>
 
                 {/* Tag Overlay Bottom Left */}
@@ -171,14 +171,14 @@ export default function ProjectsPage() {
                     {project.title}
                   </h3>
                   <div className="w-8 h-8 rounded-full bg-primary/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
-                    <i className="fas fa-chevron-right text-[10px] text-slate-500 group-hover:text-primary group-hover:translate-x-0.5 transition-all"></i>
+                    <ChevronRight size={14} className="text-slate-500 group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
                   </div>
                 </div>
-                
+
                 <p className="text-sm text-slate-400 leading-relaxed mb-6 group-hover:text-slate-300 transition-colors duration-300 line-clamp-3">
                   {project.desc}
                 </p>
-                
+
                 <div className="mt-auto flex flex-wrap gap-2">
                   {project.tags.map(tag => (
                     <span key={tag} className="tag-pill bg-white/5 border-white/10 text-[10px] sm:text-xs">
