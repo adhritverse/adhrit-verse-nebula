@@ -233,12 +233,12 @@ export default function ProjectsPage() {
                 </div>
 
                 {/* Visual Section (Right side) */}
-                <div className="lg:col-span-7 relative h-64 sm:h-80 lg:h-full w-full order-1 lg:order-2 overflow-hidden bg-slate-950">
+                <div className="lg:col-span-7 relative h-48 sm:h-80 lg:h-full w-full order-1 lg:order-2 overflow-hidden bg-slate-950/50">
                   <div className="absolute inset-0 z-10 bg-gradient-to-t lg:bg-gradient-to-r from-slate-900 via-slate-900/20 to-transparent pointer-events-none" />
                   <img
                     src={featuredProject.img}
                     alt={featuredProject.title}
-                    className="w-full h-full object-cover object-top transition-all duration-1000 group-hover:scale-105 group-hover:rotate-1"
+                    className="w-full h-full object-contain lg:object-cover lg:object-top transition-all duration-1000 group-hover:scale-105 group-hover:rotate-1"
                   />
                   {/* Subtle inner glow */}
                   <div className="absolute inset-0 shadow-[inset_0_0_100px_rgba(0,0,0,0.8)] pointer-events-none"></div>
@@ -258,11 +258,11 @@ export default function ProjectsPage() {
                     className="group relative w-full flex flex-col rounded-[1.5rem] overflow-hidden border border-white/10 bg-slate-900/40 backdrop-blur-xl hover:border-white/20 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.6)]"
                   >
                     {/* Image Section */}
-                    <div className="relative h-56 sm:h-56 overflow-hidden">
+                    <div className="relative h-44 sm:h-56 overflow-hidden bg-slate-950/40">
                       <img
                         src={project.img}
                         alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        className="w-full h-full object-contain sm:object-cover group-hover:scale-105 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60" />
                       

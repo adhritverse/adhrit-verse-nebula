@@ -673,7 +673,7 @@ function ProjectCard({
 }) {
   return (
     <article
-      className="group relative h-full flex flex-col bg-slate-900/20 backdrop-blur-2xl border border-white/5 rounded-[2.5rem] overflow-hidden transition-all duration-700 hover:-translate-y-2 hover:border-primary/30 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.6)]"
+      className="group relative h-full flex flex-col bg-slate-900/20 backdrop-blur-2xl border border-white/5 rounded-[1.5rem] sm:rounded-[2.5rem] overflow-hidden transition-all duration-700 hover:-translate-y-2 hover:border-primary/30 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.6)]"
       itemScope
       itemType="https://schema.org/CreativeWork"
     >
@@ -685,11 +685,11 @@ function ProjectCard({
         itemProp="url"
         className="flex flex-col h-full"
       >
-        <div className="relative h-56 sm:h-64 overflow-hidden">
+        <div className="relative h-48 sm:h-64 overflow-hidden bg-slate-950/40">
           <img
             src={img}
             alt={`${title} – AV Technologies Project`}
-            className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105"
+            className="w-full h-full object-contain sm:object-cover transition-all duration-1000 group-hover:scale-105"
             loading="lazy"
             itemProp="image"
           />
@@ -711,10 +711,10 @@ function ProjectCard({
           </div>
         </div>
 
-        <div className="p-8 pb-10 flex flex-col flex-grow relative z-20">
-          <div className="mb-4">
+        <div className="p-5 sm:p-8 pb-6 sm:pb-10 flex flex-col flex-grow relative z-20">
+          <div className="mb-3 sm:mb-4">
             <h3
-              className="text-2xl font-bold text-white group-hover:text-primary transition-colors duration-500 leading-tight mb-3"
+              className="text-xl sm:text-2xl font-bold text-white group-hover:text-primary transition-colors duration-500 leading-tight mb-2 sm:mb-3"
               itemProp="name"
             >
               {title}
