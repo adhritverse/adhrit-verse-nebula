@@ -179,12 +179,12 @@ export default function ProjectsPage() {
                 style={{ minHeight: "460px" }}
               >
                 {/* Visual Section (Right side on desktop, top on mobile) */}
-                <div className="lg:col-span-3 lg:col-start-3 relative h-64 lg:h-full w-full order-1 lg:order-2 overflow-hidden bg-slate-950 rounded-r-[2rem]">
+                <div className="lg:col-span-3 lg:col-start-3 relative aspect-video sm:h-64 lg:h-full lg:aspect-auto w-full order-1 lg:order-2 overflow-hidden bg-slate-950 rounded-r-[2rem]">
                   <div className="absolute inset-0 z-10 bg-gradient-to-t lg:bg-gradient-to-r from-slate-900 via-transparent to-transparent pointer-events-none" />
                   <img
                     src={featuredProject.img}
                     alt={featuredProject.title}
-                    className="w-full h-full object-cover object-left-top"
+                    className="w-full h-full object-cover object-top"
                   />
                 </div>
 
