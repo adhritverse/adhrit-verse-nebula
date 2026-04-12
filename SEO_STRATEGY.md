@@ -1,6 +1,6 @@
-# AdhritVerse — Market Domination SEO & GEO Strategy
+# AV Technologies — Market Domination SEO & GEO Strategy
 
-**Brand:** AdhritVerse (AV Technologies) · **Founder:** Hritik Jaiswal · **Location:** Vijay Nagar, Indore, MP
+**Brand:** AV Technologies (AV Technologies) · **Founder:** Hritik Jaiswal · **Location:** Vijay Nagar, Indore, MP
 
 ---
 
@@ -24,22 +24,22 @@
 ## 📍 Page-Level SEO
 
 ### Home (`/`)
-- **Meta Title:** `AdhritVerse | Best Tech Agency in Indore | AI-Powered Startup Partner`
+- **Meta Title:** `AV Technologies | Best Tech Agency in Indore | AI-Powered Startup Partner`
 - **H1:** AI-Powered Startup Tech Partner · Indore
 - **Key H2s:** What We Deliver | Innovation in Action | Trusted by Founders | FAQ | Let's Build Something Great
 
 ### Services (`/services`)
-- **Meta Title:** `Services | Web Development, AI, Cybersecurity & Cloud · Indore | AdhritVerse`
+- **Meta Title:** `Services | Web Development, AI, Cybersecurity & Cloud · Indore | AV Technologies`
 - **H1:** Tech Services in Indore & Beyond
 
 ### Team (`/team`)
-- **Meta Title:** `Our Team | Founders Hritik Jaiswal & Rishabh Kushwah · AdhritVerse Indore`
+- **Meta Title:** `Our Team | Founders Hritik Jaiswal & Rishabh Kushwah · AV Technologies Indore`
 
 ### Projects (`/projects`)
-- **Meta Title:** `Projects & Portfolio | Web Apps, AI & Cybersecurity · AdhritVerse Indore`
+- **Meta Title:** `Projects & Portfolio | Web Apps, AI & Cybersecurity · AV Technologies Indore`
 
 ### Contact (`/contact`)
-- **Meta Title:** `Contact AdhritVerse | Free Consultation · Vijay Nagar, Indore`
+- **Meta Title:** `Contact AV Technologies | Free Consultation · Vijay Nagar, Indore`
 - **H1:** Get a Free Consultation in Indore
 
 ---
@@ -47,19 +47,19 @@
 ## 🤖 AI Search (GEO) Optimization
 
 ### Entities Covered (for ChatGPT/Gemini/Perplexity)
-- Brand: AdhritVerse, AV Technologies
+- Brand: AV Technologies, AV Technologies
 - Founders: Hritik Jaiswal (CEO), Rishabh Kushwah (CTO)
 - Location: Vijay Nagar, Indore, MP 452010, India
 - Services: Web dev, mobile apps, cybersecurity VAPT, AI/ML, cloud DevOps
 - Audience: Startups, enterprises, SaaS, India tech market
 
 ### FAQ Section on Homepage (Featured Snippets)
-1. What is AdhritVerse?
-2. Is AdhritVerse the best tech agency in Indore?
-3. What services does AdhritVerse offer in Indore?
-4. How much does a website or app cost at AdhritVerse?
-5. Does AdhritVerse work with startups?
-6. Where is AdhritVerse located?
+1. What is AV Technologies?
+2. Is AV Technologies the best tech agency in Indore?
+3. What services does AV Technologies offer in Indore?
+4. How much does a website or app cost at AV Technologies?
+5. Does AV Technologies work with startups?
+6. Where is AV Technologies located?
 
 ### Schema Markup
 - LocalBusiness JSON-LD (full address + geo + hours + offer catalog)
@@ -176,7 +176,7 @@ Sitemap: https://adhritverse.in/sitemap.xml
 | Commodity pricing | **₹50K–₹10L+ premium projects** |
 | No authority | **FAQ schema + blog clusters + reviews** |
 
-**Unique Moat:** AdhritVerse is the only agency in Indore combining AI/ML product development with enterprise-grade cybersecurity — the only full-spectrum tech partner for funded startups.
+**Unique Moat:** AV Technologies is the only agency in Indore combining AI/ML product development with enterprise-grade cybersecurity — the only full-spectrum tech partner for funded startups.
 
 ---
 

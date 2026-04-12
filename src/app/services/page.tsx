@@ -29,12 +29,12 @@ import ServiceToggleCardComponent from "@/components/ServiceToggleCard";
 export const metadata: Metadata = {
   title: "Services | Web Development, AI, Cybersecurity & Cloud",
   description:
-    "AdhritVerse offers 15+ tech services: custom web development, mobile apps, AI/ML solutions, cybersecurity (VAPT), cloud DevOps & startup consulting.",
+    "AV Technologies offers 15+ tech services: custom web development, mobile apps, AI/ML solutions, cybersecurity (VAPT), cloud DevOps & startup consulting.",
   alternates: { canonical: "https://adhritverse.in/services" },
   openGraph: {
-    title: "Tech Services | AdhritVerse – Web, AI, Cybersecurity & Cloud",
+    title: "Tech Services | AV Technologies – Web, AI, Cybersecurity & Cloud",
     description:
-      "15+ specialized tech services for startups & enterprises. Web dev, AI/ML, cybersecurity, cloud DevOps, mobile apps & more from AdhritVerse.",
+      "15+ specialized tech services for startups & enterprises. Web dev, AI/ML, cybersecurity, cloud DevOps, mobile apps & more from AV Technologies.",
     url: "https://adhritverse.in/services",
   },
 };

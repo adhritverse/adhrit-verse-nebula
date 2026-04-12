@@ -17,13 +17,13 @@ const BASE_URL = "https://adhritverse.in";
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "AdhritVerse | Best Tech Agency in Indore | AI-Powered Startup Partner",
-    template: "%s | AdhritVerse – Tech Agency in Indore",
+    default: "AV Technologies | Best Tech Agency in Indore | AI-Powered Startup Partner",
+    template: "%s | AV Technologies – Tech Agency in Indore",
   },
   description:
-    "AdhritVerse (AV Technologies) is Indore's #1 AI-powered tech agency. We build web apps, mobile apps, AI/ML solutions & cybersecurity systems for startups & enterprises. Based in Vijay Nagar, Indore, MP.",
+    "AV Technologies (AV Technologies) is Indore's #1 AI-powered tech agency. We build web apps, mobile apps, AI/ML solutions & cybersecurity systems for startups & enterprises. Based in Vijay Nagar, Indore, MP.",
   keywords: [
-    "AdhritVerse",
+    "AV Technologies",
     "AV Technologies",
     "best tech agency in Indore",
     "web development company in Indore",
@@ -46,8 +46,8 @@ export const metadata: Metadata = {
     "Hritik Jaiswal Indore",
   ],
   authors: [{ name: "Hritik Jaiswal", url: BASE_URL }],
-  creator: "AdhritVerse – AV Technologies",
-  publisher: "AdhritVerse",
+  creator: "AV Technologies – AV Technologies",
+  publisher: "AV Technologies",
   robots: {
     index: true,
     follow: true,
@@ -63,8 +63,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     url: BASE_URL,
-    siteName: "AdhritVerse",
-    title: "AdhritVerse | Best Tech Agency in Indore | AI-Powered Startup Partner",
+    siteName: "AV Technologies",
+    title: "AV Technologies | Best Tech Agency in Indore | AI-Powered Startup Partner",
     description:
       "Indore's leading AI-powered tech agency. Web development, mobile apps, cybersecurity, AI/ML & cloud DevOps for startups and enterprises across India.",
     images: [
@@ -72,13 +72,13 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "AdhritVerse – AI-Powered Tech Agency in Indore",
+        alt: "AV Technologies – AI-Powered Tech Agency in Indore",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AdhritVerse | Best Tech Agency in Indore",
+    title: "AV Technologies | Best Tech Agency in Indore",
     description:
       "AI-powered web development, cybersecurity & startup tech partner. Based in Vijay Nagar, Indore, MP, India.",
     images: ["/og-image.png"],
@@ -105,10 +105,10 @@ const jsonLd = {
     {
       "@type": "LocalBusiness",
       "@id": `${BASE_URL}/#localbusiness`,
-      name: "AdhritVerse",
+      name: "AV Technologies",
       alternateName: "AV Technologies",
       description:
-        "AdhritVerse is Indore's premier AI-powered tech consultancy offering web development, mobile apps, cybersecurity, AI/ML solutions, and cloud DevOps services for startups and enterprises.",
+        "AV Technologies is Indore's premier AI-powered tech consultancy offering web development, mobile apps, cybersecurity, AI/ML solutions, and cloud DevOps services for startups and enterprises.",
       url: BASE_URL,
       logo: `${BASE_URL}/logo.png`,
       image: `${BASE_URL}/og-image.png`,
@@ -176,7 +176,7 @@ const jsonLd = {
       "@type": "WebSite",
       "@id": `${BASE_URL}/#website`,
       url: BASE_URL,
-      name: "AdhritVerse",
+      name: "AV Technologies",
       description: "AI-Powered Tech Agency in Indore, India",
       publisher: { "@id": `${BASE_URL}/#localbusiness` },
       potentialAction: {

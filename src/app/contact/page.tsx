@@ -62,7 +62,7 @@ export default function ContactPage() {
             Get a <span className="text-gradient block sm:inline">Free Consultation</span>
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-400 max-w-xl mx-0 sm:mx-auto leading-relaxed px-0">
-            Ready to build with AdhritVerse — India&apos;s leading AI-powered tech agency? Tell us about your project — we respond within 24 hours.
+            Ready to build with AV Technologies — India&apos;s leading AI-powered tech agency? Tell us about your project — we respond within 24 hours.
           </p>
         </div>
       </section>

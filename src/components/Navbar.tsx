@@ -23,6 +23,7 @@ export default function Navbar() {
     { name: "Services", href: "/services" },
     { name: "Team", href: "/team" },
     { name: "Projects", href: "/projects" },
+    { name: "FAQ", href: "/faq" },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -38,12 +39,12 @@ export default function Navbar() {
             <div className="w-10 h-10 relative flex items-center justify-center rounded-lg bg-white/5 border border-white/10 group-hover:border-primary/50 transition-colors">
               <img
                 src="/logo.png"
-                alt="AdhritVerse Logo"
+                alt="AV Technologies Logo"
                 className="h-8 w-auto object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]"
               />
             </div>
             <span className="font-display font-bold text-xl tracking-tight text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-primary transition-all">
-              AdhritVerse
+              AV Technologies
             </span>
           </Link>
 

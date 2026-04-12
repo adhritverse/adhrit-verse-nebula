@@ -97,6 +97,18 @@ const projects = [
     type: "E-Commerce",
     accent: "#fb923c",
     featured: true,
+  },
+  {
+    id: 8,
+    title: "Ashielder",
+    desc: "Advanced AI-powered phishing detection and prevention system with real-time threat analysis.",
+    img: "/projectimg/project8.png",
+    category: "cybersecurity",
+    tags: ["AI", "Security", "SaaS"],
+    link: "https://ashielder.vercel.app/",
+    type: "Cybersecurity",
+    accent: "#3b82f6",
+    featured: false,
   }
 ];
 
@@ -127,7 +139,7 @@ export default function ProjectsPage() {
       <section className="pt-24 sm:pt-40 pb-4 sm:pb-10 text-center px-6 relative z-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-4 text-[10px] sm:text-xs text-slate-400 tracking-widest uppercase">
           <Sparkles size={10} className="text-primary" />
-          AdhritVerse · Project Portfolio
+          AV Technologies · Project Portfolio
         </div>
         <h1 className="font-display text-[26px] sm:text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
           Work that <span className="text-gradient">speaks for itself</span>

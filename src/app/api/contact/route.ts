@@ -51,7 +51,7 @@ export async function POST(req: Request) {
           <div class="container">
             <div class="header">
               <h1>New Contact Request</h1>
-              <p>AdhritVerse Platform</p>
+              <p>AV Technologies Platform</p>
             </div>
             <div class="content">
               <div class="field">

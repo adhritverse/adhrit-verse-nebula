@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=10b981,3b82f6,8b5cf6&height=250&section=header&text=AdhritVerse&fontSize=70&animation=twinkling&fontAlignY=35&desc=Cybersecurity%20%26%20Digital%20Transformation&descSize=20&descAlignY=55" alt="AdhritVerse Header Banner" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=10b981,3b82f6,8b5cf6&height=250&section=header&text=AV Technologies&fontSize=70&animation=twinkling&fontAlignY=35&desc=Cybersecurity%20%26%20Digital%20Transformation&descSize=20&descAlignY=55" alt="AV Technologies Header Banner" width="100%" />
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=20&pause=1000&color=8B5CF6&center=true&vCenter=true&width=500&lines=Pioneers+in+Cybersecurity;Masters+of+Digital+Innovation;Building+the+Future+Today)](https://git.io/typing-svg)
 
@@ -17,7 +17,7 @@
 
 ## 🚀 About Us
 
-**AdhritVerse** is a dedicated team passionate about delivering cutting-edge **Cybersecurity** and **Digital Transformation** solutions to businesses worldwide. We embrace emerging technologies and creative problem-solving to build intuitive, high-performance web solutions with a focus on design and engineering excellence.
+**AV Technologies** is a dedicated team passionate about delivering cutting-edge **Cybersecurity** and **Digital Transformation** solutions to businesses worldwide. We embrace emerging technologies and creative problem-solving to build intuitive, high-performance web solutions with a focus on design and engineering excellence.
 
 ### 🌟 Core Values
 - 🛡️ **Security First**: Every solution we build is designed with security as a foundational principle.
@@ -71,5 +71,5 @@ Ensure you have the following installed on your local machine:
 <div align="center">
   <img src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" width="150" alt="Animated Coding GIF">
   <br/>
-  <b>Built with ❤️ by the AdhritVerse Team.</b>
+  <b>Built with ❤️ by the AV Technologies Team.</b>
 </div>

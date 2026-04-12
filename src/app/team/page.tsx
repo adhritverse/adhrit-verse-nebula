@@ -48,7 +48,7 @@ export default function TeamPage() {
                             roleHoverBorder="group-hover:border-blue-500/50"
                             dotColor="bg-primary"
                             textColor="text-primary"
-                            description="Visionary entrepreneur and tech strategist leading AdhritVerse's mission to deliver cutting-edge cybersecurity and digital transformation solutions to businesses worldwide."
+                            description="Visionary entrepreneur and tech strategist leading AV Technologies's mission to deliver cutting-edge cybersecurity and digital transformation solutions to businesses worldwide."
                             skillClasses="bg-blue-500/10 border-blue-500/20 text-blue-400"
                             skills={['Strategy', 'Business Dev', 'Cybersecurity', 'Leadership']}
                             socialHoverClasses="hover:bg-blue-500/20 hover:border-blue-500/40"
@@ -64,7 +64,7 @@ export default function TeamPage() {
                             roleHoverBorder="group-hover:border-violet-500/50"
                             dotColor="bg-secondary"
                             textColor="text-secondary"
-                            description="Technical architect and full-stack innovator driving AdhritVerse's engineering excellence. Expert in cloud infrastructure, AI integrations, and building scalable digital systems."
+                            description="Technical architect and full-stack innovator driving AV Technologies's engineering excellence. Expert in cloud infrastructure, AI integrations, and building scalable digital systems."
                             skillClasses="bg-violet-500/10 border-violet-500/20 text-violet-400"
                             skills={['Full-Stack', 'Cloud & DevOps', 'AI/ML', 'Architecture']}
                             socialHoverClasses="hover:bg-violet-500/20 hover:border-violet-500/40"
@@ -104,7 +104,7 @@ export default function TeamPage() {
                                     roleHoverBorder="group-hover:border-emerald-500/50"
                                     dotColor="bg-emerald-400"
                                     textColor="text-emerald-400"
-                                    description="Creative full-stack developer and UI/UX specialist shaping AdhritVerse's product experience. Passionate about building intuitive, high-performance web solutions with a focus on design excellence."
+                                    description="Creative full-stack developer and UI/UX specialist shaping AV Technologies's product experience. Passionate about building intuitive, high-performance web solutions with a focus on design excellence."
                                     skillClasses="bg-emerald-500/10 border-emerald-500/20 text-emerald-400"
                                     skills={['Web Dev', 'UI/UX', 'React', 'Next.js']}
                                     socialHoverClasses="hover:bg-emerald-500/20 hover:border-emerald-500/40"
@@ -161,7 +161,7 @@ export default function TeamPage() {
                                     roleHoverBorder="group-hover:border-amber-500/50"
                                     dotColor="bg-amber-400"
                                     textColor="text-amber-400"
-                                    description="Passionate developer dedicated to engineering robust solutions and driving technical innovation at AdhritVerse."
+                                    description="Passionate developer dedicated to engineering robust solutions and driving technical innovation at AV Technologies."
                                     skillClasses="bg-amber-500/10 border-amber-500/20 text-amber-400"
                                     skills={['Software Dev', 'Algorithms', 'Innovation']}
                                     socialHoverClasses="hover:bg-amber-500/20 hover:border-amber-500/40"

@@ -1,6 +1,6 @@
-# Folder Overview - AdhritVerse
+# Folder Overview - AV Technologies
 
-This document provides a breakdown of the project structure for the AdhritVerse website, a Cybersecurity and Digital Transformation platform.
+This document provides a breakdown of the project structure for the AV Technologies website, a Cybersecurity and Digital Transformation platform.
 
 ## 📂 Project Structure
 

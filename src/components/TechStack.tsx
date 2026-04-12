@@ -83,7 +83,7 @@ export default function TechStack() {
   const activeCategory = TECH_CATEGORIES.find((c) => c.id === activeTab) || TECH_CATEGORIES[0];
 
   return (
-    <section id="tech" className="py-24 relative overflow-hidden bg-darker">
+    <section id="tech" className="py-16 md:py-24 relative overflow-hidden bg-darker">
       {/* Dynamic Background Elements */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none opacity-20">
         <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2"></div>
@@ -101,8 +101,8 @@ export default function TechStack() {
             <h2 className="font-display text-[22px] sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
               Technologies We <span className="text-gradient">Master</span>
             </h2>
-            <p className="text-slate-400 text-sm md:text-xl leading-relaxed">
-              We leverage the most advanced stacks to build secure, scalable, and high-performance digital ecosystems for the next generation of startups.
+            <p className="hidden sm:block text-slate-400 text-sm md:text-xl leading-relaxed">
+              We leverage the most advanced stacks to build secure, scalable, and high-performance digital ecosystems for the next generation of startups and to drive the digital transformation of traditional businesses.
             </p>
           </div>
           <div className="hidden lg:block pb-2">
@@ -207,7 +207,7 @@ export default function TechStack() {
                 </div>
 
                 {/* Decorative Elements */}
-                <div className="absolute bottom-10 right-10 flex items-center gap-6 text-[10px] font-mono text-slate-600">
+                <div className="hidden sm:flex absolute bottom-10 right-10 items-center gap-6 text-[10px] font-mono text-slate-600">
                    <div className="flex items-center gap-2">
                       <Cpu size={12} /> <span>READY</span>
                    </div>
@@ -222,7 +222,7 @@ export default function TechStack() {
         </div>
 
         {/* Global Floating Badges for WOW factor */}
-        <div className="mt-20 flex flex-wrap justify-center gap-4 sm:gap-8 opacity-40 hover:opacity-100 transition-opacity duration-700">
+        <div className="mt-10 sm:mt-20 flex flex-wrap justify-center gap-4 sm:gap-8 opacity-40 hover:opacity-100 transition-opacity duration-700">
            {[
              { label: 'REST API', icon: Globe },
              { label: 'Blockchain', icon: Layers },

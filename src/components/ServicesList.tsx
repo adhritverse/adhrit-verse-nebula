@@ -33,7 +33,7 @@ export default function ServicesList({ children }: { children: React.ReactNode }
           <Link
             href="/services"
             className="btn-outline px-8 py-3.5 rounded-full text-white font-medium text-sm inline-flex items-center gap-2"
-            aria-label="View all services offered by AdhritVerse"
+            aria-label="View all services offered by AV Technologies"
           >
             View All Services <i className="fas fa-arrow-right text-xs" aria-hidden="true" />
           </Link>

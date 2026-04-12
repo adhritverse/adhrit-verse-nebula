@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import Link from "next/link";
 
 interface FAQItem {
   q: string;
@@ -9,42 +10,42 @@ interface FAQItem {
 }
 
 const FAQ_DATA: FAQItem[] = [
-  // About AdhritVerse
+  // About AV Technologies
   {
     category: "About Us",
-    q: "What is AdhritVerse?",
-    a: "AdhritVerse (also known as AV Technologies) is an AI-powered tech consultancy and startup growth partner. Founded by Hritik Jaiswal, we specialize in web development, mobile app development, cybersecurity, AI/ML solutions, and cloud DevOps services for startups and enterprises across India.",
+    q: "What is AV Technologies?",
+    a: "AV Technologies (also known as AV Technologies) is an AI-powered tech consultancy and startup growth partner. Founded by Hritik Jaiswal, we specialize in web development, mobile app development, cybersecurity, AI/ML solutions, and cloud DevOps services for startups and enterprises across India.",
   },
   {
     category: "About Us",
-    q: "Is AdhritVerse one of the best tech agencies in India?",
-    a: "AdhritVerse is recognized as one of India's leading tech agencies, specializing in AI-powered solutions and cybersecurity — areas where most agencies lack depth. We serve clients across India and globally, with projects ranging from ₹50K to ₹10L+.",
+    q: "Is AV Technologies one of the best tech agencies in India?",
+    a: "AV Technologies is recognized as one of India's leading tech agencies, specializing in AI-powered solutions and cybersecurity — areas where most agencies lack depth. We serve clients across India and globally, with projects ranging from ₹50K to ₹10L+.",
   },
   {
     category: "About Us",
-    q: "Where is AdhritVerse located?",
-    a: "AdhritVerse is headquartered in India. We work with clients remotely across India and globally, delivering world-class tech solutions regardless of location.",
+    q: "Where is AV Technologies located?",
+    a: "AV Technologies is headquartered in India. We work with clients remotely across India and globally, delivering world-class tech solutions regardless of location.",
   },
   {
     category: "About Us",
-    q: "Who founded AdhritVerse?",
-    a: "AdhritVerse was founded by Hritik Jaiswal, a tech entrepreneur and cybersecurity expert. The agency was built with the vision of becoming India's most trusted AI-powered startup tech partner.",
+    q: "Who founded AV Technologies?",
+    a: "AV Technologies was founded by Hritik Jaiswal, a tech entrepreneur and cybersecurity expert. The agency was built with the vision of becoming India's most trusted AI-powered startup tech partner.",
   },
 
   // Services
   {
     category: "Services",
-    q: "What services does AdhritVerse offer?",
-    a: "AdhritVerse offers: Web Development (MERN, Next.js), Mobile App Development (Flutter, React Native), UI/UX Design, Cybersecurity & Ethical Hacking (VAPT), AI/ML Solutions, and Cloud & DevOps (AWS, Azure, GCP). All services are available to businesses remotely across India and globally.",
+    q: "What services does AV Technologies offer?",
+    a: "AV Technologies offers: Web Development (MERN, Next.js), Mobile App Development (Flutter, React Native), UI/UX Design, Cybersecurity & Ethical Hacking (VAPT), AI/ML Solutions, and Cloud & DevOps (AWS, Azure, GCP). All services are available to businesses remotely across India and globally.",
   },
   {
     category: "Services",
-    q: "Does AdhritVerse offer cybersecurity services?",
-    a: "Yes. AdhritVerse provides full-stack cybersecurity services including Vulnerability Assessment & Penetration Testing (VAPT), ethical hacking audits, threat modeling, and security architecture consulting. This is a core differentiator — we're one of the very few agencies in India with deep cybersecurity expertise.",
+    q: "Does AV Technologies offer cybersecurity services?",
+    a: "Yes. AV Technologies provides full-stack cybersecurity services including Vulnerability Assessment & Penetration Testing (VAPT), ethical hacking audits, threat modeling, and security architecture consulting. This is a core differentiator — we're one of the very few agencies in India with deep cybersecurity expertise.",
   },
   {
     category: "Services",
-    q: "Can AdhritVerse build AI-powered applications?",
+    q: "Can AV Technologies build AI-powered applications?",
     a: "Absolutely. AI/ML is central to what we do. We build custom AI chatbots, recommendation engines, predictive analytics dashboards, computer vision systems, and LLM-integrated SaaS products. We use OpenAI, Hugging Face, LangChain, and custom-trained models depending on your use case.",
   },
   {
@@ -56,13 +57,13 @@ const FAQ_DATA: FAQItem[] = [
   // Pricing
   {
     category: "Pricing",
-    q: "How much does a website or app cost at AdhritVerse?",
-    a: "Project pricing at AdhritVerse starts at ₹50,000 for a professional website. Mobile apps begin at ₹1.5L, and enterprise/AI solutions start at ₹3L. We offer flexible packages tailored for startups and SMEs across India. Contact us for a free consultation and custom quote.",
+    q: "How much does a website or app cost at AV Technologies?",
+    a: "Project pricing at AV Technologies starts at ₹50,000 for a professional website. Mobile apps begin at ₹1.5L, and enterprise/AI solutions start at ₹3L. We offer flexible packages tailored for startups and SMEs across India. Contact us for a free consultation and custom quote.",
   },
   {
     category: "Pricing",
     q: "Do you offer flexible payment plans for startups?",
-    a: "Yes. We understand startup cash flow constraints. AdhritVerse offers milestone-based payment plans — typically 40% upfront, 40% at mid-delivery, and 20% on final deployment. We also offer equity-for-services arrangements for select early-stage startups with strong traction.",
+    a: "Yes. We understand startup cash flow constraints. AV Technologies offers milestone-based payment plans — typically 40% upfront, 40% at mid-delivery, and 20% on final deployment. We also offer equity-for-services arrangements for select early-stage startups with strong traction.",
   },
   {
     category: "Pricing",
@@ -73,7 +74,7 @@ const FAQ_DATA: FAQItem[] = [
   // Startups
   {
     category: "For Startups",
-    q: "Does AdhritVerse work with startups?",
+    q: "Does AV Technologies work with startups?",
     a: "Yes — startups are our primary focus. We act as a 'Startup Tech Partner', helping Indian and global startups build their MVPs, scale their products, and integrate AI. We've supported startups from idea-stage to ₹10L+ funded ventures.",
   },
   {
@@ -83,14 +84,14 @@ const FAQ_DATA: FAQItem[] = [
   },
   {
     category: "For Startups",
-    q: "What makes AdhritVerse different from other agencies?",
+    q: "What makes AV Technologies different from other agencies?",
     a: "Three key differentiators: (1) We combine AI, cybersecurity, and full-stack engineering under one roof — most agencies only do web/app. (2) We treat clients as co-founders, not just buyers — deep involvement in product strategy. (3) We have real startup experience and understand growth, not just code.",
   },
 ];
 
 const CATEGORIES = ["All", ...Array.from(new Set(FAQ_DATA.map((f) => f.category)))];
 
-export default function FAQ() {
+export default function FAQ({ limit, showMoreLink, hideTitle }: { limit?: number; showMoreLink?: boolean; hideTitle?: boolean } = {}) {
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -109,11 +110,13 @@ export default function FAQ() {
 
   const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
 
+  const displayedFiltered = showMoreLink && limit ? filtered.slice(0, limit) : filtered;
+
   return (
     <section
       id="faq"
-      className="py-20 md:py-28 relative z-10 bg-slate-900/30"
-      aria-label="Frequently Asked Questions about AdhritVerse"
+      className={`relative z-10 bg-slate-900/30 ${hideTitle ? 'pb-20 md:pb-28' : 'py-20 md:py-28'}`}
+      aria-label="Frequently Asked Questions about AV Technologies"
       itemScope
       itemType="https://schema.org/FAQPage"
     >
@@ -125,27 +128,29 @@ export default function FAQ() {
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 relative">
         {/* Header */}
-        <div className="text-left md:text-center mb-10 md:mb-14">
-          <div className="faq-badge mb-5">
-            <span className="faq-badge-dot" />
-            <span className="faq-badge-text">FAQ · Quick Answers</span>
+        {!hideTitle && (
+          <div className="text-left md:text-center mb-10 md:mb-14">
+            <div className="faq-badge mb-5">
+              <span className="faq-badge-dot" />
+              <span className="faq-badge-text">FAQ · Quick Answers</span>
+            </div>
+            <h2 className="font-display text-[22px] sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+              Frequently Asked{" "}
+              <span className="text-gradient">Questions</span>
+            </h2>
+            <p className="hidden sm:block text-sm md:text-base text-slate-400 max-w-2xl md:mx-auto leading-relaxed">
+              Everything you need to know about AV Technologies — India&apos;s leading AI-powered tech agency.
+              Can&apos;t find your answer?{" "}
+              <a
+                href="/contact"
+                className="text-primary hover:text-accent underline underline-offset-2 transition-colors duration-200"
+              >
+                Ask us directly
+              </a>
+              .
+            </p>
           </div>
-          <h2 className="font-display text-[22px] sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
-            Frequently Asked{" "}
-            <span className="text-gradient">Questions</span>
-          </h2>
-          <p className="text-sm md:text-base text-slate-400 max-w-2xl md:mx-auto leading-relaxed">
-            Everything you need to know about AdhritVerse — India&apos;s leading AI-powered tech agency.
-            Can&apos;t find your answer?{" "}
-            <a
-              href="/contact"
-              className="text-primary hover:text-accent underline underline-offset-2 transition-colors duration-200"
-            >
-              Ask us directly
-            </a>
-            .
-          </p>
-        </div>
+        )}
 
         {/* Search */}
         <div className="relative mb-6">
@@ -231,9 +236,10 @@ export default function FAQ() {
 
         {/* Accordion List */}
         <div className="space-y-3" role="list">
-          {filtered.map((item, i) => {
+          {displayedFiltered.map((item, i) => {
             const isOpen = openIndex === i;
-            const isHiddenMobile = !showAllItems && i >= 3;
+            // If showMoreLink is active, we don't apply the arbitrary hidden mobile logic
+            const isHiddenMobile = !showMoreLink && !showAllItems && i >= 3;
             
             return (
               <div
@@ -327,16 +333,27 @@ export default function FAQ() {
           })}
         </div>
         
-        {/* Load More Button for Mobile */}
-        {!showAllItems && filtered.length > 3 && (
-          <div className="text-center mt-8 sm:hidden px-4">
-            <button
-              onClick={() => setShowAllItems(true)}
-              className="w-full bg-slate-800/80 hover:bg-slate-800 border border-white/10 text-white rounded-2xl py-4 flex items-center justify-center gap-2 font-semibold text-sm transition-all active:scale-[0.98]"
+        {/* Load More Button or Link */}
+        {showMoreLink && limit && filtered.length > limit ? (
+          <div className="text-center mt-8 px-4">
+            <Link
+              href="/faq"
+              className="inline-flex max-sm:w-full items-center justify-center gap-2 bg-slate-800/80 hover:bg-slate-800 border border-white/10 text-white rounded-2xl py-4 px-8 font-semibold text-sm transition-all active:scale-[0.98]"
             >
-              Load More Questions <i className="fas fa-chevron-down text-[10px]" />
-            </button>
+              Show More <i className="fas fa-chevron-right text-[10px]" />
+            </Link>
           </div>
+        ) : (
+          !showAllItems && filtered.length > 3 && (
+            <div className="text-center mt-8 sm:hidden px-4">
+              <button
+                onClick={() => setShowAllItems(true)}
+                className="w-full bg-slate-800/80 hover:bg-slate-800 border border-white/10 text-white rounded-2xl py-4 flex items-center justify-center gap-2 font-semibold text-sm transition-all active:scale-[0.98]"
+              >
+                Load More Questions <i className="fas fa-chevron-down text-[10px]" />
+              </button>
+            </div>
+          )
         )}
 
         {/* Bottom CTA */}

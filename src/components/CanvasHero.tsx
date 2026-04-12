@@ -213,13 +213,7 @@ export default function CanvasHero() {
     <section ref={containerRef} id="home" className="relative flex items-center pt-24 pb-16 overflow-hidden min-h-[calc(100vh-0px)]">
       <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none w-full h-full" />
 
-      {/* Decorative tags */}
-      <div className="hero-tag hidden xl:flex items-center gap-2 absolute top-[20%] right-[8%] animate-[floatTag_4s_ease-in-out_infinite]" style={{ animationDelay: '0.8s' }}>
-        AI Integration
-      </div>
-      <div className="hero-tag hidden xl:flex items-center gap-2 absolute bottom-[22%] right-[10%] animate-[floatTag_4s_ease-in-out_infinite]" style={{ animationDelay: '2s' }}>
-        Cloud & DevOps
-      </div>
+
 
 
       <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
@@ -354,7 +348,7 @@ function OrbitalSystem() {
           style={{ transform: 'translateZ(40px) rotateX(-60deg)', transformStyle: 'preserve-3d' }}>
           <div className="absolute inset-0 rounded-full border border-blue-500/30 animate-ping" style={{ animationDuration: '3s' }}></div>
           <div className="absolute inset-[-10px] rounded-full border border-blue-400/10 animate-spin" style={{ animationDuration: '10s' }}></div>
-          <img src="/logo.png" alt="AdhritVerse Base Core" className="w-[60px] h-[60px] object-contain z-10 drop-shadow-[0_0_15px_rgba(255,255,255,0.6)] group-hover:drop-shadow-[0_0_25px_rgba(255,255,255,0.8)] transition-all duration-500" />
+          <img src="/logo.png" alt="AV Technologies Base Core" className="w-[60px] h-[60px] object-contain z-10 drop-shadow-[0_0_15px_rgba(255,255,255,0.6)] group-hover:drop-shadow-[0_0_25px_rgba(255,255,255,0.8)] transition-all duration-500" />
         </div>
 
         {/* Orbits */}

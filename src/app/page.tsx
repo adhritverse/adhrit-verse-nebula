@@ -16,12 +16,12 @@ import {
 import ServicesList from "@/components/ServicesList";
 
 export const metadata: Metadata = {
-  title: "AdhritVerse | AI-Powered Startup Tech Partner",
+  title: "AV Technologies | AI-Powered Startup Tech Partner",
   description:
-    "AdhritVerse is India's leading AI-powered tech agency. We deliver web development, mobile apps, cybersecurity & AI solutions for startups & enterprises across India. Get a free consultation today.",
+    "AV Technologies is India's leading AI-powered tech agency. We deliver web development, mobile apps, cybersecurity & AI solutions for startups & enterprises across India. Get a free consultation today.",
   alternates: { canonical: "https://adhritverse.in" },
   openGraph: {
-    title: "AdhritVerse | AI-Powered Startup Tech Partner",
+    title: "AV Technologies | AI-Powered Startup Tech Partner",
     description:
       "India's leading AI-powered tech partner for startups & enterprises. Web development, cybersecurity, AI/ML & cloud DevOps.",
     url: "https://adhritverse.in",
@@ -45,78 +45,78 @@ const SERVICES = [
     title: "App Development",
     slug: "app-development",
     desc: "Cross-platform mobile apps using Flutter & React Native. Ship to iOS and Android simultaneously — faster go-to-market for your startup.",
-    color: "text-secondary",
-    bg: "bg-secondary/5",
-    glow: "rgba(37,99,235,0.1)",
+    color: "text-primary",
+    bg: "bg-primary/5",
+    glow: "rgba(59,130,246,0.1)",
   },
   {
     icon: Palette,
     title: "UI/UX Design",
     slug: "uiux-design",
     desc: "Premium user-centered design, prototyping & design systems. Interfaces that delight, engage, and drive measurable business results.",
-    color: "text-accent",
-    bg: "bg-accent/5",
-    glow: "rgba(14,165,233,0.1)",
+    color: "text-primary",
+    bg: "bg-primary/5",
+    glow: "rgba(59,130,246,0.1)",
   },
   {
     icon: ShieldCheck,
     title: "Cybersecurity & Ethical Hacking",
     slug: "cybersecurity",
     desc: "VAPT, penetration testing & security audits. We identify vulnerabilities before attackers do — essential for every modern startup in India.",
-    color: "text-red-500",
-    bg: "bg-red-500/5",
-    glow: "rgba(239,68,68,0.1)",
+    color: "text-primary",
+    bg: "bg-primary/5",
+    glow: "rgba(59,130,246,0.1)",
   },
   {
     icon: Brain,
     title: "AI/ML Solutions",
     slug: "ai-ml",
     desc: "Custom AI chatbots, predictive analytics & intelligent automation. Give your product the competitive edge of artificial intelligence.",
-    color: "text-emerald-500",
-    bg: "bg-emerald-500/5",
-    glow: "rgba(16,185,129,0.1)",
+    color: "text-primary",
+    bg: "bg-primary/5",
+    glow: "rgba(59,130,246,0.1)",
   },
   {
     icon: Cloud,
     title: "Cloud & DevOps",
     slug: "cloud-devops",
     desc: "AWS / Azure / GCP cloud setup, CI/CD pipelines & Kubernetes. Scale from MVP to enterprise without breaking your infrastructure.",
-    color: "text-cyan-500",
-    bg: "bg-cyan-500/5",
-    glow: "rgba(6,182,212,0.1)",
+    color: "text-primary",
+    bg: "bg-primary/5",
+    glow: "rgba(59,130,246,0.1)",
   },
 ];
 
 const WHY_US = [
   {
     icon: ShieldCheck,
-    color: "text-red-400",
-    bg: "bg-red-500/5",
-    border: "border-red-500/10",
+    color: "text-blue-400",
+    bg: "bg-blue-400/5",
+    border: "border-blue-400/10",
     title: "Cybersecurity-First Mindset",
     desc: "Every product we build undergoes security review. We're one of the very few agencies in India with in-house ethical hackers.",
   },
   {
     icon: Brain,
-    color: "text-emerald-400",
-    bg: "bg-emerald-500/5",
-    border: "border-emerald-500/10",
+    color: "text-primary",
+    bg: "bg-primary/5",
+    border: "border-primary/10",
     title: "AI Integrated by Default",
     desc: "We don't bolt on AI as an afterthought — intelligent automation and ML are core to our engineering process.",
   },
   {
     icon: Rocket,
-    color: "text-primary",
-    bg: "bg-primary/5",
-    border: "border-primary/10",
+    color: "text-cyan-400",
+    bg: "bg-cyan-400/5",
+    border: "border-cyan-400/10",
     title: "Startup Speed, Enterprise Quality",
     desc: "MVPs in 4–8 weeks without sacrificing scalability, performance, or code maintainability.",
   },
   {
     icon: Handshake,
-    color: "text-amber-400",
-    bg: "bg-amber-500/5",
-    border: "border-amber-500/10",
+    color: "text-indigo-400",
+    bg: "bg-indigo-400/5",
+    border: "border-indigo-400/10",
     title: "Co-Founder Mentality",
     desc: "We invest in your product's success — not just the sprint. Deep product thinking, not just task execution.",
   },
@@ -164,7 +164,7 @@ const TESTIMONIALS = [
     role: "Founder, FinTech Startup",
     location: "India",
     quote:
-      "AdhritVerse transformed our MVP into a production-grade AI platform in just 8 weeks. Their cybersecurity audit saved us from a critical vulnerability before launch. Absolute best tech team — period.",
+      "AV Technologies transformed our MVP into a production-grade AI platform in just 8 weeks. Their cybersecurity audit saved us from a critical vulnerability before launch. Absolute best tech team — period.",
     rating: 5,
     date: "2024-09",
   },
@@ -173,7 +173,7 @@ const TESTIMONIALS = [
     role: "CEO, EdTech Company",
     location: "Mumbai",
     quote:
-      "We tried 3 agencies before AdhritVerse. The difference is night and day. They actually understand startup growth, not just code. Our app went from 0 to 50K users in 4 months.",
+      "We tried 3 agencies before AV Technologies. The difference is night and day. They actually understand startup growth, not just code. Our app went from 0 to 50K users in 4 months.",
     rating: 5,
     date: "2024-11",
   },
@@ -212,7 +212,7 @@ export default function Home() {
 
       {/* ── Trust Bar — commented out ── */}
       {/* <section
-        aria-label="AdhritVerse at a glance"
+        aria-label="AV Technologies at a glance"
         className="py-8 relative z-10 border-y border-white/5 bg-slate-900/40 backdrop-blur-sm"
         itemScope
         itemType="https://schema.org/Organization"
@@ -259,8 +259,8 @@ export default function Home() {
             >
               What We <span className="text-gradient">Deliver</span>
             </h2>
-            <p className="text-sm md:text-base text-slate-400 max-w-2xl md:mx-auto leading-relaxed">
-              From AI-powered web apps to enterprise cybersecurity — AdhritVerse is India&apos;s
+            <p className="hidden sm:block text-sm md:text-base text-slate-400 max-w-2xl md:mx-auto leading-relaxed">
+              From AI-powered web apps to enterprise cybersecurity — AV Technologies is India&apos;s
               most comprehensive{" "}
               <strong className="text-slate-200">startup tech partner</strong>, not just another digital
               agency.
@@ -277,7 +277,7 @@ export default function Home() {
             <Link
               href="/services"
               className="btn-outline px-8 py-3.5 rounded-full text-white font-medium text-sm inline-flex items-center gap-2"
-              aria-label="View all services offered by AdhritVerse"
+              aria-label="View all services offered by AV Technologies"
             >
               View All Services <i className="fas fa-arrow-right text-xs" aria-hidden="true" />
             </Link>
@@ -285,7 +285,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Why AdhritVerse ── */}
+      {/* ── Why AV Technologies ── */}
       <section
         id="why-us"
         className="py-20 md:py-28 relative z-10 bg-slate-900/40 overflow-hidden"
@@ -318,9 +318,9 @@ export default function Home() {
                 <span className="text-gradient">Full-Stack</span>{" "}
                 Tech Partner
               </h2>
-              <p className="text-slate-400 text-sm md:text-base leading-relaxed mb-6">
+              <p className="hidden sm:block text-slate-400 text-sm md:text-base leading-relaxed mb-6">
                 Most agencies pick one lane — design <em>or</em> development <em>or</em> security.
-                AdhritVerse is the only firm that unites{" "}
+                AV Technologies is the only firm that unites{" "}
                 <strong className="text-slate-200">AI engineering</strong>,{" "}
                 <strong className="text-slate-200">cybersecurity</strong>, and{" "}
                 <strong className="text-slate-200">full-stack product development</strong> under one
@@ -329,7 +329,7 @@ export default function Home() {
               <Link
                 href="/team"
                 className="inline-flex items-center gap-2 text-primary text-sm font-semibold hover:gap-3 transition-all duration-200"
-                aria-label="Meet the AdhritVerse team"
+                aria-label="Meet the AV Technologies team"
               >
                 Meet the team <ArrowRight size={14} />
               </Link>
@@ -349,7 +349,7 @@ export default function Home() {
                     <item.icon className={item.color} size={16} />
                   </div>
                   <h3 className="text-white font-semibold text-sm mb-1">{item.title}</h3>
-                  <p className="text-slate-400 text-xs leading-relaxed">{item.desc}</p>
+                  <p className="hidden sm:block text-slate-400 text-xs leading-relaxed">{item.desc}</p>
                 </article>
               ))}
             </div>
@@ -382,7 +382,7 @@ export default function Home() {
               From Idea to{" "}
               <span className="text-gradient">Launch</span>
             </h2>
-            <p className="text-sm md:text-base text-slate-400 max-w-xl md:mx-auto leading-relaxed">
+            <p className="hidden sm:block text-sm md:text-base text-slate-400 max-w-xl md:mx-auto leading-relaxed">
               A proven <strong className="text-white">6-step process</strong> that takes your product from concept to production — securely,
               on time, and at startup speed.
             </p>
@@ -394,7 +394,7 @@ export default function Home() {
             <Link
               href="/contact"
               className="btn-primary px-8 py-3.5 rounded-full text-white font-medium text-sm inline-flex items-center gap-2 shadow-[0_10px_30px_rgba(59,130,246,0.3)] hover:shadow-[0_15px_40px_rgba(59,130,246,0.5)] transition-all duration-500"
-              aria-label="Start your project with AdhritVerse"
+              aria-label="Start your project with AV Technologies"
             >
               <Play size={14} fill="white" />
               Start Your Project
@@ -428,15 +428,15 @@ export default function Home() {
               >
                 Innovation in <span className="text-gradient">Action</span>
               </h2>
-              <p className="text-sm md:text-base text-slate-400 max-w-xl leading-relaxed">
-                A curated portfolio of secure, high-performing applications — built by AdhritVerse for
+              <p className="hidden sm:block text-sm md:text-base text-slate-400 max-w-xl leading-relaxed">
+                A curated portfolio of secure, high-performing applications — built by AV Technologies for
                  clients across India and the world.
               </p>
             </div>
             <Link
               href="/projects"
               className="btn-outline px-6 py-3 rounded-full text-white text-sm font-medium w-max shrink-0"
-              aria-label="View all AdhritVerse projects"
+              aria-label="View all AV Technologies projects"
             >
               View All Projects
             </Link>
@@ -498,9 +498,9 @@ export default function Home() {
             >
               Trusted by <span className="text-gradient">Founders</span>
             </h2>
-            <p className="text-sm md:text-base text-slate-400 max-w-xl mx-auto leading-relaxed">
+            <p className="hidden sm:block text-sm md:text-base text-slate-400 max-w-xl mx-auto leading-relaxed">
               Real results from real clients — startups, enterprises, and funded ventures who chose
-              AdhritVerse as their tech partner.
+              AV Technologies as their tech partner.
             </p>
           </div>
           <div className="flex overflow-x-auto md:grid md:grid-cols-3 gap-4 md:gap-6 pb-6 md:pb-0 snap-x snap-mandatory scrollbar-hide -mx-6 px-6 md:mx-0 md:px-0">
@@ -517,7 +517,7 @@ export default function Home() {
       </section>
 
       {/* ── FAQ ── */}
-      <FAQ />
+      <FAQ limit={3} showMoreLink={true} />
 
       {/* ── Final CTA ── */}
       <section
@@ -532,7 +532,7 @@ export default function Home() {
             itemScope
             itemType="https://schema.org/LocalBusiness"
           >
-            <meta itemProp="name" content="AdhritVerse" />
+            <meta itemProp="name" content="AV Technologies" />
             <meta itemProp="telephone" content="+91-8462802086" />
             <meta itemProp="email" content="contact@adhritverse.in" />
 
@@ -547,8 +547,8 @@ export default function Home() {
             >
               Let&apos;s Build Something <span className="text-gradient">Great</span>
             </h2>
-            <p className="text-xs sm:text-base md:text-lg text-slate-300 max-w-2xl mx-auto mb-6 sm:mb-10 leading-relaxed">
-              Partner with AdhritVerse — India&apos;s AI-powered startup tech partner. From MVP to
+            <p className="hidden sm:block text-xs sm:text-base md:text-lg text-slate-300 max-w-2xl mx-auto mb-6 sm:mb-10 leading-relaxed">
+              Partner with AV Technologies — India&apos;s AI-powered startup tech partner. From MVP to
               scale, we architect your growth.
             </p>
 
@@ -557,7 +557,7 @@ export default function Home() {
                 href="/contact"
                 id="cta-free-consultation"
                 className="btn-primary px-6 sm:px-10 py-2.5 sm:py-4 rounded-full text-white font-medium w-full sm:w-auto text-xs sm:text-base whitespace-nowrap flex items-center justify-center gap-2"
-                aria-label="Get a free consultation from AdhritVerse"
+                aria-label="Get a free consultation from AV Technologies"
               >
                 <CalendarCheck className="w-4 h-4 sm:w-[18px] sm:h-[18px]" />
                 Get Free Consultation
@@ -566,7 +566,7 @@ export default function Home() {
                 href="tel:+918462802086"
                 id="cta-call-now"
                 className="btn-outline px-6 sm:px-10 py-2.5 sm:py-4 rounded-full text-white font-medium w-full sm:w-auto text-xs sm:text-base whitespace-nowrap flex items-center justify-center gap-2"
-                aria-label="Call AdhritVerse now"
+                aria-label="Call AV Technologies now"
               >
                 <Phone className="w-4 h-4 sm:w-[18px] sm:h-[18px]" />
                 Book a Strategy Call
@@ -580,7 +580,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1.5 hover:text-slate-300 transition-colors duration-200"
-                aria-label="AdhritVerse location on Google Maps"
+                aria-label="AV Technologies location on Google Maps"
               >
                 <i className="fas fa-map-marker-alt text-primary" aria-hidden="true" />
                 Vijay Nagar, Indore, MP
@@ -588,7 +588,7 @@ export default function Home() {
               <a
                 href="mailto:contact@adhritverse.in"
                 className="flex items-center gap-1.5 hover:text-slate-300 transition-colors duration-200"
-                aria-label="Email AdhritVerse"
+                aria-label="Email AV Technologies"
               >
                 <i className="fas fa-envelope text-primary" aria-hidden="true" />
                 contact@adhritverse.in
@@ -596,7 +596,7 @@ export default function Home() {
               <a
                 href="tel:+918462802086"
                 className="flex items-center gap-1.5 hover:text-slate-300 transition-colors duration-200"
-                aria-label="Call AdhritVerse"
+                aria-label="Call AV Technologies"
               >
                 <i className="fas fa-phone text-primary" aria-hidden="true" />
                 +91 8462802086
@@ -649,7 +649,7 @@ function ServiceCard({
       </div>
       
       <p
-        className="text-slate-400 text-xs sm:text-sm mb-4 sm:mb-5 leading-relaxed line-clamp-3 group-hover:text-slate-200 transition-colors duration-300"
+        className="text-slate-400 text-xs sm:text-sm mb-4 sm:mb-5 leading-relaxed line-clamp-1 sm:line-clamp-3 group-hover:text-slate-200 transition-colors duration-300"
         itemProp="description"
       >
         {desc}
@@ -658,7 +658,7 @@ function ServiceCard({
         href={`/services#${slug}`}
         className={`${color} group-hover:translate-x-2 font-semibold text-xs sm:text-sm flex items-center gap-2 transition-all duration-300`}
         itemProp="url"
-        aria-label={`Learn more about ${title} at AdhritVerse`}
+        aria-label={`Learn more about ${title} at AV Technologies`}
       >
         Explore Service <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
       </Link>
@@ -673,7 +673,7 @@ function ProjectCard({
 }) {
   return (
     <article
-      className="project-card group cursor-pointer"
+      className="group relative h-full flex flex-col bg-slate-900/20 backdrop-blur-2xl border border-white/5 rounded-[2.5rem] overflow-hidden transition-all duration-700 hover:-translate-y-2 hover:border-primary/30 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.6)]"
       itemScope
       itemType="https://schema.org/CreativeWork"
     >
@@ -681,48 +681,58 @@ function ProjectCard({
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={`View ${title} project by AdhritVerse`}
+        aria-label={`View ${title} project by AV Technologies`}
         itemProp="url"
+        className="flex flex-col h-full"
       >
-        <div className="h-44 sm:h-56 bg-slate-800 relative overflow-hidden rounded-t-[1.25rem] sm:rounded-t-[1.5rem]">
+        <div className="relative h-56 sm:h-64 overflow-hidden">
           <img
             src={img}
-            alt={`${title} – AdhritVerse Project`}
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-1"
+            alt={`${title} – AV Technologies Project`}
+            className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105"
             loading="lazy"
             itemProp="image"
           />
-          <div className="absolute inset-0 bg-darker/60 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center backdrop-blur-[2px] z-20">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-              <ExternalLink className="text-white w-4 h-4 sm:w-5 sm:h-5" />
+          
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-950/20 to-slate-950/90 z-10" />
+          
+          <div className="absolute top-6 right-6 z-20 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+            <div className="w-12 h-12 rounded-2xl bg-primary/20 backdrop-blur-xl border border-primary/30 flex items-center justify-center shadow-[0_0_30px_rgba(59,130,246,0.3)]">
+              <ExternalLink size={20} className="text-white" />
             </div>
           </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-darker/90 via-darker/40 to-transparent opacity-80 z-10" />
-          <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 flex flex-wrap gap-1.5 sm:gap-2 pr-3 sm:pr-4 z-20">
-            {tags.map((tag) => (
-              <span key={tag} className="tag-pill text-[10px] sm:text-xs px-2 py-1 sm:px-3 sm:py-1.5">{tag}</span>
+
+          <div className="absolute bottom-6 left-6 flex flex-wrap gap-2 z-20">
+            {tags.slice(0, 2).map((tag) => (
+              <span key={tag} className="px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest bg-white/10 border border-white/10 backdrop-blur-md text-slate-200">
+                {tag}
+              </span>
             ))}
           </div>
         </div>
-        <div className="p-4 sm:p-6 relative rounded-b-[1.25rem] sm:rounded-b-[1.5rem]">
-          <div className="flex items-center justify-between mb-1.5 sm:mb-2">
+
+        <div className="p-8 pb-10 flex flex-col flex-grow relative z-20">
+          <div className="mb-4">
             <h3
-              className="text-lg sm:text-xl font-bold text-white group-hover:text-primary transition-colors duration-300"
+              className="text-2xl font-bold text-white group-hover:text-primary transition-colors duration-500 leading-tight mb-3"
               itemProp="name"
             >
               {title}
             </h3>
-            <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-primary/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <ArrowRight className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-primary" />
-            </div>
+            <p
+              className="text-[15px] text-slate-400 leading-relaxed font-light group-hover:text-slate-300 transition-colors duration-500 line-clamp-1 sm:line-clamp-2"
+              itemProp="description"
+            >
+              {desc}
+            </p>
           </div>
-          <p
-            className="text-xs sm:text-sm text-slate-400 leading-relaxed group-hover:text-slate-300 transition-colors duration-300 line-clamp-2"
-            itemProp="description"
-          >
-            {desc}
-          </p>
+          
+          <div className="mt-auto flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-2 group-hover:translate-x-0">
+            Learn More <ArrowRight size={14} className="animate-pulse" />
+          </div>
         </div>
+        
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
       </a>
     </article>
   );
