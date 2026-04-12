@@ -124,15 +124,15 @@ export default function ProjectsPage() {
       <BlobBackground />
 
       {/* ── Hero Header ── */}
-      <section className="pt-28 sm:pt-40 pb-6 sm:pb-10 text-center px-6 relative z-10">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6 text-xs text-slate-400 tracking-widest uppercase">
-          <Sparkles size={11} className="text-primary" />
+      <section className="pt-24 sm:pt-40 pb-4 sm:pb-10 text-center px-6 relative z-10">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-4 text-[10px] sm:text-xs text-slate-400 tracking-widest uppercase">
+          <Sparkles size={10} className="text-primary" />
           AdhritVerse · Project Portfolio
         </div>
-        <h1 className="font-display text-[2.4rem] sm:text-5xl md:text-6xl font-bold text-white mb-5 leading-[1.1]">
+        <h1 className="font-display text-[26px] sm:text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
           Work that <span className="text-gradient">speaks for itself</span>
         </h1>
-        <p className="text-sm sm:text-base text-slate-400 max-w-xl mx-auto leading-relaxed">
+        <p className="text-xs sm:text-base text-slate-400 max-w-xl mx-auto leading-relaxed">
           40+ projects delivered across startups and enterprises — from AI platforms to premium e-commerce experiences.
         </p>
       </section>
@@ -175,11 +175,11 @@ export default function ProjectsPage() {
                 href={featuredProject.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative w-full rounded-[2rem] overflow-hidden border border-white/10 bg-slate-900/60 backdrop-blur-xl transition-all duration-500 hover:border-white/20 hover:shadow-[0_0_40px_rgba(0,0,0,0.5)] grid grid-cols-1 lg:grid-cols-5"
-                style={{ minHeight: "460px" }}
+                className="group relative w-full rounded-2xl sm:rounded-[2rem] overflow-hidden border border-white/10 bg-slate-900/60 backdrop-blur-xl transition-all duration-500 hover:border-white/20 hover:shadow-[0_0_40px_rgba(0,0,0,0.5)] grid grid-cols-1 lg:grid-cols-5"
+                style={{ minHeight: "380px" }}
               >
                 {/* Visual Section (Right side on desktop, top on mobile) */}
-                <div className="lg:col-span-3 lg:col-start-3 relative aspect-video sm:h-64 lg:h-full lg:aspect-auto w-full order-1 lg:order-2 overflow-hidden bg-slate-950 rounded-r-[2rem]">
+                <div className="lg:col-span-3 lg:col-start-3 relative h-48 sm:h-64 lg:h-full lg:aspect-auto w-full order-1 lg:order-2 overflow-hidden bg-slate-950 rounded-r-2xl sm:rounded-r-[2rem]">
                   <div className="absolute inset-0 z-10 bg-gradient-to-t lg:bg-gradient-to-r from-slate-900 via-transparent to-transparent pointer-events-none" />
                   <img
                     src={featuredProject.img}
@@ -189,26 +189,26 @@ export default function ProjectsPage() {
                 </div>
 
                 {/* Content Section (Left side on desktop, bottom on mobile) */}
-                <div className="lg:col-span-2 lg:col-start-1 relative z-30 flex flex-col justify-center h-full p-8 sm:p-12 lg:pr-0 order-2 lg:order-1 bg-slate-900 lg:bg-transparent lg:bg-gradient-to-r from-slate-900 via-slate-900 to-transparent">
+                <div className="lg:col-span-2 lg:col-start-1 relative z-30 flex flex-col justify-center h-full p-6 sm:p-12 lg:pr-0 order-2 lg:order-1 bg-slate-900 lg:bg-transparent lg:bg-gradient-to-r from-slate-900 via-slate-900 to-transparent">
                   <div className="max-w-md">
-                    <div className="flex items-center gap-3 mb-6">
+                    <div className="flex items-center gap-3 mb-4 sm:mb-6">
                       <span
-                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border backdrop-blur-md"
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[9px] sm:text-[10px] font-bold uppercase tracking-widest border backdrop-blur-md"
                         style={{ color: featuredProject.accent, borderColor: `${featuredProject.accent}30`, background: `${featuredProject.accent}15` }}
                       >
                         {categoryIcons[featuredProject.category]}
                         {featuredProject.type}
                       </span>
-                      <span className="text-[10px] text-slate-400 uppercase tracking-widest font-medium flex items-center gap-1.5">
-                        <span className="block w-1.5 h-1.5 rounded-full" style={{ backgroundColor: featuredProject.accent }}></span>
+                      <span className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-widest font-medium flex items-center gap-1.5">
+                        <span className="block w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full" style={{ backgroundColor: featuredProject.accent }}></span>
                         Featured
                       </span>
                     </div>
 
-                    <h2 className="font-display text-4xl sm:text-5xl font-bold text-white mb-4 leading-[1.1] tracking-tight group-hover:text-white/90 transition-colors">
+                    <h2 className="font-display text-2xl sm:text-5xl font-bold text-white mb-3 sm:mb-4 leading-tight tracking-tight group-hover:text-white/90 transition-colors">
                       {featuredProject.title}
                     </h2>
-                    <p className="text-slate-400 text-sm sm:text-base leading-relaxed mb-8">
+                    <p className="text-slate-400 text-xs sm:text-base leading-relaxed mb-6 sm:mb-8">
                       {featuredProject.desc}
                     </p>
 
@@ -220,41 +220,37 @@ export default function ProjectsPage() {
                       ))}
                     </div>
 
-                    <div className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-sm font-semibold text-white transition-all duration-300 group-hover:gap-3 group-hover:shadow-[0_0_20px_rgba(0,0,0,0.3)] shadow-lg hover:-translate-y-0.5"
+                    <div className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-xs sm:text-sm font-semibold text-white transition-all duration-300 group-hover:gap-3 group-hover:shadow-[0_0_20px_rgba(0,0,0,0.3)] shadow-lg hover:-translate-y-0.5"
                       style={{ background: `linear-gradient(135deg, ${featuredProject.accent}20, ${featuredProject.accent}10)`, border: `1px solid ${featuredProject.accent}50`, boxShadow: `0 4px 20px ${featuredProject.accent}15` }}>
-                      Explore Project <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      Explore Project <ArrowUpRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </div>
                   </div>
                 </div>
               </a>
             )}
 
-            {/* ── Other Projects — Carousel on Mobile, Grid on Desktop ── */}
+            {/* ── Other Projects — Vertical Stack on Mobile, Grid on Desktop ── */}
             {otherProjects.length > 0 && (
-              <div className="flex flex-row overflow-x-auto sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 pb-6 sm:pb-0 snap-x snap-mandatory scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0">
+              <div className="flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-6 pb-6 sm:pb-0">
                 {otherProjects.map((project, index) => (
                   <a
                     key={project.id}
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative flex-shrink-0 w-[85vw] sm:w-auto snap-center flex flex-col rounded-3xl overflow-hidden border border-white/10 bg-slate-900/50 backdrop-blur-xl hover:border-white/20 transition-all duration-500 hover:shadow-[0_8px_30px_rgb(0,0,0,0.4)] hover:-translate-y-1.5"
+                    className="group relative w-full flex flex-col rounded-[1.5rem] overflow-hidden border border-white/10 bg-slate-900/40 backdrop-blur-xl hover:border-white/20 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.6)]"
                   >
                     {/* Image Section */}
-                    <div className="relative h-48 sm:h-56 overflow-hidden bg-slate-950">
+                    <div className="relative h-56 sm:h-56 overflow-hidden">
                       <img
                         src={project.img}
                         alt={project.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       />
-                      {/* Very thin gradient just for top edge blending if needed, otherwise no overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent pointer-events-none" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60" />
                       
-                      {/* Top Bar (Index & Badge) */}
-                      <div className="absolute top-0 inset-x-0 p-4 flex justify-between items-start z-20">
-                        <div className="w-8 h-8 rounded-full bg-slate-900/80 backdrop-blur-md border border-white/10 flex items-center justify-center text-[10px] font-bold text-white shadow-lg">
-                          {String(index + 1).padStart(2, "0")}
-                        </div>
+                      {/* Floating Badge */}
+                      <div className="absolute top-4 right-4 z-20">
                         <div
                           className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider backdrop-blur-md border shadow-lg"
                           style={{ color: project.accent, borderColor: `${project.accent}30`, background: `${project.accent}15` }}
@@ -265,38 +261,31 @@ export default function ProjectsPage() {
                       </div>
                     </div>
 
-                    {/* Content Section */}
-                    <div className="p-6 sm:p-7 flex flex-col flex-grow relative z-20 bg-gradient-to-b from-slate-900/80 to-slate-900">
-                      <div className="flex items-start justify-between mb-3">
-                        <h3 className="font-display text-lg sm:text-xl font-bold text-white group-hover:text-white/90 transition-colors leading-tight">
+                    {/* Content Section - Floating Overlap Look */}
+                    <div className="p-6 sm:p-7 flex flex-col relative z-20 -mt-8 mx-4 mb-4 rounded-2xl bg-slate-800/80 backdrop-blur-2xl border border-white/5 shadow-2xl group-hover:border-primary/20 transition-all duration-500">
+                      <div className="flex items-center justify-between mb-2">
+                        <h3 className="font-display text-lg font-bold text-white group-hover:text-primary transition-colors leading-tight">
                           {project.title}
                         </h3>
                         <div
-                          className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ml-4 opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-y-2 group-hover:translate-y-0 shadow-lg"
-                          style={{ background: `${project.accent}20`, border: `1px solid ${project.accent}40` }}
+                          className="w-8 h-8 rounded-full flex items-center justify-center bg-white/5 border border-white/10 group-hover:bg-primary group-hover:border-primary transition-all duration-300 shadow-lg"
                         >
-                          <ArrowUpRight size={14} style={{ color: project.accent }} />
+                          <ArrowUpRight size={14} className="text-slate-400 group-hover:text-white transition-colors" />
                         </div>
                       </div>
 
-                      <p className="text-sm text-slate-400 leading-relaxed mb-6 line-clamp-2 group-hover:text-slate-300 transition-colors font-light">
+                      <p className="text-xs text-slate-400 leading-relaxed mb-4 line-clamp-2 font-light">
                         {project.desc}
                       </p>
 
-                      <div className="mt-auto flex flex-wrap gap-2">
-                        {project.tags.map(tag => (
-                          <span key={tag} className="px-2.5 py-1 rounded-md text-[10px] font-medium bg-white/5 border border-white/5 text-slate-400">
+                      <div className="flex flex-wrap gap-1.5 mt-auto">
+                        {project.tags.slice(0, 3).map(tag => (
+                          <span key={tag} className="px-2 py-0.5 rounded-md text-[9px] font-medium bg-white/5 border border-white/5 text-slate-500">
                             {tag}
                           </span>
                         ))}
                       </div>
                     </div>
-
-                    {/* Bottom accent glow bar */}
-                    <div
-                      className="absolute bottom-0 left-0 h-1 w-0 group-hover:w-full transition-all duration-700 ease-out z-30"
-                      style={{ background: `linear-gradient(to right, ${project.accent}, ${project.accent}80)` }}
-                    />
                   </a>
                 ))}
               </div>
