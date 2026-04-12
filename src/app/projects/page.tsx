@@ -4,18 +4,27 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BlobBackground from "@/components/BlobBackground";
-import { ExternalLink, Github, ChevronRight } from "lucide-react";
+import { ExternalLink, Github, ArrowUpRight, Layers, ShoppingBag, Shield, Globe, Code2, Sparkles } from "lucide-react";
+
+const categoryIcons: Record<string, React.ReactNode> = {
+  cybersecurity: <Shield size={14} />,
+  ecommerce: <ShoppingBag size={14} />,
+  portfolio: <Layers size={14} />,
+  webapp: <Code2 size={14} />,
+};
 
 const projects = [
   {
     id: 1,
-    title: "Deforastration",
+    title: "Deforestration",
     desc: "A cutting-edge web experience focusing on environmental awareness and digital innovation.",
     img: "/projectimg/project-1.png",
     category: "cybersecurity",
     tags: ["Next.js", "Tailwind", "GSAP"],
     link: "https://deforastration.vercel.app/",
-    type: "Modern Web"
+    type: "Modern Web",
+    accent: "#22c55e",
+    featured: false,
   },
   {
     id: 2,
@@ -25,37 +34,45 @@ const projects = [
     category: "portfolio",
     tags: ["GSAP", "Frontend", "UX"],
     link: "https://gsap-portfolio-puce.vercel.app/",
-    type: "Portfolio"
+    type: "Portfolio",
+    accent: "#a78bfa",
+    featured: false,
   },
   {
     id: 3,
     title: "Luxe Premium Store",
-    desc: "A premium luxury shopping destination featuring high-end aesthetics, smooth transitions, and a focus on visual storytelling.",
+    desc: "A premium luxury shopping destination featuring high-end aesthetics, smooth transitions, and visual storytelling.",
     img: "/projectimg/Project-3.png",
     category: "ecommerce",
     tags: ["E-Commerce", "Premium", "UX/UI"],
     link: "https://luxe-vert-eta.vercel.app/",
-    type: "E-Commerce"
+    type: "E-Commerce",
+    accent: "#f59e0b",
+    featured: false,
   },
   {
     id: 4,
     title: "Green Haven",
-    desc: "A beautifully curated botanical showcase bringing nature to the digital realm with soft aesthetics and plant e-commerce.",
+    desc: "A beautifully curated botanical showcase bringing nature to the digital realm with plant e-commerce.",
     img: "/projectimg/Project-4.png",
     category: "ecommerce",
     tags: ["E-Commerce", "Design", "Botany"],
     link: "https://warm-mermaid-8441d2.netlify.app/",
-    type: "E-Commerce"
+    type: "E-Commerce",
+    accent: "#4ade80",
+    featured: false,
   },
   {
     id: 5,
     title: "Lumière",
-    desc: "An elegant, refined minimal e-commerce experience tailored for premium skincare products, highlighting minimalist visuals.",
+    desc: "An elegant, refined minimal e-commerce experience tailored for premium skincare products.",
     img: "/projectimg/Project5.png",
     category: "ecommerce",
     tags: ["Skincare", "E-Commerce", "Minimal"],
     link: "https://reliable-centaur-fbf40f.netlify.app/",
-    type: "Minimalist"
+    type: "Minimalist",
+    accent: "#f472b6",
+    featured: false,
   },
   {
     id: 6,
@@ -65,17 +82,21 @@ const projects = [
     category: "webapp",
     tags: ["Utility", "Editor", "SaaS"],
     link: "https://ogeditor2.onrender.com/",
-    type: "Web App"
+    type: "Web App",
+    accent: "#38bdf8",
+    featured: false,
   },
   {
     id: 7,
     title: "DevMarket",
-    desc: "A modern marketplace platform tailored for developers to discover, share, and exchange essential tools and code assets.",
+    desc: "A modern marketplace platform for developers to discover, share, and exchange essential tools and code assets.",
     img: "/projectimg/Project-7.png",
     category: "ecommerce",
     tags: ["Marketplace", "SaaS", "Next.js"],
     link: "https://devmarket-three.vercel.app/",
-    type: "E-Commerce"
+    type: "E-Commerce",
+    accent: "#fb923c",
+    featured: true,
   }
 ];
 
@@ -84,114 +105,206 @@ export default function ProjectsPage() {
 
   const filteredProjects = filter === "all"
     ? projects
-    : projects.filter(p => p.category === filter);
+    : projects.filter(p => p.category === filter || p.title === "Deforestration");
 
   const categories = [
-    { id: "all", label: "All Projects" },
-    { id: "cybersecurity", label: "Cybersecurity" },
-    { id: "ecommerce", label: "E-Commerce" },
-    { id: "portfolio", label: "Portfolio" },
-    { id: "webapp", label: "Web Apps" },
+    { id: "all", label: "All Projects", icon: <Globe size={13} /> },
+    { id: "cybersecurity", label: "Cybersecurity", icon: <Shield size={13} /> },
+    { id: "ecommerce", label: "E-Commerce", icon: <ShoppingBag size={13} /> },
+    { id: "portfolio", label: "Portfolio", icon: <Layers size={13} /> },
+    { id: "webapp", label: "Web Apps", icon: <Code2 size={13} /> },
   ];
+
+  const featuredProject = filteredProjects.find(p => p.featured) ?? filteredProjects[0];
+  const otherProjects = filteredProjects.filter(p => p.id !== featuredProject?.id);
 
   return (
     <main className="min-h-screen relative">
       <Navbar />
       <BlobBackground />
 
-      <section className="pt-24 sm:pt-36 pb-8 sm:pb-12 text-left sm:text-center px-6 relative z-10">
-        <div className="max-w-3xl mx-0 sm:mx-auto">
-          {/* <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-5 sm:mb-6">
-            <i className="fas fa-map-marker-alt text-primary text-[10px] sm:text-xs"></i>
-            <span className="text-[10px] sm:text-xs font-medium text-slate-300 tracking-wide uppercase">Projects by AdhritVerse · Indore, India</span>
-          </div> */}
-          <h1 className="font-display text-[2rem] sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6 leading-[1.1] sm:leading-tight">
-            Our <span className="text-gradient block sm:inline">Project Portfolio</span>
-          </h1>
-          <p className="text-sm sm:text-base md:text-lg text-slate-400 max-w-2xl mx-0 sm:mx-auto leading-relaxed px-0">
-            AdhritVerse has delivered <strong className="text-slate-200">40+ projects</strong> for startups and enterprises across India — from custom web apps and AI platforms to e-commerce and cybersecurity tools.
-          </p>
+      {/* ── Hero Header ── */}
+      <section className="pt-28 sm:pt-40 pb-6 sm:pb-10 text-center px-6 relative z-10">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6 text-xs text-slate-400 tracking-widest uppercase">
+          <Sparkles size={11} className="text-primary" />
+          AdhritVerse · Project Portfolio
         </div>
+        <h1 className="font-display text-[2.4rem] sm:text-5xl md:text-6xl font-bold text-white mb-5 leading-[1.1]">
+          Work that <span className="text-gradient">speaks for itself</span>
+        </h1>
+        <p className="text-sm sm:text-base text-slate-400 max-w-xl mx-auto leading-relaxed">
+          40+ projects delivered across startups and enterprises — from AI platforms to premium e-commerce experiences.
+        </p>
       </section>
 
-      <section className="py-6 sm:py-8 px-6 relative z-10">
-        <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-2 sm:gap-4">
+      {/* ── Category Filter ── */}
+      <section className="py-6 px-6 relative z-10">
+        <div className="max-w-3xl mx-auto flex flex-wrap justify-center gap-3">
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setFilter(cat.id)}
-              className={`px-5 py-2 sm:px-7 sm:py-3 rounded-full text-xs sm:text-sm font-semibold transition-all duration-500 transform hover:scale-105 border ${filter === cat.id
-                  ? "bg-gradient-to-r from-primary to-secondary border-transparent text-white shadow-[0_0_25px_rgba(59,130,246,0.3)]"
-                  : "bg-white/5 border-white/10 text-slate-400 hover:border-primary/50 hover:text-white backdrop-blur-md"
-                }`}
+              className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold transition-all duration-500 border backdrop-blur-md ${
+                filter === cat.id
+                  ? "bg-white/10 border-white/20 text-white shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+                  : "bg-transparent border-white/5 text-slate-400 hover:bg-white/5 hover:border-white/10 hover:text-slate-200"
+              }`}
             >
+              <span className={`${filter === cat.id ? "text-primary" : "text-slate-500"} transition-colors duration-300`}>
+                {cat.icon}
+              </span>
               {cat.label}
             </button>
           ))}
         </div>
       </section>
 
-      <section className="py-10 sm:py-16 px-6 pb-20 sm:pb-32 max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
-          {filteredProjects.map((project) => (
-            <div key={project.id} className="project-card group cursor-pointer flex flex-col h-full bg-slate-900/40 backdrop-blur-md rounded-3xl border border-white/5 overflow-hidden transition-all duration-500">
-              <div className="relative h-56 sm:h-64 overflow-hidden">
-                <img
-                  src={project.img}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110 group-hover:rotate-1"
-                />
+      {/* ── Main Bento Layout ── */}
+      <section className="py-8 sm:py-12 px-4 sm:px-8 pb-24 sm:pb-36 max-w-7xl mx-auto relative z-10">
 
-                {/* Modern Overlay */}
-                <div className="absolute inset-0 bg-darker/60 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center backdrop-blur-[3px] z-30">
-                  <div className="flex gap-4 transform translate-y-6 group-hover:translate-y-0 transition-all duration-500">
-                    <a href={project.link} target="_blank" className="w-12 h-12 rounded-full bg-primary/20 backdrop-blur-md border border-primary/30 flex items-center justify-center text-white hover:bg-primary hover:scale-110 transition-all shadow-lg">
-                      <ExternalLink size={20} />
-                    </a>
-                    <a href="#" className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-slate-700 hover:scale-110 transition-all shadow-lg">
-                      <Github size={20} />
-                    </a>
+        {filteredProjects.length === 0 && (
+          <div className="text-center text-slate-500 py-24 text-sm">No projects in this category yet.</div>
+        )}
+
+        {filteredProjects.length > 0 && (
+          <div className="flex flex-col gap-8">
+
+            {/* ── Featured / Hero Card ── */}
+            {featuredProject && (
+              <a
+                href={featuredProject.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative w-full rounded-[2rem] overflow-hidden border border-white/10 bg-slate-900/60 backdrop-blur-xl transition-all duration-500 hover:border-white/20 hover:shadow-[0_0_40px_rgba(0,0,0,0.5)] grid grid-cols-1 lg:grid-cols-5"
+                style={{ minHeight: "460px" }}
+              >
+                {/* Visual Section (Right side on desktop, top on mobile) */}
+                <div className="lg:col-span-3 lg:col-start-3 relative h-64 lg:h-full w-full order-1 lg:order-2 overflow-hidden bg-slate-950 rounded-r-[2rem]">
+                  <div className="absolute inset-0 z-10 bg-gradient-to-t lg:bg-gradient-to-r from-slate-900 via-transparent to-transparent pointer-events-none" />
+                  <img
+                    src={featuredProject.img}
+                    alt={featuredProject.title}
+                    className="w-full h-full object-cover object-left-top"
+                  />
+                </div>
+
+                {/* Content Section (Left side on desktop, bottom on mobile) */}
+                <div className="lg:col-span-2 lg:col-start-1 relative z-30 flex flex-col justify-center h-full p-8 sm:p-12 lg:pr-0 order-2 lg:order-1 bg-slate-900 lg:bg-transparent lg:bg-gradient-to-r from-slate-900 via-slate-900 to-transparent">
+                  <div className="max-w-md">
+                    <div className="flex items-center gap-3 mb-6">
+                      <span
+                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border backdrop-blur-md"
+                        style={{ color: featuredProject.accent, borderColor: `${featuredProject.accent}30`, background: `${featuredProject.accent}15` }}
+                      >
+                        {categoryIcons[featuredProject.category]}
+                        {featuredProject.type}
+                      </span>
+                      <span className="text-[10px] text-slate-400 uppercase tracking-widest font-medium flex items-center gap-1.5">
+                        <span className="block w-1.5 h-1.5 rounded-full" style={{ backgroundColor: featuredProject.accent }}></span>
+                        Featured
+                      </span>
+                    </div>
+
+                    <h2 className="font-display text-4xl sm:text-5xl font-bold text-white mb-4 leading-[1.1] tracking-tight group-hover:text-white/90 transition-colors">
+                      {featuredProject.title}
+                    </h2>
+                    <p className="text-slate-400 text-sm sm:text-base leading-relaxed mb-8">
+                      {featuredProject.desc}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2 mb-10">
+                      {featuredProject.tags.map(tag => (
+                        <span key={tag} className="px-3 py-1.5 rounded-lg text-[11px] font-medium bg-white/5 border border-white/10 text-slate-300 backdrop-blur-sm">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-sm font-semibold text-white transition-all duration-300 group-hover:gap-3 group-hover:shadow-[0_0_20px_rgba(0,0,0,0.3)] shadow-lg hover:-translate-y-0.5"
+                      style={{ background: `linear-gradient(135deg, ${featuredProject.accent}20, ${featuredProject.accent}10)`, border: `1px solid ${featuredProject.accent}50`, boxShadow: `0 4px 20px ${featuredProject.accent}15` }}>
+                      Explore Project <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </div>
                   </div>
                 </div>
+              </a>
+            )}
 
-                {/* Tag Overlay Bottom Left */}
-                <div className="absolute bottom-4 left-4 z-20 flex flex-wrap gap-2 pr-4">
-                  <span className="px-3 py-1 text-[10px] sm:text-[11px] font-bold uppercase tracking-widest rounded-full bg-primary/90 text-white backdrop-blur-md shadow-lg">
-                    {project.type}
-                  </span>
-                </div>
+            {/* ── Other Projects — Numbered Row List ── */}
+            {otherProjects.length > 0 && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {otherProjects.map((project, index) => (
+                  <a
+                    key={project.id}
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative flex flex-col rounded-3xl overflow-hidden border border-white/10 bg-slate-900/50 backdrop-blur-xl hover:border-white/20 transition-all duration-500 hover:shadow-[0_8px_30px_rgb(0,0,0,0.4)] hover:-translate-y-1.5"
+                  >
+                    {/* Image Section */}
+                    <div className="relative h-48 sm:h-56 overflow-hidden bg-slate-950">
+                      <img
+                        src={project.img}
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                      />
+                      {/* Very thin gradient just for top edge blending if needed, otherwise no overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent pointer-events-none" />
+                      
+                      {/* Top Bar (Index & Badge) */}
+                      <div className="absolute top-0 inset-x-0 p-4 flex justify-between items-start z-20">
+                        <div className="w-8 h-8 rounded-full bg-slate-900/80 backdrop-blur-md border border-white/10 flex items-center justify-center text-[10px] font-bold text-white shadow-lg">
+                          {String(index + 1).padStart(2, "0")}
+                        </div>
+                        <div
+                          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider backdrop-blur-md border shadow-lg"
+                          style={{ color: project.accent, borderColor: `${project.accent}30`, background: `${project.accent}15` }}
+                        >
+                          {categoryIcons[project.category]}
+                          {project.type}
+                        </div>
+                      </div>
+                    </div>
 
-                {/* Smooth Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-darker/90 via-darker/20 to-transparent opacity-80 z-10 transition-opacity duration-500 group-hover:opacity-100"></div>
+                    {/* Content Section */}
+                    <div className="p-6 sm:p-7 flex flex-col flex-grow relative z-20 bg-gradient-to-b from-slate-900/80 to-slate-900">
+                      <div className="flex items-start justify-between mb-3">
+                        <h3 className="font-display text-lg sm:text-xl font-bold text-white group-hover:text-white/90 transition-colors leading-tight">
+                          {project.title}
+                        </h3>
+                        <div
+                          className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ml-4 opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-y-2 group-hover:translate-y-0 shadow-lg"
+                          style={{ background: `${project.accent}20`, border: `1px solid ${project.accent}40` }}
+                        >
+                          <ArrowUpRight size={14} style={{ color: project.accent }} />
+                        </div>
+                      </div>
+
+                      <p className="text-sm text-slate-400 leading-relaxed mb-6 line-clamp-2 group-hover:text-slate-300 transition-colors font-light">
+                        {project.desc}
+                      </p>
+
+                      <div className="mt-auto flex flex-wrap gap-2">
+                        {project.tags.map(tag => (
+                          <span key={tag} className="px-2.5 py-1 rounded-md text-[10px] font-medium bg-white/5 border border-white/5 text-slate-400">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Bottom accent glow bar */}
+                    <div
+                      className="absolute bottom-0 left-0 h-1 w-0 group-hover:w-full transition-all duration-700 ease-out z-30"
+                      style={{ background: `linear-gradient(to right, ${project.accent}, ${project.accent}80)` }}
+                    />
+                  </a>
+                ))}
               </div>
+            )}
 
-              <div className="p-6 sm:p-8 flex flex-col flex-grow relative bg-slate-900/20">
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-xl sm:text-2xl font-bold font-display text-white group-hover:text-primary transition-colors duration-300">
-                    {project.title}
-                  </h3>
-                  <div className="w-8 h-8 rounded-full bg-primary/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
-                    <ChevronRight size={14} className="text-slate-500 group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
-                  </div>
-                </div>
-
-                <p className="text-sm text-slate-400 leading-relaxed mb-6 group-hover:text-slate-300 transition-colors duration-300 line-clamp-3">
-                  {project.desc}
-                </p>
-
-                <div className="mt-auto flex flex-wrap gap-2">
-                  {project.tags.map(tag => (
-                    <span key={tag} className="tag-pill bg-white/5 border-white/10 text-[10px] sm:text-xs">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+          </div>
+        )}
       </section>
-
 
       <Footer />
     </main>
