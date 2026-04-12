@@ -124,7 +124,7 @@ export default function TechStack() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           
           {/* Side Menu (Bento Left) */}
-          <div className="lg:col-span-4 flex flex-col gap-4">
+          <div className="lg:col-span-4 flex flex-row overflow-x-auto lg:flex-col gap-3 lg:gap-4 pb-4 lg:pb-0 scrollbar-hide snap-x">
             {TECH_CATEGORIES.map((cat) => {
               const Icon = cat.icon;
               const isActive = activeTab === cat.id;
@@ -132,27 +132,27 @@ export default function TechStack() {
                 <button
                   key={cat.id}
                   onClick={() => setActiveTab(cat.id)}
-                  className={`relative p-6 rounded-3xl text-left transition-all duration-500 group overflow-hidden border ${
+                  className={`relative flex-shrink-0 snap-start p-3 px-5 lg:p-6 rounded-2xl lg:rounded-3xl text-left transition-all duration-500 group overflow-hidden border ${
                     isActive 
                     ? `bg-white/5 border-white/10 ${cat.glow}` 
-                    : "bg-transparent border-transparent hover:bg-white/5"
+                    : "bg-transparent border-white/5 hover:bg-white/5"
                   }`}
                 >
-                  <div className="relative z-10 flex items-center gap-5">
+                  <div className="relative z-10 flex items-center justify-center lg:justify-start gap-3 lg:gap-5">
                     <div className={`transition-all duration-500 ${isActive ? cat.color : "text-slate-500 group-hover:text-slate-300"}`}>
-                      <Icon size={28} strokeWidth={1.5} />
+                      <Icon className="w-5 h-5 lg:w-7 lg:h-7" strokeWidth={1.5} />
                     </div>
                     <div>
-                      <h3 className={`font-bold transition-all duration-300 ${isActive ? "text-white text-lg" : "text-slate-500 text-base"}`}>
+                      <h3 className={`font-bold whitespace-nowrap transition-all duration-300 ${isActive ? "text-white text-sm lg:text-lg" : "text-slate-500 text-sm lg:text-base"}`}>
                         {cat.label}
                       </h3>
-                      <p className={`text-[10px] uppercase tracking-widest font-medium transition-all duration-300 ${isActive ? cat.color : "opacity-0"}`}>
+                      <p className={`hidden lg:block text-[10px] uppercase tracking-widest font-medium transition-all duration-300 ${isActive ? cat.color : "opacity-0"}`}>
                         Experience & Mastery
                       </p>
                     </div>
                   </div>
                   {isActive && (
-                    <div className="absolute right-6 top-1/2 -translate-y-1/2 text-primary animate-pulse">
+                    <div className="hidden lg:block absolute right-6 top-1/2 -translate-y-1/2 text-primary animate-pulse">
                       <Zap size={16} fill="currentColor" />
                     </div>
                   )}
@@ -179,27 +179,27 @@ export default function TechStack() {
                   </span>
                 </div>
 
-                {/* Floating Tech Icons Cloud */}
-                <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 max-w-2xl px-4">
+                {/* Floating Tech Icons Grid */}
+                <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-y-7 gap-x-4 sm:gap-10 w-full max-w-2xl px-2 sm:px-4 mt-8 sm:mt-0">
                   {activeCategory.techs.map((tech, idx) => (
                     <div 
                       key={activeCategory.id + "-" + tech.name}
-                      className="group relative flex flex-col items-center gap-3 animate-fade-in-up"
+                      className="group relative flex flex-col items-center gap-2 sm:gap-3 animate-fade-in-up"
                       style={{ animationDelay: `${idx * 50}ms`, animationFillMode: 'forwards' }}
                     >
-                      <div className="relative w-14 h-14 sm:w-20 sm:h-20 flex items-center justify-center rounded-2xl transition-all duration-500 
+                      <div className="relative w-12 h-12 sm:w-20 sm:h-20 flex items-center justify-center rounded-xl sm:rounded-2xl transition-all duration-500 
                                       group-hover:scale-110 group-hover:-translate-y-3 cursor-pointer">
                         
                         {/* Stealthy border glow on hover */}
-                        <div className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl ${activeCategory.color.replace('text', 'bg')}/20`}></div>
+                        <div className={`absolute inset-0 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl ${activeCategory.color.replace('text', 'bg')}/20`}></div>
                         
                         <img 
                           src={tech.img} 
                           alt={tech.name} 
-                          className="w-10 h-10 sm:w-14 sm:h-14 object-contain relative z-10 transition-all duration-500 grayscale-[40%] group-hover:grayscale-0 drop-shadow-[0_0_8px_rgba(0,0,0,0.3)]"
+                          className="w-8 h-8 sm:w-14 sm:h-14 object-contain relative z-10 transition-all duration-500 grayscale-[40%] group-hover:grayscale-0 drop-shadow-[0_0_8px_rgba(0,0,0,0.3)]"
                         />
                       </div>
-                      <span className="text-[10px] sm:text-xs font-bold text-slate-500 group-hover:text-white transition-all uppercase tracking-widest">
+                      <span className="text-[9px] sm:text-xs font-bold text-slate-500 group-hover:text-white transition-all uppercase tracking-widest text-center max-w-full overflow-hidden text-ellipsis whitespace-nowrap px-1">
                         {tech.name}
                       </span>
                     </div>

@@ -138,13 +138,13 @@ export default function ProjectsPage() {
       </section>
 
       {/* ── Category Filter ── */}
-      <section className="py-6 px-6 relative z-10">
-        <div className="max-w-3xl mx-auto flex flex-wrap justify-center gap-3">
+      <section className="py-6 px-4 lg:px-6 relative z-10">
+        <div className="max-w-3xl mx-auto flex flex-row lg:flex-wrap overflow-x-auto lg:overflow-visible gap-3 pb-2 lg:pb-0 scrollbar-hide snap-x justify-start lg:justify-center">
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setFilter(cat.id)}
-              className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold transition-all duration-500 border backdrop-blur-md ${
+              className={`flex-shrink-0 snap-start inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold transition-all duration-500 border backdrop-blur-md ${
                 filter === cat.id
                   ? "bg-white/10 border-white/20 text-white shadow-[0_0_15px_rgba(255,255,255,0.1)]"
                   : "bg-transparent border-white/5 text-slate-400 hover:bg-white/5 hover:border-white/10 hover:text-slate-200"
@@ -229,16 +229,16 @@ export default function ProjectsPage() {
               </a>
             )}
 
-            {/* ── Other Projects — Numbered Row List ── */}
+            {/* ── Other Projects — Carousel on Mobile, Grid on Desktop ── */}
             {otherProjects.length > 0 && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="flex flex-row overflow-x-auto sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 pb-6 sm:pb-0 snap-x snap-mandatory scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0">
                 {otherProjects.map((project, index) => (
                   <a
                     key={project.id}
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative flex flex-col rounded-3xl overflow-hidden border border-white/10 bg-slate-900/50 backdrop-blur-xl hover:border-white/20 transition-all duration-500 hover:shadow-[0_8px_30px_rgb(0,0,0,0.4)] hover:-translate-y-1.5"
+                    className="group relative flex-shrink-0 w-[85vw] sm:w-auto snap-center flex flex-col rounded-3xl overflow-hidden border border-white/10 bg-slate-900/50 backdrop-blur-xl hover:border-white/20 transition-all duration-500 hover:shadow-[0_8px_30px_rgb(0,0,0,0.4)] hover:-translate-y-1.5"
                   >
                     {/* Image Section */}
                     <div className="relative h-48 sm:h-56 overflow-hidden bg-slate-950">
