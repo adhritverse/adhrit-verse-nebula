@@ -204,25 +204,35 @@ export default function CanvasHero() {
         {/* Centered Content */}
         <div className="pt-16 lg:pt-28 max-w-4xl mx-auto flex flex-col items-center relative z-20">
 
+          {/* Coded Vibe Badge */}
+          <div className="hero-sub opacity-0 mb-6 flex items-center gap-2 px-3 py-1 bg-white/[0.03] border border-white/[0.08] rounded-full backdrop-blur-md">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary/40 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+            </span>
+            <span className="text-[10px] font-mono tracking-[0.2em] text-slate-400 uppercase">Protocol: Innovation_v2.1</span>
+          </div>
+
           {/* Headline — Commanding Presence */}
-          <h1 className="font-display tracking-[-0.03em] text-5xl sm:text-7xl lg:text-8xl xl:text-[7rem] font-extrabold text-white leading-[1.05] mb-5 relative">
-            <div className="hero-title-line overflow-hidden pb-2">
+          <h1 className="font-display tracking-[-0.04em] text-5xl sm:text-6xl lg:text-7xl xl:text-[6rem] font-bold text-white leading-[1.05] mb-5 relative text-ai-glow">
+            <div className="hero-title-line overflow-hidden pb-1">
               <span className="block translate-y-[100%]">
-                We Engineer
+                Cyber & Web
               </span>
             </div>
             <div className="hero-title-line overflow-hidden pb-1">
               <span className="block translate-y-[100%]">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-accent">What&apos;s Next</span><span className="text-primary">.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-accent text-gradient">Innovation Consultancy</span><span className="text-primary">.</span>
               </span>
             </div>
           </h1>
 
+
           {/* Capability Strip — Typewriter */}
-          <div className="hero-sub opacity-0 mb-7 flex items-center justify-center gap-3 text-base sm:text-lg font-mono tracking-wide">
+          <div className="hero-sub opacity-0 mb-7 flex items-center justify-center gap-3 font-mono-tech tracking-[0.2em]">
             <span className="w-10 h-px bg-gradient-to-r from-transparent to-primary/50"></span>
-            <span className="text-slate-500 text-lg">{">"}</span>
-            <span className="text-primary font-semibold min-w-[200px] sm:min-w-[240px] text-left">{displayText}<span style={{ animation: 'blink 1s step-end infinite' }} className="text-primary/70 ml-0.5">|</span></span>
+            <span className="text-slate-500">{">"}</span>
+            <span className="text-primary font-bold min-w-[200px] sm:min-w-[240px] text-left">{displayText}<span style={{ animation: 'blink 1s step-end infinite' }} className="text-primary/70 ml-0.5">|</span></span>
             <span className="w-10 h-px bg-gradient-to-l from-transparent to-primary/50"></span>
           </div>
 
