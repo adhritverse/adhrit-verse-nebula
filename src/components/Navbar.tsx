@@ -78,12 +78,14 @@ export default function Navbar() {
 
             {/* CTA — Right */}
             <div className="flex items-center gap-4 shrink-0">
-              <Link
-                href="/contact"
+              <a
+                href="https://api.whatsapp.com/send/?phone=918462802086&text=Hello+AdhritVerse%2C+I+want+to+request+a+quote.&type=phone_number&app_absent=0"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hidden lg:inline-flex items-center justify-center px-8 py-3.5 rounded-full text-lg font-semibold text-white bg-gradient-to-r from-primary to-blue-500 hover:shadow-[0_0_24px_rgba(59,130,246,0.4)] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
               >
                 Get a Quote
-              </Link>
+              </a>
 
               <button
                 onClick={() => setMobileMenuOpen(true)}
@@ -152,13 +154,15 @@ export default function Navbar() {
         </div>
 
         <div className="px-5 pb-8 pt-4 border-t border-white/[0.06]">
-          <Link
-            href="/contact"
+          <a
+            href="https://api.whatsapp.com/send/?phone=918462802086&text=Hello+AdhritVerse%2C+I+want+to+request+a+quote.&type=phone_number&app_absent=0"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setMobileMenuOpen(false)}
             className="flex items-center justify-center w-full px-6 py-4 rounded-xl text-lg font-semibold text-white bg-gradient-to-r from-primary to-blue-500 transition-all"
           >
             Get Free Consultation
-          </Link>
+          </a>
           <a
             href="tel:+918462802086"
             className="flex items-center justify-center gap-2 w-full mt-3 px-6 py-4 rounded-xl text-base font-medium text-slate-400 border border-white/[0.06] hover:text-white transition-all"
