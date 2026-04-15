@@ -204,13 +204,9 @@ export default function CanvasHero() {
         {/* Centered Content */}
         <div className="pt-16 lg:pt-28 max-w-4xl mx-auto flex flex-col items-center relative z-20">
 
-          {/* Coded Vibe Badge */}
-          <div className="hero-sub opacity-0 mb-6 flex items-center gap-2 px-3 py-1 bg-white/[0.03] border border-white/[0.08] rounded-full backdrop-blur-md">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary/40 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-            </span>
-            <span className="text-[10px] font-mono tracking-[0.2em] text-slate-400 uppercase">Protocol: Innovation_v2.1</span>
+          {/* Subtle Coded Accent */}
+          <div className="hero-sub opacity-0 mb-3 flex items-center justify-center font-mono text-[9px] tracking-[0.3em] text-primary/40 uppercase">
+            <span>/* protocol_init_v3 */</span>
           </div>
 
           {/* Headline — Commanding Presence */}
