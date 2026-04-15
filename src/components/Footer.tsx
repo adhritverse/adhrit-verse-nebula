@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, Phone, MapPin, Linkedin, Instagram, Twitter, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Instagram, Twitter, Facebook, Globe, MessageCircle, ArrowRight } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -39,10 +39,13 @@ export default function Footer() {
             <p className="text-base text-slate-400 mb-8 leading-relaxed">
               India's premier technology agency specializing in AI solutions, cybersecurity, and enterprise-grade web development.
             </p>
-            <div className="flex gap-4">
-              <SocialLink icon={Linkedin} link="https://www.linkedin.com/company/adhritverse" hoverColor="hover:bg-[#0077b5]/20 hover:text-[#0077b5] hover:border-[#0077b5]/50" />
-              <SocialLink icon={Instagram} link="https://www.instagram.com/adhritverse?igsh=MXgwN2swanRvNmZtYQ==" hoverColor="hover:bg-[#E1306C]/20 hover:text-[#E1306C] hover:border-[#E1306C]/50" />
-              <SocialLink icon={Twitter} link="https://twitter.com/adhritverse" hoverColor="hover:bg-[#1DA1F2]/20 hover:text-[#1DA1F2] hover:border-[#1DA1F2]/50" />
+            <div className="flex flex-wrap gap-3">
+              <SocialLink icon={Linkedin} link="https://www.linkedin.com/company/adhritverse/" hoverColor="hover:bg-[#0077b5]/20 hover:text-[#0077b5] hover:border-[#0077b5]/50" />
+              <SocialLink icon={Instagram} link="https://www.instagram.com/avtechnologies_?igsh=aXI1NXA0ZnIwYnpw" hoverColor="hover:bg-[#E1306C]/20 hover:text-[#E1306C] hover:border-[#E1306C]/50" />
+              <SocialLink icon={Twitter} link="https://x.com/adhritverse" hoverColor="hover:bg-[#1DA1F2]/20 hover:text-[#1DA1F2] hover:border-[#1DA1F2]/50" />
+              <SocialLink icon={Facebook} link="https://www.facebook.com/adhritverse" hoverColor="hover:bg-[#1877F2]/20 hover:text-[#1877F2] hover:border-[#1877F2]/50" />
+              <SocialLink icon={Globe} link="https://adhritverse.in/" hoverColor="hover:bg-primary/20 hover:text-primary hover:border-primary/50" />
+              <SocialLink icon={MessageCircle} link="https://api.whatsapp.com/send/?phone=918462802086&text=Hello+AdhritVerse%2C+I+want+to+request+a+quote.&type=phone_number&app_absent=0" hoverColor="hover:bg-[#25D366]/20 hover:text-[#25D366] hover:border-[#25D366]/50" />
             </div>
           </div>
 
