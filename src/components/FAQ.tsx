@@ -134,11 +134,11 @@ export default function FAQ({ limit, showMoreLink, hideTitle }: { limit?: number
               <span className="faq-badge-dot" />
               <span className="faq-badge-text">FAQ · Quick Answers</span>
             </div>
-            <h2 className="font-display text-[22px] sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
               Frequently Asked{" "}
               <span className="text-gradient">Questions</span>
             </h2>
-            <p className="hidden sm:block text-sm md:text-base text-slate-400 max-w-2xl md:mx-auto leading-relaxed">
+            <p className="hidden sm:block text-base md:text-lg text-slate-400 max-w-3xl md:mx-auto leading-relaxed">
               Everything you need to know about AV Technologies — India&apos;s leading AI-powered tech agency.
               Can&apos;t find your answer?{" "}
               <a
@@ -195,7 +195,7 @@ export default function FAQ({ limit, showMoreLink, hideTitle }: { limit?: number
                 setActiveCategory(cat);
                 setOpenIndex(null);
               }}
-              className={`px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 border ${activeCategory === cat
+              className={`px-4 py-2 rounded-full text-sm font-semibold uppercase tracking-wider transition-all duration-300 border ${activeCategory === cat
                   ? "bg-primary text-white border-primary shadow-[0_0_20px_rgba(59,130,246,0.4)]"
                   : "bg-white/5 text-slate-400 border-white/10 hover:border-primary/40 hover:text-white hover:bg-white/10"
                 }`}
@@ -277,7 +277,7 @@ export default function FAQ({ limit, showMoreLink, hideTitle }: { limit?: number
                       {item.category}
                     </span>
                     <h3
-                      className={`font-semibold text-sm sm:text-base leading-snug transition-colors duration-200 ${isOpen ? "text-white" : "text-slate-200 group-hover:text-white"
+                      className={`font-semibold text-base sm:text-lg leading-snug transition-colors duration-200 ${isOpen ? "text-white" : "text-slate-200 group-hover:text-white"
                         }`}
                       itemProp="name"
                     >
@@ -313,7 +313,7 @@ export default function FAQ({ limit, showMoreLink, hideTitle }: { limit?: number
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pl-[4.5rem] sm:pl-[4.75rem]">
                     <div className="h-px bg-primary/10 mb-4" />
                     <p
-                      className="text-slate-300 text-sm leading-relaxed"
+                      className="text-slate-300 text-base leading-relaxed"
                       itemProp="text"
                     >
                       {item.a}

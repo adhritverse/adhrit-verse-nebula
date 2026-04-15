@@ -133,7 +133,7 @@ export default function WorkflowVisual() {
             >
               {/* Card Label */}
               <div 
-                className={`mb-4 lg:mb-6 text-[9px] sm:text-[10px] lg:text-[11px] font-bold tracking-[0.2em] transition-all duration-500 uppercase text-center
+                className={`mb-4 lg:mb-6 text-[10px] sm:text-xs lg:text-sm font-bold tracking-[0.2em] transition-all duration-500 uppercase text-center
                   ${isTop ? 'order-1' : 'order-1 lg:order-3 lg:mt-6 lg:mb-0'}`}
                 style={{ color: step.color }}
               >

@@ -15,8 +15,6 @@ export default function CanvasHero() {
   const [wordIndex, setWordIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
-
-
   useEffect(() => {
     const currentWord = words[wordIndex];
     let timeout: NodeJS.Timeout;
@@ -46,21 +44,10 @@ export default function CanvasHero() {
     let ctx = gsap.context(() => {
       const tl = gsap.timeline({ delay: 0.2 });
 
-      tl.to('.hero-badge', { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' })
-        .to('.hero-title-line span', { y: 0, duration: 0.8, ease: 'power3.out', stagger: 0.15 }, '-=0.5')
+      tl.to('.hero-title-line span', { y: 0, duration: 0.8, ease: 'power3.out', stagger: 0.15 })
         .to('.hero-sub', { opacity: 1, duration: 0.7, ease: 'power2.out' }, '-=0.4')
         .to('.hero-btns', { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', stagger: 0.15 }, '-=0.3')
-        .to('.hero-right', { opacity: 1, x: 0, duration: 1, ease: 'power3.out' }, '-=0.8');
-
-      // Stats numbers
-      document.querySelectorAll(".stat-num").forEach((el) => {
-        const target = parseInt(el.getAttribute("data-target") || "0");
-        gsap.fromTo(el, { textContent: 0 }, {
-          textContent: target, duration: 2, ease: 'power2.out', delay: 1.5,
-          snap: { textContent: 1 },
-          onUpdate() { el.textContent = Math.round(Number(el.textContent)) + '+'; }
-        });
-      });
+        .to('.hero-right', { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }, '-=0.8');
 
     }, containerRef);
 
@@ -115,11 +102,9 @@ export default function CanvasHero() {
         this.alpha = Math.random() * 0.5 + 0.2;
       }
       update() {
-        // Continuous gentle move
         this.x += this.vx;
         this.y += this.vy;
 
-        // Mouse repulsion
         const dx = this.x - mouse.x, dy = this.y - mouse.y;
         const d = Math.sqrt(dx * dx + dy * dy);
         if (d < MOUSE_DIST) {
@@ -128,7 +113,6 @@ export default function CanvasHero() {
           this.y += (dy / d) * force;
         }
 
-        // Wrap around boundaries
         if (this.x < 0) this.x = W; if (this.x > W) this.x = 0;
         if (this.y < 0) this.y = H; if (this.y > H) this.y = 0;
       }
@@ -165,7 +149,6 @@ export default function CanvasHero() {
       ctx!.clearRect(0, 0, W, H);
       drawHexGrid();
 
-      // Draw connections
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
@@ -213,181 +196,277 @@ export default function CanvasHero() {
     <section ref={containerRef} id="home" className="relative flex items-center pt-24 pb-16 overflow-hidden min-h-[calc(100vh-0px)]">
       <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none w-full h-full" />
 
+      {/* Cinematic ambient glows */}
+      <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/[0.06] blur-[150px] rounded-full pointer-events-none z-0" />
+      <div className="absolute top-[20%] left-[15%] w-[300px] h-[300px] bg-accent/[0.04] blur-[120px] rounded-full pointer-events-none z-0" />
 
+      <div className="max-w-7xl mx-auto px-6 w-full relative z-10 flex flex-col items-center justify-center text-center">
+        {/* Centered Content */}
+        <div className="pt-16 lg:pt-28 max-w-4xl mx-auto flex flex-col items-center relative z-20">
 
-
-      <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-
-          {/* Left Content */}
-          <div>
-            <div className="hero-badge flex items-center gap-3 mb-6 group/badge opacity-0 translate-y-[20px]">
-              <span className="w-8 h-px bg-primary/50 group-hover/badge:w-12 transition-all duration-500"></span>
-              <span className="text-[10px] sm:text-xs font-bold text-slate-400 tracking-[0.2em] uppercase leading-tight">
-                Trusted by Startups & Enterprises
+          {/* Headline — Commanding Presence */}
+          <h1 className="font-display tracking-[-0.03em] text-5xl sm:text-7xl lg:text-8xl xl:text-[7rem] font-extrabold text-white leading-[1.05] mb-5 relative">
+            <div className="hero-title-line overflow-hidden pb-2">
+              <span className="block translate-y-[100%]">
+                We Engineer
               </span>
             </div>
+            <div className="hero-title-line overflow-hidden pb-1">
+              <span className="block translate-y-[100%]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-accent">What&apos;s Next</span><span className="text-primary">.</span>
+              </span>
+            </div>
+          </h1>
 
-            <h1 className="font-display text-[2.5rem] leading-[1.08] sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-5">
-              <div className="hero-title-line overflow-hidden"><span className="block translate-y-[100%] pb-1">Cyber &amp; Web</span></div>
-              <div className="hero-title-line overflow-hidden pb-1">
-                <span className="block translate-y-[100%] text-gradient relative inline-block after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] sm:after:h-[3px] after:rounded-[2px] after:bg-gradient-to-r after:from-primary after:via-secondary after:to-accent after:bg-[length:200%] after:animate-[gradientSlide_3s_linear_infinite]">
-                  Innovation
-                </span>
-              </div>
-              <div className="hero-title-line overflow-hidden mt-1"><span className="block translate-y-[100%]">Consultancy</span></div>
-            </h1>
+          {/* Capability Strip — Typewriter */}
+          <div className="hero-sub opacity-0 mb-7 flex items-center justify-center gap-3 text-base sm:text-lg font-mono tracking-wide">
+            <span className="w-10 h-px bg-gradient-to-r from-transparent to-primary/50"></span>
+            <span className="text-slate-500 text-lg">{">"}</span>
+            <span className="text-primary font-semibold min-w-[200px] sm:min-w-[240px] text-left">{displayText}<span style={{ animation: 'blink 1s step-end infinite' }} className="text-primary/70 ml-0.5">|</span></span>
+            <span className="w-10 h-px bg-gradient-to-l from-transparent to-primary/50"></span>
+          </div>
 
-            <p className="hero-sub opacity-0 text-sm sm:text-base md:text-lg text-slate-400 mb-5 max-w-xl leading-relaxed">
-              Delivering <strong className="text-slate-200">secure</strong>,{" "}
-              <strong className="text-slate-200">scalable</strong>, and{" "}
-              <strong className="text-slate-200">high-performance</strong> digital solutions for startups and enterprises. We architect your growth.
-            </p>
+          {/* Subtitle — Tight & Purposeful */}
+          <p className="hero-sub opacity-0 text-lg sm:text-xl font-normal text-slate-400 mb-12 max-w-2xl leading-relaxed mx-auto">
+            From bleeding-edge AI to bulletproof cybersecurity — we architect, build, and ship the technology that scales your vision.
+          </p>
 
-            <p className="text-xs sm:text-sm text-blue-400 font-mono mb-6 flex flex-wrap items-center gap-1 min-h-[24px]">
-              <span>We build &gt;</span> <span className="text-blue-400 after:content-['|'] after:animate-[blink_0.9s_step-end_infinite] after:ml-[2px] after:text-primary">{displayText}</span>
-            </p>
-
-            <div className="hero-btns opacity-0 translate-y-[30px] flex flex-col sm:flex-row flex-wrap gap-3 mb-7">
-              <Link href="/contact" className="btn-primary px-6 py-3 sm:px-7 rounded-full text-white font-semibold flex items-center justify-center gap-2 text-sm w-full sm:w-auto">
-                Get Free Consultation <i className="fas fa-arrow-right text-xs"></i>
-              </Link>
-              <Link href="/projects" className="btn-outline px-6 py-3 sm:px-7 rounded-full text-white font-semibold flex items-center justify-center gap-2 text-sm w-full sm:w-auto hover:border-primary hover:bg-primary/10 transition-all">
-                <i className="fas fa-play text-xs"></i> View Our Work
+          {/* CTAs — Business-Aligned */}
+          <div className="hero-btns opacity-0 translate-y-[30px] flex flex-col sm:flex-row items-center gap-4 w-full justify-center sm:w-auto">
+            <div className="relative group w-full sm:w-auto">
+              <div className="absolute transition-all duration-500 rounded-xl -inset-[1px] bg-gradient-to-r from-primary via-blue-400 to-accent opacity-50 group-hover:opacity-100 blur-sm group-hover:blur-md"></div>
+              <Link href="/contact" className="relative flex items-center justify-center gap-2.5 px-9 py-4 sm:px-12 sm:py-[18px] text-base sm:text-lg font-bold text-white bg-[#050a18] border border-white/[0.08] rounded-xl hover:bg-[#0a1128] transition-all w-full sm:w-auto tracking-wide">
+                <i className="fas fa-calendar-check text-primary"></i>
+                Get Free Consultation
               </Link>
             </div>
+            <Link href="/projects" className="flex items-center justify-center gap-2.5 px-9 py-4 sm:px-12 sm:py-[18px] text-base sm:text-lg font-medium text-slate-300 bg-white/[0.03] border border-white/[0.08] rounded-xl hover:bg-white/[0.07] hover:text-white hover:border-white/[0.15] transition-all w-full sm:w-auto group">
+              <span className="w-6 h-6 rounded-full bg-white/[0.06] border border-white/10 flex items-center justify-center group-hover:bg-primary/20 group-hover:border-primary/30 transition-all">
+                <i className="fas fa-arrow-right text-[9px] text-slate-400 group-hover:text-primary transition-colors"></i>
+              </span>
+              Explore Our Work
+            </Link>
+          </div>
 
-            <div className="hero-btns opacity-0 translate-y-[30px] grid grid-cols-2 gap-3">
-              <div className="text-center p-3 rounded-xl" style={{ background: 'rgba(15,23,42,0.6)', border: '1px solid rgba(255,255,255,0.06)' }}>
-                <div className="font-display text-xl sm:text-2xl font-bold text-white stat-num font-[tabular-nums]" data-target="40">0</div>
-                <div className="text-[10px] sm:text-xs text-slate-400 mt-1">Projects Delivered</div>
+          {/* Social Proof Strip — Hard Metrics */}
+          <div className="hero-btns opacity-0 translate-y-[30px] mt-14 sm:mt-20 flex flex-col items-center w-full">
+            <div className="w-full max-w-2xl mx-auto">
+              {/* Divider */}
+              <div className="flex items-center gap-4 mb-8">
+                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent"></div>
+                <span className="text-xs sm:text-sm font-bold tracking-[0.25em] uppercase text-slate-600">Proven Track Record</span>
+                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent"></div>
               </div>
-              <div className="text-center p-3 rounded-xl" style={{ background: 'rgba(15,23,42,0.6)', border: '1px solid rgba(255,255,255,0.06)' }}>
-                <div className="font-display text-xl sm:text-2xl font-bold text-white">100<span className="text-primary text-sm sm:text-base">%</span></div>
-                <div className="text-[10px] sm:text-xs text-slate-400 mt-1">Client Focused</div>
+
+              {/* Metrics Row */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+                <div className="flex flex-col items-center gap-1.5 group/stat cursor-default">
+                  <span className="text-3xl sm:text-4xl font-display font-extrabold text-white tracking-tight group-hover/stat:text-primary transition-colors">50<span className="text-primary">+</span></span>
+                  <span className="text-xs sm:text-sm font-semibold text-slate-500 tracking-wider uppercase">Projects Shipped</span>
+                </div>
+                <div className="flex flex-col items-center gap-1.5 group/stat cursor-default">
+                  <span className="text-3xl sm:text-4xl font-display font-extrabold text-white tracking-tight group-hover/stat:text-emerald-400 transition-colors">99.9<span className="text-emerald-400">%</span></span>
+                  <span className="text-xs sm:text-sm font-semibold text-slate-500 tracking-wider uppercase">Uptime SLA</span>
+                </div>
+                <div className="flex flex-col items-center gap-1.5 group/stat cursor-default">
+                  <span className="text-3xl sm:text-4xl font-display font-extrabold text-white tracking-tight group-hover/stat:text-amber-400 transition-colors">4.9<span className="text-amber-400">★</span></span>
+                  <span className="text-xs sm:text-sm font-semibold text-slate-500 tracking-wider uppercase">Client Rating</span>
+                </div>
+                <div className="flex flex-col items-center gap-1.5 group/stat cursor-default">
+                  <span className="text-3xl sm:text-4xl font-display font-extrabold text-white tracking-tight group-hover/stat:text-blue-400 transition-colors">24<span className="text-blue-400">/7</span></span>
+                  <span className="text-xs sm:text-sm font-semibold text-slate-500 tracking-wider uppercase">Support Coverage</span>
+                </div>
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Right Orbit */}
-          <div className="hero-right hidden lg:flex justify-center items-center opacity-0 translate-x-[60px]">
-            <OrbitalSystem />
-          </div>
+        {/* Hero Visual — Dashboard Mockup */}
+        <div className="hero-right opacity-0 translate-y-[60px] mt-16 sm:mt-24 relative w-full flex justify-center pb-12 origin-top pointer-events-none">
+          {/* Faded bottom gradient overlay for depth */}
+          <div className="absolute inset-x-0 bottom-[-20px] h-48 bg-gradient-to-t from-darker via-darker/80 to-transparent z-30 pointer-events-none"></div>
+          <DashboardMockup />
         </div>
       </div>
 
-
-
       <style jsx>{`
-        .hero-tag {
-          padding: 6px 14px;
-          border-radius: 999px;
-          font-size: 11px;
-          font-weight: 600;
-          letter-spacing: 0.04em;
-          backdrop-filter: blur(12px);
-          border: 1px solid rgba(255,255,255,0.1);
-          background: rgba(15,23,42,0.7);
-          color: #cbd5e1;
-          pointer-events: none;
-        }
         @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-        @keyframes floatTag {
+        @keyframes floatCard {
             0%,100%{ transform: translateY(0px); }
-            50%{ transform: translateY(-8px); }
+            50%{ transform: translateY(-10px); }
         }
-        @keyframes gradientSlide {
-            0%{ background-position: 0% } 100%{ background-position: 200% }
+        @keyframes floatCardReverse {
+            0%,100%{ transform: translateY(0px); }
+            50%{ transform: translateY(8px); }
         }
-        @keyframes orbital-spin {
-            from { transform: rotateZ(0deg); }
-            to { transform: rotateZ(360deg); }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        @keyframes barGrow {
+            0% { transform: scaleY(0); }
+            100% { transform: scaleY(1); }
         }
       `}</style>
     </section>
   );
 }
 
-function OrbitalSystem() {
-  const orbits = [
-    {
-      id: 'orbit1', radius: 105, duration: 25, reverse: false,
-      icons: [
-        { icon: 'fa-shield-alt', bg: 'rgba(239,68,68,0.15)', border: 'rgba(239,68,68,0.4)', color: '#f87171', label: 'Security' },
-        { icon: 'fa-code', bg: 'rgba(59,130,246,0.15)', border: 'rgba(59,130,246,0.4)', color: '#60a5fa', label: 'Web Apps' },
-      ]
-    },
-    {
-      id: 'orbit2', radius: 175, duration: 35, reverse: true,
-      icons: [
-        { icon: 'fa-brain', bg: 'rgba(16,185,129,0.15)', border: 'rgba(16,185,129,0.4)', color: '#34d399', label: 'AI/ML' },
-        { icon: 'fa-mobile-alt', bg: 'rgba(139,92,246,0.15)', border: 'rgba(139,92,246,0.4)', color: '#a78bfa', label: 'Mobile' },
-        { icon: 'fa-cloud', bg: 'rgba(6,182,212,0.15)', border: 'rgba(6,182,212,0.4)', color: '#22d3ee', label: 'Cloud' },
-      ]
-    },
-    {
-      id: 'orbit3', radius: 250, duration: 45, reverse: false,
-      icons: [
-        { icon: 'fa-paint-brush', bg: 'rgba(236,72,153,0.15)', border: 'rgba(236,72,153,0.4)', color: '#f472b6', label: 'Design' },
-        { icon: 'fa-lock', bg: 'rgba(245,158,11,0.15)', border: 'rgba(245,158,11,0.4)', color: '#fbbf24', label: 'Pentest' },
-        { icon: 'fa-cogs', bg: 'rgba(99,102,241,0.15)', border: 'rgba(99,102,241,0.4)', color: '#818cf8', label: 'DevOps' },
-        { icon: 'fa-database', bg: 'rgba(52,211,153,0.15)', border: 'rgba(52,211,153,0.4)', color: '#34d399', label: 'Data' },
-      ]
-    }
-  ];
+/* ─── Premium SaaS Dashboard Mockup ─── */
+function DashboardMockup() {
+  const barHeights = [40, 65, 45, 80, 55, 90, 70, 100, 60, 75, 50, 85];
 
   return (
-    <div className="relative flex items-center justify-center w-[520px] h-[520px] pointer-events-auto" style={{ perspective: '1200px' }}>
-
-      {/* 3D Plane Wrapper */}
-      <div className="absolute inset-0 flex items-center justify-center" style={{ transform: 'rotateX(60deg)', transformStyle: 'preserve-3d' }}>
-
-        {/* Center Shield logo - counter rotated to face camera */}
-        <div className="absolute z-20 flex items-center justify-center w-[110px] h-[110px] rounded-full bg-slate-900/60 backdrop-blur-xl border border-white/10 shadow-[0_0_50px_rgba(59,130,246,0.25)] group cursor-pointer transition-all hover:scale-105 duration-500"
-          style={{ transform: 'translateZ(40px) rotateX(-60deg)', transformStyle: 'preserve-3d' }}>
-          <div className="absolute inset-0 rounded-full border border-blue-500/30 animate-ping" style={{ animationDuration: '3s' }}></div>
-          <div className="absolute inset-[-10px] rounded-full border border-blue-400/10 animate-spin" style={{ animationDuration: '10s' }}></div>
-          <img src="/logo.png" alt="AV Technologies Base Core" className="w-[60px] h-[60px] object-contain z-10 drop-shadow-[0_0_15px_rgba(255,255,255,0.6)] group-hover:drop-shadow-[0_0_25px_rgba(255,255,255,0.8)] transition-all duration-500" />
+    <div className="relative w-full max-w-5xl mx-auto pointer-events-auto" style={{ perspective: '2000px' }}>
+      {/* Main Window */}
+      <div
+        className="w-full rounded-2xl border border-slate-700/60 bg-[#080C18]/90 backdrop-blur-2xl shadow-[0_40px_80px_-20px_rgba(0,0,0,0.8),0_0_1px_rgba(255,255,255,0.1)] overflow-hidden flex flex-col transition-transform duration-700 hover:shadow-[0_40px_80px_-20px_rgba(59,130,246,0.15),0_0_1px_rgba(255,255,255,0.1)]"
+        style={{ transform: 'rotateX(8deg)', transformOrigin: 'center top' }}
+      >
+        {/* macOS-style Header Bar */}
+        <div className="h-11 border-b border-white/[0.06] bg-white/[0.02] w-full flex items-center px-4 gap-2 shrink-0">
+          <div className="flex gap-2 mr-4">
+            <div className="w-3 h-3 rounded-full bg-[#FF5F56] shadow-[inset_0_-1px_1px_rgba(0,0,0,0.2)]"></div>
+            <div className="w-3 h-3 rounded-full bg-[#FFBD2E] shadow-[inset_0_-1px_1px_rgba(0,0,0,0.2)]"></div>
+            <div className="w-3 h-3 rounded-full bg-[#27C93F] shadow-[inset_0_-1px_1px_rgba(0,0,0,0.2)]"></div>
+          </div>
+          <div className="mx-auto flex items-center gap-2 px-4 py-1 bg-white/[0.04] rounded-md border border-white/[0.06] text-[11px] text-slate-500 font-mono">
+            <i className="fas fa-lock text-[9px] text-emerald-500/70"></i>
+            <span>dashboard.adhritverse.com</span>
+          </div>
+          <div className="text-[10px] text-slate-600 font-mono hidden sm:block">v2.1.0</div>
         </div>
 
-        {/* Orbits */}
-        {orbits.map((o) => (
-          <div key={o.id} className="absolute top-1/2 left-1/2 rounded-full border border-slate-600/30 shadow-[inset_0_0_20px_rgba(255,255,255,0.01)]"
-            style={{
-              width: o.radius * 2, height: o.radius * 2,
-              marginLeft: -o.radius, marginTop: -o.radius,
-              transformStyle: 'preserve-3d',
-              animation: `orbital-spin ${o.duration}s linear infinite ${o.reverse ? 'reverse' : 'normal'}`
-            }}>
-            {o.icons.map((item, idx) => {
-              const angle = (360 / o.icons.length) * idx;
-              return (
-                <div key={idx} className="absolute top-1/2 left-1/2 w-0 h-0" style={{ transform: `rotateZ(${angle}deg) translateX(${o.radius}px)`, transformStyle: 'preserve-3d' }}>
-                  <div className="absolute flex items-center justify-center"
-                    style={{
-                      width: 48, height: 48, left: -24, top: -24,
-                      transformStyle: 'preserve-3d',
-                      animation: `orbital-spin ${o.duration}s linear infinite ${o.reverse ? 'normal' : 'reverse'}`
-                    }}>
-                    <div style={{ transform: `rotateZ(-${angle}deg) rotateX(-60deg)` }} className="w-full h-full flex flex-col items-center justify-center group/icon">
-                      <div className="relative w-[48px] h-[48px] rounded-full flex items-center justify-center text-[20px] transition-all duration-300 group-hover/icon:scale-125 group-hover/icon:shadow-[0_0_30px_var(--icon-bg)] cursor-pointer overflow-hidden"
-                        style={{ '--icon-bg': item.color, background: `radial-gradient(circle at 30% 30%, ${item.color}50, rgba(10,15,30,0.95))`, color: item.color, border: `1px solid ${item.color}40`, boxShadow: `inset -3px -3px 8px rgba(0,0,0,0.6), inset 2px 2px 6px rgba(255,255,255,0.2), 0 0 15px ${item.bg}` } as any}>
-                        {/* Glass sphere glare effect */}
-                        <div className="absolute top-[3px] left-[8px] w-[18px] h-[8px] bg-white/30 rounded-full rotate-[-40deg] blur-[0.5px]"></div>
-                        <i className={`fas ${item.icon} relative z-10 drop-shadow-[0_0_8px_currentColor]`}></i>
-                      </div>
-                      {/* Hover Label */}
-                      <div className="absolute top-[55px] px-2.5 py-1 bg-slate-900/90 backdrop-blur-sm border border-slate-600/50 rounded-md text-[10px] uppercase font-bold tracking-widest whitespace-nowrap opacity-0 group-hover/icon:opacity-100 group-hover/icon:-translate-y-1 transition-all duration-300 pointer-events-none z-30" style={{ color: item.color, boxShadow: `0 4px 12px ${item.bg}` }}>
-                        {item.label}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+        {/* Dashboard Body */}
+        <div className="flex-1 p-3 sm:p-6 flex flex-col gap-4 sm:gap-5 relative overflow-hidden min-h-[280px] sm:min-h-[380px]">
+          {/* Ambient glow */}
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+          {/* Top Stats Row */}
+          <div className="grid grid-cols-3 gap-3 sm:gap-4 relative z-10">
+            {/* Stat 1 */}
+            <div className="rounded-xl bg-white/[0.03] border border-white/[0.06] p-3 sm:p-5">
+              <div className="text-slate-500 text-[10px] sm:text-xs font-mono mb-1 flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Revenue
+              </div>
+              <div className="text-lg sm:text-3xl font-display font-bold text-white tracking-tight">$42.8k</div>
+              <div className="text-emerald-400 text-[10px] sm:text-xs mt-1.5 flex items-center gap-1 font-medium">
+                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
+                24.5%
+              </div>
+            </div>
+            {/* Stat 2 */}
+            <div className="rounded-xl bg-white/[0.03] border border-white/[0.06] p-3 sm:p-5">
+              <div className="text-slate-500 text-[10px] sm:text-xs font-mono mb-1 flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span> Users
+              </div>
+              <div className="text-lg sm:text-3xl font-display font-bold text-white tracking-tight">8,249</div>
+              <div className="text-blue-400 text-[10px] sm:text-xs mt-1.5 flex items-center gap-1 font-medium">
+                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
+                12.3%
+              </div>
+            </div>
+            {/* Stat 3 — Gradient card */}
+            <div className="rounded-xl bg-gradient-to-br from-primary/15 via-blue-600/10 to-accent/15 border border-primary/20 p-3 sm:p-5 relative overflow-hidden">
+              <div className="absolute -right-6 -top-6 w-20 h-20 bg-primary/30 blur-2xl rounded-full"></div>
+              <div className="text-white/60 text-[10px] sm:text-xs font-mono mb-1 relative z-10 flex items-center gap-1.5">
+                <span className="relative flex h-2 w-2"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span></span>
+                Uptime
+              </div>
+              <div className="text-lg sm:text-3xl font-display font-bold text-white tracking-tight relative z-10">99.99<span className="text-base text-primary/80">%</span></div>
+            </div>
           </div>
-        ))}
+
+          {/* Bottom Row — Code + Chart */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 flex-1 relative z-10">
+            {/* Code Panel */}
+            <div className="flex-1 rounded-xl bg-[#0d1117] border border-slate-800/80 p-3 sm:p-4 font-mono text-[10px] sm:text-xs text-slate-400 flex flex-col overflow-hidden">
+              <div className="flex items-center gap-2 text-slate-500 mb-2 border-b border-slate-800/60 pb-2 text-[10px]">
+                <i className="fas fa-code text-primary/50"></i>
+                <span>deploy.config.ts</span>
+                <span className="ml-auto px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-400 text-[9px] font-bold">LIVE</span>
+              </div>
+              <div><span className="text-purple-400">import</span> {`{ deployService }`} <span className="text-purple-400">from</span> <span className="text-green-300">&apos;@adhrit/core&apos;</span>;</div>
+              <div className="mt-2"><span className="text-purple-400">await</span> deployService({`{`}</div>
+              <div className="pl-4">environment: <span className="text-green-300">&apos;production&apos;</span>,</div>
+              <div className="pl-4">autoScaling: <span className="text-blue-400">true</span>,</div>
+              <div className="pl-4">regions: [<span className="text-green-300">&apos;us-east-1&apos;</span>, <span className="text-green-300">&apos;eu-west-1&apos;</span>],</div>
+              <div className="pl-4">replicaCount: <span className="text-emerald-400">5</span></div>
+              <div>{`});`}</div>
+              <div className="mt-auto pt-3 text-emerald-400 flex items-center gap-1.5">
+                <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                {`Build successful · 1.2s`}
+              </div>
+            </div>
+
+            {/* Chart Panel */}
+            <div className="flex-1 rounded-xl bg-white/[0.02] border border-white/[0.06] p-3 sm:p-4 flex flex-col justify-between">
+              <div className="flex items-center justify-between mb-3">
+                <div className="text-slate-500 text-[10px] sm:text-xs font-mono">Traffic Analytics</div>
+                <div className="flex gap-1">
+                  <span className="px-2 py-0.5 rounded bg-primary/20 text-primary text-[9px] font-bold border border-primary/30">7D</span>
+                  <span className="px-2 py-0.5 rounded bg-white/5 text-slate-500 text-[9px] border border-white/5">30D</span>
+                </div>
+              </div>
+              <div className="flex-1 relative flex items-end gap-[3px] sm:gap-1.5">
+                {barHeights.map((h, i) => (
+                  <div
+                    key={i}
+                    className="flex-1 rounded-t-sm origin-bottom"
+                    style={{
+                      height: `${h}%`,
+                      background: `linear-gradient(to top, rgba(59,130,246,0.6), rgba(139,92,246,0.4))`,
+                      animation: `barGrow 0.8s ease-out ${i * 0.08}s both`,
+                    }}
+                  ></div>
+                ))}
+              </div>
+              <div className="flex justify-between mt-2 text-[9px] text-slate-600 font-mono">
+                <span>Mon</span><span>Thu</span><span>Sun</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      {/* ─── Floating Breakout Cards ─── */}
+      {/* Left card */}
+      <div
+        className="absolute -left-3 sm:-left-10 top-[30%] w-44 sm:w-52 rounded-xl border border-white/10 bg-[#0C1222]/95 backdrop-blur-xl p-3 sm:p-4 shadow-[0_20px_50px_rgba(0,0,0,0.6)] z-20"
+        style={{ animation: 'floatCard 6s ease-in-out infinite' }}
+      >
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-lg bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-sm">
+            <i className="fas fa-shield-alt"></i>
+          </div>
+          <div>
+            <div className="text-[10px] text-slate-500 font-mono">WAF Status</div>
+            <div className="text-xs sm:text-sm font-bold text-white flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              Protected
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Right card */}
+      <div
+        className="absolute -right-3 sm:-right-10 top-[55%] w-44 sm:w-52 rounded-xl border border-white/10 bg-[#0C1222]/95 backdrop-blur-xl p-3 sm:p-4 shadow-[0_20px_50px_rgba(0,0,0,0.6)] z-20"
+        style={{ animation: 'floatCardReverse 5s ease-in-out infinite' }}
+      >
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-lg bg-blue-500/15 border border-blue-500/30 flex items-center justify-center text-blue-400 text-sm">
+            <i className="fas fa-bolt"></i>
+          </div>
+          <div>
+            <div className="text-[10px] text-slate-500 font-mono">Edge Latency</div>
+            <div className="text-xs sm:text-sm font-bold text-white">12ms <span className="text-emerald-400 text-[10px] font-normal">avg</span></div>
+          </div>
+        </div>
+      </div>
+
+      {/* Background glow behind dashboard */}
+      <div className="absolute -inset-12 bg-gradient-to-r from-primary/20 via-transparent to-accent/20 blur-3xl -z-10 rounded-[3rem] pointer-events-none"></div>
     </div>
   );
 }

@@ -12,7 +12,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 40);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -21,100 +21,153 @@ export default function Navbar() {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "Services", href: "/services" },
-    { name: "Team", href: "/team" },
     { name: "Projects", href: "/projects" },
+    { name: "Team", href: "/team" },
+    { name: "Blog", href: "/blog" },
     { name: "FAQ", href: "/faq" },
-    { name: "Contact", href: "/contact" },
   ];
 
   return (
     <>
-      <nav
-        className={`fixed w-full z-50 transition-all duration-300 h-20 flex items-center ${scrolled ? "glass-nav scrolled" : "glass-nav"
-          }`}
-      >
-        <div className="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 relative flex items-center justify-center rounded-lg bg-white/5 border border-white/10 group-hover:border-primary/50 transition-colors">
-              <img
-                src="/logo.png"
-                alt="AV Technologies Logo"
-                className="h-8 w-auto object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]"
-              />
-            </div>
-            <span className="font-display font-bold text-xl tracking-tight text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-primary transition-all">
-              AV Technologies
-            </span>
-          </Link>
+      <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4">
+        <nav
+          className={`
+            w-full transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
+            ${scrolled
+              ? "mt-4 max-w-7xl rounded-2xl border border-white/[0.08] bg-[#0a0f1e]/90 backdrop-blur-2xl shadow-[0_8px_40px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.04)] px-8 py-4"
+              : "max-w-7xl px-8 py-8 bg-transparent"
+            }
+          `}
+        >
+          <div className="flex items-center justify-between w-full">
+            {/* Logo — Left */}
+            <Link href="/" className="flex items-center gap-3 group shrink-0">
+              <div className="w-12 h-12 relative flex items-center justify-center rounded-xl bg-white/[0.06] border border-white/[0.1] group-hover:border-primary/40 transition-all duration-300">
+                <img
+                  src="/logo.png"
+                  alt="AV Technologies Logo"
+                  className="h-8 w-auto object-contain"
+                />
+              </div>
+              <span className="font-display font-bold text-2xl text-white tracking-tight group-hover:text-primary transition-colors duration-300">
+                AV Technologies
+              </span>
+            </Link>
 
-          {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium">
-            {navLinks.map((link) => (
+            {/* Nav Links — Center */}
+            <div className="hidden lg:flex items-center gap-2">
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className={`
+                      relative px-6 py-3 rounded-full text-lg font-medium transition-all duration-300
+                      ${isActive
+                        ? "text-white bg-white/[0.1]"
+                        : "text-slate-400 hover:text-white hover:bg-white/[0.05]"
+                      }
+                    `}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
+            </div>
+
+            {/* CTA — Right */}
+            <div className="flex items-center gap-4 shrink-0">
+              <Link
+                href="/contact"
+                className="hidden lg:inline-flex items-center justify-center px-8 py-3.5 rounded-full text-lg font-semibold text-white bg-gradient-to-r from-primary to-blue-500 hover:shadow-[0_0_24px_rgba(59,130,246,0.4)] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
+              >
+                Get a Quote
+              </Link>
+
+              <button
+                onClick={() => setMobileMenuOpen(true)}
+                className="lg:hidden w-12 h-12 rounded-xl bg-white/[0.06] border border-white/[0.1] flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/[0.1] transition-all focus:outline-none"
+                aria-label="Open menu"
+              >
+                <Menu size={24} />
+              </button>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      {/* ─── Mobile Menu ─── */}
+      <div
+        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-[55] transition-opacity duration-300 lg:hidden ${
+          mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={() => setMobileMenuOpen(false)}
+      />
+
+      <div
+        className={`fixed top-0 right-0 bottom-0 w-[85vw] max-w-sm bg-[#050a18]/98 backdrop-blur-2xl z-[60] transform ${
+          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        } transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:hidden flex flex-col border-l border-white/[0.06]`}
+      >
+        <div className="flex items-center justify-between px-6 py-6 border-b border-white/[0.06]">
+          <Link href="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-3">
+            <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-white/[0.06] border border-white/[0.08]">
+              <img src="/logo.png" alt="AV Technologies" className="h-7 w-auto object-contain" />
+            </div>
+            <span className="font-display font-bold text-xl text-white">AV Technologies</span>
+          </Link>
+          <button
+            onClick={() => setMobileMenuOpen(false)}
+            className="w-12 h-12 rounded-xl bg-white/[0.06] border border-white/[0.08] flex items-center justify-center text-slate-400 hover:text-white transition-all focus:outline-none"
+            aria-label="Close menu"
+          >
+            <X size={24} />
+          </button>
+        </div>
+
+        <div className="flex-1 flex flex-col gap-2 px-5 py-8 overflow-y-auto">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
               <Link
                 key={link.name}
                 href={link.href}
-                className={`transition-colors ${pathname === link.href ? "text-white active-link" : "text-slate-300 hover:text-white"
-                  } relative nav-link`}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`
+                  flex items-center gap-4 px-6 py-4 rounded-xl text-lg font-medium transition-all duration-300
+                  ${isActive
+                    ? "text-white bg-primary/10 border border-primary/20"
+                    : "text-slate-300 hover:text-white hover:bg-white/[0.04] border border-transparent"
+                  }
+                `}
               >
+                {isActive && (
+                  <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(59,130,246,0.8)]" />
+                )}
                 {link.name}
               </Link>
-            ))}
-          </div>
-
-          {/* CTA & Mobile Toggle */}
-          <div className="flex items-center gap-2">
-            <Link
-              href="/contact"
-              className="hidden md:inline-flex items-center justify-center px-6 py-2.5 rounded-full text-sm font-medium text-white btn-primary"
-            >
-              Request a Quote
-            </Link>
-
-            <button
-              onClick={() => setMobileMenuOpen(true)}
-              className="md:hidden text-slate-300 hover:text-white p-2 focus:outline-none"
-              aria-label="Open menu"
-            >
-              <Menu size={24} />
-            </button>
-          </div>
+            );
+          })}
         </div>
-      </nav>
 
-      {/* Mobile Menu */}
-      <div
-        className={`fixed inset-0 bg-darker/98 backdrop-blur-xl z-[60] transform ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"
-          } transition-transform duration-300 md:hidden flex flex-col justify-center items-center gap-8`}
-      >
-        <button
-          onClick={() => setMobileMenuOpen(false)}
-          className="absolute top-6 right-6 text-slate-300 hover:text-white p-2 focus:outline-none"
-          aria-label="Close menu"
-        >
-          <X size={28} />
-        </button>
-        {navLinks.map((link) => (
+        <div className="px-5 pb-8 pt-4 border-t border-white/[0.06]">
           <Link
-            key={link.name}
-            href={link.href}
+            href="/contact"
             onClick={() => setMobileMenuOpen(false)}
-            className={`text-2xl font-medium transition-colors ${pathname === link.href ? "text-white" : "text-slate-300 hover:text-white"
-              }`}
+            className="flex items-center justify-center w-full px-6 py-4 rounded-xl text-lg font-semibold text-white bg-gradient-to-r from-primary to-blue-500 transition-all"
           >
-            {link.name}
+            Get Free Consultation
           </Link>
-        ))}
-        <Link
-          href="/contact"
-          onClick={() => setMobileMenuOpen(false)}
-          className="mt-4 px-8 py-3 rounded-full text-lg font-medium text-white btn-primary"
-        >
-          Request a Quote
-        </Link>
+          <a
+            href="tel:+918462802086"
+            className="flex items-center justify-center gap-2 w-full mt-3 px-6 py-4 rounded-xl text-base font-medium text-slate-400 border border-white/[0.06] hover:text-white transition-all"
+          >
+            <i className="fas fa-phone text-sm text-primary" />
+            +91 8462802086
+          </a>
+        </div>
       </div>
-
     </>
   );
 }
-

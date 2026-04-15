@@ -98,10 +98,10 @@ export default function TechStack() {
               <div className="w-8 h-px bg-primary"></div>
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Technical Arsenal</span>
             </div>
-            <h2 className="font-display text-[22px] sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
               Technologies We <span className="text-gradient">Master</span>
             </h2>
-            <p className="hidden sm:block text-slate-400 text-sm md:text-xl leading-relaxed">
+            <p className="hidden sm:block text-slate-400 text-base md:text-xl leading-relaxed">
               We leverage the most advanced stacks to build secure, scalable, and high-performance digital ecosystems for the next generation of startups and to drive the digital transformation of traditional businesses.
             </p>
           </div>
@@ -143,7 +143,7 @@ export default function TechStack() {
                       <Icon className="w-5 h-5 lg:w-7 lg:h-7" strokeWidth={1.5} />
                     </div>
                     <div>
-                      <h3 className={`font-bold whitespace-nowrap transition-all duration-300 ${isActive ? "text-white text-sm lg:text-lg" : "text-slate-500 text-sm lg:text-base"}`}>
+                      <h3 className={`font-bold whitespace-nowrap transition-all duration-300 ${isActive ? "text-white text-base lg:text-xl" : "text-slate-500 text-base lg:text-lg"}`}>
                         {cat.label}
                       </h3>
                       <p className={`hidden lg:block text-[10px] uppercase tracking-widest font-medium transition-all duration-300 ${isActive ? cat.color : "opacity-0"}`}>
@@ -199,7 +199,7 @@ export default function TechStack() {
                           className="w-8 h-8 sm:w-14 sm:h-14 object-contain relative z-10 transition-all duration-500 grayscale-[40%] group-hover:grayscale-0 drop-shadow-[0_0_8px_rgba(0,0,0,0.3)]"
                         />
                       </div>
-                      <span className="text-[9px] sm:text-xs font-bold text-slate-500 group-hover:text-white transition-all uppercase tracking-widest text-center max-w-full overflow-hidden text-ellipsis whitespace-nowrap px-1">
+                      <span className="text-xs sm:text-sm font-bold text-slate-500 group-hover:text-white transition-all uppercase tracking-widest text-center max-w-full overflow-hidden text-ellipsis whitespace-nowrap px-1">
                         {tech.name}
                       </span>
                     </div>
