@@ -60,15 +60,13 @@ function StackCard({
       className="sticky will-change-transform"
     >
       <div
-        className="relative rounded-2xl md:rounded-3xl overflow-hidden border border-white/[0.06] backdrop-blur-xl transition-all duration-500 group"
+        className="relative rounded-2xl md:rounded-3xl overflow-hidden border transition-all duration-500 group"
         style={{
-          background: `linear-gradient(135deg, rgba(2,6,23,0.95), rgba(2,6,23,0.85))`,
-          boxShadow: `0 ${20 + index * 8}px ${40 + index * 15}px -10px rgba(0,0,0,0.6), inset 0 1px 0 0 rgba(255,255,255,0.04)`,
+          background: "var(--bg-surface)",
+          borderColor: "var(--border)",
+          boxShadow: `0 ${20 + index * 8}px ${40 + index * 15}px -10px rgba(15,23,42,0.08)`,
         }}
       >
-        {/* Noise texture */}
-        <div className="absolute inset-0 noise-bg opacity-40 pointer-events-none" />
-
         {/* Accent gradient bleed */}
         <div
           className="absolute -top-24 -right-24 w-64 h-64 rounded-full blur-[100px] opacity-[0.07] group-hover:opacity-[0.12] transition-opacity duration-700"
@@ -110,15 +108,14 @@ function StackCard({
 
           {/* Center: Content */}
           <div className="flex-1">
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-white transition-colors">
+            <h3 className="text-xl md:text-2xl font-bold mb-3 transition-colors" style={{ color: "var(--text-primary)" }}>
               {card.title}
             </h3>
-            <p className="text-slate-400 text-base leading-relaxed group-hover:text-slate-300 transition-colors max-w-2xl">
+            <p className="text-base leading-relaxed transition-colors max-w-2xl" style={{ color: "var(--text-secondary)" }}>
               {card.desc}
             </p>
           </div>
 
-          {/* Right: Big Stat */}
           <div className="shrink-0 text-right md:text-center hidden sm:block">
             <div
               className="text-3xl md:text-4xl font-black tracking-tight mb-1"
@@ -126,7 +123,7 @@ function StackCard({
             >
               {card.stat}
             </div>
-            <div className="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-bold max-w-[120px]">
+            <div className="text-[10px] uppercase tracking-[0.2em] font-bold max-w-[120px]" style={{ color: "var(--text-muted)" }}>
               {card.statLabel}
             </div>
           </div>
@@ -145,9 +142,9 @@ export default function StackingWhyUs() {
       className="relative z-10"
       aria-labelledby="why-heading"
     >
-      {/* Full-bleed dark texture background */}
-      <div className="absolute inset-0 bg-[#020617]">
-        <div className="absolute inset-0 noise-bg opacity-50" />
+      {/* Light elevated section background */}
+      <div className="absolute inset-0" style={{ background: "var(--bg-elevated)" }}>
+        <div className="absolute inset-0 dot-grid opacity-60" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/[0.02] to-transparent" />
       </div>
 
@@ -170,7 +167,8 @@ export default function StackingWhyUs() {
               </div>
               <h2
                 id="why-heading"
-                className="font-display text-3xl sm:text-5xl md:text-6xl font-bold text-white leading-tight"
+                className="font-display text-3xl sm:text-5xl md:text-6xl font-bold leading-tight"
+                style={{ color: "var(--text-primary)" }}
               >
                 The Ultimate{" "}
                 <span className="text-gradient">Full-Stack</span>{" "}

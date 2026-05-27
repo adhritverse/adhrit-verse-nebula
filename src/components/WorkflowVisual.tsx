@@ -73,7 +73,7 @@ export default function WorkflowVisual() {
           </filter>
           <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="rgba(59,130,246,0.2)" />
-            <stop offset="50%" stopColor="white" />
+            <stop offset="50%" stopColor="var(--color-primary)" />
             <stop offset="100%" stopColor="rgba(99,102,241,0.2)" />
           </linearGradient>
         </defs>
@@ -163,7 +163,7 @@ export default function WorkflowVisual() {
                    ></div>
 
                    {/* Main Card */}
-                   <div className="absolute inset-0 bg-slate-900 border border-white/10 rounded-xl lg:rounded-2xl group-hover:border-white/30 group-hover:-translate-x-1 group-hover:-translate-y-1 transition-all duration-500 flex items-center justify-center overflow-hidden shadow-[5px_5px_15px_rgba(0,0,0,0.5)] lg:shadow-[10px_10px_30px_rgba(0,0,0,0.5)]">
+                   <div className="absolute inset-0 rounded-xl lg:rounded-2xl group-hover:-translate-x-1 group-hover:-translate-y-1 transition-all duration-500 flex items-center justify-center overflow-hidden shadow-[5px_5px_15px_rgba(15,23,42,0.12)] lg:shadow-[10px_10px_30px_rgba(15,23,42,0.12)]" style={{ background: "var(--bg-surface)", border: "1px solid var(--border)" }}>
                       {/* Gradient Inner Glow */}
                       <div 
                         className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity duration-500"

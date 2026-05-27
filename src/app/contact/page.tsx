@@ -48,7 +48,7 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen relative">
+    <main className="min-h-screen relative" style={{ background: "var(--bg-base)" }}>
       <Navbar />
       <BlobBackground />
 
@@ -58,10 +58,10 @@ export default function ContactPage() {
             <i className="fas fa-map-marker-alt text-primary text-[10px] sm:text-xs"></i>
             <span className="text-[10px] sm:text-xs font-medium text-slate-300 tracking-wide uppercase">Vijay Nagar, Indore · MP · India</span>
           </div> */}
-          <h1 className="font-display text-[2rem] sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6 leading-[1.1] sm:leading-tight">
+          <h1 className="font-display text-[2rem] sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 leading-[1.1] sm:leading-tight" style={{ color: "var(--text-primary)" }}>
             Get a <span className="text-gradient block sm:inline">Free Consultation</span>
           </h1>
-          <p className="text-sm sm:text-base md:text-lg text-slate-400 max-w-xl mx-0 sm:mx-auto leading-relaxed px-0">
+          <p className="text-sm sm:text-base md:text-lg max-w-xl mx-0 sm:mx-auto leading-relaxed px-0" style={{ color: "var(--text-secondary)" }}>
             Ready to build with AV Technologies — India&apos;s leading AI-powered tech agency? Tell us about your project — we respond within 24 hours.
           </p>
         </div>
@@ -71,7 +71,7 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
           {/* Contact Form */}
           <div className="glass-card p-6 sm:p-10 rounded-3xl border-white/5 group hover:border-primary/20 transition-all duration-500">
-            <h2 className="text-xl sm:text-2xl font-bold font-display text-white mb-6 sm:mb-8 flex items-center gap-3">
+            <h2 className="text-xl sm:text-2xl font-bold font-display mb-6 sm:mb-8 flex items-center gap-3" style={{ color: "var(--text-primary)" }}>
               <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-primary/20 flex items-center justify-center text-primary text-base sm:text-lg">
                 <i className="fas fa-envelope-open-text"></i>
               </span>
@@ -98,7 +98,7 @@ export default function ContactPage() {
                   <InputGroup label="Subject" name="subject" placeholder="Project Inquiry" icon="fas fa-tag" required />
                 </div>
                 <div className="flex flex-col gap-1 sm:gap-2">
-                  <label className="text-xs sm:text-sm font-semibold text-slate-300 ml-1 sm:ml-2">Message</label>
+                  <label className="text-xs sm:text-sm font-semibold ml-1 sm:ml-2" style={{ color: "var(--text-secondary)" }}>Message</label>
                   <div className="relative group">
                     <span className="absolute top-3 sm:top-4 left-3 sm:left-4 text-slate-500 group-focus-within:text-primary transition-colors text-xs sm:text-base">
                       <i className="fas fa-comment-alt"></i>
@@ -108,7 +108,12 @@ export default function ContactPage() {
                       rows={4}
                       required
                       placeholder="Tell us about your project..."
-                      className="w-full bg-slate-900/40 border border-white/10 rounded-xl sm:rounded-2xl px-9 sm:px-12 py-3 sm:py-4 text-sm sm:text-base text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all placeholder:text-slate-600"
+                      className="w-full rounded-xl sm:rounded-2xl px-9 sm:px-12 py-3 sm:py-4 text-sm sm:text-base focus:outline-none focus:ring-1 focus:ring-primary/20 transition-all"
+                      style={{
+                        background: "var(--bg-elevated)",
+                        border: "1px solid var(--border)",
+                        color: "var(--text-primary)",
+                      }}
                     ></textarea>
                   </div>
                 </div>
@@ -163,7 +168,7 @@ export default function ContactPage() {
 
             {/* Social Connect */}
             <div className="glass-card p-6 sm:p-10 rounded-3xl border-white/5 flex flex-col items-center text-center">
-              <h3 className="text-white font-bold font-display text-lg sm:text-xl mb-6">Connect with us on Socials</h3>
+            <h3 className="font-bold font-display text-lg sm:text-xl mb-6" style={{ color: "var(--text-primary)" }}>Connect with us on Socials</h3>
               <div className="flex gap-3 sm:gap-4 flex-wrap justify-center">
                 <SocialBtn icon="fab fa-linkedin-in" link="https://www.linkedin.com/company/adhritverse" color="hover:bg-blue-600" />
                 {/* <SocialBtn icon="fab fa-github" link="https://github.com/adhritverse" color="hover:bg-slate-700" /> */}
@@ -183,7 +188,7 @@ export default function ContactPage() {
 function InputGroup({ label, name, placeholder, icon, type = "text", required = false }: { label: string; name: string; placeholder: string; icon: string; type?: string; required?: boolean }) {
   return (
     <div className="flex flex-col gap-1 sm:gap-2">
-      <label className="text-xs sm:text-sm font-semibold text-slate-300 ml-1 sm:ml-2">{label}</label>
+      <label className="text-xs sm:text-sm font-semibold ml-1 sm:ml-2" style={{ color: "var(--text-secondary)" }}>{label}</label>
       <div className="relative group">
         <span className="absolute top-1/2 -translate-y-1/2 left-3 sm:left-4 text-slate-500 group-focus-within:text-primary transition-colors text-xs sm:text-base">
           <i className={icon}></i>
@@ -193,7 +198,12 @@ function InputGroup({ label, name, placeholder, icon, type = "text", required = 
           name={name}
           required={required}
           placeholder={placeholder}
-          className="w-full bg-slate-900/40 border border-white/10 rounded-xl sm:rounded-2xl px-9 sm:px-12 py-2.5 sm:py-4 text-sm sm:text-base text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all placeholder:text-slate-600"
+          className="w-full rounded-xl sm:rounded-2xl px-9 sm:px-12 py-2.5 sm:py-4 text-sm sm:text-base focus:outline-none focus:ring-1 focus:ring-primary/20 transition-all"
+          style={{
+            background: "var(--bg-elevated)",
+            border: "1px solid var(--border)",
+            color: "var(--text-primary)",
+          }}
         />
       </div>
     </div>
@@ -207,9 +217,9 @@ function InfoCard({ icon, title, val, sub, link, color }: { icon: string; title:
         <i className={icon}></i>
       </div>
       <div>
-        <h4 className="text-slate-400 text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-1">{title}</h4>
-        <div className="text-white text-lg sm:text-xl font-bold font-display mb-1 group-hover:text-primary transition-colors text-wrap break-all sm:break-normal">{val}</div>
-        <p className="text-slate-500 text-xs sm:text-sm leading-relaxed">{sub}</p>
+        <h4 className="text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-1" style={{ color: "var(--text-muted)" }}>{title}</h4>
+        <div className="text-lg sm:text-xl font-bold font-display mb-1 group-hover:text-primary transition-colors text-wrap break-all sm:break-normal" style={{ color: "var(--text-primary)" }}>{val}</div>
+        <p className="text-xs sm:text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>{sub}</p>
       </div>
     </a>
   );
@@ -217,7 +227,7 @@ function InfoCard({ icon, title, val, sub, link, color }: { icon: string; title:
 
 function SocialBtn({ icon, color, link = "#" }: { icon: string; color: string; link?: string }) {
   return (
-    <a href={link} target="_blank" rel="noopener noreferrer" className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center bg-white/5 border border-white/10 text-slate-400 hover:text-white ${color} hover:border-transparent transition-all duration-300 transform hover:scale-110 shadow-lg`}>
+    <a href={link} target="_blank" rel="noopener noreferrer" className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-lg ${color} hover:text-white`} style={{ background: "var(--bg-elevated)", border: "1px solid var(--border)", color: "var(--text-secondary)" }}>
       <i className={`${icon} text-base sm:text-lg`}></i>
     </a>
   );

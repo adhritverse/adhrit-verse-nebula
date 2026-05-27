@@ -29,9 +29,9 @@ function getPost(slug: string) {
       <h2>Our Methodology</h2>
       <p>Instead of blind tech migrations, we favor a data-driven approach. Establish comprehensive telemetry using tools like Datadog or Prometheus. Identify the exact endpoints causing high p99 latencies, and optimize those systematically.</p>
 
-      <div class="glass-card p-6 my-8 rounded-2xl border border-primary/20 bg-primary/5">
-        <h4 class="text-white font-bold text-lg mb-2">Pro Tip</h4>
-        <p class="text-sm text-slate-300">Always optimize your database indexes before refactoring code. A missing index on a frequently queried table can cause a 10x performance drop, yet is fixable with a single SQL command.</p>
+      <div class="glass-card p-6 my-8 rounded-2xl border border-primary/20 bg-primary/[0.03]">
+        <h4 class="text-primary font-bold text-lg mb-2">Pro Tip</h4>
+        <p class="text-sm text-[var(--text-secondary)]">Always optimize your database indexes before refactoring code. A missing index on a frequently queried table can cause a 10x performance drop, yet is fixable with a single SQL command.</p>
       </div>
 
       <h2>Conclusion</h2>
@@ -54,7 +54,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const post = getPost(resolvedParams.slug);
 
   return (
-    <main className="min-h-screen relative bg-[#020617]" itemScope itemType="https://schema.org/BlogPosting">
+    <main className="min-h-screen relative" itemScope itemType="https://schema.org/BlogPosting" style={{ background: "var(--bg-base)" }}>
       <Navbar />
 
       {/* Global backgrounds */}
@@ -67,10 +67,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           {/* Back button */}
           <Link 
             href="/blog"
-            className="inline-flex items-center justify-center gap-2 text-sm font-medium text-slate-400 hover:text-white transition-colors mb-10 group"
+            className="inline-flex items-center justify-center gap-2 text-sm font-medium transition-colors mb-10 group"
+            style={{ color: "var(--text-secondary)" }}
           >
-            <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-            Back to all articles
+            <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform text-primary" />
+            <span className="group-hover:text-[var(--text-primary)] transition-colors">Back to all articles</span>
           </Link>
 
           {/* Header */}
@@ -79,32 +80,33 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               <span className="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 rounded-full border border-primary/20">
                 {post.category}
               </span>
-              <span className="flex items-center justify-center gap-1.5 text-xs text-slate-400">
+              <span className="flex items-center justify-center gap-1.5 text-xs text-[var(--text-muted)]">
                 <Calendar size={12} />
                 {post.date}
               </span>
             </div>
             
-            <h1 className="font-display text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+            <h1 className="font-display text-3xl md:text-5xl font-bold mb-6 leading-tight" style={{ color: "var(--text-primary)" }}>
               {post.title}
             </h1>
             
-            <p className="text-xl text-slate-300 leading-relaxed mb-8">
+            <p className="text-xl leading-relaxed mb-8" style={{ color: "var(--text-secondary)" }}>
               {post.description}
             </p>
 
-            <div className="flex items-center justify-between py-6 border-y border-white/[0.06]">
+            <div className="flex items-center justify-between py-6 border-y border-[var(--border)]">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-primary font-bold text-lg">
+                <div className="w-10 h-10 rounded-full flex items-center justify-center text-primary font-bold text-lg" style={{ background: "var(--bg-elevated)", border: "1px solid var(--border)" }}>
                   {post.author[0]}
                 </div>
                 <div>
-                  <div className="text-white font-medium text-sm">{post.author}</div>
-                  <div className="text-slate-500 text-xs">Engineering</div>
+                  <div className="font-medium text-sm" style={{ color: "var(--text-primary)" }}>{post.author}</div>
+                  <div className="text-xs" style={{ color: "var(--text-muted)" }}>Engineering</div>
                 </div>
               </div>
               <button 
-                className="w-10 h-10 rounded-full flex items-center justify-center bg-white/5 hover:bg-white/10 text-slate-300 transition-colors border border-white/[0.05]"
+                className="w-10 h-10 rounded-full flex items-center justify-center bg-slate-100 hover:bg-slate-200 transition-colors border border-[var(--border)] cursor-pointer"
+                style={{ color: "var(--text-secondary)" }}
                 aria-label="Share article"
               >
                 <Share2 size={16} />
@@ -114,16 +116,16 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
           {/* Content */}
           <div 
-            className="prose prose-invert prose-slate prose-lg max-w-none prose-headings:font-display prose-headings:font-bold prose-headings:text-white prose-a:text-primary hover:prose-a:text-primary-light prose-strong:text-white prose-p:text-slate-300 prose-li:text-slate-300"
+            className="prose prose-slate prose-lg max-w-none prose-headings:font-display prose-headings:font-bold prose-headings:text-[var(--text-primary)] prose-a:text-primary hover:prose-a:text-primary-light prose-strong:text-[var(--text-primary)] prose-p:text-[var(--text-secondary)] prose-li:text-[var(--text-secondary)]"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 
           {/* CTA Footer */}
-          <div className="mt-20 pt-10 border-t border-white/[0.06]">
-            <div className="p-8 md:p-12 glass-card rounded-3xl border border-white/[0.08] text-center relative overflow-hidden">
+          <div className="mt-20 pt-10 border-t border-[var(--border)]">
+            <div className="p-8 md:p-12 glass-card rounded-3xl border border-[var(--border)] text-center relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-accent/5 pointer-events-none" />
-              <h3 className="text-2xl font-bold text-white mb-4 relative z-10">Facing technical challenges?</h3>
-              <p className="text-slate-400 mb-8 max-w-lg mx-auto relative z-10">
+              <h3 className="text-2xl font-bold mb-4 relative z-10" style={{ color: "var(--text-primary)" }}>Facing technical challenges?</h3>
+              <p className="mb-8 max-w-lg mx-auto relative z-10 text-sm sm:text-base" style={{ color: "var(--text-secondary)" }}>
                 Our engineering team has helped dozens of startups scale successfully. Let's discuss your architecture and chart a path forward.
               </p>
               <Link

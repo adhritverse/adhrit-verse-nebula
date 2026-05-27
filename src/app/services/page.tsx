@@ -152,23 +152,23 @@ const SERVICE_GROUPS = [
 
 export default function ServicesPage() {
   return (
-    <main className="min-h-screen relative overflow-x-hidden">
+    <main className="min-h-screen relative overflow-x-hidden" style={{ background: "var(--bg-base)" }}>
       <Navbar />
       <BlobBackground />
 
       {/* Hero Section */}
       <section className="pt-24 md:pt-44 pb-12 md:pb-20 text-center px-6 relative" aria-label="Services Header">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none opacity-5">
-           <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] font-bold text-white whitespace-nowrap select-none">
+           <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] font-bold text-[var(--text-primary)] whitespace-nowrap select-none">
              SERVICES
            </span>
         </div>
         
         <div className="max-w-4xl mx-auto relative z-10">
-          <h1 className="font-display text-3xl sm:text-6xl md:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
+          <h1 className="font-display text-3xl sm:text-6xl md:text-7xl font-bold mb-4 sm:mb-6 leading-tight" style={{ color: "var(--text-primary)" }}>
             Elevate Your <span className="text-gradient">Digital Potential</span>
           </h1>
-          <p className="text-sm sm:text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed" style={{ color: "var(--text-secondary)" }}>
             From visionary strategy to high-performance execution, we provide the full-spectrum technology services required to build, scale, and dominate in the modern market.
           </p>
           
@@ -177,7 +177,8 @@ export default function ServicesPage() {
                <a 
                  key={idx} 
                  href={`#${group.title.toLowerCase().replace(/\s+/g, '-')}`}
-                 className="px-4 py-2 rounded-full glass-card text-[11px] sm:text-sm font-medium text-slate-300 hover:text-white transition-colors capitalize"
+                  className="px-4 py-2 rounded-full glass-card text-[11px] sm:text-sm font-medium transition-colors capitalize"
+                  style={{ color: "var(--text-secondary)" }}
                >
                  {group.title}
                </a>
@@ -194,11 +195,11 @@ export default function ServicesPage() {
             id={group.title.toLowerCase().replace(/\s+/g, '-')}
             className={`mb-24 last:mb-0 transition-all duration-1000`}
           >
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-12 border-b border-white/5 pb-6 md:pb-8">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-12 pb-6 md:pb-8" style={{ borderBottom: "1px solid var(--border)" }}>
               <div className="max-w-2xl">
                 <span className="text-primary font-bold tracking-widest text-[10px] sm:text-xs uppercase mb-2 block">Service Pillar 0{gIdx + 1}</span>
-                <h2 className="text-[22px] sm:text-4xl md:text-5xl font-bold text-white mb-3 md:mb-4 font-display">{group.title}</h2>
-                <p className="text-slate-400 text-sm md:text-lg">{group.description}</p>
+                <h2 className="text-[22px] sm:text-4xl md:text-5xl font-bold mb-3 md:mb-4 font-display" style={{ color: "var(--text-primary)" }}>{group.title}</h2>
+                <p className="text-sm md:text-lg" style={{ color: "var(--text-secondary)" }}>{group.description}</p>
               </div>
             </div>
 
@@ -218,15 +219,15 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 md:py-32 px-6 relative z-10 bg-slate-950/50 border-y border-white/5 overflow-hidden">
+      <section className="py-20 md:py-32 px-6 relative z-10 overflow-hidden" style={{ background: "var(--bg-elevated)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary rounded-full blur-[120px] -mr-64 -mt-64"></div>
           <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary rounded-full blur-[120px] -ml-64 -mb-64"></div>
         </div>
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h2 className="font-display text-[22px] sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6">Let&apos;s Architect Your Success</h2>
-          <p className="text-sm md:text-xl text-slate-400 mb-8 sm:mb-10 max-w-2xl mx-auto">
+          <h2 className="font-display text-[22px] sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6" style={{ color: "var(--text-primary)" }}>Let&apos;s Architect Your Success</h2>
+          <p className="text-sm md:text-xl mb-8 sm:mb-10 max-w-2xl mx-auto" style={{ color: "var(--text-secondary)" }}>
             Ready to deploy world-class technology for your business? Get a detailed roadmap and estimate from our expert consulting team.
           </p>
           
@@ -234,12 +235,12 @@ export default function ServicesPage() {
             <Link href="/contact" className="px-8 py-3 sm:px-10 sm:py-4 rounded-full bg-primary text-white font-bold text-base sm:text-lg hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] hover:-translate-y-1 transition-all flex items-center justify-center gap-2">
               Start Your Project <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </Link>
-            <a href="tel:+918462802086" className="px-8 py-3 sm:px-10 sm:py-4 rounded-full border border-white/10 text-white font-bold text-base sm:text-lg hover:bg-white/5 transition-all flex items-center justify-center gap-2">
+            <a href="tel:+918462802086" className="px-8 py-3 sm:px-10 sm:py-4 rounded-full font-bold text-base sm:text-lg transition-all flex items-center justify-center gap-2 btn-outline">
               <Phone className="w-4 h-4 sm:w-5 sm:h-5" /> Talk to Expert
             </a>
           </div>
           
-          <p className="mt-8 text-sm text-slate-500">Fast response within 24 hours · Global Service Delivery</p>
+          <p className="mt-8 text-sm" style={{ color: "var(--text-muted)" }}>Fast response within 24 hours · Global Service Delivery</p>
         </div>
       </section>
 

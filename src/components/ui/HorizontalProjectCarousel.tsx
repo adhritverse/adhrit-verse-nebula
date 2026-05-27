@@ -29,7 +29,14 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         aria-label={`View ${project.title} project`}
         className="block h-full"
       >
-        <div className="h-full rounded-[2rem] bg-slate-900/50 backdrop-blur-xl border border-white/[0.06] overflow-hidden transition-all duration-700 hover:-translate-y-3 hover:border-primary/30 hover:shadow-[0_40px_80px_-20px_rgba(59,130,246,0.15)]">
+        <div
+          className="h-full rounded-[2rem] overflow-hidden transition-all duration-700 hover:-translate-y-3"
+          style={{
+            background: "var(--bg-surface)",
+            border: "1px solid var(--border)",
+            boxShadow: "var(--shadow-card)",
+          }}
+        >
           {/* Image */}
           <div className="relative h-48 sm:h-56 overflow-hidden bg-slate-950/40">
             <img
@@ -62,10 +69,10 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
           {/* Content */}
           <div className="p-6 sm:p-7 flex flex-col gap-2">
-            <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors duration-500">
+            <h3 className="text-xl font-bold transition-colors duration-500 group-hover:text-primary" style={{ color: "var(--text-primary)" }}>
               {project.title}
             </h3>
-            <p className="text-sm text-slate-400 leading-relaxed line-clamp-2 group-hover:text-slate-300 transition-colors">
+            <p className="text-sm leading-relaxed line-clamp-2 transition-colors" style={{ color: "var(--text-secondary)" }}>
               {project.desc}
             </p>
             <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-[0.15em] mt-2 opacity-0 group-hover:opacity-100 transition-all duration-500">
@@ -110,25 +117,26 @@ export default function HorizontalProjectCarousel({
           >
             <div className="flex items-center gap-3 mb-5 group/badge">
               <Layers size={14} className="text-primary" />
-              <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 group-hover/badge:text-slate-200 transition-colors">
+              <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 group-hover/badge:text-[var(--text-primary)] transition-colors">
                 Innovation Showcase
               </span>
-              <span className="w-12 h-px bg-white/5 group-hover/badge:w-24 group-hover/badge:bg-primary/20 transition-all duration-700" />
+              <span className="w-12 h-px bg-slate-200 group-hover/badge:w-24 group-hover/badge:bg-primary/20 transition-all duration-700" />
             </div>
             <h2
               id="projects-heading"
-              className="font-display text-[22px] sm:text-3xl md:text-5xl font-bold text-white mb-3"
+              className="font-display text-[22px] sm:text-3xl md:text-5xl font-bold mb-3"
+              style={{ color: "var(--text-primary)" }}
             >
               Innovation in <span className="text-gradient">Action</span>
             </h2>
-            <p className="hidden sm:block text-sm md:text-base text-slate-400 max-w-xl leading-relaxed">
+            <p className="hidden sm:block text-sm md:text-base max-w-xl leading-relaxed" style={{ color: "var(--text-secondary)" }}>
               A curated portfolio of secure, high-performing applications — built
               by AV Technologies for clients across India and the world.
             </p>
           </motion.div>
           <Link
             href="/projects"
-            className="btn-outline px-6 py-3 rounded-full text-white text-sm font-medium w-max shrink-0"
+            className="btn-outline px-6 py-3 rounded-full text-sm font-medium w-max shrink-0"
             aria-label="View all projects"
           >
             View All Projects

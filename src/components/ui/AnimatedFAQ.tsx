@@ -66,11 +66,12 @@ function FAQAccordionItem({
         delay: index * 0.06,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className={`rounded-2xl border transition-all duration-500 overflow-hidden ${
-        isOpen
-          ? "bg-slate-900/60 border-primary/20 shadow-[0_0_40px_rgba(59,130,246,0.06)]"
-          : "bg-slate-900/30 border-white/[0.04] hover:border-white/10"
-      }`}
+      className="rounded-2xl border transition-all duration-500 overflow-hidden"
+      style={{
+        background: isOpen ? "var(--bg-surface)" : "var(--bg-elevated)",
+        borderColor: isOpen ? "rgba(59,130,246,0.25)" : "var(--border)",
+        boxShadow: isOpen ? "0 4px 20px rgba(59,130,246,0.06)" : "none",
+      }}
     >
       <button
         onClick={onToggle}
@@ -78,20 +79,19 @@ function FAQAccordionItem({
         aria-expanded={isOpen}
       >
         <span
-          className={`text-sm sm:text-base font-semibold transition-colors duration-300 ${
-            isOpen ? "text-white" : "text-slate-300 group-hover:text-white"
-          }`}
+          className="text-sm sm:text-base font-semibold transition-colors duration-300"
+          style={{ color: isOpen ? "var(--text-primary)" : "var(--text-secondary)" }}
         >
           {item.q}
         </span>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className={`shrink-0 w-8 h-8 rounded-xl flex items-center justify-center transition-colors duration-300 ${
-            isOpen
-              ? "bg-primary/20 text-primary"
-              : "bg-white/5 text-slate-500 group-hover:text-slate-300"
-          }`}
+          className="shrink-0 w-8 h-8 rounded-xl flex items-center justify-center transition-colors duration-300"
+          style={{
+            background: isOpen ? "rgba(59,130,246,0.10)" : "rgba(15,23,42,0.05)",
+            color: isOpen ? "var(--color-primary)" : "var(--text-muted)",
+          }}
         >
           <ChevronDown size={16} />
         </motion.div>
@@ -110,7 +110,7 @@ function FAQAccordionItem({
             }}
           >
             <div className="px-5 sm:px-6 pb-5 sm:pb-6">
-              <p className="text-slate-400 text-sm leading-relaxed">
+              <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
                 {item.a}
               </p>
             </div>
@@ -169,11 +169,12 @@ export default function AnimatedFAQ({
           </div>
           <h2
             id="faq-heading"
-            className="font-display text-[22px] sm:text-3xl md:text-5xl font-bold text-white mb-4"
+            className="font-display text-[22px] sm:text-3xl md:text-5xl font-bold mb-4"
+            style={{ color: "var(--text-primary)" }}
           >
             Got <span className="text-gradient">Questions?</span>
           </h2>
-          <p className="hidden sm:block text-sm md:text-base text-slate-400 max-w-xl mx-auto">
+          <p className="hidden sm:block text-sm md:text-base max-w-xl mx-auto" style={{ color: "var(--text-secondary)" }}>
             Everything you need to know about working with AV Technologies.
           </p>
         </motion.div>
@@ -200,7 +201,7 @@ export default function AnimatedFAQ({
           >
             <Link
               href="/faq"
-              className="btn-outline px-8 py-3 rounded-full text-white text-sm font-medium inline-flex items-center gap-2"
+              className="btn-outline px-8 py-3 rounded-full text-sm font-medium inline-flex items-center gap-2"
             >
               <HelpCircle size={14} />
               View All Questions

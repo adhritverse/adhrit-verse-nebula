@@ -131,20 +131,20 @@ export default function ProjectsPage() {
   const otherProjects = filteredProjects.filter(p => p.id !== featuredProject?.id);
 
   return (
-    <main className="min-h-screen relative">
+    <main className="min-h-screen relative" style={{ background: "var(--bg-base)" }}>
       <Navbar />
       <BlobBackground />
 
       {/* ── Hero Header ── */}
       <section className="pt-24 sm:pt-40 pb-4 sm:pb-10 text-center px-6 relative z-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-4 text-[10px] sm:text-xs text-slate-400 tracking-widest uppercase">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4 text-[10px] sm:text-xs tracking-widest uppercase" style={{ background: "rgba(15,23,42,0.05)", border: "1px solid var(--border)", color: "var(--text-secondary)" }}>
           <Sparkles size={10} className="text-primary" />
           AV Technologies · Project Portfolio
         </div>
-        <h1 className="font-display text-[26px] sm:text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
+        <h1 className="font-display text-[26px] sm:text-5xl md:text-6xl font-bold mb-4 leading-tight" style={{ color: "var(--text-primary)" }}>
           Work that <span className="text-gradient">speaks for itself</span>
         </h1>
-        <p className="text-xs sm:text-base text-slate-400 max-w-xl mx-auto leading-relaxed">
+        <p className="text-xs sm:text-base max-w-xl mx-auto leading-relaxed" style={{ color: "var(--text-secondary)" }}>
           40+ projects delivered across startups and enterprises — from AI platforms to premium e-commerce experiences.
         </p>
       </section>
@@ -158,8 +158,8 @@ export default function ProjectsPage() {
               onClick={() => setFilter(cat.id)}
               className={`flex-shrink-0 snap-start inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold transition-all duration-500 border backdrop-blur-md ${
                 filter === cat.id
-                  ? "bg-white/10 border-white/20 text-white shadow-[0_0_15px_rgba(255,255,255,0.1)]"
-                  : "bg-transparent border-white/5 text-slate-400 hover:bg-white/5 hover:border-white/10 hover:text-slate-200"
+                  ? "bg-primary/10 border-primary/30 text-primary"
+                  : "bg-transparent border-[var(--border)] text-[var(--text-secondary)] hover:border-primary/20 hover:text-[var(--text-primary)]"
               }`}
             >
               <span className={`${filter === cat.id ? "text-primary" : "text-slate-500"} transition-colors duration-300`}>
@@ -187,11 +187,11 @@ export default function ProjectsPage() {
                 href={featuredProject.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative w-full rounded-3xl sm:rounded-[2.5rem] overflow-hidden border border-white/10 bg-slate-900/40 backdrop-blur-xl transition-all duration-700 hover:border-primary/20 hover:shadow-[0_0_80px_rgba(0,0,0,0.4)] grid grid-cols-1 lg:grid-cols-12 mb-12"
-                style={{ minHeight: "500px" }}
+                className="group relative w-full rounded-3xl sm:rounded-[2.5rem] overflow-hidden border transition-all duration-700 grid grid-cols-1 lg:grid-cols-12 mb-12"
+                style={{ borderColor: "var(--border)", background: "var(--bg-surface)", minHeight: "500px" }}
               >
                 {/* Content Section (Left side) */}
-                <div className="lg:col-span-5 relative z-30 flex flex-col justify-center p-8 sm:p-14 lg:p-16 order-2 lg:order-1 bg-gradient-to-br from-slate-900 via-slate-900/90 to-transparent">
+                <div className="lg:col-span-5 relative z-30 flex flex-col justify-center p-8 sm:p-14 lg:p-16 order-2 lg:order-1" style={{ background: "var(--bg-surface)" }}>
                   <div className="relative">
                     <div className="flex flex-wrap items-center gap-4 mb-8">
                       <div
@@ -201,7 +201,7 @@ export default function ProjectsPage() {
                         {categoryIcons[featuredProject.category]}
                         {featuredProject.type}
                       </div>
-                      <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] sm:text-[11px] text-slate-400 uppercase tracking-[0.1em] font-bold backdrop-blur-md">
+                      <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-[var(--border)] text-[10px] sm:text-[11px] text-[var(--text-secondary)] uppercase tracking-[0.1em] font-bold backdrop-blur-md">
                         <span className="relative flex h-2 w-2">
                           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                           <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
@@ -210,38 +210,38 @@ export default function ProjectsPage() {
                       </div>
                     </div>
 
-                    <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-[1.05] tracking-tight transition-all duration-500 group-hover:text-primary/10 group-hover:stroke-text">
+                    <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-[1.05] tracking-tight transition-all duration-500" style={{ color: "var(--text-primary)" }}>
                       {featuredProject.title}
                     </h2>
                     
-                    <p className="text-slate-400 text-sm sm:text-lg leading-relaxed mb-10 max-w-sm">
+                    <p className="text-sm sm:text-lg leading-relaxed mb-10 max-w-sm" style={{ color: "var(--text-secondary)" }}>
                       {featuredProject.desc}
                     </p>
 
                     <div className="flex flex-wrap gap-3 mb-12">
                       {featuredProject.tags.map(tag => (
-                        <span key={tag} className="px-4 py-2 rounded-xl text-[11px] font-bold text-slate-300 bg-white/5 border border-white/10 backdrop-blur-xl group-hover:border-primary/30 transition-colors">
+                        <span key={tag} className="px-4 py-2 rounded-xl text-[11px] font-bold text-[var(--text-secondary)] bg-slate-100 border border-[var(--border)] backdrop-blur-xl group-hover:border-primary/30 transition-colors">
                           {tag}
                         </span>
                       ))}
                     </div>
 
-                    <div className="inline-flex items-center justify-center gap-3 px-10 py-4.5 rounded-full text-sm font-bold text-white transition-all duration-500 bg-white/5 border border-white/10 hover:bg-primary hover:border-primary hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] group-hover:translate-x-1 group/btn">
+                    <div className="inline-flex items-center justify-center gap-3 px-10 py-4 rounded-full text-sm font-bold transition-all duration-500 border hover:bg-primary hover:border-primary hover:text-white hover:shadow-[0_0_30px_rgba(59,130,246,0.5)]" style={{ color: "var(--text-primary)", borderColor: "var(--border)", background: "var(--bg-elevated)" }}>
                       View Project <ArrowUpRight size={18} className="transition-transform duration-500 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
                     </div>
                   </div>
                 </div>
 
                 {/* Visual Section (Right side) */}
-                <div className="lg:col-span-7 relative h-48 sm:h-80 lg:h-full w-full order-1 lg:order-2 overflow-hidden bg-slate-950/50">
-                  <div className="absolute inset-0 z-10 bg-gradient-to-t lg:bg-gradient-to-r from-slate-900 via-slate-900/20 to-transparent pointer-events-none" />
+                <div className="lg:col-span-7 relative h-48 sm:h-80 lg:h-full w-full order-1 lg:order-2 overflow-hidden bg-slate-950/10">
+                  <div className="absolute inset-0 z-10 bg-gradient-to-t lg:bg-gradient-to-r from-[var(--bg-surface)] via-[var(--bg-surface)]/20 to-transparent pointer-events-none" />
                   <img
                     src={featuredProject.img}
                     alt={featuredProject.title}
                     className="w-full h-full object-contain lg:object-cover lg:object-top transition-all duration-1000 group-hover:scale-105 group-hover:rotate-1"
                   />
                   {/* Subtle inner glow */}
-                  <div className="absolute inset-0 shadow-[inset_0_0_100px_rgba(0,0,0,0.8)] pointer-events-none"></div>
+                  <div className="absolute inset-0 shadow-[inset_0_0_100px_rgba(0,0,0,0.05)] pointer-events-none"></div>
                 </div>
               </a>
             )}
@@ -255,7 +255,8 @@ export default function ProjectsPage() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative w-full flex flex-col rounded-[1.5rem] overflow-hidden border border-white/10 bg-slate-900/40 backdrop-blur-xl hover:border-white/20 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.6)]"
+                    className="group relative w-full flex flex-col rounded-[1.5rem] overflow-hidden border transition-all duration-500 hover:border-primary/30"
+                    style={{ borderColor: "var(--border)", background: "var(--bg-surface)" }}
                   >
                     {/* Image Section */}
                     <div className="relative h-44 sm:h-56 overflow-hidden bg-slate-950/40">
@@ -279,25 +280,25 @@ export default function ProjectsPage() {
                     </div>
 
                     {/* Content Section - Floating Overlap Look */}
-                    <div className="p-6 sm:p-7 flex flex-col relative z-20 -mt-8 mx-4 mb-4 rounded-2xl bg-slate-800/80 backdrop-blur-2xl border border-white/5 shadow-2xl group-hover:border-primary/20 transition-all duration-500">
+                    <div className="p-6 sm:p-7 flex flex-col relative z-20 -mt-8 mx-4 mb-4 rounded-2xl backdrop-blur-2xl border shadow-2xl group-hover:border-primary/20 transition-all duration-500" style={{ background: "var(--bg-elevated)", borderColor: "var(--border)" }}>
                       <div className="flex items-center justify-between mb-2">
-                        <h3 className="font-display text-lg font-bold text-white group-hover:text-primary transition-colors leading-tight">
+                        <h3 className="font-display text-lg font-bold group-hover:text-primary transition-colors leading-tight" style={{ color: "var(--text-primary)" }}>
                           {project.title}
                         </h3>
                         <div
-                          className="w-8 h-8 rounded-full flex items-center justify-center bg-white/5 border border-white/10 group-hover:bg-primary group-hover:border-primary transition-all duration-300 shadow-lg"
+                          className="w-8 h-8 rounded-full flex items-center justify-center bg-slate-100 border border-[var(--border)] group-hover:bg-primary group-hover:border-primary transition-all duration-300 shadow-lg"
                         >
-                          <ArrowUpRight size={14} className="text-slate-400 group-hover:text-white transition-colors" />
+                          <ArrowUpRight size={14} className="text-slate-500 group-hover:text-white transition-colors" />
                         </div>
                       </div>
 
-                      <p className="text-xs text-slate-400 leading-relaxed mb-4 line-clamp-2 font-light">
+                      <p className="text-xs leading-relaxed mb-4 line-clamp-2 font-light" style={{ color: "var(--text-secondary)" }}>
                         {project.desc}
                       </p>
 
                       <div className="flex flex-wrap gap-1.5 mt-auto">
                         {project.tags.slice(0, 3).map(tag => (
-                          <span key={tag} className="px-2 py-0.5 rounded-md text-[9px] font-medium bg-white/5 border border-white/5 text-slate-500">
+                          <span key={tag} className="px-2 py-0.5 rounded-md text-[9px] font-medium bg-slate-100 border border-[var(--border)] text-[var(--text-secondary)]">
                             {tag}
                           </span>
                         ))}

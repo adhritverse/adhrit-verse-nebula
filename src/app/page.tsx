@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import CanvasHero from "@/components/CanvasHero";
+import HeroSection from "@/components/HeroSection";
 import BlobBackground from "@/components/BlobBackground";
 import Link from "next/link";
 import AnimatedFAQ from "@/components/ui/AnimatedFAQ";
@@ -118,20 +118,21 @@ export default function Home() {
       className="min-h-screen relative overflow-x-clip"
       itemScope
       itemType="https://schema.org/WebPage"
+      style={{ background: "var(--bg-base)" }}
     >
       <Navbar />
       <BlobBackground />
 
-      {/* ── Hero ── */}
-      <CanvasHero />
+      <HeroSection />
 
       {/* ── Services ── Overlaps into hero with negative margin */}
       <section
         id="services"
-        className="py-20 md:py-28 relative z-10 -mt-8 md:-mt-12 section-glow-top"
+        className="py-20 md:py-28 relative z-10 -mt-8 md:-mt-12"
         aria-labelledby="services-heading"
         itemScope
         itemType="https://schema.org/ItemList"
+        style={{ background: "var(--bg-base)" }}
       >
         {/* Noise layer */}
         <div className="absolute inset-0 noise-bg opacity-20 pointer-events-none" />
@@ -148,14 +149,15 @@ export default function Home() {
           >
             <h2
               id="services-heading"
-              className="font-display text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-6"
+              className="font-display text-3xl sm:text-5xl md:text-6xl font-bold mb-6"
+              style={{ color: "var(--text-primary)" }}
             >
               What We <span className="text-gradient">Deliver</span>
             </h2>
-            <p className="hidden sm:block text-base md:text-lg text-slate-400 max-w-3xl md:mx-auto leading-relaxed">
+            <p className="hidden sm:block text-base md:text-lg max-w-3xl md:mx-auto leading-relaxed" style={{ color: "var(--text-secondary)" }}>
               From AI-powered web apps to enterprise cybersecurity — AV Technologies is India&apos;s
               most comprehensive{" "}
-              <strong className="text-slate-200">startup tech partner</strong>, not just another digital
+              <strong style={{ color: "var(--text-primary)" }}>startup tech partner</strong>, not just another digital
               agency.
             </p>
           </HomeClient>
@@ -165,7 +167,7 @@ export default function Home() {
           <HomeClient type="reveal" className="text-center mt-10 hidden sm:block">
             <Link
               href="/services"
-              className="btn-outline px-8 py-4 rounded-full text-white font-medium text-base inline-flex items-center gap-2"
+              className="btn-outline px-8 py-4 rounded-full font-medium text-base inline-flex items-center gap-2"
               aria-label="View all services offered by AV Technologies"
             >
               View All Services <ArrowRight size={16} />
@@ -180,8 +182,9 @@ export default function Home() {
       {/* ── Process ── */}
       <section
         id="process"
-        className="py-20 md:py-28 relative z-10 section-glow-top"
+        className="py-20 md:py-28 relative z-10"
         aria-labelledby="process-heading"
+        style={{ background: "var(--bg-elevated)" }}
       >
         <div className="absolute inset-0 noise-bg opacity-20 pointer-events-none" />
         <div className="absolute inset-0 pointer-events-none mesh-gradient" />
@@ -200,13 +203,14 @@ export default function Home() {
             </div>
             <h2
               id="process-heading"
-              className="font-display text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-6"
+              className="font-display text-3xl sm:text-5xl md:text-6xl font-bold mb-6"
+              style={{ color: "var(--text-primary)" }}
             >
               From Idea to{" "}
               <span className="text-gradient">Launch</span>
             </h2>
-            <p className="hidden sm:block text-base md:text-lg text-slate-400 max-w-2xl md:mx-auto leading-relaxed">
-              A proven <strong className="text-white">6-step process</strong> that takes your product from concept to production — securely,
+            <p className="hidden sm:block text-base md:text-lg max-w-2xl md:mx-auto leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+              A proven <strong style={{ color: "var(--text-primary)" }}>6-step process</strong> that takes your product from concept to production — securely,
               on time, and at startup speed.
             </p>
           </HomeClient>
@@ -243,6 +247,7 @@ export default function Home() {
         id="contact"
         className="py-12 md:py-32 relative z-10 flex flex-col items-center justify-center"
         aria-labelledby="cta-heading"
+        style={{ background: "var(--bg-elevated)" }}
       >
         <div className="absolute inset-0 noise-bg opacity-20 pointer-events-none" />
 
@@ -251,7 +256,7 @@ export default function Home() {
 
           <HomeClient type="reveal">
             <div
-              className="glass-card p-6 sm:p-12 md:p-16 rounded-3xl text-center border-t border-white/20 relative overflow-hidden"
+              className="glass-card p-6 sm:p-12 md:p-16 rounded-3xl text-center relative overflow-hidden"
               itemScope
               itemType="https://schema.org/LocalBusiness"
             >
@@ -270,11 +275,12 @@ export default function Home() {
 
                 <h2
                   id="cta-heading"
-                  className="font-display text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-6 sm:mb-8"
+                  className="font-display text-3xl sm:text-5xl md:text-6xl font-bold mb-6 sm:mb-8"
+                  style={{ color: "var(--text-primary)" }}
                 >
                   Let&apos;s Build Something <span className="text-gradient">Great</span>
                 </h2>
-                <p className="hidden sm:block text-sm sm:text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-8 sm:mb-10 leading-relaxed">
+                <p className="hidden sm:block text-sm sm:text-lg md:text-xl max-w-3xl mx-auto mb-8 sm:mb-10 leading-relaxed" style={{ color: "var(--text-secondary)" }}>
                   Partner with AV Technologies — India&apos;s AI-powered startup tech partner. From MVP to
                   scale, we architect your growth.
                 </p>
@@ -292,7 +298,7 @@ export default function Home() {
                   <a
                     href="tel:+918462802086"
                     id="cta-call-now"
-                    className="btn-outline px-6 sm:px-10 py-3 sm:py-4 rounded-full text-white font-medium w-full sm:w-auto text-sm sm:text-lg whitespace-nowrap flex items-center justify-center gap-2"
+                    className="btn-outline px-6 sm:px-10 py-3 sm:py-4 rounded-full font-medium w-full sm:w-auto text-sm sm:text-lg whitespace-nowrap flex items-center justify-center gap-2"
                     aria-label="Call AV Technologies now"
                   >
                     <Phone className="w-4 h-4 sm:w-[20px] sm:h-[20px]" />
@@ -301,10 +307,10 @@ export default function Home() {
                 </div>
 
                 {/* Location trust strip */}
-                <div className="flex flex-wrap justify-center gap-4 text-xs text-slate-500 border-t border-white/5 pt-6">
+                <div className="flex flex-wrap justify-center gap-4 text-xs text-slate-500 border-t border-[var(--border)] pt-6">
                   <a
                     href="mailto:contact@adhritverse.in"
-                    className="flex items-center gap-1.5 hover:text-slate-300 transition-colors duration-200"
+                    className="flex items-center gap-1.5 hover:text-[var(--text-primary)] transition-colors duration-200"
                     aria-label="Email AV Technologies"
                   >
                     <i className="fas fa-envelope text-primary" aria-hidden="true" />
@@ -312,7 +318,7 @@ export default function Home() {
                   </a>
                   <a
                     href="tel:+918462802086"
-                    className="flex items-center gap-1.5 hover:text-slate-300 transition-colors duration-200"
+                    className="flex items-center gap-1.5 hover:text-[var(--text-primary)] transition-colors duration-200"
                     aria-label="Call AV Technologies"
                   >
                     <i className="fas fa-phone text-primary" aria-hidden="true" />

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk, Space_Mono } from "next/font/google";
+import { Inter, Outfit, Space_Grotesk, Space_Mono } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -8,8 +8,14 @@ const inter = Inter({
 });
 
 const spaceGrotesk = Space_Grotesk({
+  variable: "--font-display-legacy",
+  subsets: ["latin"],
+});
+
+const outfit = Outfit({
   variable: "--font-display",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const spaceMono = Space_Mono({
@@ -200,7 +206,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${spaceMono.variable} scroll-smooth`} suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${outfit.variable} ${spaceGrotesk.variable} ${spaceMono.variable} scroll-smooth`} suppressHydrationWarning>
       <head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -213,7 +219,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="font-sans antialiased text-slate-300 selection:bg-primary selection:text-white">
+      <body className="font-sans antialiased text-[var(--text-primary)] selection:bg-primary selection:text-white">
         {children}
       </body>
     </html>

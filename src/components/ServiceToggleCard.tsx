@@ -64,7 +64,8 @@ export default function ServiceToggleCard({
 
   return (
     <div 
-      className="group relative bg-slate-900/40 backdrop-blur-xl border border-white/5 rounded-3xl p-6 md:p-8 hover:border-primary/30 transition-all duration-500 flex flex-col h-full overflow-hidden cursor-pointer md:cursor-default"
+      className="group relative backdrop-blur-xl border rounded-3xl p-6 md:p-8 hover:border-primary/30 transition-all duration-500 flex flex-col h-full overflow-hidden cursor-pointer md:cursor-default"
+      style={{ background: "var(--bg-surface)", borderColor: "var(--border)" }}
       onClick={() => setIsOpen(!isOpen)}
     >
       {/* Decorative Background */}
@@ -82,14 +83,14 @@ export default function ServiceToggleCard({
           />
         </div>
         
-        <h3 className="text-lg md:text-2xl font-bold text-white mt-4 md:mt-0 mb-0 md:mb-4 group-hover:text-primary transition-colors pr-8 md:pr-0">
+        <h3 className="text-lg md:text-2xl font-bold mt-4 md:mt-0 mb-0 md:mb-4 group-hover:text-primary transition-colors pr-8 md:pr-0" style={{ color: "var(--text-primary)" }}>
           {category}
         </h3>
         
         <div className={`transition-all duration-500 ease-in-out overflow-hidden ${isOpen ? 'max-h-[500px] mt-6 opacity-100' : 'max-h-0 md:max-h-none opacity-0 md:opacity-100'}`}>
           <ul className="space-y-3 mb-6">
             {items.map((item, iIdx) => (
-              <li key={iIdx} className="flex items-center gap-3 text-slate-400 group-hover:text-slate-300 transition-colors text-xs md:text-base">
+              <li key={iIdx} className="flex items-center gap-3 transition-colors text-xs md:text-base" style={{ color: "var(--text-secondary)" }}>
                 <CheckCircle2 size={12} className="text-primary/60 shrink-0" />
                 {item}
               </li>

@@ -115,7 +115,8 @@ export default function FAQ({ limit, showMoreLink, hideTitle }: { limit?: number
   return (
     <section
       id="faq"
-      className={`relative z-10 bg-slate-900/30 ${hideTitle ? 'pb-20 md:pb-28' : 'py-20 md:py-28'}`}
+      className={`relative z-10 ${hideTitle ? 'pb-20 md:pb-28' : 'py-20 md:py-28'}`}
+      style={{ background: "var(--bg-elevated)" }}
       aria-label="Frequently Asked Questions about AV Technologies"
       itemScope
       itemType="https://schema.org/FAQPage"
@@ -134,11 +135,11 @@ export default function FAQ({ limit, showMoreLink, hideTitle }: { limit?: number
               <span className="faq-badge-dot" />
               <span className="faq-badge-text">FAQ · Quick Answers</span>
             </div>
-            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight" style={{ color: "var(--text-primary)" }}>
               Frequently Asked{" "}
               <span className="text-gradient">Questions</span>
             </h2>
-            <p className="hidden sm:block text-base md:text-lg text-slate-400 max-w-3xl md:mx-auto leading-relaxed">
+            <p className="hidden sm:block text-base md:text-lg max-w-3xl md:mx-auto leading-relaxed" style={{ color: "var(--text-secondary)" }}>
               Everything you need to know about AV Technologies — India&apos;s leading AI-powered tech agency.
               Can&apos;t find your answer?{" "}
               <a
@@ -167,7 +168,8 @@ export default function FAQ({ limit, showMoreLink, hideTitle }: { limit?: number
               setOpenIndex(null);
             }}
             aria-label="Search FAQ"
-            className="w-full bg-slate-800/60 border border-white/8 rounded-2xl pl-10 pr-4 py-3.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all duration-300 backdrop-blur-md"
+            className="w-full rounded-2xl pl-10 pr-4 py-3.5 text-sm placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-primary/30 transition-all duration-300 backdrop-blur-md"
+            style={{ background: "var(--bg-elevated)", border: "1px solid var(--border)", color: "var(--text-primary)" }}
           />
           {searchQuery && (
             <button
@@ -197,7 +199,7 @@ export default function FAQ({ limit, showMoreLink, hideTitle }: { limit?: number
               }}
               className={`px-4 py-2 rounded-full text-sm font-semibold uppercase tracking-wider transition-all duration-300 border ${activeCategory === cat
                   ? "bg-primary text-white border-primary shadow-[0_0_20px_rgba(59,130,246,0.4)]"
-                  : "bg-white/5 text-slate-400 border-white/10 hover:border-primary/40 hover:text-white hover:bg-white/10"
+                  : "bg-transparent border-[var(--border)] text-[var(--text-secondary)] hover:border-primary/40 hover:text-[var(--text-primary)] hover:bg-primary/5"
                 }`}
             >
               {cat}
@@ -248,9 +250,10 @@ export default function FAQ({ limit, showMoreLink, hideTitle }: { limit?: number
                 itemScope
                 itemType="https://schema.org/Question"
                 className={`faq-item rounded-2xl border transition-all duration-300 overflow-hidden ${isHiddenMobile ? "hidden sm:block" : "block"} ${isOpen
-                    ? "border-primary/40 bg-primary/5 shadow-[0_0_30px_rgba(59,130,246,0.12)]"
-                    : "border-white/6 bg-slate-900/50 hover:border-white/15 hover:bg-slate-800/40"
+                    ? "border-primary/40 shadow-[0_0_30px_rgba(59,130,246,0.08)]"
+                    : "hover:border-primary/20"
                   }`}
+                style={{ background: isOpen ? "var(--bg-surface)" : "var(--bg-elevated)", borderColor: isOpen ? undefined : "var(--border)" }}
               >
                 {/* Question Button */}
                 <button
@@ -277,8 +280,8 @@ export default function FAQ({ limit, showMoreLink, hideTitle }: { limit?: number
                       {item.category}
                     </span>
                     <h3
-                      className={`font-semibold text-base sm:text-lg leading-snug transition-colors duration-200 ${isOpen ? "text-white" : "text-slate-200 group-hover:text-white"
-                        }`}
+                      className={`font-semibold text-base sm:text-lg leading-snug transition-colors duration-200`}
+                      style={{ color: isOpen ? "var(--text-primary)" : "var(--text-secondary)" }}
                       itemProp="name"
                     >
                       {item.q}
@@ -313,7 +316,8 @@ export default function FAQ({ limit, showMoreLink, hideTitle }: { limit?: number
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pl-[4.5rem] sm:pl-[4.75rem]">
                     <div className="h-px bg-primary/10 mb-4" />
                     <p
-                      className="text-slate-300 text-base leading-relaxed"
+                      className="text-base leading-relaxed"
+                     style={{ color: "var(--text-secondary)" }}
                       itemProp="text"
                     >
                       {item.a}
@@ -338,7 +342,8 @@ export default function FAQ({ limit, showMoreLink, hideTitle }: { limit?: number
           <div className="text-center mt-8 px-4">
             <Link
               href="/faq"
-              className="inline-flex max-sm:w-full items-center justify-center gap-2 bg-slate-800/80 hover:bg-slate-800 border border-white/10 text-white rounded-2xl py-4 px-8 font-semibold text-sm transition-all active:scale-[0.98]"
+              className="inline-flex max-sm:w-full items-center justify-center gap-2 border rounded-2xl py-4 px-8 font-semibold text-sm transition-all active:scale-[0.98]"
+              style={{ background: "var(--bg-elevated)", borderColor: "var(--border)", color: "var(--text-primary)" }}
             >
               Show More <i className="fas fa-chevron-right text-[10px]" />
             </Link>
@@ -348,7 +353,8 @@ export default function FAQ({ limit, showMoreLink, hideTitle }: { limit?: number
             <div className="text-center mt-8 sm:hidden px-4">
               <button
                 onClick={() => setShowAllItems(true)}
-                className="w-full bg-slate-800/80 hover:bg-slate-800 border border-white/10 text-white rounded-2xl py-4 flex items-center justify-center gap-2 font-semibold text-sm transition-all active:scale-[0.98]"
+                className="w-full border rounded-2xl py-4 flex items-center justify-center gap-2 font-semibold text-sm transition-all active:scale-[0.98]"
+                style={{ background: "var(--bg-elevated)", borderColor: "var(--border)", color: "var(--text-primary)" }}
               >
                 Load More Questions <i className="fas fa-chevron-down text-[10px]" />
               </button>
@@ -363,8 +369,8 @@ export default function FAQ({ limit, showMoreLink, hideTitle }: { limit?: number
               <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center mx-auto mb-3">
                 <i className="fas fa-comments text-primary text-sm" />
               </div>
-              <p className="text-white font-semibold text-sm mb-1">Still have questions?</p>
-              <p className="text-slate-400 text-xs mb-4 leading-relaxed">
+              <p className="font-semibold text-sm mb-1" style={{ color: "var(--text-primary)" }}>Still have questions?</p>
+              <p className="text-xs mb-4 leading-relaxed" style={{ color: "var(--text-secondary)" }}>
                 Our team of experts is here to help. Book a free 30-minute strategy call.
               </p>
               <a

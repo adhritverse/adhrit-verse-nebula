@@ -315,7 +315,14 @@ function ServiceCard({
         />
       )}
 
-      <div className="relative z-10 p-5 sm:p-7 bg-slate-900/50 backdrop-blur-xl border border-white/[0.06] rounded-2xl sm:rounded-3xl transition-colors duration-500 group-hover:border-white/[0.12] h-full flex flex-col">
+      <div
+        className="relative z-10 p-5 sm:p-7 border rounded-2xl sm:rounded-3xl transition-all duration-500 h-full flex flex-col"
+        style={{
+          background: "var(--bg-surface)",
+          borderColor: "var(--border)",
+          boxShadow: "var(--shadow-card)",
+        }}
+      >
         {/* Icon */}
         <div
           className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mb-5 transition-all duration-500 group-hover:scale-110 relative overflow-hidden"
@@ -335,17 +342,17 @@ function ServiceCard({
           </div>
         </div>
 
-        {/* Title */}
         <h3
-          className="font-display text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-white transition-colors duration-300 tracking-wide"
+          className="font-display text-xl sm:text-2xl font-bold mb-3 tracking-wide transition-colors duration-300"
+          style={{ color: "var(--text-primary)" }}
           itemProp="name"
         >
           {title}
         </h3>
 
-        {/* Description */}
         <p
-          className="text-slate-400 text-base sm:text-lg mb-8 leading-relaxed line-clamp-3 lg:line-clamp-4 group-hover:text-slate-300 transition-colors duration-300 flex-1"
+          className="text-base sm:text-lg mb-8 leading-relaxed line-clamp-3 lg:line-clamp-4 flex-1 transition-colors duration-300"
+          style={{ color: "var(--text-secondary)" }}
           itemProp="description"
         >
           {desc}

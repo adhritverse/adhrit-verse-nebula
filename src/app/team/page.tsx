@@ -7,14 +7,14 @@ import { Users, Code, Lock, Lightbulb, Handshake, ArrowRight } from "lucide-reac
 
 export default function TeamPage() {
     return (
-        <main className="relative z-10 min-h-screen">
+        <main className="relative z-10 min-h-screen" style={{ background: "var(--bg-base)" }}>
             <Navbar />
 
             {/* Background blobs */}
             <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-                <div className="blob" style={{ top: '15%', left: '-15%', width: '55vw', height: '55vw', background: 'radial-gradient(circle,rgba(59,130,246,0.2) 0%,transparent 70%)' }}></div>
-                <div className="blob" style={{ top: '50%', right: '-10%', width: '50vw', height: '50vw', background: 'radial-gradient(circle,rgba(139,92,246,0.2) 0%,transparent 70%)' }}></div>
-                <div className="blob" style={{ bottom: '-10%', left: '30%', width: '60vw', height: '60vw', background: 'radial-gradient(circle,rgba(236,72,153,0.1) 0%,transparent 70%)' }}></div>
+                <div className="blob" style={{ top: '15%', left: '-15%', width: '55vw', height: '55vw', background: 'radial-gradient(circle,rgba(59,130,246,0.06) 0%,transparent 70%)' }}></div>
+                <div className="blob" style={{ top: '50%', right: '-10%', width: '50vw', height: '50vw', background: 'radial-gradient(circle,rgba(139,92,246,0.05) 0%,transparent 70%)' }}></div>
+                <div className="blob" style={{ bottom: '-10%', left: '30%', width: '60vw', height: '60vw', background: 'radial-gradient(circle,rgba(236,72,153,0.04) 0%,transparent 70%)' }}></div>
             </div>
 
             <div className="pt-20">
@@ -24,12 +24,12 @@ export default function TeamPage() {
                         <div className="flex items-center gap-3 mb-6 group/badge sm:justify-center">
                             <Users size={14} className="text-primary" />
                             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 group-hover/badge:text-primary transition-colors">Our Founders</span>
-                            <span className="w-12 h-px bg-white/10 group-hover/badge:w-20 group-hover/badge:bg-primary/30 transition-all duration-500"></span>
+                            <span className="w-12 h-px bg-slate-200 group-hover/badge:w-20 group-hover/badge:bg-primary/30 transition-all duration-500"></span>
                         </div>
-                        <h1 className="font-display text-[1.75rem] leading-[1.2] sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6 sm:leading-tight">
+                        <h1 className="font-display text-[1.75rem] leading-[1.2] sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 sm:leading-tight" style={{ color: "var(--text-primary)" }}>
                             Our <span className="text-gradient block sm:inline">Leadership</span> Team
                         </h1>
-                        <p className="text-sm sm:text-base md:text-lg text-slate-400 max-w-xl mx-0 sm:mx-auto leading-relaxed px-0">
+                        <p className="text-sm sm:text-base md:text-lg max-w-xl mx-0 sm:mx-auto leading-relaxed px-0" style={{ color: "var(--text-secondary)" }}>
                             Driven by a shared passion for technology and a commitment to building secure, innovative digital solutions.
                         </p>
                     </div>
@@ -214,13 +214,13 @@ export default function TeamPage() {
                 {/* Stats */}
                 <section className="py-10 sm:py-16 px-6 max-w-4xl mx-auto">
                     <div className="grid grid-cols-2 gap-3 sm:gap-6">
-                        <div className="stat-card bg-slate-900/50 border border-white/5 rounded-2xl p-4 sm:p-6 text-center hover:border-primary/30 transition-colors">
-                            <div className="font-display text-2xl sm:text-4xl font-bold text-white mb-1 sm:mb-2" data-count="40">40+</div>
-                            <div className="text-slate-400 text-[10px] sm:text-sm">Projects Delivered</div>
+                        <div className="stat-card border rounded-2xl p-4 sm:p-6 text-center hover:border-primary/30 transition-colors" style={{ background: "var(--bg-surface)", borderColor: "var(--border)" }}>
+                            <div className="font-display text-2xl sm:text-4xl font-bold mb-1 sm:mb-2" style={{ color: "var(--text-primary)" }} data-count="40">40+</div>
+                            <div className="text-[10px] sm:text-sm" style={{ color: "var(--text-secondary)" }}>Projects Delivered</div>
                         </div>
-                        <div className="stat-card bg-slate-900/50 border border-white/5 rounded-2xl p-4 sm:p-6 text-center hover:border-primary/30 transition-colors">
-                            <div className="font-display text-2xl sm:text-4xl font-bold text-white mb-1 sm:mb-2">∞</div>
-                            <div className="text-slate-400 text-[10px] sm:text-sm">Ambition</div>
+                        <div className="stat-card border rounded-2xl p-4 sm:p-6 text-center hover:border-primary/30 transition-colors" style={{ background: "var(--bg-surface)", borderColor: "var(--border)" }}>
+                            <div className="font-display text-2xl sm:text-4xl font-bold mb-1 sm:mb-2" style={{ color: "var(--text-primary)" }}>∞</div>
+                            <div className="text-[10px] sm:text-sm" style={{ color: "var(--text-secondary)" }}>Ambition</div>
                         </div>
                     </div>
                 </section>
@@ -228,30 +228,30 @@ export default function TeamPage() {
                 {/* Company Values */}
                 <section className="py-10 sm:py-16 px-6 max-w-5xl mx-auto">
                     <div className="text-center mb-8 sm:mb-12">
-                        <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">Our Core Values</h2>
-                        <p className="text-sm sm:text-base text-slate-400">The principles that guide everything we build.</p>
+                        <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4" style={{ color: "var(--text-primary)" }}>Our Core Values</h2>
+                        <p className="text-sm sm:text-base" style={{ color: "var(--text-secondary)" }}>The principles that guide everything we build.</p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-                        <div className="value-card bg-slate-900/50 border border-white/5 hover:border-violet-500/30 hover:bg-violet-500/5 transition-all rounded-2xl p-6 sm:p-8 text-center">
+                        <div className="value-card border hover:border-violet-500/30 hover:bg-violet-500/5 transition-all rounded-2xl p-6 sm:p-8 text-center" style={{ background: "var(--bg-surface)", borderColor: "var(--border)" }}>
                             <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-blue-500/5 border border-blue-500/10 flex items-center justify-center text-primary mx-auto mb-4 sm:mb-5 group-hover:scale-110 transition-transform duration-500">
                                 <Lock size={24} />
                             </div>
-                            <h3 className="text-white font-bold text-base sm:text-lg mb-2 sm:mb-3">Security First</h3>
-                            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">Every solution we build is designed with security as a foundational principle, not an afterthought.</p>
+                            <h3 className="font-bold text-base sm:text-lg mb-2 sm:mb-3" style={{ color: "var(--text-primary)" }}>Security First</h3>
+                            <p className="text-xs sm:text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>Every solution we build is designed with security as a foundational principle, not an afterthought.</p>
                         </div>
-                        <div className="value-card bg-slate-900/50 border border-white/5 hover:border-violet-500/30 hover:bg-violet-500/5 transition-all rounded-2xl p-6 sm:p-8 text-center">
+                        <div className="value-card border hover:border-violet-500/30 hover:bg-violet-500/5 transition-all rounded-2xl p-6 sm:p-8 text-center" style={{ background: "var(--bg-surface)", borderColor: "var(--border)" }}>
                             <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-violet-500/5 border border-violet-500/10 flex items-center justify-center text-secondary mx-auto mb-4 sm:mb-5 group-hover:scale-110 transition-transform duration-500">
                                 <Lightbulb size={24} />
                             </div>
-                            <h3 className="text-white font-bold text-base sm:text-lg mb-2 sm:mb-3">Innovation</h3>
-                            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">We embrace emerging technologies and creative problem-solving to deliver forward-thinking digital solutions.</p>
+                            <h3 className="font-bold text-base sm:text-lg mb-2 sm:mb-3" style={{ color: "var(--text-primary)" }}>Innovation</h3>
+                            <p className="text-xs sm:text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>We embrace emerging technologies and creative problem-solving to deliver forward-thinking digital solutions.</p>
                         </div>
-                        <div className="value-card bg-slate-900/50 border border-white/5 hover:border-violet-500/30 hover:bg-violet-500/5 transition-all rounded-2xl p-6 sm:p-8 text-center">
+                        <div className="value-card border hover:border-violet-500/30 hover:bg-violet-500/5 transition-all rounded-2xl p-6 sm:p-8 text-center" style={{ background: "var(--bg-surface)", borderColor: "var(--border)" }}>
                             <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-pink-500/5 border border-pink-500/10 flex items-center justify-center text-accent mx-auto mb-4 sm:mb-5 group-hover:scale-110 transition-transform duration-500">
                                 <Handshake size={24} />
                             </div>
-                            <h3 className="text-white font-bold text-base sm:text-lg mb-2 sm:mb-3">Partnership</h3>
-                            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">We treat every client as a long-term partner, aligning our success with theirs throughout the journey.</p>
+                            <h3 className="font-bold text-base sm:text-lg mb-2 sm:mb-3" style={{ color: "var(--text-primary)" }}>Partnership</h3>
+                            <p className="text-xs sm:text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>We treat every client as a long-term partner, aligning our success with theirs throughout the journey.</p>
                         </div>
                     </div>
                 </section>
@@ -259,11 +259,11 @@ export default function TeamPage() {
                 {/* CTA */}
                 <section className="py-16 sm:py-24 px-6">
                     <div className="max-w-3xl mx-auto text-center">
-                        <div className="relative p-8 sm:p-12 rounded-3xl overflow-hidden" style={{ background: 'rgba(15,23,42,0.6)', border: '1px solid rgba(255,255,255,0.05)' }}>
-                            <div className="absolute inset-0 opacity-20" style={{ background: 'radial-gradient(circle at 50% 50%,rgba(139,92,246,0.5),transparent 70%)' }}></div>
+                        <div className="relative p-8 sm:p-12 rounded-3xl overflow-hidden" style={{ background: "var(--bg-surface)", border: "1px solid var(--border)" }}>
+                            <div className="absolute inset-0 opacity-10" style={{ background: 'radial-gradient(circle at 50% 50%,rgba(59,130,246,0.3),transparent 70%)' }}></div>
                             <div className="relative z-10">
-                                <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">Work With Our Team</h2>
-                                <p className="text-sm sm:text-base md:text-lg text-slate-400 mb-6 sm:mb-8">Have a project in mind? Let's build something remarkable together.</p>
+                                <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4" style={{ color: "var(--text-primary)" }}>Work With Our Team</h2>
+                                <p className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8" style={{ color: "var(--text-secondary)" }}>Have a project in mind? Let's build something remarkable together.</p>
                                 <a href="/contact" className="btn-primary inline-flex items-center justify-center gap-2 px-8 py-3.5 sm:px-10 sm:py-4 rounded-full text-white font-medium text-sm sm:text-lg w-full sm:w-auto shadow-[0_10px_30px_rgba(59,130,246,0.2)] hover:shadow-[0_15px_40px_rgba(59,130,246,0.4)] transition-all duration-500">
                                     Get In Touch <ArrowRight size={18} />
                                 </a>

@@ -98,23 +98,23 @@ export default function TechStack() {
               <div className="w-8 h-px bg-primary"></div>
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Technical Arsenal</span>
             </div>
-            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight" style={{ color: "var(--text-primary)" }}>
               Technologies We <span className="text-gradient">Master</span>
             </h2>
-            <p className="hidden sm:block text-slate-400 text-base md:text-xl leading-relaxed">
+            <p className="hidden sm:block text-base md:text-xl leading-relaxed" style={{ color: "var(--text-secondary)" }}>
               We leverage the most advanced stacks to build secure, scalable, and high-performance digital ecosystems for the next generation of startups and to drive the digital transformation of traditional businesses.
             </p>
           </div>
           <div className="hidden lg:block pb-2">
              <div className="flex items-center gap-8 text-slate-500 font-mono text-sm">
                 <div className="flex flex-col gap-1">
-                  <span className="text-white font-bold text-xl tracking-tighter">40+</span>
-                  <span>PROJECTS</span>
+                  <span className="font-bold text-xl tracking-tighter" style={{ color: "var(--text-primary)" }}>40+</span>
+                  <span style={{ color: "var(--text-secondary)" }}>PROJECTS</span>
                 </div>
-                <div className="w-px h-10 bg-white/10"></div>
+                <div className="w-px h-10" style={{ background: "var(--border)" }}></div>
                 <div className="flex flex-col gap-1">
-                  <span className="text-white font-bold text-xl tracking-tighter">50+</span>
-                  <span>TOOLS</span>
+                  <span className="font-bold text-xl tracking-tighter" style={{ color: "var(--text-primary)" }}>50+</span>
+                  <span style={{ color: "var(--text-secondary)" }}>TOOLS</span>
                 </div>
              </div>
           </div>
@@ -134,16 +134,17 @@ export default function TechStack() {
                   onClick={() => setActiveTab(cat.id)}
                   className={`relative flex-shrink-0 snap-start p-3 px-5 lg:p-6 rounded-2xl lg:rounded-3xl text-left transition-all duration-500 group overflow-hidden border ${
                     isActive 
-                    ? `bg-white/5 border-white/10 ${cat.glow}` 
-                    : "bg-transparent border-white/5 hover:bg-white/5"
+                    ? `border-primary/20 ${cat.glow}` 
+                    : "bg-transparent hover:bg-primary/5"
                   }`}
+                  style={isActive ? { background: "var(--bg-elevated)" } : { borderColor: "var(--border)", background: "transparent" }}
                 >
                   <div className="relative z-10 flex items-center justify-center lg:justify-start gap-3 lg:gap-5">
                     <div className={`transition-all duration-500 ${isActive ? cat.color : "text-slate-500 group-hover:text-slate-300"}`}>
                       <Icon className="w-5 h-5 lg:w-7 lg:h-7" strokeWidth={1.5} />
                     </div>
                     <div>
-                      <h3 className={`font-bold whitespace-nowrap transition-all duration-300 ${isActive ? "text-white text-base lg:text-xl" : "text-slate-500 text-base lg:text-lg"}`}>
+                      <h3 className={`font-bold whitespace-nowrap transition-all duration-300 ${isActive ? "text-base lg:text-xl" : "text-base lg:text-lg"}`} style={{ color: isActive ? "var(--text-primary)" : "var(--text-secondary)" }}>
                         {cat.label}
                       </h3>
                       <p className={`hidden lg:block text-[10px] uppercase tracking-widest font-medium transition-all duration-300 ${isActive ? cat.color : "opacity-0"}`}>
@@ -163,7 +164,7 @@ export default function TechStack() {
 
           {/* Main Visualizer (Bento Right) */}
           <div className="lg:col-span-8 relative min-h-[400px]">
-            <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-xl border border-white/5 rounded-[2.5rem] overflow-hidden">
+              <div className="absolute inset-0 backdrop-blur-xl border rounded-[2.5rem] overflow-hidden" style={{ background: "var(--bg-elevated)", borderColor: "var(--border)" }}>
               
               {/* Dynamic Grid Background */}
               <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 

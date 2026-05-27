@@ -23,7 +23,7 @@ export function TeamCard({
   initials, name, role, avatarGrad, avatarRingStyle, roleBgStyle, roleHoverBorder, dotColor, textColor, description, skillClasses, skills, socialHoverClasses, wrapperClass = ""
 }: TeamCardProps) {
   return (
-    <div className={`team-card relative p-8 group mx-auto w-full max-w-[85%] sm:max-w-none transition-all duration-500 rounded-[2.5rem] bg-slate-900/30 backdrop-blur-2xl border border-white/5 hover:border-white/10 shadow-2xl hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] overflow-hidden ${wrapperClass} ${roleHoverBorder}`}>
+    <div className={`team-card relative p-8 group mx-auto w-full max-w-[85%] sm:max-w-none transition-all duration-500 rounded-[2.5rem] backdrop-blur-2xl border shadow-2xl overflow-hidden ${wrapperClass} ${roleHoverBorder}`} style={{ background: "var(--bg-surface)", borderColor: "var(--border)" }}>
 
       {/* Ambient glassmorphic glowing backdrop */}
       <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 -mt-32 rounded-full z-0 opacity-[0.03] group-hover:opacity-20 blur-3xl transition-opacity duration-700 bg-gradient-to-b ${avatarGrad} pointer-events-none`}></div>
@@ -48,8 +48,8 @@ export function TeamCard({
 
         {/* Info */}
         <div className="text-center mb-6">
-          <h2 className="font-display text-xl sm:text-2xl font-extrabold tracking-tight text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-slate-300 transition-all duration-300">{name}</h2>
-          <div className="mt-2.5 text-xs sm:text-xs font-bold text-slate-300 uppercase tracking-[0.2em] shadow-sm transition-colors duration-300 mx-auto w-fit" style={roleBgStyle && { padding: '6px 16px', borderRadius: '999px', backdropFilter: 'blur(8px)', ...roleBgStyle }}>{role}</div>
+          <h2 className="font-display text-xl sm:text-2xl font-extrabold tracking-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-primary/60 transition-all duration-300" style={{ color: "var(--text-primary)" }}>{name}</h2>
+          <div className="mt-2.5 text-xs sm:text-xs font-bold uppercase tracking-[0.2em] shadow-sm transition-colors duration-300 mx-auto w-fit" style={{ ...roleBgStyle, padding: '6px 16px', borderRadius: '999px', backdropFilter: 'blur(8px)', color: "var(--text-secondary)" }}>{role}</div>
         </div>
 
         {/* Skills - uses the new pill style with glass logic */}
@@ -75,7 +75,7 @@ export function TeamCard({
 
 export function SocialBtn({ icon, hoverClasses, link = "#" }: { icon: string; hoverClasses?: string; link?: string }) {
   return (
-    <a href={link} className={`w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center bg-white/5 border border-white/10 text-slate-400 hover:text-white transition-all duration-500 transform hover:scale-115 hover:-translate-y-1 ${hoverClasses || ""}`}>
+    <a href={link} className={`w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center border transition-all duration-500 transform hover:scale-115 hover:-translate-y-1 hover:text-white ${hoverClasses || ""}`} style={{ background: "var(--bg-elevated)", borderColor: "var(--border)", color: "var(--text-secondary)" }}>
       <i className={`${icon} text-sm sm:text-base`}></i>
     </a>
   );
@@ -114,7 +114,7 @@ export function SubTeamMemberCard({ initials, name, role, grad = "from-slate-600
       </div>
 
       {/* Name and Role */}
-      <h4 className="text-slate-100 text-[11px] sm:text-[13px] whitespace-nowrap font-bold text-center leading-tight mb-0.5 group-hover:text-white transition-colors">{name}</h4>
+      <h4 className="text-[11px] sm:text-[13px] whitespace-nowrap font-bold text-center leading-tight mb-0.5 group-hover:text-primary transition-colors" style={{ color: "var(--text-primary)" }}>{name}</h4>
       <p className="text-[9px] sm:text-[10px] whitespace-nowrap uppercase font-semibold tracking-widest text-slate-500 text-center">{role}</p>
     </div>
   );
