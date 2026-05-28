@@ -12,6 +12,7 @@ import HorizontalProjectCarousel from "@/components/ui/HorizontalProjectCarousel
 import MarqueeTestimonials from "@/components/ui/MarqueeTestimonials";
 import StackingWhyUs from "@/components/ui/StackingWhyUs";
 import HomeClient from "@/components/HomeClient";
+import { projects } from "@/data/projects";
 import {
   ArrowRight,
   Compass, Play,
@@ -35,29 +36,14 @@ export const metadata: Metadata = {
 
 
 
-const PROJECTS = [
-  {
-    img: "/projectimg/project-1.png",
-    title: "Deforastration",
-    desc: "A cutting-edge web experience for environmental awareness — GSAP animations, WebGL, and modern UI engineering.",
-    href: "https://deforastration.vercel.app/",
-    tags: ["Modern Web", "Innovation"],
-  },
-  {
-    img: "/projectimg/project2.png",
-    title: "GSAP Creative Portfolio",
-    desc: "A high-fidelity developer portfolio showcasing advanced animation techniques and premium dark UI design.",
-    href: "https://gsap-portfolio-puce.vercel.app/",
-    tags: ["GSAP", "Creative"],
-  },
-  {
-    img: "/projectimg/Project-3.png",
-    title: "Luxe Premium Store",
-    desc: "A premium luxury e-commerce platform with smooth UX, high-end aesthetics, and performance-first architecture.",
-    href: "https://luxe-vert-eta.vercel.app/",
-    tags: ["E-Commerce", "Premium"],
-  },
-];
+const PROJECTS = projects.map(p => ({
+  id: p.id,
+  img: p.img,
+  title: p.title,
+  desc: p.desc,
+  href: p.link,
+  tags: p.tags.slice(0, 2),
+}));
 
 const TESTIMONIALS = [
   {

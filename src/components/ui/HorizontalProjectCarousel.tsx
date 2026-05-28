@@ -6,6 +6,7 @@ import { ExternalLink, ArrowRight, Layers } from "lucide-react";
 import Link from "next/link";
 
 interface Project {
+  id: number;
   img: string;
   title: string;
   desc: string;
@@ -22,12 +23,10 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       transition={{ duration: 0.5, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
       className="group relative flex-shrink-0 w-[85vw] sm:w-[380px] lg:w-full snap-center"
     >
-      <a
-        href={project.href}
-        target="_blank"
-        rel="noopener noreferrer"
+      <Link
+        href={`/projects/${project.id}`}
         aria-label={`View ${project.title} project`}
-        className="block h-full"
+        className="block h-full cursor-pointer"
       >
         <div
           className="h-full rounded-[2rem] overflow-hidden transition-all duration-700 hover:-translate-y-3"
@@ -83,7 +82,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           {/* Bottom accent line */}
           <div className="h-[2px] bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
         </div>
-      </a>
+      </Link>
     </motion.article>
   );
 }

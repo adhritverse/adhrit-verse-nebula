@@ -4,7 +4,9 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BlobBackground from "@/components/BlobBackground";
+import Link from "next/link";
 import { ExternalLink, Github, ArrowUpRight, Layers, ShoppingBag, Shield, Globe, Code2, Sparkles } from "lucide-react";
+import { projects } from "@/data/projects";
 
 const categoryIcons: Record<string, React.ReactNode> = {
   cybersecurity: <Shield size={14} />,
@@ -12,105 +14,6 @@ const categoryIcons: Record<string, React.ReactNode> = {
   portfolio: <Layers size={14} />,
   webapp: <Code2 size={14} />,
 };
-
-const projects = [
-  {
-    id: 1,
-    title: "Deforestration",
-    desc: "A cutting-edge web experience focusing on environmental awareness and digital innovation.",
-    img: "/projectimg/project-1.png",
-    category: "cybersecurity",
-    tags: ["Next.js", "Tailwind", "GSAP"],
-    link: "https://deforastration.vercel.app/",
-    type: "Modern Web",
-    accent: "#22c55e",
-    featured: false,
-  },
-  {
-    id: 2,
-    title: "GSAP Creative Portfolio",
-    desc: "A high-fidelity developer portfolio showcasing advanced GSAP animations, smooth scroll interactions, and modern UI design.",
-    img: "/projectimg/project2.png",
-    category: "portfolio",
-    tags: ["GSAP", "Frontend", "UX"],
-    link: "https://gsap-portfolio-puce.vercel.app/",
-    type: "Portfolio",
-    accent: "#a78bfa",
-    featured: false,
-  },
-  {
-    id: 3,
-    title: "Luxe Premium Store",
-    desc: "A premium luxury shopping destination featuring high-end aesthetics, smooth transitions, and visual storytelling.",
-    img: "/projectimg/Project-3.png",
-    category: "ecommerce",
-    tags: ["E-Commerce", "Premium", "UX/UI"],
-    link: "https://luxe-vert-eta.vercel.app/",
-    type: "E-Commerce",
-    accent: "#f59e0b",
-    featured: false,
-  },
-  {
-    id: 4,
-    title: "Green Haven",
-    desc: "A beautifully curated botanical showcase bringing nature to the digital realm with plant e-commerce.",
-    img: "/projectimg/Project-4.png",
-    category: "ecommerce",
-    tags: ["E-Commerce", "Design", "Botany"],
-    link: "https://warm-mermaid-8441d2.netlify.app/",
-    type: "E-Commerce",
-    accent: "#4ade80",
-    featured: false,
-  },
-  {
-    id: 5,
-    title: "Lumière",
-    desc: "An elegant, refined minimal e-commerce experience tailored for premium skincare products.",
-    img: "/projectimg/Project5.png",
-    category: "ecommerce",
-    tags: ["Skincare", "E-Commerce", "Minimal"],
-    link: "https://reliable-centaur-fbf40f.netlify.app/",
-    type: "Minimalist",
-    accent: "#f472b6",
-    featured: false,
-  },
-  {
-    id: 6,
-    title: "OG Editor",
-    desc: "A powerful, intuitive Open Graph image editor and generator designed to streamline digital asset creation.",
-    img: "/projectimg/project-6.png",
-    category: "webapp",
-    tags: ["Utility", "Editor", "SaaS"],
-    link: "https://ogeditor2.onrender.com/",
-    type: "Web App",
-    accent: "#38bdf8",
-    featured: false,
-  },
-  {
-    id: 7,
-    title: "DevMarket",
-    desc: "A modern marketplace platform for developers to discover, share, and exchange essential tools and code assets.",
-    img: "/projectimg/Project-7.png",
-    category: "ecommerce",
-    tags: ["Marketplace", "SaaS", "Next.js"],
-    link: "https://devmarket-three.vercel.app/",
-    type: "E-Commerce",
-    accent: "#fb923c",
-    featured: true,
-  },
-  {
-    id: 8,
-    title: "Ashielder",
-    desc: "Advanced AI-powered phishing detection and prevention system with real-time threat analysis.",
-    img: "/projectimg/project8.png",
-    category: "cybersecurity",
-    tags: ["AI", "Security", "SaaS"],
-    link: "https://ashielder.vercel.app/",
-    type: "Cybersecurity",
-    accent: "#3b82f6",
-    featured: false,
-  }
-];
 
 export default function ProjectsPage() {
   const [filter, setFilter] = useState("all");
@@ -223,14 +126,12 @@ export default function ProjectsPage() {
                       ))}
                     </div>
 
-                    <a
-                      href={featuredProject.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-3 px-10 py-4 rounded-full text-sm font-bold transition-all duration-500 border border-[var(--border)] bg-[var(--bg-elevated)] text-[var(--text-primary)] hover:bg-primary hover:border-primary hover:text-white hover:shadow-[0_10px_25px_rgba(59,130,246,0.25)] hover:translate-y-[-2px] w-fit"
+                    <Link
+                      href={`/projects/${featuredProject.id}`}
+                      className="inline-flex items-center justify-center gap-3 px-10 py-4 rounded-full text-sm font-bold transition-all duration-500 border border-[var(--border)] bg-[var(--bg-elevated)] text-[var(--text-primary)] hover:bg-primary hover:border-primary hover:text-white hover:shadow-[0_10px_25px_rgba(59,130,246,0.25)] hover:translate-y-[-2px] w-fit cursor-pointer"
                     >
-                      View Project <ArrowUpRight size={18} className="transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                    </a>
+                      View Case Study <ArrowUpRight size={18} className="transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </Link>
                   </div>
                 </div>
 
@@ -276,12 +177,10 @@ export default function ProjectsPage() {
             {otherProjects.length > 0 && (
               <div className="flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-6 pb-6 sm:pb-0">
                 {otherProjects.map((project, index) => (
-                  <a
+                  <Link
                     key={project.id}
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group relative w-full flex flex-col rounded-[1.5rem] overflow-hidden border transition-all duration-500 hover:border-primary/30"
+                    href={`/projects/${project.id}`}
+                    className="group relative w-full flex flex-col rounded-[1.5rem] overflow-hidden border transition-all duration-500 hover:border-primary/30 cursor-pointer"
                     style={{ borderColor: "var(--border)", background: "var(--bg-surface)" }}
                   >
                     {/* Image Section */}
@@ -330,7 +229,7 @@ export default function ProjectsPage() {
                         ))}
                       </div>
                     </div>
-                  </a>
+                  </Link>
                 ))}
               </div>
             )}
