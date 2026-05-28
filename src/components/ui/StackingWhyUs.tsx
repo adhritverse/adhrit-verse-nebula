@@ -1,6 +1,5 @@
 "use client";
 
-import { useRef } from "react";
 import { motion } from "framer-motion";
 import {
   ShieldCheck, Brain, Rocket, Handshake, ArrowRight,
@@ -45,97 +44,89 @@ const CARDS = [
 function StackCard({
   card,
   index,
-  totalCards,
 }: {
   card: (typeof CARDS)[0];
   index: number;
-  totalCards: number;
 }) {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+      className="relative rounded-2xl md:rounded-3xl overflow-hidden border transition-all duration-500 group w-full"
       style={{
-        top: `calc(7rem + ${index * 1.5}rem)`,
-        zIndex: totalCards - index,
+        background: "var(--bg-surface)",
+        borderColor: "var(--border)",
+        boxShadow: "0 10px 30px -10px rgba(15,23,42,0.06)",
       }}
-      className="sticky will-change-transform"
     >
+      {/* Accent gradient bleed */}
       <div
-        className="relative rounded-2xl md:rounded-3xl overflow-hidden border transition-all duration-500 group"
+        className="absolute -top-24 -right-24 w-64 h-64 rounded-full blur-[100px] opacity-[0.07] group-hover:opacity-[0.12] transition-opacity duration-700"
+        style={{ background: card.accent }}
+      />
+      <div
+        className="absolute -bottom-16 -left-16 w-48 h-48 rounded-full blur-[80px] opacity-[0.04] group-hover:opacity-[0.08] transition-opacity duration-700"
+        style={{ background: card.accent }}
+      />
+
+      {/* Top accent line */}
+      <div
+        className="absolute top-0 left-0 right-0 h-[1px] opacity-40"
         style={{
-          background: "var(--bg-surface)",
-          borderColor: "var(--border)",
-          boxShadow: `0 ${20 + index * 8}px ${40 + index * 15}px -10px rgba(15,23,42,0.08)`,
+          background: `linear-gradient(90deg, transparent, ${card.accent}60, transparent)`,
         }}
-      >
-        {/* Accent gradient bleed */}
-        <div
-          className="absolute -top-24 -right-24 w-64 h-64 rounded-full blur-[100px] opacity-[0.07] group-hover:opacity-[0.12] transition-opacity duration-700"
-          style={{ background: card.accent }}
-        />
-        <div
-          className="absolute -bottom-16 -left-16 w-48 h-48 rounded-full blur-[80px] opacity-[0.04] group-hover:opacity-[0.08] transition-opacity duration-700"
-          style={{ background: card.accent }}
-        />
+      />
 
-        {/* Top accent line */}
-        <div
-          className="absolute top-0 left-0 right-0 h-[1px] opacity-40"
-          style={{
-            background: `linear-gradient(90deg, transparent, ${card.accent}60, transparent)`,
-          }}
-        />
-
-        <div className="relative z-10 p-6 sm:p-8 md:p-10 flex flex-col md:flex-row md:items-center gap-6 md:gap-10">
-          {/* Left: Icon + Number */}
-          <div className="flex md:flex-col items-center gap-4 md:gap-3 shrink-0">
-            <div
-              className="w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:scale-110"
-              style={{
-                background: `linear-gradient(135deg, ${card.accent}15, ${card.accent}05)`,
-                border: `1px solid ${card.accent}25`,
-                color: card.accent,
-              }}
-            >
-              {card.icon}
-            </div>
-            <span
-              className="text-xs font-black tracking-widest opacity-30 md:text-center"
-              style={{ color: card.accent }}
-            >
-              0{index + 1}
-            </span>
+      <div className="relative z-10 p-6 sm:p-8 md:p-10 flex flex-col md:flex-row md:items-center gap-6 md:gap-10">
+        {/* Left: Icon + Number */}
+        <div className="flex md:flex-col items-center gap-4 md:gap-3 shrink-0">
+          <div
+            className="w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:scale-110"
+            style={{
+              background: `linear-gradient(135deg, ${card.accent}15, ${card.accent}05)`,
+              border: `1px solid ${card.accent}25`,
+              color: card.accent,
+            }}
+          >
+            {card.icon}
           </div>
+          <span
+            className="text-xs font-black tracking-widest opacity-30 md:text-center"
+            style={{ color: card.accent }}
+          >
+            0{index + 1}
+          </span>
+        </div>
 
-          {/* Center: Content */}
-          <div className="flex-1">
-            <h3 className="text-xl md:text-2xl font-bold mb-3 transition-colors" style={{ color: "var(--text-primary)" }}>
-              {card.title}
-            </h3>
-            <p className="text-base leading-relaxed transition-colors max-w-2xl" style={{ color: "var(--text-secondary)" }}>
-              {card.desc}
-            </p>
+        {/* Center: Content */}
+        <div className="flex-1">
+          <h3 className="text-xl md:text-2xl font-bold mb-3 transition-colors" style={{ color: "var(--text-primary)" }}>
+            {card.title}
+          </h3>
+          <p className="text-base leading-relaxed transition-colors max-w-2xl" style={{ color: "var(--text-secondary)" }}>
+            {card.desc}
+          </p>
+        </div>
+
+        <div className="shrink-0 text-right md:text-center hidden sm:block">
+          <div
+            className="text-3xl md:text-4xl font-black tracking-tight mb-1"
+            style={{ color: card.accent }}
+          >
+            {card.stat}
           </div>
-
-          <div className="shrink-0 text-right md:text-center hidden sm:block">
-            <div
-              className="text-3xl md:text-4xl font-black tracking-tight mb-1"
-              style={{ color: card.accent }}
-            >
-              {card.stat}
-            </div>
-            <div className="text-[10px] uppercase tracking-[0.2em] font-bold max-w-[120px]" style={{ color: "var(--text-muted)" }}>
-              {card.statLabel}
-            </div>
+          <div className="text-[10px] uppercase tracking-[0.2em] font-bold max-w-[120px]" style={{ color: "var(--text-muted)" }}>
+            {card.statLabel}
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 export default function StackingWhyUs() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
   return (
     <section
       id="why-us"
@@ -185,19 +176,14 @@ export default function StackingWhyUs() {
           </motion.div>
         </div>
 
-        {/* Stacking cards scroll container */}
-        <div
-          ref={containerRef}
-          className="pb-20 md:pb-28"
-          style={{ minHeight: `${CARDS.length * 220 + 200}px` }}
-        >
-          <div className="flex flex-col gap-5">
+        {/* Cards container */}
+        <div className="pb-20 md:pb-28">
+          <div className="flex flex-col gap-6">
             {CARDS.map((card, i) => (
               <StackCard
                 key={card.title}
                 card={card}
                 index={i}
-                totalCards={CARDS.length}
               />
             ))}
           </div>

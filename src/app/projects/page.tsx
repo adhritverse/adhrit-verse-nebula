@@ -183,10 +183,7 @@ export default function ProjectsPage() {
 
             {/* ── Featured / Hero Card ── */}
             {featuredProject && (
-              <a
-                href={featuredProject.link}
-                target="_blank"
-                rel="noopener noreferrer"
+              <div
                 className="group relative w-full rounded-3xl sm:rounded-[2.5rem] overflow-hidden border transition-all duration-700 grid grid-cols-1 lg:grid-cols-12 mb-12"
                 style={{ borderColor: "var(--border)", background: "var(--bg-surface)", minHeight: "500px" }}
               >
@@ -226,24 +223,53 @@ export default function ProjectsPage() {
                       ))}
                     </div>
 
-                    <div className="inline-flex items-center justify-center gap-3 px-10 py-4 rounded-full text-sm font-bold transition-all duration-500 border hover:bg-primary hover:border-primary hover:text-white hover:shadow-[0_0_30px_rgba(59,130,246,0.5)]" style={{ color: "var(--text-primary)", borderColor: "var(--border)", background: "var(--bg-elevated)" }}>
-                      View Project <ArrowUpRight size={18} className="transition-transform duration-500 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
-                    </div>
+                    <a
+                      href={featuredProject.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-3 px-10 py-4 rounded-full text-sm font-bold transition-all duration-500 border border-[var(--border)] bg-[var(--bg-elevated)] text-[var(--text-primary)] hover:bg-primary hover:border-primary hover:text-white hover:shadow-[0_10px_25px_rgba(59,130,246,0.25)] hover:translate-y-[-2px] w-fit"
+                    >
+                      View Project <ArrowUpRight size={18} className="transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </a>
                   </div>
                 </div>
 
                 {/* Visual Section (Right side) */}
-                <div className="lg:col-span-7 relative h-48 sm:h-80 lg:h-full w-full order-1 lg:order-2 overflow-hidden bg-slate-950/10">
-                  <div className="absolute inset-0 z-10 bg-gradient-to-t lg:bg-gradient-to-r from-[var(--bg-surface)] via-[var(--bg-surface)]/20 to-transparent pointer-events-none" />
-                  <img
-                    src={featuredProject.img}
-                    alt={featuredProject.title}
-                    className="w-full h-full object-contain lg:object-cover lg:object-top transition-all duration-1000 group-hover:scale-105 group-hover:rotate-1"
+                <div className="lg:col-span-7 relative min-h-[350px] lg:h-full w-full order-1 lg:order-2 overflow-hidden bg-slate-950 flex items-center justify-center p-6 sm:p-10 lg:p-12">
+                  {/* Subtle Grid Overlay */}
+                  <div className="absolute inset-0 dot-grid opacity-15 pointer-events-none" />
+                  
+                  {/* Dynamic glow bleed */}
+                  <div 
+                    className="absolute w-[300px] h-[300px] rounded-full blur-[100px] opacity-20 pointer-events-none transition-all duration-700 group-hover:opacity-30"
+                    style={{ background: featuredProject.accent }}
                   />
-                  {/* Subtle inner glow */}
-                  <div className="absolute inset-0 shadow-[inset_0_0_100px_rgba(0,0,0,0.05)] pointer-events-none"></div>
+
+                  {/* Browser Mockup Window */}
+                  <div className="relative w-full rounded-2xl border border-white/10 bg-slate-900/60 backdrop-blur-md shadow-2xl overflow-hidden transition-all duration-500 group-hover:translate-y-[-4px] group-hover:border-white/20">
+                    {/* Browser Header Bar */}
+                    <div className="flex items-center gap-1.5 px-4 py-3 border-b border-white/5 bg-slate-950/40">
+                      <div className="flex gap-1.5 shrink-0">
+                        <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+                      </div>
+                      {/* Search Bar / Address bar */}
+                      <div className="flex-1 mx-4 bg-slate-950/40 rounded-md border border-white/5 py-1 text-[9px] text-slate-500 text-center truncate select-none">
+                        {featuredProject.link}
+                      </div>
+                    </div>
+                    {/* Browser Content */}
+                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-950">
+                      <img
+                        src={featuredProject.img}
+                        alt={featuredProject.title}
+                        className="w-full h-full object-cover object-top transition-transform duration-[1.5s] ease-out group-hover:scale-102"
+                      />
+                    </div>
+                  </div>
                 </div>
-              </a>
+              </div>
             )}
 
             {/* ── Other Projects — Vertical Stack on Mobile, Grid on Desktop ── */}

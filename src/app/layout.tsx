@@ -168,7 +168,7 @@ const jsonLd = {
       },
       sameAs: [
         "https://www.linkedin.com/company/adhritverse",
-        "https://www.instagram.com/adhritverse",
+        "https://www.instagram.com/avtechnologies_?igsh=c3JkZGx1MnRwaDFt",
         "https://twitter.com/adhritverse",
       ],
       hasOfferCatalog: {

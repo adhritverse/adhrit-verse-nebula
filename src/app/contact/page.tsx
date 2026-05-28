@@ -172,7 +172,7 @@ export default function ContactPage() {
               <div className="flex gap-3 sm:gap-4 flex-wrap justify-center">
                 <SocialBtn icon="fab fa-linkedin-in" link="https://www.linkedin.com/company/adhritverse" color="hover:bg-blue-600" />
                 {/* <SocialBtn icon="fab fa-github" link="https://github.com/adhritverse" color="hover:bg-slate-700" /> */}
-                <SocialBtn icon="fab fa-instagram" link="https://www.instagram.com/adhritverse?igsh=MXgwN2swanRvNmZtYQ==" color="hover:bg-pink-600" />
+                <SocialBtn icon="fab fa-instagram" link="https://www.instagram.com/avtechnologies_?igsh=c3JkZGx1MnRwaDFt" color="hover:bg-pink-600" />
                 <SocialBtn icon="fab fa-twitter" link="https://twitter.com/adhritverse" color="hover:bg-cyan-500" />
               </div>
             </div>

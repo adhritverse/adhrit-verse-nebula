@@ -71,7 +71,7 @@ export default function Footer() {
             </p>
             <div className="flex flex-wrap gap-3">
               <SocialLink icon={Linkedin}      link="https://www.linkedin.com/company/adhritverse/"                                         hoverColor="hover:bg-[#0077b5]/10 hover:text-[#0077b5] hover:border-[#0077b5]/40" />
-              <SocialLink icon={Instagram}     link="https://www.instagram.com/avtechnologies_?igsh=aXI1NXA0ZnIwYnpw"                    hoverColor="hover:bg-[#E1306C]/10 hover:text-[#E1306C] hover:border-[#E1306C]/40" />
+              <SocialLink icon={Instagram}     link="https://www.instagram.com/avtechnologies_?igsh=c3JkZGx1MnRwaDFt"                    hoverColor="hover:bg-[#E1306C]/10 hover:text-[#E1306C] hover:border-[#E1306C]/40" />
               <SocialLink icon={Twitter}       link="https://x.com/adhritverse"                                                            hoverColor="hover:bg-[#1DA1F2]/10 hover:text-[#1DA1F2] hover:border-[#1DA1F2]/40" />
               <SocialLink icon={Facebook}      link="https://www.facebook.com/adhritverse"                                                 hoverColor="hover:bg-[#1877F2]/10 hover:text-[#1877F2] hover:border-[#1877F2]/40" />
               <SocialLink icon={Globe}         link="https://adhritverse.in/"                                                              hoverColor="hover:bg-primary/10 hover:text-primary hover:border-primary/40" />

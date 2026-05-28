@@ -64,48 +64,86 @@ const TESTIMONIALS = [
     name: "Aakash Sharma",
     role: "Founder, FinTech Startup",
     location: "India",
-    quote:
-      "AV Technologies transformed our MVP into a production-grade AI platform in just 8 weeks. Their cybersecurity audit saved us from a critical vulnerability before launch. Absolute best tech team — period.",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80",
+    quote: (
+      <>
+        AV Technologies transformed our MVP into a{" "}
+        <span className="text-primary font-semibold">production-grade AI platform</span>{" "}
+        in just <span className="text-primary font-semibold">8 weeks</span>. Their cybersecurity
+        audit saved us from a critical vulnerability before launch. Absolute best tech team — period.
+      </>
+    ),
     rating: 5,
   },
   {
     name: "Priya Verma",
     role: "CEO, EdTech Company",
     location: "Mumbai",
-    quote:
-      "We tried 3 agencies before AV Technologies. The difference is night and day. They actually understand startup growth, not just code. Our app went from 0 to 50K users in 4 months.",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&h=150&q=80",
+    quote: (
+      <>
+        We tried 3 agencies before AV Technologies. The difference is night and day. They actually
+        understand <span className="text-primary font-semibold">startup growth</span>, not just code.
+        Our app went from <span className="text-primary font-semibold">0 to 50K users in 4 months</span>.
+      </>
+    ),
     rating: 5,
   },
   {
     name: "Rahul Mehta",
     role: "Co-Founder, SaaS Platform",
     location: "Bangalore",
-    quote:
-      "The AI/ML integration they built for our platform reduced our customer churn by 34%. These guys are not an agency — they're a genuine tech growth partner.",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&h=150&q=80",
+    quote: (
+      <>
+        The AI/ML integration they built for our platform reduced our customer{" "}
+        <span className="text-primary font-semibold">churn by 34%</span>. These guys are not an
+        agency — they're a <span className="text-primary font-semibold">genuine tech growth partner</span>.
+      </>
+    ),
     rating: 5,
   },
   {
     name: "Ananya Desai",
     role: "CTO, HealthTech Innovators",
     location: "Pune",
-    quote:
-      "Working with AV Technologies to revamp our healthcare portal was the best decision. Their focus on compliance and user experience is unmatched in the industry.",
+    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&h=150&q=80",
+    quote: (
+      <>
+        Working with AV Technologies to revamp our healthcare portal was the{" "}
+        <span className="text-primary font-semibold">best decision</span>. Their focus on{" "}
+        <span className="text-primary font-semibold">compliance and user experience</span> is
+        unmatched in the industry.
+      </>
+    ),
     rating: 5,
   },
   {
     name: "Vikram Singh",
     role: "Director, AgriTech Solutions",
     location: "Hyderabad",
-    quote:
-      "They delivered an IoT dashboard that helped our farmers track soil health in real time. The precision and scalability of their cloud architecture are brilliant.",
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&h=150&q=80",
+    quote: (
+      <>
+        They delivered an IoT dashboard that helped our farmers track soil health in real time. The{" "}
+        <span className="text-primary font-semibold">precision and scalability</span> of their cloud
+        architecture are brilliant.
+      </>
+    ),
     rating: 5,
   },
   {
     name: "Sneha Reddy",
     role: "VP Product, E-commerce Network",
     location: "Delhi NCR",
-    quote:
-      "AV Technologies implemented a custom recommendation engine that boosted our average order value by 21%. Their engineers operate like an extension of our own team.",
+    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&h=150&q=80",
+    quote: (
+      <>
+        AV Technologies implemented a custom recommendation engine that boosted our average order
+        value by <span className="text-primary font-semibold">21%</span>. Their engineers operate
+        like an <span className="text-primary font-semibold">extension of our own team</span>.
+      </>
+    ),
     rating: 5,
   },
 ];
