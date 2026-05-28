@@ -128,7 +128,11 @@ export default function ProjectsPage() {
 
                     <Link
                       href={`/projects/${featuredProject.id}`}
-                      className="inline-flex items-center justify-center gap-3 px-10 py-4 rounded-full text-sm font-bold transition-all duration-500 border border-[var(--border)] bg-[var(--bg-elevated)] text-[var(--text-primary)] hover:bg-primary hover:border-primary hover:text-white hover:shadow-[0_10px_25px_rgba(59,130,246,0.25)] hover:translate-y-[-2px] w-fit cursor-pointer"
+                      className="inline-flex items-center justify-center gap-3 px-10 py-4.5 rounded-full text-sm font-bold text-white transition-all duration-500 hover:opacity-90 hover:scale-[1.02] hover:-translate-y-0.5 group w-fit cursor-pointer shadow-lg"
+                      style={{
+                        background: featuredProject.accent,
+                        boxShadow: `0 10px 20px -5px ${featuredProject.accent}50`
+                      }}
                     >
                       View Case Study <ArrowUpRight size={18} className="transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </Link>
@@ -156,16 +160,16 @@ export default function ProjectsPage() {
                         <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
                       </div>
                       {/* Search Bar / Address bar */}
-                      <div className="flex-1 mx-4 bg-slate-950/40 rounded-md border border-white/5 py-1 text-[9px] text-slate-500 text-center truncate select-none">
+                      <div className="flex-1 mx-4 bg-slate-950/40 rounded-md border border-white/5 py-1 text-[9px] text-slate-400 text-center truncate select-none">
                         {featuredProject.link}
                       </div>
                     </div>
                     {/* Browser Content */}
-                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-950">
+                    <div className="relative w-full overflow-hidden flex items-center justify-center">
                       <img
                         src={featuredProject.img}
                         alt={featuredProject.title}
-                        className="w-full h-full object-cover object-top transition-transform duration-[1.5s] ease-out group-hover:scale-102"
+                        className="w-full h-auto transition-transform duration-[1.5s] ease-out group-hover:scale-102"
                       />
                     </div>
                   </div>

@@ -36,13 +36,16 @@ export const metadata: Metadata = {
 
 
 
-const PROJECTS = projects.map(p => ({
+const PROJECTS = projects.slice(0, 3).map(p => ({
   id: p.id,
   img: p.img,
   title: p.title,
   desc: p.desc,
   href: p.link,
-  tags: p.tags.slice(0, 2),
+  tags: p.tags.slice(0, 3),
+  accent: p.accent,
+  category: p.category,
+  type: p.type,
 }));
 
 const TESTIMONIALS = [

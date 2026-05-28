@@ -1,8 +1,8 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ExternalLink, ArrowRight, Layers } from "lucide-react";
+import { ExternalLink, ArrowRight, Layers, Shield, ShoppingBag, Code2, Globe, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
 interface Project {
@@ -12,9 +12,21 @@ interface Project {
   desc: string;
   href: string;
   tags: string[];
+  accent: string;
+  category: string;
+  type: string;
 }
 
+const categoryIcons: Record<string, React.ReactNode> = {
+  cybersecurity: <Shield size={11} />,
+  ecommerce: <ShoppingBag size={11} />,
+  portfolio: <Layers size={11} />,
+  webapp: <Code2 size={11} />,
+};
+
 function ProjectCard({ project, index }: { project: Project; index: number }) {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 30 }}
@@ -22,65 +34,90 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
       className="group relative flex-shrink-0 w-[85vw] sm:w-[380px] lg:w-full snap-center"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <Link
         href={`/projects/${project.id}`}
         aria-label={`View ${project.title} project`}
-        className="block h-full cursor-pointer"
+        className="group relative w-full flex flex-col rounded-[1.5rem] overflow-hidden border transition-all duration-500 hover:border-primary/30 cursor-pointer block h-full"
+        style={{ 
+          borderColor: isHovered ? `${project.accent}35` : "var(--border)", 
+          background: "var(--bg-surface)",
+          boxShadow: isHovered 
+            ? `0 20px 40px -15px ${project.accent}25, 0 0 0 1px ${project.accent}15` 
+            : "var(--shadow-card)",
+          transform: isHovered ? "translateY(-12px)" : "translateY(0)"
+        }}
       >
-        <div
-          className="h-full rounded-[2rem] overflow-hidden transition-all duration-700 hover:-translate-y-3"
-          style={{
-            background: "var(--bg-surface)",
-            border: "1px solid var(--border)",
-            boxShadow: "var(--shadow-card)",
+        {/* Image Section */}
+        <div className="relative h-44 sm:h-56 overflow-hidden bg-slate-950/40">
+          <img
+            src={project.img}
+            alt={project.title}
+            className="w-full h-full object-contain sm:object-cover transition-transform duration-700"
+            style={{
+              transform: isHovered ? "scale(1.05)" : "scale(1)",
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60" />
+          
+          {/* Floating Badge */}
+          <div className="absolute top-4 right-4 z-20">
+            <div
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider backdrop-blur-md border shadow-lg"
+              style={{ color: project.accent, borderColor: `${project.accent}30`, background: `${project.accent}15` }}
+            >
+              {categoryIcons[project.category] || <Globe size={11} />}
+              {project.type}
+            </div>
+          </div>
+        </div>
+
+        {/* Content Section - Floating Overlap Look */}
+        <div 
+          className="p-6 sm:p-7 flex flex-col relative z-20 -mt-8 mx-4 mb-4 rounded-2xl backdrop-blur-2xl border shadow-2xl transition-all duration-500 flex-1" 
+          style={{ 
+            background: "var(--bg-elevated)", 
+            borderColor: isHovered ? `${project.accent}20` : "var(--border)" 
           }}
         >
-          {/* Image */}
-          <div className="relative h-48 sm:h-56 overflow-hidden bg-slate-950/40">
-            <img
-              src={project.img}
-              alt={`${project.title} – AV Technologies Project`}
-              className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110"
-              loading="lazy"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-950/20 to-slate-950/90 z-10" />
-
-            {/* External link icon */}
-            <div className="absolute top-5 right-5 z-20 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
-              <div className="w-10 h-10 rounded-xl bg-primary/20 backdrop-blur-xl border border-primary/30 flex items-center justify-center shadow-[0_0_20px_rgba(59,130,246,0.3)]">
-                <ExternalLink size={16} className="text-white" />
-              </div>
-            </div>
-
-            {/* Tags */}
-            <div className="absolute bottom-4 left-5 flex flex-wrap gap-2 z-20">
-              {project.tags.slice(0, 2).map((tag) => (
-                <span
-                  key={tag}
-                  className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-white/10 border border-white/10 backdrop-blur-md text-slate-200"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Content */}
-          <div className="p-6 sm:p-7 flex flex-col gap-2">
-            <h3 className="text-xl font-bold transition-colors duration-500 group-hover:text-primary" style={{ color: "var(--text-primary)" }}>
+          <div className="flex items-center justify-between mb-2">
+            <h3 
+              className="font-display text-lg font-bold transition-colors leading-tight" 
+              style={{ color: isHovered ? project.accent : "var(--text-primary)" }}
+            >
               {project.title}
             </h3>
-            <p className="text-sm leading-relaxed line-clamp-2 transition-colors" style={{ color: "var(--text-secondary)" }}>
-              {project.desc}
-            </p>
-            <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-[0.15em] mt-2 opacity-0 group-hover:opacity-100 transition-all duration-500">
-              View Project <ArrowRight size={12} className="animate-pulse" />
+            <div
+              className="w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-300 shadow-lg"
+              style={{
+                backgroundColor: isHovered ? project.accent : "var(--bg-surface)",
+                borderColor: isHovered ? project.accent : "var(--border)"
+              }}
+            >
+              <ArrowUpRight 
+                size={14} 
+                className="transition-colors" 
+                style={{ color: isHovered ? "#fff" : "var(--text-secondary)" }}
+              />
             </div>
           </div>
 
-          {/* Bottom accent line */}
-          <div className="h-[2px] bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+          <p className="text-xs leading-relaxed mb-4 line-clamp-2 font-light" style={{ color: "var(--text-secondary)" }}>
+            {project.desc}
+          </p>
+
+          <div className="flex flex-wrap gap-1.5 mt-auto">
+            {project.tags.slice(0, 3).map(tag => (
+              <span 
+                key={tag} 
+                className="px-2 py-0.5 rounded-md text-[9px] font-medium bg-slate-100 border border-[var(--border)] text-[var(--text-secondary)]"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
       </Link>
     </motion.article>
