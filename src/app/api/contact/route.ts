@@ -1,22 +1,63 @@
 import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
 import nodemailer from 'nodemailer';
+import { connectDB } from '@/lib/mongodb';
+import Contact from '@/models/Contact';
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
   try {
     const { name, email, phone, subject, message } = await req.json();
+
+    let dbSaved = false;
+
+    // ── 1. Save to MongoDB (AV database, contacts collection) ──────────
+    try {
+      await connectDB();
+
+      // Anonymize IP: keep only first 3 octets (e.g. 192.168.1.xxx)
+      const rawIP =
+        req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
+        req.headers.get('x-real-ip') ||
+        'unknown';
+      const anonIP = rawIP.split('.').slice(0, 3).join('.') + '.xxx';
+
+      await Contact.create({
+        name: String(name || '').trim().slice(0, 100),
+        email: String(email || '').trim().toLowerCase().slice(0, 200),
+        phone: phone ? String(phone).trim().slice(0, 20) : undefined,
+        subject: String(subject || '').trim().slice(0, 200),
+        message: String(message || '').trim().slice(0, 5000),
+        ipAddress: anonIP,
+        read: false,
+      });
+      dbSaved = true;
+    } catch (dbError) {
+      // DB failure should NOT block email sending
+      console.error('[Contact API] MongoDB save error:', dbError);
+    }
+
+    // ── 2. Send email notification ─────────────────────────────────────
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      console.warn('[Contact API] Email credentials missing (EMAIL_USER / EMAIL_PASS). Skipping email notification.');
+      if (dbSaved) {
+        return NextResponse.json({ success: true, message: 'Contact request saved successfully (email notification skipped).' }, { status: 200 });
+      } else {
+        return NextResponse.json({ success: false, message: 'Failed to save contact request to database.' }, { status: 500 });
+      }
+    }
 
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
         user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS?.replace(/\s/g, ''), // Removed spaces just in case
+        pass: process.env.EMAIL_PASS.replace(/\s/g, ''),
       },
     });
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER, // Send to self so you can receive the contact form details
-      replyTo: email, // Set the replyTo to the submitter's email
+      to: process.env.EMAIL_USER,
+      replyTo: email,
       subject: `New Contact Request: ${subject}`,
       text: `
         You have a new contact form submission.
@@ -84,10 +125,25 @@ export async function POST(req: Request) {
       `,
     };
 
-    await transporter.sendMail(mailOptions);
-    return NextResponse.json({ success: true, message: 'Email sent successfully!' }, { status: 200 });
+    try {
+      await transporter.sendMail(mailOptions);
+      return NextResponse.json({ success: true, message: 'Email sent successfully!' }, { status: 200 });
+    } catch (emailError) {
+      console.error('[Contact API] Email notification error:', emailError);
+      if (dbSaved) {
+        return NextResponse.json({ 
+          success: true, 
+          message: 'Contact request saved successfully (email notification skipped/failed).' 
+        }, { status: 200 });
+      } else {
+        return NextResponse.json({ 
+          success: false, 
+          message: 'Failed to send email notification or save to database.' 
+        }, { status: 500 });
+      }
+    }
   } catch (error) {
-    console.error('Error sending email:', error);
-    return NextResponse.json({ success: false, message: 'Failed to send email. Please check server logs.' }, { status: 500 });
+    console.error('Error in contact form submission route:', error);
+    return NextResponse.json({ success: false, message: 'Internal Server Error' }, { status: 500 });
   }
 }
