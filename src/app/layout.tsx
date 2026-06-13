@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Outfit, Space_Grotesk, Space_Mono } from "next/font/google";
 import "./globals.css";
+import VisitorTracker from "@/components/VisitorTracker";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -220,6 +221,7 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased text-[var(--text-primary)] selection:bg-primary selection:text-white">
+        <VisitorTracker />
         {children}
       </body>
     </html>
