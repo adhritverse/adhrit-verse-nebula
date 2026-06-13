@@ -52,8 +52,8 @@
 
   /* Text */
   --text-primary:   #0f172a;
-  --text-secondary: #475569;
-  --text-muted:     #94a3b8;
+  --text-secondary: #374151;   /* was #475569 — bumped for better contrast */
+  --text-muted:     #6b7280;   /* was #94a3b8 — bumped to pass WCAG AA 4.5:1 */
   --text-invert:    #ffffff;
 
   /* Borders */

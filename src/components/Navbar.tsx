@@ -149,17 +149,13 @@ export default function Navbar() {
 
             {/* CTA — Right */}
             <div className="flex items-center gap-4 shrink-0">
-              <motion.a
-                href="https://api.whatsapp.com/send/?phone=918462802086&text=Hello+AdhritVerse%2C+I+want+to+request+a+quote.&type=phone_number&app_absent=0"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
+              <Link
+                href="/contact?subject=Quote+Request"
                 className="hidden lg:inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold text-white btn-primary group"
               >
                 <span>Get a Quote</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </motion.a>
+              </Link>
 
               <button
                 onClick={() => setMobileMenuOpen(true)}
@@ -275,16 +271,14 @@ export default function Navbar() {
                 className="px-5 pb-8 pt-4 flex flex-col gap-3"
                 style={{ borderTop: "1px solid var(--border)" }}
               >
-                <a
-                  href="https://api.whatsapp.com/send/?phone=918462802086&text=Hello+AdhritVerse%2C+I+want+to+request+a+quote.&type=phone_number&app_absent=0"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/contact?subject=Quote+Request"
                   onClick={() => setMobileMenuOpen(false)}
                   className="flex items-center justify-center gap-2 w-full px-6 py-3.5 rounded-xl text-base font-semibold text-white btn-primary"
                 >
-                  <span>Get Free Consultation</span>
+                  <span>Get a Quote</span>
                   <ArrowRight className="w-4 h-4" />
-                </a>
+                </Link>
                 <a
                   href="tel:+918462802086"
                   className="flex items-center justify-center gap-2 w-full px-6 py-3.5 rounded-xl text-sm font-medium btn-outline"

@@ -117,7 +117,7 @@ function StackCard({
           >
             {card.stat}
           </div>
-          <div className="text-[10px] uppercase tracking-[0.2em] font-bold max-w-[120px]" style={{ color: "var(--text-muted)" }}>
+          <div className="text-[10px] uppercase tracking-[0.2em] font-bold max-w-[120px]" style={{ color: "var(--text-secondary)" }}>
             {card.statLabel}
           </div>
         </div>

@@ -27,12 +27,12 @@ export default function Footer() {
           style={{ borderBottom: "1px solid var(--border)" }}
         >
           <div>
-            <h3
+            <p
               className="text-3xl md:text-4xl font-display font-bold mb-3"
               style={{ color: "var(--text-primary)" }}
             >
               Ready to scale your vision?
-            </h3>
+            </p>
             <p style={{ color: "var(--text-secondary)" }} className="text-lg">
               Join top companies building the future with AdhritVerse.
             </p>
@@ -70,12 +70,12 @@ export default function Footer() {
               cybersecurity, and enterprise-grade web development.
             </p>
             <div className="flex flex-wrap gap-3">
-              <SocialLink icon={Linkedin}      link="https://www.linkedin.com/company/adhritverse/"                                         hoverColor="hover:bg-[#0077b5]/10 hover:text-[#0077b5] hover:border-[#0077b5]/40" />
-              <SocialLink icon={Instagram}     link="https://www.instagram.com/avtechnologies_?igsh=c3JkZGx1MnRwaDFt"                    hoverColor="hover:bg-[#E1306C]/10 hover:text-[#E1306C] hover:border-[#E1306C]/40" />
-              <SocialLink icon={Twitter}       link="https://x.com/adhritverse"                                                            hoverColor="hover:bg-[#1DA1F2]/10 hover:text-[#1DA1F2] hover:border-[#1DA1F2]/40" />
-              <SocialLink icon={Facebook}      link="https://www.facebook.com/adhritverse"                                                 hoverColor="hover:bg-[#1877F2]/10 hover:text-[#1877F2] hover:border-[#1877F2]/40" />
-              <SocialLink icon={Globe}         link="https://adhritverse.in/"                                                              hoverColor="hover:bg-primary/10 hover:text-primary hover:border-primary/40" />
-              <SocialLink icon={MessageCircle} link="https://api.whatsapp.com/send/?phone=918462802086&text=Hello+AdhritVerse%2C+I+want+to+request+a+quote.&type=phone_number&app_absent=0" hoverColor="hover:bg-[#25D366]/10 hover:text-[#25D366] hover:border-[#25D366]/40" />
+              <SocialLink icon={Linkedin}      link="https://www.linkedin.com/company/adhritverse/"                                         hoverColor="hover:bg-[#0077b5]/10 hover:text-[#0077b5] hover:border-[#0077b5]/40" label="AV Technologies on LinkedIn" />
+              <SocialLink icon={Instagram}     link="https://www.instagram.com/avtechnologies_?igsh=c3JkZGx1MnRwaDFt"                    hoverColor="hover:bg-[#E1306C]/10 hover:text-[#E1306C] hover:border-[#E1306C]/40" label="AV Technologies on Instagram" />
+              <SocialLink icon={Twitter}       link="https://x.com/adhritverse"                                                            hoverColor="hover:bg-[#1DA1F2]/10 hover:text-[#1DA1F2] hover:border-[#1DA1F2]/40" label="AV Technologies on X (Twitter)" />
+              <SocialLink icon={Facebook}      link="https://www.facebook.com/adhritverse"                                                 hoverColor="hover:bg-[#1877F2]/10 hover:text-[#1877F2] hover:border-[#1877F2]/40" label="AV Technologies on Facebook" />
+              <SocialLink icon={Globe}         link="https://adhritverse.in/"                                                              hoverColor="hover:bg-primary/10 hover:text-primary hover:border-primary/40" label="AV Technologies website" />
+              <SocialLink icon={MessageCircle} link="https://api.whatsapp.com/send/?phone=918462802086&text=Hello+AdhritVerse%2C+I+want+to+request+a+quote.&type=phone_number&app_absent=0" hoverColor="hover:bg-[#25D366]/10 hover:text-[#25D366] hover:border-[#25D366]/40" label="Chat with AV Technologies on WhatsApp" />
             </div>
           </div>
 
@@ -158,10 +158,10 @@ export default function Footer() {
           className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
           style={{ borderTop: "1px solid var(--border)" }}
         >
-          <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+          <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
             &copy; {currentYear} AdhritVerse (AV Technologies). All rights reserved.
           </p>
-          <div className="flex items-center gap-6 text-sm" style={{ color: "var(--text-muted)" }}>
+          <div className="flex items-center gap-6 text-sm" style={{ color: "var(--text-secondary)" }}>
             <Link href="/privacy" className="hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-primary hover:after:w-full after:transition-all">
               Privacy Policy
             </Link>
@@ -194,16 +194,19 @@ function SocialLink({
   icon: Icon,
   hoverColor,
   link = "#",
+  label,
 }: {
   icon: React.ElementType;
   hoverColor: string;
   link?: string;
+  label: string;
 }) {
   return (
     <a
       href={link}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={label}
       className={`w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300 ${hoverColor}`}
       style={{
         background: "var(--bg-surface)",
@@ -211,7 +214,7 @@ function SocialLink({
         color: "var(--text-muted)",
       }}
     >
-      <Icon size={20} strokeWidth={1.5} />
+      <Icon size={20} strokeWidth={1.5} aria-hidden="true" />
     </a>
   );
 }

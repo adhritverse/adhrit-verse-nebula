@@ -1,16 +1,15 @@
 "use client";
 
-import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BlobBackground from "@/components/BlobBackground";
-import { useState } from "react";
+import { useState, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 
-// Note: metadata must be in a separate server component, but we can set it via generateMetadata or a parent.
-// For now, the root layout metadata covers the contact page sufficiently.
+function ContactForm() {
+  const searchParams = useSearchParams();
+  const defaultSubject = searchParams.get("subject") ?? "";
 
-
-export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
@@ -90,12 +89,12 @@ export default function ContactPage() {
             ) : (
               <form className="space-y-4 sm:space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                  <InputGroup label="Full Name" name="name" placeholder="John Doe" icon="fas fa-user" required />
-                  <InputGroup label="Email Address" name="email" placeholder="john@example.com" icon="fas fa-envelope" type="email" required />
+                  <InputGroup label="Full Name" name="name" placeholder="Your Name" icon="fas fa-user" required />
+                  <InputGroup label="Email Address" name="email" placeholder="your@email.com" icon="fas fa-envelope" type="email" required />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                  <InputGroup label="Phone Number" name="phone" placeholder="+91 8462802086" icon="fas fa-phone-alt" />
-                  <InputGroup label="Subject" name="subject" placeholder="Project Inquiry" icon="fas fa-tag" required />
+                  <InputGroup label="Phone Number" name="phone" placeholder="+91 XXXXX XXXXX" icon="fas fa-phone-alt" />
+                  <InputGroup label="Subject" name="subject" placeholder="Quote Request" icon="fas fa-tag" required defaultValue={defaultSubject} />
                 </div>
                 <div className="flex flex-col gap-1 sm:gap-2">
                   <label className="text-xs sm:text-sm font-semibold ml-1 sm:ml-2" style={{ color: "var(--text-secondary)" }}>Message</label>
@@ -157,6 +156,14 @@ export default function ContactPage() {
               link="tel:+918462802086"
               color="text-emerald-400 bg-emerald-400/20"
             />
+            <InfoCard
+              icon="fab fa-whatsapp"
+              title="WhatsApp Us"
+              val="+91 99269 61969"
+              sub="Chat with us directly on WhatsApp."
+              link="https://wa.me/919926961969"
+              color="text-green-400 bg-green-400/20"
+            />
             {/* <InfoCard 
               icon="fas fa-map-marker-alt" 
               title="Visit Our Office" 
@@ -170,10 +177,10 @@ export default function ContactPage() {
             <div className="glass-card p-6 sm:p-10 rounded-3xl border-white/5 flex flex-col items-center text-center">
             <h3 className="font-bold font-display text-lg sm:text-xl mb-6" style={{ color: "var(--text-primary)" }}>Connect with us on Socials</h3>
               <div className="flex gap-3 sm:gap-4 flex-wrap justify-center">
-                <SocialBtn icon="fab fa-linkedin-in" link="https://www.linkedin.com/company/adhritverse" color="hover:bg-blue-600" />
-                {/* <SocialBtn icon="fab fa-github" link="https://github.com/adhritverse" color="hover:bg-slate-700" /> */}
-                <SocialBtn icon="fab fa-instagram" link="https://www.instagram.com/avtechnologies_?igsh=c3JkZGx1MnRwaDFt" color="hover:bg-pink-600" />
-                <SocialBtn icon="fab fa-twitter" link="https://twitter.com/adhritverse" color="hover:bg-cyan-500" />
+                <SocialBtn icon="fab fa-linkedin-in" link="https://www.linkedin.com/company/adhritverse" color="hover:bg-blue-600" label="AV Technologies on LinkedIn" />
+                {/* <SocialBtn icon="fab fa-github" link="https://github.com/adhritverse" color="hover:bg-slate-700" label="AV Technologies on GitHub" /> */}
+                <SocialBtn icon="fab fa-instagram" link="https://www.instagram.com/avtechnologies_?igsh=c3JkZGx1MnRwaDFt" color="hover:bg-pink-600" label="AV Technologies on Instagram" />
+                <SocialBtn icon="fab fa-twitter" link="https://twitter.com/adhritverse" color="hover:bg-cyan-500" label="AV Technologies on X (Twitter)" />
               </div>
             </div>
           </div>
@@ -185,7 +192,15 @@ export default function ContactPage() {
   );
 }
 
-function InputGroup({ label, name, placeholder, icon, type = "text", required = false }: { label: string; name: string; placeholder: string; icon: string; type?: string; required?: boolean }) {
+export default function ContactPage() {
+  return (
+    <Suspense>
+      <ContactForm />
+    </Suspense>
+  );
+}
+
+function InputGroup({ label, name, placeholder, icon, type = "text", required = false, defaultValue = "" }: { label: string; name: string; placeholder: string; icon: string; type?: string; required?: boolean; defaultValue?: string }) {
   return (
     <div className="flex flex-col gap-1 sm:gap-2">
       <label className="text-xs sm:text-sm font-semibold ml-1 sm:ml-2" style={{ color: "var(--text-secondary)" }}>{label}</label>
@@ -198,6 +213,7 @@ function InputGroup({ label, name, placeholder, icon, type = "text", required = 
           name={name}
           required={required}
           placeholder={placeholder}
+          defaultValue={defaultValue}
           className="w-full rounded-xl sm:rounded-2xl px-9 sm:px-12 py-2.5 sm:py-4 text-sm sm:text-base focus:outline-none focus:ring-1 focus:ring-primary/20 transition-all"
           style={{
             background: "var(--bg-elevated)",
@@ -217,7 +233,7 @@ function InfoCard({ icon, title, val, sub, link, color }: { icon: string; title:
         <i className={icon}></i>
       </div>
       <div>
-        <h4 className="text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-1" style={{ color: "var(--text-muted)" }}>{title}</h4>
+        <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-1" style={{ color: "var(--text-secondary)" }}>{title}</p>
         <div className="text-lg sm:text-xl font-bold font-display mb-1 group-hover:text-primary transition-colors text-wrap break-all sm:break-normal" style={{ color: "var(--text-primary)" }}>{val}</div>
         <p className="text-xs sm:text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>{sub}</p>
       </div>
@@ -225,10 +241,10 @@ function InfoCard({ icon, title, val, sub, link, color }: { icon: string; title:
   );
 }
 
-function SocialBtn({ icon, color, link = "#" }: { icon: string; color: string; link?: string }) {
+function SocialBtn({ icon, color, link = "#", label }: { icon: string; color: string; link?: string; label: string }) {
   return (
-    <a href={link} target="_blank" rel="noopener noreferrer" className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-lg ${color} hover:text-white`} style={{ background: "var(--bg-elevated)", border: "1px solid var(--border)", color: "var(--text-secondary)" }}>
-      <i className={`${icon} text-base sm:text-lg`}></i>
+    <a href={link} target="_blank" rel="noopener noreferrer" aria-label={label} className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-lg ${color} hover:text-white`} style={{ background: "var(--bg-elevated)", border: "1px solid var(--border)", color: "var(--text-secondary)" }}>
+      <i className={`${icon} text-base sm:text-lg`} aria-hidden="true"></i>
     </a>
   );
 }
