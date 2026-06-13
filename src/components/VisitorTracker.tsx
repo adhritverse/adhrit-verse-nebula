@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
 // Admin panel URL - visitor data is sent here
-const ADMIN_API = 'http://localhost:3001/api/visitors';
+const ADMIN_API = process.env.NEXT_PUBLIC_ADMIN_API || (process.env.NODE_ENV === 'development' ? 'http://localhost:3001/api/visitors' : '');
 
 export default function VisitorTracker() {
   const pathname = usePathname();
@@ -19,6 +19,8 @@ export default function VisitorTracker() {
 
     // Small delay to avoid tracking bots that leave immediately
     const timer = setTimeout(() => {
+      if (!ADMIN_API) return; // Do not fetch if API URL is not set (e.g., in production)
+
       fetch(ADMIN_API, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
