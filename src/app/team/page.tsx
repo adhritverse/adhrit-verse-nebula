@@ -53,7 +53,7 @@ export default function TeamPage() {
                             skills={['Strategy', 'Business Dev', 'Cybersecurity', 'Leadership']}
                             socialHoverClasses="hover:bg-blue-500/20 hover:border-blue-500/40"
                         />
-
+{/* 
                         <TeamCard
                             initials="RK"
                             name="Rishabh Kushwah"
@@ -68,7 +68,7 @@ export default function TeamPage() {
                             skillClasses="bg-violet-500/10 border-violet-500/20 text-violet-400"
                             skills={['Full-Stack', 'Cloud & DevOps', 'AI/ML', 'Architecture']}
                             socialHoverClasses="hover:bg-violet-500/20 hover:border-violet-500/40"
-                        />
+                        /> */}
                     </div>
                 </section>
 
