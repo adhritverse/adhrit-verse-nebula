@@ -53,22 +53,25 @@ export default function TeamPage() {
                             skills={['Strategy', 'Business Dev', 'Cybersecurity', 'Leadership']}
                             socialHoverClasses="hover:bg-blue-500/20 hover:border-blue-500/40"
                         />
-{/* 
-                        <TeamCard
-                            initials="RK"
-                            name="Rishabh Kushwah"
-                            role="Co-Founder & CTO"
-                            avatarGrad="from-violet-600 to-pink-600"
-                            avatarRingStyle={{ animationDirection: 'reverse' }}
-                            roleBgStyle={{ background: 'rgba(139,92,246,0.15)', border: '1px solid rgba(139,92,246,0.3)' }}
-                            roleHoverBorder="group-hover:border-violet-500/50"
-                            dotColor="bg-secondary"
-                            textColor="text-secondary"
-                            description="Technical architect and full-stack innovator driving AV Technologies's engineering excellence. Expert in cloud infrastructure, AI integrations, and building scalable digital systems."
-                            skillClasses="bg-violet-500/10 border-violet-500/20 text-violet-400"
-                            skills={['Full-Stack', 'Cloud & DevOps', 'AI/ML', 'Architecture']}
-                            socialHoverClasses="hover:bg-violet-500/20 hover:border-violet-500/40"
-                        /> */}
+<TeamCard
+  initials="RK"
+  name="Rishabh Kushwah"
+  blurName={true}
+  role="Co-Founder & CTO"
+  avatarGrad="from-violet-600 to-pink-600"
+  avatarRingStyle={{ animationDirection: "reverse" }}
+  roleBgStyle={{
+    background: "rgba(139,92,246,0.15)",
+    border: "1px solid rgba(139,92,246,0.3)",
+  }}
+  roleHoverBorder="group-hover:border-violet-500/50"
+  dotColor="bg-secondary"
+  textColor="text-secondary"
+  description="Technical architect and full-stack innovator..."
+  skillClasses="bg-violet-500/10 border-violet-500/20 text-violet-400"
+  skills={["Full-Stack", "Cloud & DevOps", "AI/ML", "Architecture"]}
+  socialHoverClasses="hover:bg-violet-500/20 hover:border-violet-500/40"
+/>
                     </div>
                 </section>
 
