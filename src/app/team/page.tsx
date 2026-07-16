@@ -36,9 +36,8 @@ export default function TeamPage() {
                 </section>
 
                 {/* Founder Cards */}
-                <section className="py-16 px-6 max-w-4xl mx-auto">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-
+                <section className="py-16 px-6 max-w-md mx-auto">
+                    <div className="flex justify-center">
                         <TeamCard
                             initials="HJ"
                             name="Hritik Jaiswal"
@@ -49,21 +48,7 @@ export default function TeamPage() {
                             dotColor="bg-primary"
                             textColor="text-primary"
                             description="Visionary entrepreneur and tech strategist leading AV Technologies's mission to deliver cutting-edge cybersecurity and digital transformation solutions to businesses worldwide."
-                            skillClasses="bg-blue-500/10 border-blue-500/20 text-blue-400"
-                            skills={['Strategy', 'Business Dev', 'Cybersecurity', 'Leadership']}
-                            socialHoverClasses="hover:bg-blue-500/20 hover:border-blue-500/40"
-                        />
- <TeamCard
-                            initials="--/--"
-                            name="--------"
-                            role="Founder & CEO"
-                            avatarGrad="from-blue-600 to-violet-700"
-                            roleBgStyle={{ background: 'rgba(59,130,246,0.15)', border: '1px solid rgba(59,130,246,0.3)' }}
-                            roleHoverBorder="group-hover:border-blue-500/50"
-                            dotColor="bg-primary"
-                            textColor="text-primary"
-                            description="Visionary entrepreneur and tech strategist leading AV Technologies's mission to deliver cutting-edge cybersecurity and digital transformation solutions to businesses worldwide."
-                            skillClasses="bg-blue-500/10 border-blue-500/20 text-blue-400"
+                            skillClasses="bg-black/5 border-black/10 text-black font-semibold"
                             skills={['Strategy', 'Business Dev', 'Cybersecurity', 'Leadership']}
                             socialHoverClasses="hover:bg-blue-500/20 hover:border-blue-500/40"
                         />

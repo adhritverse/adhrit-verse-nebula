@@ -118,11 +118,11 @@ export default function Footer() {
             <h4 className="font-bold text-lg mb-6" style={{ color: "var(--text-primary)" }}>Get in Touch</h4>
             <ul className="space-y-5 text-base" style={{ color: "var(--text-secondary)" }}>
               <li>
-                <a href="mailto:contact@adhritverse.in" className="group flex items-start gap-4 hover:text-primary transition-colors">
+                <a href="mailto:official@adhritverse.in" className="group flex items-start gap-4 hover:text-primary transition-colors">
                   <ContactIcon icon={<Mail size={14} />} />
                   <div>
                     <span className="block text-sm mb-0.5" style={{ color: "var(--text-muted)" }}>Email</span>
-                    contact@adhritverse.in
+                    official@adhritverse.in
                   </div>
                 </a>
               </li>

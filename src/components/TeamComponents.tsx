@@ -57,7 +57,7 @@ export function TeamCard({
         {/* Skills - uses the new pill style with glass logic */}
         <div className="flex flex-wrap justify-center gap-2 mb-8">
           {skills.map(skill => (
-            <span key={skill} className={`text-[10px] sm:text-[11px] px-3.5 py-1.5 rounded-full font-medium backdrop-blur-md border border-white/10 bg-white/5 text-slate-300 hover:text-white hover:border-white/20 hover:bg-white/10 transition-all duration-300 shadow-sm cursor-default ${skillClasses}`}>
+            <span key={skill} className={`text-[10px] sm:text-[11px] px-3.5 py-1.5 rounded-full font-medium backdrop-blur-md border border-black/10 bg-black/5 text-black hover:text-black hover:border-black/20 hover:bg-black/10 transition-all duration-300 shadow-sm cursor-default ${skillClasses}`}>
               {skill}
             </span>
           ))}
@@ -77,7 +77,7 @@ export function TeamCard({
 
 export function SocialBtn({ icon, hoverClasses, link = "#" }: { icon: string; hoverClasses?: string; link?: string }) {
   return (
-    <a href={link} className={`w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center border transition-all duration-500 transform hover:scale-115 hover:-translate-y-1 hover:text-white ${hoverClasses || ""}`} style={{ background: "var(--bg-elevated)", borderColor: "var(--border)", color: "var(--text-secondary)" }}>
+    <a href={link} className={`w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center border text-black transition-all duration-500 transform hover:scale-115 hover:-translate-y-1 hover:text-white ${hoverClasses || ""}`} style={{ background: "var(--bg-elevated)", borderColor: "var(--border)" }}>
       <i className={`${icon} text-sm sm:text-base`}></i>
     </a>
   );
