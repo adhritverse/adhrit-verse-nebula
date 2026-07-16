@@ -48,7 +48,17 @@ export function TeamCard({
 
         {/* Info */}
         <div className="text-center mb-6">
-          <h2 className="font-display text-xl sm:text-2xl font-extrabold tracking-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-primary/60 transition-all duration-300" style={{ color: "var(--text-primary)" }}>{name}</h2>
+         <h2
+  className={`font-display text-xl sm:text-2xl font-extrabold tracking-tight transition-all duration-300
+    ${
+      name === "Rishabh Kushwah"
+        ? "blur-md select-none pointer-events-none"
+        : "group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-primary/60"
+    }`}
+  style={{ color: "var(--text-primary)" }}
+>
+  {name}
+</h2>
           <div className="mt-2.5 text-xs sm:text-xs font-bold uppercase tracking-[0.2em] shadow-sm transition-colors duration-300 mx-auto w-fit" style={{ ...roleBgStyle, padding: '6px 16px', borderRadius: '999px', backdropFilter: 'blur(8px)', color: "var(--text-secondary)" }}>{role}</div>
         </div>
 
