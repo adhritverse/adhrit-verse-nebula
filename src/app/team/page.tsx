@@ -36,8 +36,8 @@ export default function TeamPage() {
                 </section>
 
                 {/* Founder Cards */}
-                <section className="py-16 px-6 max-w-md mx-auto">
-                    <div className="flex justify-center">
+                <section className="py-16 px-6 max-w-6xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <TeamCard
                             initials="HJ"
                             name="Hritik Jaiswal"
@@ -52,27 +52,41 @@ export default function TeamPage() {
                             skills={['Strategy', 'Business Dev', 'Cybersecurity', 'Leadership']}
                             socialHoverClasses="hover:bg-blue-500/20 hover:border-blue-500/40"
                         />
+                        <TeamCard
+                            initials="RK"
+                            name="Rishabh Kushwah"
+                            role="Co-Founder & CTO"
+                            avatarGrad="from-emerald-600 to-teal-700"
+                            roleBgStyle={{ background: 'rgba(16,185,129,0.15)', border: '1px solid rgba(16,185,129,0.3)' }}
+                            roleHoverBorder="group-hover:border-emerald-500/50"
+                            dotColor="bg-emerald-500"
+                            textColor="text-emerald-500"
+                            description="Technology leader driving the core architecture and AI/ML initiatives at AV Technologies, building scalable and secure platforms."
+                            skillClasses="bg-black/5 border-black/10 text-black font-semibold"
+                            skills={['Architecture', 'AI/ML', 'Cloud DevOps', 'Tech Strategy']}
+                            socialHoverClasses="hover:bg-emerald-500/20 hover:border-emerald-500/40"
+                        />
+                        <TeamCard
+                            initials="DC"
+                            name="Dr. Dipti Chauhan"
+                            role="Technical Advisor"
+                            avatarGrad="from-rose-600 to-pink-700"
+                            roleBgStyle={{ background: 'rgba(244,63,94,0.15)', border: '1px solid rgba(244,63,94,0.3)' }}
+                            roleHoverBorder="group-hover:border-rose-500/50"
+                            dotColor="bg-rose-500"
+                            textColor="text-rose-500"
+                            description="Expert technical advisor bringing years of industry experience to guide AV Technologies's technological vision and strategic planning."
+                            skillClasses="bg-black/5 border-black/10 text-black font-semibold"
+                            skills={['Advisory', 'Strategy', 'Innovation', 'Mentorship']}
+                            socialHoverClasses="hover:bg-rose-500/20 hover:border-rose-500/40"
+                        />
                     </div>
                 </section>
 
                 {/* Lead Engineers Section */}
                 {false && (
                     <section className="py-10 pb-20 px-2 sm:px-6 max-w-7xl mx-auto border-t border-white/5 pt-16">
-                        <div className="text-center mb-12">
-                            <div className="flex items-center justify-center gap-4 mb-6 group/badge">
-                                <span className="w-12 h-px bg-white/10 group-hover/badge:w-20 group-hover/badge:bg-primary/30 transition-all duration-500"></span>
-                                <div className="flex items-center gap-2 px-1">
-                                    <Code size={14} className="text-primary" />
-                                    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 group-hover/badge:text-primary transition-colors">
-                                        Core Engineering
-                                    </span>
-                                </div>
-                                <span className="w-12 h-px bg-white/10 group-hover/badge:w-20 group-hover/badge:bg-primary/30 transition-all duration-500"></span>
-                            </div>
-                            <h2 className="font-display text-[1.5rem] leading-[1.2] sm:text-4xl font-bold text-white">
-                                The <span className="text-gradient">Architects</span> Building the Future
-                            </h2>
-                        </div>
+
                         <div className="grid grid-cols-1 xl:grid-cols-2 gap-16 xl:gap-8">
 
                             {/* Anmol's Tree Branch */}

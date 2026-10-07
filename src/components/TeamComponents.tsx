@@ -34,11 +34,10 @@ export function TeamCard({
       <div className="relative z-10 flex flex-col items-center">
         {/* Avatar Container with Glow */}
         <div className="flex justify-center mb-6 sm:mb-8 relative transform group-hover:-translate-y-1 group-hover:scale-105 transition-all duration-500">
-          <div className="absolute inset-x-4 -bottom-4 h-8 bg-black/50 blur-xl rounded-full"></div>
-          <div className="w-24 h-24 sm:w-32 sm:h-32 shadow-2xl relative z-10 rounded-full blur-[2px]" style={avatarRingStyle}></div>
-          <div className="absolute inset-[3px] bg-slate-950 rounded-full flex items-center justify-center p-[2px] z-20 overflow-hidden shadow-[inset_0_0_20px_rgba(0,0,0,0.8)]">
+          <div className="absolute inset-x-6 -bottom-4 h-6 bg-black/20 blur-xl rounded-full"></div>
+          <div className="w-24 h-24 sm:w-28 sm:h-28 bg-slate-950 rounded-full flex items-center justify-center relative z-20 overflow-hidden shadow-2xl border border-white/5">
             <div className={`absolute inset-0 bg-gradient-to-br ${avatarGrad} opacity-30`}></div>
-            <div className="w-full h-full rounded-full flex items-center justify-center text-3xl sm:text-4xl font-extrabold font-display relative z-30">
+            <div className="text-3xl sm:text-4xl font-extrabold font-display relative z-30">
               <span className={`text-transparent bg-clip-text bg-gradient-to-br ${avatarGrad} drop-shadow-sm`}>
                 {initials}
               </span>
@@ -51,7 +50,7 @@ export function TeamCard({
         <h2 className="font-display text-xl sm:text-2xl font-extrabold tracking-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-primary/60 transition-all duration-300" style={{ color: "var(--text-primary)" }}>
   {name}
 </h2>
-          <div className="mt-2.5 text-xs sm:text-xs font-bold uppercase tracking-[0.2em] shadow-sm transition-colors duration-300 mx-auto w-fit" style={{ ...roleBgStyle, padding: '6px 16px', borderRadius: '999px', backdropFilter: 'blur(8px)', color: "var(--text-secondary)" }}>{role}</div>
+          <div className={`mt-2.5 text-xs sm:text-xs font-bold uppercase tracking-[0.2em] shadow-sm transition-colors duration-300 mx-auto w-fit ${textColor}`} style={{ ...roleBgStyle, padding: '6px 16px', borderRadius: '999px', backdropFilter: 'blur(8px)' }}>{role}</div>
         </div>
 
         {/* Skills - uses the new pill style with glass logic */}
